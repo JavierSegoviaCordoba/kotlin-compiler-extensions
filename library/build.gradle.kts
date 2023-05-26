@@ -1,5 +1,0 @@
-hubdle {
-    kotlin {
-        jvm()
-    }
-}

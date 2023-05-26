@@ -1,9 +1,0 @@
-.gradle
-**/.gradle/**/*
-
-.idea/
-
-build
-**/build/**/*
-
-local.properties
