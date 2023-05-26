@@ -1,10 +1,10 @@
-site_name: '"{{ name }}"'
-site_description: '"{{ description }}"'
+site_name: 'Kotlin Compiler Extensions'
+site_description: 'Set of extensions for the Kotlin compiler APIs'
 site_author: 'Javier Segovia Córdoba'
 remote_branch: gh-pages
 
-repo_name: '"{{ repo }}"'
-repo_url: 'https://github.com/JavierSegoviaCordoba/"{{ repo }}"'
+repo_name: 'kotlin-compiler-extensions'
+repo_url: 'https://github.com/JavierSegoviaCordoba/kotlin-compiler-extensions'
 
 copyright: 'Copyright &copy; 2021 Javier Segovia Córdoba'
 
