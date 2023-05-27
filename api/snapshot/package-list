@@ -1,0 +1,10 @@
+$dokka.format:html-v1
+$dokka.linkExtension:html
+
+module:kotlin-compiler-extensions
+com.javiersc.kotlin.compiler.extensions.ir
+com.javiersc.kotlin.compiler.extensions.shared
+module:kotlin-compiler-test
+com.javiersc.kotlin.compiler.test
+com.javiersc.kotlin.compiler.test.runners
+com.javiersc.kotlin.compiler.test.services
