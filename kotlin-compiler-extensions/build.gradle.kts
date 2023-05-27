@@ -2,7 +2,9 @@ hubdle {
     config {
         analysis()
         coverage()
-        documentation { api() }
+        documentation { //
+            api()
+        }
         explicitApi()
         // TODO: https://github.com/facebook/ktfmt/pull/400
         //  https://github.com/facebook/ktfmt/issues/314
