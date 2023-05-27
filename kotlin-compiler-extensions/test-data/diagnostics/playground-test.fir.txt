@@ -1,0 +1,6 @@
+FILE: playground-test.kt
+    package foo.bar
+
+    public final fun greetings(): R|kotlin/String| {
+        ^greetings String(hello)
+    }

@@ -9,6 +9,16 @@ pluginManagement {
         gradlePluginPortal()
         mavenCentral()
         google()
+        maven("https://oss.sonatype.org/content/repositories/snapshots") { //
+            content { //
+                includeGroup("com.javiersc.hubdle")
+            }
+        }
+        mavenLocal { //
+            content { //
+                includeGroup("com.javiersc.hubdle")
+            }
+        }
     }
 
     plugins {
