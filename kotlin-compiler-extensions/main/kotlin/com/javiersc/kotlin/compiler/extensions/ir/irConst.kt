@@ -2,10 +2,10 @@ package com.javiersc.kotlin.compiler.extensions.ir
 
 import org.jetbrains.kotlin.ir.expressions.IrConst
 import org.jetbrains.kotlin.ir.expressions.IrExpression
-import org.jetbrains.kotlin.ir.interpreter.toIrConst as originalToIrConst
-import org.jetbrains.kotlin.ir.interpreter.toIrConstOrNull as originalToIrConstOrNull
 import org.jetbrains.kotlin.ir.types.IrType
 import org.jetbrains.kotlin.ir.util.SYNTHETIC_OFFSET
+import org.jetbrains.kotlin.ir.interpreter.toIrConst as originalToIrConst
+import org.jetbrains.kotlin.ir.interpreter.toIrConstOrNull as originalToIrConstOrNull
 
 public fun IrExpression.toIrConst(
     irType: IrType = type,

@@ -5,8 +5,7 @@ plugins {
 hubdle {
     config {
         analysis()
-        // TODO: Uncomment with Kotlin 2.0
-        // binaryCompatibilityValidator()
+        binaryCompatibilityValidator()
         coverage()
         documentation {
             api()

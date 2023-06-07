@@ -4,7 +4,6 @@ import com.javiersc.kotlin.compiler.test.services.AdditionalFilesDirectives
 import com.javiersc.kotlin.compiler.test.services.AdditionalFilesProvider
 import com.javiersc.kotlin.compiler.test.services.ExtensionRegistrarConfigurator
 import com.javiersc.kotlin.compiler.test.services.MetaRuntimeClasspathProvider
-import com.javiersc.kotlin.compiler.test.services.PluginAnnotationsConfigurator
 import org.jetbrains.kotlin.compiler.plugin.CompilerPluginRegistrar.ExtensionStorage
 import org.jetbrains.kotlin.config.CompilerConfiguration
 import org.jetbrains.kotlin.platform.jvm.JvmPlatforms
@@ -39,8 +38,8 @@ public abstract class BaseTestRunner : AbstractKotlinCompilerTest() {
     }
 }
 
-internal fun TestConfigurationBuilder.commonFirWithPluginFrontendConfiguration(
-    shouldUseAnnotationsProject: Boolean,
+internal fun TestConfigurationBuilder.commonPluginConfiguration(
+    classpathProvider: Constructor<MetaRuntimeClasspathProvider>?,
     registerCompilerExtensions: ExtensionStorage.(TestModule, CompilerConfiguration) -> Unit
 ) {
     baseFirDiagnosticTestConfiguration(frontendFacade = ::FirFrontendFacade)
@@ -58,13 +57,15 @@ internal fun TestConfigurationBuilder.commonFirWithPluginFrontendConfiguration(
     }
 
     val configurators: List<Constructor<AbstractEnvironmentConfigurator>> = buildList {
-        if (shouldUseAnnotationsProject) add(::PluginAnnotationsConfigurator)
+        if (classpathProvider != null) {
+            add { classpathProvider(it).classpathConfigurator }
+        }
         add { ExtensionRegistrarConfigurator(it, registerCompilerExtensions) }
     }
 
-    useConfigurators(*configurators.toTypedArray())
-    if (shouldUseAnnotationsProject) {
-        useCustomRuntimeClasspathProviders(::MetaRuntimeClasspathProvider)
+    if (classpathProvider != null) {
+        useCustomRuntimeClasspathProviders(classpathProvider)
     }
+    useConfigurators(*configurators.toTypedArray())
     useAdditionalSourceProviders(::AdditionalFilesProvider)
 }

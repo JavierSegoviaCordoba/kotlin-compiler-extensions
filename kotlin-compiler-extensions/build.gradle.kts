@@ -25,7 +25,6 @@ hubdle {
 
             main {
                 dependencies {
-                    api(hubdle.github.adriankuta.treeStructure)
                     api(hubdle.jetbrains.kotlin.kotlinCompiler)
                 }
             }
@@ -33,7 +32,7 @@ hubdle {
             test {
                 dependencies {
                     compileOnly(hubdle.jetbrains.kotlin.kotlinCompilerInternalTestFramework)
-                    implementation(projects.kotlinCompilerTest)
+                    implementation(projects.kotlinCompilerTestExtensions)
                 }
             }
         }

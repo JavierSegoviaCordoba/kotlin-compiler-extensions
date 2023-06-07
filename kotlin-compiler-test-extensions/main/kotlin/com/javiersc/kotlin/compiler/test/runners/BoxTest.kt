@@ -2,9 +2,11 @@ package com.javiersc.kotlin.compiler.test.runners
 
 // import org.jetbrains.kotlin.test.FirParser
 // import org.jetbrains.kotlin.test.directives.configureFirParser
+import com.javiersc.kotlin.compiler.test.services.MetaRuntimeClasspathProvider
 import org.jetbrains.kotlin.compiler.plugin.CompilerPluginRegistrar.ExtensionStorage
 import org.jetbrains.kotlin.config.CompilerConfiguration
 import org.jetbrains.kotlin.platform.jvm.JvmPlatforms
+import org.jetbrains.kotlin.test.Constructor
 import org.jetbrains.kotlin.test.TargetBackend
 import org.jetbrains.kotlin.test.backend.BlackBoxCodegenSuppressor
 import org.jetbrains.kotlin.test.backend.handlers.IrTextDumpHandler
@@ -22,7 +24,7 @@ import org.jetbrains.kotlin.test.runners.RunnerWithTargetBackendForTestGenerator
 
 public abstract class BoxTest : BaseTestRunner(), RunnerWithTargetBackendForTestGeneratorMarker {
 
-    public val shouldUseAnnotations: Boolean = false
+    public open val runtimeClasspathProvider: Constructor<MetaRuntimeClasspathProvider>? = null
 
     override val targetBackend: TargetBackend = TargetBackend.JVM_IR
 
@@ -42,7 +44,7 @@ public abstract class BoxTest : BaseTestRunner(), RunnerWithTargetBackendForTest
 
         defaultDirectives { +DUMP_IR }
 
-        commonFirWithPluginFrontendConfiguration(shouldUseAnnotations) { module, configuration ->
+        commonPluginConfiguration(runtimeClasspathProvider) { module, configuration ->
             registerExtensions(module, configuration)
         }
         fir2IrStep()

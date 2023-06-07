@@ -1,0 +1,52 @@
+public abstract class com/javiersc/kotlin/compiler/test/runners/BaseTestRunner : org/jetbrains/kotlin/test/runners/AbstractKotlinCompilerTest {
+	public static final field Companion Lcom/javiersc/kotlin/compiler/test/runners/BaseTestRunner$Companion;
+	public fun <init> ()V
+	public fun createKotlinStandardLibrariesPathProvider ()Lorg/jetbrains/kotlin/test/services/KotlinStandardLibrariesPathProvider;
+	public static final fun setUp ()V
+}
+
+public final class com/javiersc/kotlin/compiler/test/runners/BaseTestRunner$Companion {
+	public final fun setUp ()V
+}
+
+public abstract class com/javiersc/kotlin/compiler/test/runners/BoxTest : com/javiersc/kotlin/compiler/test/runners/BaseTestRunner, org/jetbrains/kotlin/test/runners/RunnerWithTargetBackendForTestGeneratorMarker {
+	public fun <init> ()V
+	public fun configuration (Lorg/jetbrains/kotlin/test/builders/TestConfigurationBuilder;)V
+	public fun getRuntimeClasspathProvider ()Lkotlin/jvm/functions/Function1;
+	public fun getTargetBackend ()Lorg/jetbrains/kotlin/test/TargetBackend;
+	public abstract fun registerExtensions (Lorg/jetbrains/kotlin/compiler/plugin/CompilerPluginRegistrar$ExtensionStorage;Lorg/jetbrains/kotlin/test/model/TestModule;Lorg/jetbrains/kotlin/config/CompilerConfiguration;)V
+}
+
+public abstract class com/javiersc/kotlin/compiler/test/runners/DiagnosticTest : com/javiersc/kotlin/compiler/test/runners/BaseTestRunner {
+	public fun <init> ()V
+	public fun configuration (Lorg/jetbrains/kotlin/test/builders/TestConfigurationBuilder;)V
+	public fun createKotlinStandardLibrariesPathProvider ()Lorg/jetbrains/kotlin/test/services/KotlinStandardLibrariesPathProvider;
+	public fun getRuntimeClasspathProvider ()Lkotlin/jvm/functions/Function1;
+	public abstract fun registerExtensions (Lorg/jetbrains/kotlin/compiler/plugin/CompilerPluginRegistrar$ExtensionStorage;Lorg/jetbrains/kotlin/test/model/TestModule;Lorg/jetbrains/kotlin/config/CompilerConfiguration;)V
+}
+
+public final class com/javiersc/kotlin/compiler/test/services/AdditionalFilesDirectives : org/jetbrains/kotlin/test/directives/model/SimpleDirectivesContainer {
+	public static final field INSTANCE Lcom/javiersc/kotlin/compiler/test/services/AdditionalFilesDirectives;
+	public final fun getSOME_FILE_DIRECTIVE ()Lorg/jetbrains/kotlin/test/directives/model/SimpleDirective;
+}
+
+public final class com/javiersc/kotlin/compiler/test/services/AdditionalFilesProvider : org/jetbrains/kotlin/test/services/AdditionalSourceProvider {
+	public fun <init> (Lorg/jetbrains/kotlin/test/services/TestServices;Ljava/lang/String;)V
+	public synthetic fun <init> (Lorg/jetbrains/kotlin/test/services/TestServices;Ljava/lang/String;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun getDirectiveContainers ()Ljava/util/List;
+	public fun produceAdditionalFiles (Lorg/jetbrains/kotlin/test/directives/model/RegisteredDirectives;Lorg/jetbrains/kotlin/test/model/TestModule;)Ljava/util/List;
+}
+
+public final class com/javiersc/kotlin/compiler/test/services/ClasspathConfigurator : org/jetbrains/kotlin/test/services/EnvironmentConfigurator {
+	public fun <init> (Ljava/util/List;Lorg/jetbrains/kotlin/test/services/TestServices;)V
+	public final fun getJarFiles ()Ljava/util/List;
+	public final fun getJarPaths ()Ljava/util/List;
+}
+
+public abstract class com/javiersc/kotlin/compiler/test/services/MetaRuntimeClasspathProvider : org/jetbrains/kotlin/test/services/RuntimeClasspathProvider {
+	public fun <init> (Lorg/jetbrains/kotlin/test/services/TestServices;)V
+	public final fun getClasspathConfigurator ()Lcom/javiersc/kotlin/compiler/test/services/ClasspathConfigurator;
+	public abstract fun getJarPaths ()Ljava/util/List;
+	public fun runtimeClassPaths (Lorg/jetbrains/kotlin/test/model/TestModule;)Ljava/util/List;
+}
+

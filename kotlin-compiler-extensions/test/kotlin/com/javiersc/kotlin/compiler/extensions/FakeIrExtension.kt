@@ -1,10 +1,10 @@
 package com.javiersc.kotlin.compiler.extensions
 
-import com.javiersc.kotlin.compiler.extensions.ir.IrElementTree
+import com.javiersc.kotlin.compiler.extensions.ir.IrTreeNode
 import com.javiersc.kotlin.compiler.extensions.ir.buildIrReturn
 import com.javiersc.kotlin.compiler.extensions.ir.name
-import com.javiersc.kotlin.compiler.extensions.ir.tree
-import com.javiersc.kotlin.compiler.extensions.shared.asIr
+import com.javiersc.kotlin.compiler.extensions.ir.treeNode
+import com.javiersc.kotlin.compiler.extensions.ir.asIr
 import org.jetbrains.kotlin.backend.common.extensions.IrGenerationExtension
 import org.jetbrains.kotlin.backend.common.extensions.IrPluginContext
 import org.jetbrains.kotlin.ir.declarations.IrModuleFragment
@@ -19,7 +19,7 @@ class FakeIrExtension : IrGenerationExtension {
 
     override fun generate(moduleFragment: IrModuleFragment, pluginContext: IrPluginContext) {
         val builtIns = pluginContext.irBuiltIns
-        val irElements: List<IrElementTree> = moduleFragment.files.flatMap { it.tree }
+        val irElements: List<IrTreeNode> = moduleFragment.files.flatMap { it.treeNode }
         val greetingsIrCall: IrCall? =
             irElements
                 .firstOrNull { it.value.asIr<IrCall>()?.name?.toString() == "greetings" }

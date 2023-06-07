@@ -5,11 +5,13 @@ import org.jetbrains.kotlin.ir.expressions.IrFunctionAccessExpression
 import org.jetbrains.kotlin.ir.util.kotlinFqName
 import org.jetbrains.kotlin.name.FqName
 
+public fun String.toFqName(): FqName = FqName(this)
+
 public val IrFunctionAccessExpression.packageFqName: FqName
     get() = symbol.owner.kotlinFqName.parent()
 
-public inline fun <reified T : Annotation> T.toFqName(): FqName =
-    FqName(requireNotNull(T::class.qualifiedName))
+public inline fun <reified T> fqName(): FqName = T::class.toFqName()
 
-public inline fun <reified T : Annotation> KClass<T>.toFqName(): FqName =
-    FqName(requireNotNull(qualifiedName))
+public inline fun <reified T> packageFqName(): FqName = T::class.toFqName().parent()
+
+public fun KClass<*>.toFqName(): FqName = FqName(requireNotNull(qualifiedName))
