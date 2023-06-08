@@ -4,12 +4,7 @@
 
 ### Added
 
-- `IrFunctionExpression.irReturn: IrReturn?`
-- `IrFunction.irReturn: IrReturn?`
-
 ### Changed
-
-- `IrFunction.buildIrReturn` to `IrFunction.copyIrReturn`
 
 ### Deprecated
 
@@ -18,6 +13,17 @@
 ### Fixed
 
 ### Updated
+
+## [0.1.1-alpha.2] - 2023-06-08
+
+### Added
+
+- `IrFunctionExpression.irReturn: IrReturn?`
+- `IrFunction.irReturn: IrReturn?`
+
+### Changed
+
+- `IrFunction.buildIrReturn` to `IrFunction.copyIrReturn`
 
 ## [0.1.1-alpha.1] - 2023-06-07
 
@@ -46,6 +52,8 @@
 
 - `kotlin-compiler-test` to `kotlin-compiler-extensions-test`
 
-[Unreleased]: https://github.com/JavierSegoviaCordoba/kotlin-compiler-extensions/compare/0.1.1-alpha.1...HEAD
+[Unreleased]: https://github.com/JavierSegoviaCordoba/kotlin-compiler-extensions/compare/0.1.1-alpha.2...HEAD
+
+[0.1.1-alpha.2]: https://github.com/JavierSegoviaCordoba/kotlin-compiler-extensions/compare/0.1.1-alpha.1...0.1.1-alpha.2
 
 [0.1.1-alpha.1]: https://github.com/JavierSegoviaCordoba/kotlin-compiler-extensions/commits/0.1.1-alpha.1
