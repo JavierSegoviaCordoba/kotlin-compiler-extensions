@@ -67,10 +67,12 @@ public final class com/javiersc/kotlin/compiler/extensions/ir/IrReturnKt {
 public final class com/javiersc/kotlin/compiler/extensions/ir/IrTreeNodeKt {
 	public static final fun dump (Lcom/javiersc/kotlin/stdlib/tree/TreeNode;)Ljava/lang/String;
 	public static final fun dumpKotlinLike (Lcom/javiersc/kotlin/stdlib/tree/TreeNode;)Ljava/lang/String;
-	public static final fun getClassName (Lcom/javiersc/kotlin/stdlib/tree/TreeNode;)Ljava/lang/String;
-	public static final fun getFileName (Lcom/javiersc/kotlin/stdlib/tree/TreeNode;)Ljava/lang/String;
-	public static final fun getFunctionName (Lcom/javiersc/kotlin/stdlib/tree/TreeNode;)Ljava/lang/String;
+	public static final fun getIrFile (Lcom/javiersc/kotlin/stdlib/tree/TreeNode;)Lorg/jetbrains/kotlin/ir/declarations/IrFile;
 	public static final fun getLineNumber (Lcom/javiersc/kotlin/stdlib/tree/TreeNode;)Ljava/lang/Integer;
+	public static final fun getParentIrClass (Lcom/javiersc/kotlin/stdlib/tree/TreeNode;)Lorg/jetbrains/kotlin/ir/declarations/IrClass;
+	public static final fun getParentIrDeclaration (Lcom/javiersc/kotlin/stdlib/tree/TreeNode;)Lorg/jetbrains/kotlin/ir/declarations/IrDeclaration;
+	public static final fun getParentIrDeclarationWithName (Lcom/javiersc/kotlin/stdlib/tree/TreeNode;)Lorg/jetbrains/kotlin/ir/declarations/IrDeclarationWithName;
+	public static final fun getParentIrFunction (Lcom/javiersc/kotlin/stdlib/tree/TreeNode;)Lorg/jetbrains/kotlin/ir/declarations/IrFunction;
 	public static final fun getTreeNode (Lorg/jetbrains/kotlin/ir/IrElement;)Lcom/javiersc/kotlin/stdlib/tree/TreeNode;
 	public static final fun render (Lcom/javiersc/kotlin/stdlib/tree/TreeNode;)Ljava/lang/String;
 	public static final fun toIrTreeNode (Lorg/jetbrains/kotlin/ir/IrElement;)Lcom/javiersc/kotlin/stdlib/tree/TreeNode;

@@ -4,11 +4,21 @@
 
 ### Added
 
+- `IrTreeNode.irFile: IrFile?`
+- `IrTreeNode.parentIrClass: IrClass?`
+- `IrTreeNode.parentIrDeclaration: IrDeclaration?`
+- `IrTreeNode.parentIrDeclarationWithName: IrDeclarationWithName?`
+- `IrTreeNode.parentIrFunction: IrFunction?`
+
 ### Changed
 
 ### Deprecated
 
 ### Removed
+
+- `IrTreeNode.fileName: String`
+- `IrTreeNode.className: String`
+- `IrTreeNode.functionName: String`
 
 ### Fixed
 

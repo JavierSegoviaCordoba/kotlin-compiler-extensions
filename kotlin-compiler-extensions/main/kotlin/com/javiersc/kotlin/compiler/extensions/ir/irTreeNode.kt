@@ -3,6 +3,8 @@ package com.javiersc.kotlin.compiler.extensions.ir
 import com.javiersc.kotlin.stdlib.tree.TreeNode
 import org.jetbrains.kotlin.ir.IrElement
 import org.jetbrains.kotlin.ir.declarations.IrClass
+import org.jetbrains.kotlin.ir.declarations.IrDeclaration
+import org.jetbrains.kotlin.ir.declarations.IrDeclarationWithName
 import org.jetbrains.kotlin.ir.declarations.IrFile
 import org.jetbrains.kotlin.ir.declarations.IrFunction
 import org.jetbrains.kotlin.ir.declarations.name
@@ -65,42 +67,70 @@ public inline fun <reified T : IrElement> Iterable<IrTreeNode>.filterIrIsInstanc
 public val IrElement.treeNode: IrTreeNode
     get() = this.toIrTreeNode()
 
-public val IrTreeNode.fileName: String?
+public val IrTreeNode.irFile: IrFile?
     get() {
         val recursive = DeepRecursiveFunction { node: TreeNode<IrElement> ->
-            val irFile: IrFile? = node.value.asIr<IrFile>()
+            val irFile: IrFile? = node.value.asIr()
             val parent: TreeNode<IrElement>? = parent
             when {
-                irFile != null -> irFile.name
-                parent != null -> parent.fileName
+                irFile != null -> irFile
+                parent != null -> parent.irFile
                 else -> null
             }
         }
         return recursive(this)
     }
 
-public val IrTreeNode.className: String?
+public val IrTreeNode.parentIrClass: IrClass?
     get() {
         val recursive = DeepRecursiveFunction { node: TreeNode<IrElement> ->
-            val irClass: IrClass? = node.value.asIr<IrClass>()
+            val irClass: IrClass? = node.value.asIr()
             val parent: TreeNode<IrElement>? = parent
             when {
-                irClass != null -> "${irClass.name}"
-                parent != null -> parent.className
+                irClass != null -> irClass
+                parent != null -> parent.parentIrClass
                 else -> null
             }
         }
         return recursive(this)
     }
 
-public val IrTreeNode.functionName: String?
+public val IrTreeNode.parentIrDeclaration: IrDeclaration?
     get() {
         val recursive = DeepRecursiveFunction { node: TreeNode<IrElement> ->
-            val irFunction: IrFunction? = node.value.asIr<IrFunction>()
+            val irDeclaration: IrDeclaration? = node.value.asIr()
             val parent: TreeNode<IrElement>? = parent
             when {
-                irFunction != null -> "${irFunction.name}"
-                parent != null -> parent.functionName
+                irDeclaration != null -> irDeclaration
+                parent != null -> parent.parentIrDeclaration
+                else -> null
+            }
+        }
+        return recursive(this)
+    }
+
+public val IrTreeNode.parentIrDeclarationWithName: IrDeclarationWithName?
+    get() {
+        val recursive = DeepRecursiveFunction { node: TreeNode<IrElement> ->
+            val irDeclaration: IrDeclarationWithName? = node.value.asIr()
+            val parent: TreeNode<IrElement>? = parent
+            when {
+                irDeclaration != null -> irDeclaration
+                parent != null -> parent.parentIrDeclarationWithName
+                else -> null
+            }
+        }
+        return recursive(this)
+    }
+
+public val IrTreeNode.parentIrFunction: IrFunction?
+    get() {
+        val recursive = DeepRecursiveFunction { node: TreeNode<IrElement> ->
+            val irDeclaration: IrFunction? = node.value.asIr()
+            val parent: TreeNode<IrElement>? = parent
+            when {
+                irDeclaration != null -> irDeclaration
+                parent != null -> parent.parentIrFunction
                 else -> null
             }
         }
@@ -108,4 +138,4 @@ public val IrTreeNode.functionName: String?
     }
 
 public val IrTreeNode.lineNumber: Int?
-    get() = root.firstIrOrNull<IrFile>()?.fileEntry?.getLineNumber(value.startOffset)?.plus(1)
+    get() = irFile?.fileEntry?.getLineNumber(value.startOffset)?.plus(1)
