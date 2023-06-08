@@ -4,6 +4,20 @@
 
 ### Added
 
+### Changed
+
+### Deprecated
+
+### Removed
+
+### Fixed
+
+### Updated
+
+## [0.1.1-alpha.3] - 2023-06-08
+
+### Added
+
 - `IrClassExhaustiveKind`
 - `IrClass.exhaustiveKind: IrClassExhaustiveKind`
 - `IrTreeNode.irFile: IrFile?`
@@ -12,17 +26,11 @@
 - `IrTreeNode.parentIrDeclarationWithName: IrDeclarationWithName?`
 - `IrTreeNode.parentIrFunction: IrFunction?`
 
-### Changed
-
-### Deprecated
-
 ### Removed
 
 - `IrTreeNode.fileName: String`
 - `IrTreeNode.className: String`
 - `IrTreeNode.functionName: String`
-
-### Fixed
 
 ### Updated
 
@@ -66,7 +74,9 @@
 
 - `kotlin-compiler-test` to `kotlin-compiler-extensions-test`
 
-[Unreleased]: https://github.com/JavierSegoviaCordoba/kotlin-compiler-extensions/compare/0.1.1-alpha.2...HEAD
+[Unreleased]: https://github.com/JavierSegoviaCordoba/kotlin-compiler-extensions/compare/0.1.1-alpha.3...HEAD
+
+[0.1.1-alpha.3]: https://github.com/JavierSegoviaCordoba/kotlin-compiler-extensions/compare/0.1.1-alpha.2...0.1.1-alpha.3
 
 [0.1.1-alpha.2]: https://github.com/JavierSegoviaCordoba/kotlin-compiler-extensions/compare/0.1.1-alpha.1...0.1.1-alpha.2
 
