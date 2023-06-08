@@ -10,3 +10,6 @@ public fun IrPluginContext.findIrClass(classId: ClassId): IrClass? =
 
 public fun IrPluginContext.findIrClassSymbol(classId: ClassId): IrClassSymbol? =
     referenceClass(classId)
+
+public val IrClass.exhaustiveKind: IrClassExhaustiveKind
+    get() = IrClassExhaustiveKind.from(this)

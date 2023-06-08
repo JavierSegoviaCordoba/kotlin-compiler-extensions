@@ -4,6 +4,8 @@
 
 ### Added
 
+- `IrClassExhaustiveKind`
+- `IrClass.exhaustiveKind: IrClassExhaustiveKind`
 - `IrTreeNode.irFile: IrFile?`
 - `IrTreeNode.parentIrClass: IrClass?`
 - `IrTreeNode.parentIrDeclaration: IrDeclaration?`

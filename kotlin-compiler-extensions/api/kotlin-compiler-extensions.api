@@ -25,6 +25,32 @@ public final class com/javiersc/kotlin/compiler/extensions/ir/IrCallKt {
 	public static synthetic fun toIrCall$default (Lorg/jetbrains/kotlin/ir/symbols/IrSimpleFunctionSymbol;IILorg/jetbrains/kotlin/ir/types/IrType;IILorg/jetbrains/kotlin/ir/expressions/IrStatementOrigin;Lorg/jetbrains/kotlin/ir/symbols/IrClassSymbol;ILjava/lang/Object;)Lorg/jetbrains/kotlin/ir/expressions/IrCall;
 }
 
+public final class com/javiersc/kotlin/compiler/extensions/ir/IrClassExhaustiveKind : java/lang/Enum {
+	public static final field AnnotationClass Lcom/javiersc/kotlin/compiler/extensions/ir/IrClassExhaustiveKind;
+	public static final field Class Lcom/javiersc/kotlin/compiler/extensions/ir/IrClassExhaustiveKind;
+	public static final field Companion Lcom/javiersc/kotlin/compiler/extensions/ir/IrClassExhaustiveKind$Companion;
+	public static final field CompanionObject Lcom/javiersc/kotlin/compiler/extensions/ir/IrClassExhaustiveKind;
+	public static final field DataClass Lcom/javiersc/kotlin/compiler/extensions/ir/IrClassExhaustiveKind;
+	public static final field DataObject Lcom/javiersc/kotlin/compiler/extensions/ir/IrClassExhaustiveKind;
+	public static final field EnumClass Lcom/javiersc/kotlin/compiler/extensions/ir/IrClassExhaustiveKind;
+	public static final field EnumEntry Lcom/javiersc/kotlin/compiler/extensions/ir/IrClassExhaustiveKind;
+	public static final field ExpectAnnotationClass Lcom/javiersc/kotlin/compiler/extensions/ir/IrClassExhaustiveKind;
+	public static final field ExpectClass Lcom/javiersc/kotlin/compiler/extensions/ir/IrClassExhaustiveKind;
+	public static final field ExpectInterface Lcom/javiersc/kotlin/compiler/extensions/ir/IrClassExhaustiveKind;
+	public static final field FunInterface Lcom/javiersc/kotlin/compiler/extensions/ir/IrClassExhaustiveKind;
+	public static final field InnerClass Lcom/javiersc/kotlin/compiler/extensions/ir/IrClassExhaustiveKind;
+	public static final field Interface Lcom/javiersc/kotlin/compiler/extensions/ir/IrClassExhaustiveKind;
+	public static final field Object Lcom/javiersc/kotlin/compiler/extensions/ir/IrClassExhaustiveKind;
+	public static final field ValueClass Lcom/javiersc/kotlin/compiler/extensions/ir/IrClassExhaustiveKind;
+	public fun toString ()Ljava/lang/String;
+	public static fun valueOf (Ljava/lang/String;)Lcom/javiersc/kotlin/compiler/extensions/ir/IrClassExhaustiveKind;
+	public static fun values ()[Lcom/javiersc/kotlin/compiler/extensions/ir/IrClassExhaustiveKind;
+}
+
+public final class com/javiersc/kotlin/compiler/extensions/ir/IrClassExhaustiveKind$Companion {
+	public final fun from (Lorg/jetbrains/kotlin/ir/declarations/IrClass;)Lcom/javiersc/kotlin/compiler/extensions/ir/IrClassExhaustiveKind;
+}
+
 public final class com/javiersc/kotlin/compiler/extensions/ir/IrClassIdKt {
 	public static final fun toClassId (Ljava/lang/String;)Lorg/jetbrains/kotlin/name/ClassId;
 	public static final fun toClassId (Lorg/jetbrains/kotlin/name/FqName;)Lorg/jetbrains/kotlin/name/ClassId;
@@ -33,6 +59,7 @@ public final class com/javiersc/kotlin/compiler/extensions/ir/IrClassIdKt {
 public final class com/javiersc/kotlin/compiler/extensions/ir/IrClassKt {
 	public static final fun findIrClass (Lorg/jetbrains/kotlin/backend/common/extensions/IrPluginContext;Lorg/jetbrains/kotlin/name/ClassId;)Lorg/jetbrains/kotlin/ir/declarations/IrClass;
 	public static final fun findIrClassSymbol (Lorg/jetbrains/kotlin/backend/common/extensions/IrPluginContext;Lorg/jetbrains/kotlin/name/ClassId;)Lorg/jetbrains/kotlin/ir/symbols/IrClassSymbol;
+	public static final fun getExhaustiveKind (Lorg/jetbrains/kotlin/ir/declarations/IrClass;)Lcom/javiersc/kotlin/compiler/extensions/ir/IrClassExhaustiveKind;
 }
 
 public final class com/javiersc/kotlin/compiler/extensions/ir/IrConstKt {
