@@ -4,7 +4,12 @@
 
 ### Added
 
+- `IrFunctionExpression.irReturn: IrReturn?`
+- `IrFunction.irReturn: IrReturn?`
+
 ### Changed
+
+- `IrFunction.buildIrReturn` to `IrFunction.copyIrReturn`
 
 ### Deprecated
 

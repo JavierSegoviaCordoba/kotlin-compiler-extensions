@@ -59,7 +59,9 @@ public final class com/javiersc/kotlin/compiler/extensions/ir/IrGetEnumValueKt {
 }
 
 public final class com/javiersc/kotlin/compiler/extensions/ir/IrReturnKt {
-	public static final fun buildIrReturn (Lorg/jetbrains/kotlin/ir/declarations/IrFunction;Lorg/jetbrains/kotlin/ir/expressions/IrExpression;)Lorg/jetbrains/kotlin/ir/expressions/IrReturn;
+	public static final fun copyIrReturn (Lorg/jetbrains/kotlin/ir/declarations/IrFunction;Lorg/jetbrains/kotlin/ir/expressions/IrExpression;)Lorg/jetbrains/kotlin/ir/expressions/IrReturn;
+	public static final fun getIrReturn (Lorg/jetbrains/kotlin/ir/declarations/IrFunction;)Lorg/jetbrains/kotlin/ir/expressions/IrReturn;
+	public static final fun getIrReturn (Lorg/jetbrains/kotlin/ir/expressions/IrFunctionExpression;)Lorg/jetbrains/kotlin/ir/expressions/IrReturn;
 }
 
 public final class com/javiersc/kotlin/compiler/extensions/ir/IrTreeNodeKt {
