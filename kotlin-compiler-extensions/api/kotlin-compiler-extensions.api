@@ -79,6 +79,7 @@ public final class com/javiersc/kotlin/compiler/extensions/ir/IrFunctionKt {
 	public static final fun findIrFunctionSymbol (Lorg/jetbrains/kotlin/backend/common/extensions/IrPluginContext;Lorg/jetbrains/kotlin/name/CallableId;)Lorg/jetbrains/kotlin/ir/symbols/IrFunctionSymbol;
 	public static final fun findIrSimpleFunction (Lorg/jetbrains/kotlin/backend/common/extensions/IrPluginContext;Lorg/jetbrains/kotlin/name/CallableId;)Lorg/jetbrains/kotlin/ir/declarations/IrSimpleFunction;
 	public static final fun findIrSimpleFunctionSymbol (Lorg/jetbrains/kotlin/backend/common/extensions/IrPluginContext;Lorg/jetbrains/kotlin/name/CallableId;)Lorg/jetbrains/kotlin/ir/symbols/IrSimpleFunctionSymbol;
+	public static final fun getContextReceivers (Lorg/jetbrains/kotlin/ir/declarations/IrFunction;)Ljava/util/List;
 }
 
 public final class com/javiersc/kotlin/compiler/extensions/ir/IrGetEnumValueKt {

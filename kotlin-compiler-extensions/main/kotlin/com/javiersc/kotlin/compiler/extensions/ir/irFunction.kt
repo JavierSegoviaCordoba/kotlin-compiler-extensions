@@ -3,9 +3,13 @@ package com.javiersc.kotlin.compiler.extensions.ir
 import org.jetbrains.kotlin.backend.common.extensions.IrPluginContext
 import org.jetbrains.kotlin.ir.declarations.IrFunction
 import org.jetbrains.kotlin.ir.declarations.IrSimpleFunction
+import org.jetbrains.kotlin.ir.declarations.IrValueParameter
 import org.jetbrains.kotlin.ir.symbols.IrFunctionSymbol
 import org.jetbrains.kotlin.ir.symbols.IrSimpleFunctionSymbol
 import org.jetbrains.kotlin.name.CallableId
+
+public val IrFunction.contextReceivers: List<IrValueParameter>
+    get() = valueParameters.take(contextReceiverParametersCount)
 
 public fun IrPluginContext.findIrSimpleFunctionSymbol(
     callableId: CallableId

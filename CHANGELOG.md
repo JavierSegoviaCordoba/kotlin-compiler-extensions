@@ -4,6 +4,8 @@
 
 ### Added
 
+- `IrFunction.contextReceivers: List<IrValueParameter>`
+
 ### Changed
 
 ### Deprecated
