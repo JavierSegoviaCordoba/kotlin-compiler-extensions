@@ -4,6 +4,7 @@
 
 ### Added
 
+- `FirTreeNode`
 - `IrFunction.contextReceivers: List<IrValueParameter>`
 
 ### Changed

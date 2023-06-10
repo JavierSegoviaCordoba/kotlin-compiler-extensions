@@ -1,3 +1,10 @@
+public final class com/javiersc/kotlin/compiler/extensions/fir/FirTreeNodeKt {
+	public static final fun getTreeNode (Lorg/jetbrains/kotlin/fir/FirElement;)Lcom/javiersc/kotlin/stdlib/tree/TreeNode;
+	public static final fun render (Lcom/javiersc/kotlin/stdlib/tree/TreeNode;)Ljava/lang/String;
+	public static final fun renderWithType (Lcom/javiersc/kotlin/stdlib/tree/TreeNode;)Ljava/lang/String;
+	public static final fun toFirTreeNode (Lorg/jetbrains/kotlin/fir/FirElement;)Lcom/javiersc/kotlin/stdlib/tree/TreeNode;
+}
+
 public final class com/javiersc/kotlin/compiler/extensions/ir/AnnotationsKt {
 	public static final fun getAnnotations (Lorg/jetbrains/kotlin/ir/expressions/IrFunctionAccessExpression;)Ljava/util/List;
 	public static final fun hasAnnotation (Lorg/jetbrains/kotlin/ir/IrElement;Lorg/jetbrains/kotlin/name/FqName;)Z

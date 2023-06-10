@@ -28,6 +28,9 @@ public fun IrElement.toIrTreeNode(): IrTreeNode {
     return irTree
 }
 
+public val IrElement.treeNode: IrTreeNode
+    get() = this.toIrTreeNode()
+
 public fun IrTreeNode.dump(): String = value.dump()
 
 public fun IrTreeNode.dumpKotlinLike(): String = value.dumpKotlinLike()
@@ -63,9 +66,6 @@ public inline fun <reified T : IrElement> IrTreeNode.filterIrIsInstance(): List<
 
 public inline fun <reified T : IrElement> Iterable<IrTreeNode>.filterIrIsInstance(): List<T> =
     this.mapNotNull { it.value.asIr() }
-
-public val IrElement.treeNode: IrTreeNode
-    get() = this.toIrTreeNode()
 
 public val IrTreeNode.irFile: IrFile?
     get() {
