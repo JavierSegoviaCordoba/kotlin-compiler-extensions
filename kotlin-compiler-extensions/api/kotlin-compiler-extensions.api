@@ -12,6 +12,10 @@ public final class com/javiersc/kotlin/compiler/extensions/common/NameKt {
 	public static final fun toName (Ljava/lang/String;)Lorg/jetbrains/kotlin/name/Name;
 }
 
+public final class com/javiersc/kotlin/compiler/extensions/fir/FirBasedSymbolKt {
+	public static final fun packageFqName (Lorg/jetbrains/kotlin/fir/symbols/FirBasedSymbol;)Lorg/jetbrains/kotlin/name/FqName;
+}
+
 public final class com/javiersc/kotlin/compiler/extensions/fir/FirMemberDeclarationKt {
 	public static final fun getName (Lorg/jetbrains/kotlin/fir/declarations/FirMemberDeclaration;)Lorg/jetbrains/kotlin/name/Name;
 }

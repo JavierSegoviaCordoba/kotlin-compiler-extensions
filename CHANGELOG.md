@@ -4,6 +4,8 @@
 
 ### Added
 
+- `FirBasedSymbol<*>.packageFqName(): FqName?`
+- `asFirSymbol`
 - `FirMemberDeclaration.name: Name`
 - `FirTreeNode`
 - `IrFunction.contextReceivers: List<IrValueParameter>`
