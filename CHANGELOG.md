@@ -9,6 +9,11 @@
 
 ### Changed
 
+- `String.toName(): Name` package to `com.javiersc.kotlin.compiler.extensions.common`
+- `String.toFqName(): FqName` package to `com.javiersc.kotlin.compiler.extensions.common`
+- `fqName(): FqName` package to `com.javiersc.kotlin.compiler.extensions.common`
+- `packageFqName(): FqName` package to `com.javiersc.kotlin.compiler.extensions.common`
+- `KClass<*>.toFqName(): FqName` package to `com.javiersc.kotlin.compiler.extensions.common`
 - `String.toCallableId(): CallableId` package to `com.javiersc.kotlin.compiler.extensions.common`
 - `FqName.toCallableId(): CallableId` package to `com.javiersc.kotlin.compiler.extensions.common`
 

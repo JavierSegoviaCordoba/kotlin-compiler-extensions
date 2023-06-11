@@ -1,26 +1,22 @@
+public final class com/javiersc/kotlin/compiler/extensions/common/CallableIdKt {
+	public static final fun toCallableId (Ljava/lang/String;)Lorg/jetbrains/kotlin/name/CallableId;
+	public static final fun toCallableId (Lorg/jetbrains/kotlin/name/FqName;)Lorg/jetbrains/kotlin/name/CallableId;
+}
+
+public final class com/javiersc/kotlin/compiler/extensions/common/FqNameKt {
+	public static final fun toFqName (Ljava/lang/String;)Lorg/jetbrains/kotlin/name/FqName;
+	public static final fun toFqName (Lkotlin/reflect/KClass;)Lorg/jetbrains/kotlin/name/FqName;
+}
+
+public final class com/javiersc/kotlin/compiler/extensions/common/NameKt {
+	public static final fun toName (Ljava/lang/String;)Lorg/jetbrains/kotlin/name/Name;
+}
+
 public final class com/javiersc/kotlin/compiler/extensions/fir/FirTreeNodeKt {
 	public static final fun getTreeNode (Lorg/jetbrains/kotlin/fir/FirElement;)Lcom/javiersc/kotlin/stdlib/tree/TreeNode;
 	public static final fun render (Lcom/javiersc/kotlin/stdlib/tree/TreeNode;)Ljava/lang/String;
 	public static final fun renderWithType (Lcom/javiersc/kotlin/stdlib/tree/TreeNode;)Ljava/lang/String;
 	public static final fun toFirTreeNode (Lorg/jetbrains/kotlin/fir/FirElement;)Lcom/javiersc/kotlin/stdlib/tree/TreeNode;
-}
-
-public final class com/javiersc/kotlin/compiler/extensions/ir/AnnotationsKt {
-	public static final fun getAnnotations (Lorg/jetbrains/kotlin/ir/expressions/IrFunctionAccessExpression;)Ljava/util/List;
-	public static final fun hasAnnotation (Lorg/jetbrains/kotlin/ir/IrElement;Lorg/jetbrains/kotlin/name/FqName;)Z
-	public static final fun hasAnnotation (Lorg/jetbrains/kotlin/ir/expressions/IrFunctionAccessExpression;Lorg/jetbrains/kotlin/name/FqName;)Z
-}
-
-public final class com/javiersc/kotlin/compiler/extensions/ir/CallableIdKt {
-	public static final fun getCallableId (Lorg/jetbrains/kotlin/ir/expressions/IrFunctionAccessExpression;)Lorg/jetbrains/kotlin/name/CallableId;
-	public static final fun toCallableId (Ljava/lang/String;)Lorg/jetbrains/kotlin/name/CallableId;
-	public static final fun toCallableId (Lorg/jetbrains/kotlin/name/FqName;)Lorg/jetbrains/kotlin/name/CallableId;
-}
-
-public final class com/javiersc/kotlin/compiler/extensions/ir/FqNameKt {
-	public static final fun getPackageFqName (Lorg/jetbrains/kotlin/ir/expressions/IrFunctionAccessExpression;)Lorg/jetbrains/kotlin/name/FqName;
-	public static final fun toFqName (Ljava/lang/String;)Lorg/jetbrains/kotlin/name/FqName;
-	public static final fun toFqName (Lkotlin/reflect/KClass;)Lorg/jetbrains/kotlin/name/FqName;
 }
 
 public final class com/javiersc/kotlin/compiler/extensions/ir/IrCallKt {
@@ -79,6 +75,15 @@ public final class com/javiersc/kotlin/compiler/extensions/ir/IrConstKt {
 public final class com/javiersc/kotlin/compiler/extensions/ir/IrElementKt {
 	public static final fun dump (Ljava/lang/Iterable;)Ljava/lang/String;
 	public static final fun dumpKotlinLike (Ljava/lang/Iterable;)Ljava/lang/String;
+	public static final fun hasAnnotation (Lorg/jetbrains/kotlin/ir/IrElement;Lorg/jetbrains/kotlin/name/FqName;)Z
+}
+
+public final class com/javiersc/kotlin/compiler/extensions/ir/IrFunctionAccessExpressionKt {
+	public static final fun getAnnotations (Lorg/jetbrains/kotlin/ir/expressions/IrFunctionAccessExpression;)Ljava/util/List;
+	public static final fun getCallableId (Lorg/jetbrains/kotlin/ir/expressions/IrFunctionAccessExpression;)Lorg/jetbrains/kotlin/name/CallableId;
+	public static final fun getName (Lorg/jetbrains/kotlin/ir/expressions/IrFunctionAccessExpression;)Lorg/jetbrains/kotlin/name/Name;
+	public static final fun getPackageFqName (Lorg/jetbrains/kotlin/ir/expressions/IrFunctionAccessExpression;)Lorg/jetbrains/kotlin/name/FqName;
+	public static final fun hasAnnotation (Lorg/jetbrains/kotlin/ir/expressions/IrFunctionAccessExpression;Lorg/jetbrains/kotlin/name/FqName;)Z
 }
 
 public final class com/javiersc/kotlin/compiler/extensions/ir/IrFunctionKt {
@@ -119,11 +124,6 @@ public final class com/javiersc/kotlin/compiler/extensions/ir/IrTypeArgumentKt {
 
 public final class com/javiersc/kotlin/compiler/extensions/ir/IrTypeKt {
 	public static final fun dumpKotlinLike (Ljava/lang/Iterable;)Ljava/lang/String;
-}
-
-public final class com/javiersc/kotlin/compiler/extensions/ir/NameKt {
-	public static final fun getName (Lorg/jetbrains/kotlin/ir/expressions/IrFunctionAccessExpression;)Lorg/jetbrains/kotlin/name/Name;
-	public static final fun toName (Ljava/lang/String;)Lorg/jetbrains/kotlin/name/Name;
 }
 
 public final class com/javiersc/kotlin/compiler/extensions/ir/context/receivers/IrFunctionKt {
