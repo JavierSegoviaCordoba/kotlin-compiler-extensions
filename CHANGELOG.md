@@ -9,6 +9,9 @@
 
 ### Changed
 
+- `String.toCallableId(): CallableId` package to `com.javiersc.kotlin.compiler.extensions.common`
+- `FqName.toCallableId(): CallableId` package to `com.javiersc.kotlin.compiler.extensions.common`
+
 ### Deprecated
 
 ### Removed
