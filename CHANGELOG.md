@@ -4,6 +4,7 @@
 
 ### Added
 
+- `FirMemberDeclaration.name: Name`
 - `FirTreeNode`
 - `IrFunction.contextReceivers: List<IrValueParameter>`
 

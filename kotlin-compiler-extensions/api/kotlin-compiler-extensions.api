@@ -12,6 +12,10 @@ public final class com/javiersc/kotlin/compiler/extensions/common/NameKt {
 	public static final fun toName (Ljava/lang/String;)Lorg/jetbrains/kotlin/name/Name;
 }
 
+public final class com/javiersc/kotlin/compiler/extensions/fir/FirMemberDeclarationKt {
+	public static final fun getName (Lorg/jetbrains/kotlin/fir/declarations/FirMemberDeclaration;)Lorg/jetbrains/kotlin/name/Name;
+}
+
 public final class com/javiersc/kotlin/compiler/extensions/fir/FirTreeNodeKt {
 	public static final fun getTreeNode (Lorg/jetbrains/kotlin/fir/FirElement;)Lcom/javiersc/kotlin/stdlib/tree/TreeNode;
 	public static final fun render (Lcom/javiersc/kotlin/stdlib/tree/TreeNode;)Ljava/lang/String;
