@@ -4,6 +4,7 @@
 
 ### Added
 
+- `List<FirElement?>.render(): String`
 - `FirBasedSymbol<*>.packageFqName(): FqName?`
 - `asFirSymbol`
 - `FirMemberDeclaration.name: Name`
