@@ -4,6 +4,7 @@
 
 ### Added
 
+- `FirBasedSymbol<*>.hasOwner: Boolean`
 - `<reified T> classId(): ClassId`
 - `ClassId.toCallableId(): CallableId`
 - `FirContextReceiver.typeRefName: Name?`

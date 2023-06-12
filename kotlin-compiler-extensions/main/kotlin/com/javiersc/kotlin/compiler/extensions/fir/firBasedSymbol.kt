@@ -1,5 +1,6 @@
 package com.javiersc.kotlin.compiler.extensions.fir
 
+import org.jetbrains.kotlin.fir.getOwnerLookupTag
 import org.jetbrains.kotlin.fir.symbols.FirBasedSymbol
 import org.jetbrains.kotlin.fir.symbols.impl.FirCallableSymbol
 import org.jetbrains.kotlin.fir.symbols.impl.FirClassLikeSymbol
@@ -12,3 +13,6 @@ public fun FirBasedSymbol<*>.packageFqName(): FqName? {
         else -> null
     }
 }
+
+public val FirBasedSymbol<*>.hasOwner: Boolean
+    get() = runCatching { getOwnerLookupTag() }.getOrNull() != null
