@@ -1,6 +1,12 @@
 public final class com/javiersc/kotlin/compiler/extensions/common/CallableIdKt {
 	public static final fun toCallableId (Ljava/lang/String;)Lorg/jetbrains/kotlin/name/CallableId;
+	public static final fun toCallableId (Lorg/jetbrains/kotlin/name/ClassId;)Lorg/jetbrains/kotlin/name/CallableId;
 	public static final fun toCallableId (Lorg/jetbrains/kotlin/name/FqName;)Lorg/jetbrains/kotlin/name/CallableId;
+}
+
+public final class com/javiersc/kotlin/compiler/extensions/common/ClassIdKt {
+	public static final fun toClassId (Ljava/lang/String;)Lorg/jetbrains/kotlin/name/ClassId;
+	public static final fun toClassId (Lorg/jetbrains/kotlin/name/FqName;)Lorg/jetbrains/kotlin/name/ClassId;
 }
 
 public final class com/javiersc/kotlin/compiler/extensions/common/FqNameKt {
@@ -16,8 +22,20 @@ public final class com/javiersc/kotlin/compiler/extensions/fir/FirBasedSymbolKt 
 	public static final fun packageFqName (Lorg/jetbrains/kotlin/fir/symbols/FirBasedSymbol;)Lorg/jetbrains/kotlin/name/FqName;
 }
 
+public final class com/javiersc/kotlin/compiler/extensions/fir/FirContextReceiverKt {
+	public static final fun getTypeRefName (Lorg/jetbrains/kotlin/fir/declarations/FirContextReceiver;)Lorg/jetbrains/kotlin/name/Name;
+}
+
 public final class com/javiersc/kotlin/compiler/extensions/fir/FirElementKt {
 	public static final fun render (Ljava/util/List;)Ljava/lang/String;
+}
+
+public final class com/javiersc/kotlin/compiler/extensions/fir/FirFunctionCallKt {
+	public static final fun getNothingFirFunctionCall (Lorg/jetbrains/kotlin/fir/FirSession;)Lorg/jetbrains/kotlin/fir/expressions/FirFunctionCall;
+}
+
+public final class com/javiersc/kotlin/compiler/extensions/fir/FirFunctionKt {
+	public static final fun nothingFirFunction (Lorg/jetbrains/kotlin/fir/FirSession;Lorg/jetbrains/kotlin/fir/declarations/FirDeclarationOrigin;)Lorg/jetbrains/kotlin/fir/declarations/FirFunction;
 }
 
 public final class com/javiersc/kotlin/compiler/extensions/fir/FirMemberDeclarationKt {
@@ -29,6 +47,11 @@ public final class com/javiersc/kotlin/compiler/extensions/fir/FirTreeNodeKt {
 	public static final fun render (Lcom/javiersc/kotlin/stdlib/tree/TreeNode;)Ljava/lang/String;
 	public static final fun renderWithType (Lcom/javiersc/kotlin/stdlib/tree/TreeNode;)Ljava/lang/String;
 	public static final fun toFirTreeNode (Lorg/jetbrains/kotlin/fir/FirElement;)Lcom/javiersc/kotlin/stdlib/tree/TreeNode;
+}
+
+public final class com/javiersc/kotlin/compiler/extensions/fir/FirValueParameterKt {
+	public static final fun toValueParameter (Lorg/jetbrains/kotlin/fir/declarations/FirContextReceiver;Lorg/jetbrains/kotlin/fir/FirModuleData;Lorg/jetbrains/kotlin/fir/declarations/FirDeclarationOrigin;Lorg/jetbrains/kotlin/fir/symbols/impl/FirFunctionSymbol;Lorg/jetbrains/kotlin/name/Name;Lorg/jetbrains/kotlin/fir/expressions/FirExpression;)Lorg/jetbrains/kotlin/fir/declarations/FirValueParameter;
+	public static synthetic fun toValueParameter$default (Lorg/jetbrains/kotlin/fir/declarations/FirContextReceiver;Lorg/jetbrains/kotlin/fir/FirModuleData;Lorg/jetbrains/kotlin/fir/declarations/FirDeclarationOrigin;Lorg/jetbrains/kotlin/fir/symbols/impl/FirFunctionSymbol;Lorg/jetbrains/kotlin/name/Name;Lorg/jetbrains/kotlin/fir/expressions/FirExpression;ILjava/lang/Object;)Lorg/jetbrains/kotlin/fir/declarations/FirValueParameter;
 }
 
 public final class com/javiersc/kotlin/compiler/extensions/ir/IrCallKt {
@@ -64,11 +87,6 @@ public final class com/javiersc/kotlin/compiler/extensions/ir/IrClassExhaustiveK
 
 public final class com/javiersc/kotlin/compiler/extensions/ir/IrClassExhaustiveKind$Companion {
 	public final fun from (Lorg/jetbrains/kotlin/ir/declarations/IrClass;)Lcom/javiersc/kotlin/compiler/extensions/ir/IrClassExhaustiveKind;
-}
-
-public final class com/javiersc/kotlin/compiler/extensions/ir/IrClassIdKt {
-	public static final fun toClassId (Ljava/lang/String;)Lorg/jetbrains/kotlin/name/ClassId;
-	public static final fun toClassId (Lorg/jetbrains/kotlin/name/FqName;)Lorg/jetbrains/kotlin/name/ClassId;
 }
 
 public final class com/javiersc/kotlin/compiler/extensions/ir/IrClassKt {

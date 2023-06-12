@@ -20,10 +20,4 @@ public class FakeDiagnosticTestGenerated extends AbstractFakeDiagnosticTest {
     public void testAllFilesPresentInDiagnostics() throws Exception {
         KtTestUtil.assertAllTestsPresentByMetadataWithExcluded(this.getClass(), new File("test-data/diagnostics"), Pattern.compile("^(.+)\\.kt$"), null, true);
     }
-
-    @Test
-    @TestMetadata("playground-test.kt")
-    public void testPlayground_test() throws Exception {
-        runTest("test-data/diagnostics/playground-test.kt");
-    }
 }

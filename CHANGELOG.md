@@ -4,6 +4,13 @@
 
 ### Added
 
+- `<reified T> classId(): ClassId`
+- `ClassId.toCallableId(): CallableId`
+- `FirContextReceiver.typeRefName: Name?`
+- `FirSession.nothingFirFunction(): FirFunction`
+- `FirSession.nothingFirFunctionCall: FirFunctionCall`
+- `FirContextReceiver.toValueParameter(): FirValueParameter`
+- `<reified T : Annotation> IrElement.hasAnnotation(): Boolean`
 - `List<FirElement?>.render(): String`
 - `FirBasedSymbol<*>.packageFqName(): FqName?`
 - `asFirSymbol`
