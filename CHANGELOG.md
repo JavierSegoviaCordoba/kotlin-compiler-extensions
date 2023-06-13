@@ -7,6 +7,7 @@
 - `FirBasedSymbol<*>.isProperty(): Boolean`
 - `FirBasedSymbol<*>.isFunction(): Boolean`
 - `FirBasedSymbol<*>.isTopLevel: Boolean`
+- `FirBasedSymbol<*>.isNested: Boolean`
 - `FirBasedSymbol<*>.hasOwner: Boolean`
 - `<reified T> classId(): ClassId`
 - `ClassId.toCallableId(): CallableId`
