@@ -4,6 +4,8 @@
 
 ### Added
 
+- `FirBasedSymbol<*>.isProperty(): Boolean`
+- `FirBasedSymbol<*>.isFunction(): Boolean`
 - `FirBasedSymbol<*>.hasOwner: Boolean`
 - `<reified T> classId(): ClassId`
 - `ClassId.toCallableId(): CallableId`
