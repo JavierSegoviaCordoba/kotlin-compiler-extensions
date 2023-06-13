@@ -4,6 +4,20 @@
 
 ### Added
 
+### Changed
+
+### Deprecated
+
+### Removed
+
+### Fixed
+
+### Updated
+
+## [0.1.1-alpha.4] - 2023-06-13
+
+### Added
+
 - `FirBasedSymbol<*>.isProperty(): Boolean`
 - `FirBasedSymbol<*>.isFunction(): Boolean`
 - `FirBasedSymbol<*>.isTopLevel: Boolean`
@@ -32,12 +46,6 @@
 - `KClass<*>.toFqName(): FqName` package to `com.javiersc.kotlin.compiler.extensions.common`
 - `String.toCallableId(): CallableId` package to `com.javiersc.kotlin.compiler.extensions.common`
 - `FqName.toCallableId(): CallableId` package to `com.javiersc.kotlin.compiler.extensions.common`
-
-### Deprecated
-
-### Removed
-
-### Fixed
 
 ### Updated
 
@@ -103,7 +111,9 @@
 
 - `kotlin-compiler-test` to `kotlin-compiler-extensions-test`
 
-[Unreleased]: https://github.com/JavierSegoviaCordoba/kotlin-compiler-extensions/compare/0.1.1-alpha.3...HEAD
+[Unreleased]: https://github.com/JavierSegoviaCordoba/kotlin-compiler-extensions/compare/0.1.1-alpha.4...HEAD
+
+[0.1.1-alpha.4]: https://github.com/JavierSegoviaCordoba/kotlin-compiler-extensions/compare/0.1.1-alpha.3...0.1.1-alpha.4
 
 [0.1.1-alpha.3]: https://github.com/JavierSegoviaCordoba/kotlin-compiler-extensions/compare/0.1.1-alpha.2...0.1.1-alpha.3
 
