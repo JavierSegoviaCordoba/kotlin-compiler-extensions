@@ -17,6 +17,9 @@ public fun FirBasedSymbol<*>.packageFqName(): FqName? {
     }
 }
 
+public val FirBasedSymbol<*>.isTopLevel: Boolean
+    get() = !hasOwner
+
 public val FirBasedSymbol<*>.hasOwner: Boolean
     get() = runCatching { getOwnerLookupTag() }.getOrNull() != null
 
