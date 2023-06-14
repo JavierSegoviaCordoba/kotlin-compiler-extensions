@@ -1,5 +1,6 @@
 package com.javiersc.kotlin.compiler.extensions.ir
 
+import com.javiersc.kotlin.compiler.extensions.common.toFqName
 import org.jetbrains.kotlin.ir.IrElement
 import org.jetbrains.kotlin.ir.declarations.IrAnnotationContainer
 import org.jetbrains.kotlin.ir.declarations.IrClass
