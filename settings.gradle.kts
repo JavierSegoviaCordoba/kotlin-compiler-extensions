@@ -14,6 +14,7 @@ pluginManagement {
                 includeGroup("com.javiersc.hubdle")
             }
         }
+        maven("https://oss.sonatype.org/content/repositories/snapshots")
     }
 
     plugins { //
@@ -35,5 +36,12 @@ dependencyResolutionManagement {
                 includeGroup("com.javiersc.hubdle")
             }
         }
+        sonatypeSnapshot()
+    }
+}
+
+hubdleSettings {
+    catalog { //
+        replaceStrictVersion("kotlin" to "1.9.255-SNAPSHOT")
     }
 }

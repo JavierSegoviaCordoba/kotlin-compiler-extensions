@@ -6,6 +6,8 @@
 
 ### Changed
 
+- Kotlin version to `1.9.255-SNAPSHOT`
+
 ### Deprecated
 
 ### Removed

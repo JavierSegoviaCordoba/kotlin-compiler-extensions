@@ -1,12 +1,11 @@
 package com.javiersc.kotlin.compiler.test.runners
 
-// import org.jetbrains.kotlin.test.FirParser
-// import org.jetbrains.kotlin.test.directives.configureFirParser
 import com.javiersc.kotlin.compiler.test.services.MetaRuntimeClasspathProvider
 import org.jetbrains.kotlin.compiler.plugin.CompilerPluginRegistrar.ExtensionStorage
 import org.jetbrains.kotlin.config.CompilerConfiguration
 import org.jetbrains.kotlin.platform.jvm.JvmPlatforms
 import org.jetbrains.kotlin.test.Constructor
+import org.jetbrains.kotlin.test.FirParser
 import org.jetbrains.kotlin.test.TargetBackend
 import org.jetbrains.kotlin.test.backend.BlackBoxCodegenSuppressor
 import org.jetbrains.kotlin.test.backend.handlers.IrTextDumpHandler
@@ -18,6 +17,7 @@ import org.jetbrains.kotlin.test.builders.fir2IrStep
 import org.jetbrains.kotlin.test.builders.irHandlersStep
 import org.jetbrains.kotlin.test.builders.jvmArtifactsHandlersStep
 import org.jetbrains.kotlin.test.directives.CodegenTestDirectives.DUMP_IR
+import org.jetbrains.kotlin.test.directives.configureFirParser
 import org.jetbrains.kotlin.test.model.DependencyKind
 import org.jetbrains.kotlin.test.model.TestModule
 import org.jetbrains.kotlin.test.runners.RunnerWithTargetBackendForTestGeneratorMarker
@@ -40,7 +40,7 @@ public abstract class BoxTest : BaseTestRunner(), RunnerWithTargetBackendForTest
             dependencyKind = DependencyKind.Binary
         }
 
-        // configureFirParser(FirParser.Psi)
+        configureFirParser(FirParser.Psi)
 
         defaultDirectives { +DUMP_IR }
 
