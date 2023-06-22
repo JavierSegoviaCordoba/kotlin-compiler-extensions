@@ -60,7 +60,10 @@ public final class com/javiersc/kotlin/compiler/extensions/fir/FirTreeNodeKt {
 }
 
 public final class com/javiersc/kotlin/compiler/extensions/fir/FirTypeRefKt {
-	public static final fun toFirTypeRef (Lorg/jetbrains/kotlin/fir/symbols/impl/FirClassLikeSymbol;)Lorg/jetbrains/kotlin/fir/types/FirTypeRef;
+	public static final fun toFirTypeRef (Lorg/jetbrains/kotlin/fir/symbols/impl/FirClassLikeSymbol;Lkotlin/jvm/functions/Function2;)Lorg/jetbrains/kotlin/fir/types/FirTypeRef;
+	public static final fun toFirTypeRef (Lorg/jetbrains/kotlin/name/ClassId;[Lorg/jetbrains/kotlin/fir/types/ConeTypeProjection;Lkotlin/jvm/functions/Function2;)Lorg/jetbrains/kotlin/fir/types/FirTypeRef;
+	public static synthetic fun toFirTypeRef$default (Lorg/jetbrains/kotlin/fir/symbols/impl/FirClassLikeSymbol;Lkotlin/jvm/functions/Function2;ILjava/lang/Object;)Lorg/jetbrains/kotlin/fir/types/FirTypeRef;
+	public static synthetic fun toFirTypeRef$default (Lorg/jetbrains/kotlin/name/ClassId;[Lorg/jetbrains/kotlin/fir/types/ConeTypeProjection;Lkotlin/jvm/functions/Function2;ILjava/lang/Object;)Lorg/jetbrains/kotlin/fir/types/FirTypeRef;
 }
 
 public final class com/javiersc/kotlin/compiler/extensions/fir/FirValueParameterKt {

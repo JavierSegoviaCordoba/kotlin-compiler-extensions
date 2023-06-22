@@ -4,6 +4,7 @@
 
 ### Added
 
+- `ClassId.toFirTypeRef(): FirTypeRef`
 - `FirClassLikeSymbol<*>.toFirTypeRef(): FirTypeRef`
 - `FirClassLikeSymbol<*>.toValueParameter(): FirValueParameter`
 - `FirFunctionSymbol<*>.contextReceiversToValueParameters(): List<FirValueParameter>`
