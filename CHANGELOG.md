@@ -4,6 +4,8 @@
 
 ### Added
 
+- `FirClassLikeSymbol<*>.toValueParameter(): FirValueParameter`
+- `FirFunctionSymbol<*>.contextReceiversToValueParameters(): List<FirValueParameter>`
 - `ClassId.toConeType(): ConeClassLikeType`
 
 ### Changed
