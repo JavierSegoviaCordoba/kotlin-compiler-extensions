@@ -20,6 +20,7 @@ public final class com/javiersc/kotlin/compiler/extensions/common/NameKt {
 
 public final class com/javiersc/kotlin/compiler/extensions/fir/ConeKotlinTypeKt {
 	public static final fun toConeType (Lorg/jetbrains/kotlin/name/ClassId;[Lorg/jetbrains/kotlin/fir/types/ConeTypeProjection;)Lorg/jetbrains/kotlin/fir/types/ConeClassLikeType;
+	public static final fun toConeTypeWithTypeArgumentsArray (Lorg/jetbrains/kotlin/name/ClassId;[Lorg/jetbrains/kotlin/fir/types/ConeTypeProjection;)Lorg/jetbrains/kotlin/fir/types/ConeClassLikeType;
 }
 
 public final class com/javiersc/kotlin/compiler/extensions/fir/FirBasedSymbolKt {
@@ -56,6 +57,10 @@ public final class com/javiersc/kotlin/compiler/extensions/fir/FirTreeNodeKt {
 	public static final fun render (Lcom/javiersc/kotlin/stdlib/tree/TreeNode;)Ljava/lang/String;
 	public static final fun renderWithType (Lcom/javiersc/kotlin/stdlib/tree/TreeNode;)Ljava/lang/String;
 	public static final fun toFirTreeNode (Lorg/jetbrains/kotlin/fir/FirElement;)Lcom/javiersc/kotlin/stdlib/tree/TreeNode;
+}
+
+public final class com/javiersc/kotlin/compiler/extensions/fir/FirTypeRefKt {
+	public static final fun toFirTypeRef (Lorg/jetbrains/kotlin/fir/symbols/impl/FirClassLikeSymbol;)Lorg/jetbrains/kotlin/fir/types/FirTypeRef;
 }
 
 public final class com/javiersc/kotlin/compiler/extensions/fir/FirValueParameterKt {

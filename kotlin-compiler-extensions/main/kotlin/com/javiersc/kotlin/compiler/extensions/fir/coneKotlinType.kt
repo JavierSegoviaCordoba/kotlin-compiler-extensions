@@ -10,3 +10,9 @@ public fun ClassId.toConeType(vararg typeArguments: ConeTypeProjection): ConeCla
     val lookupTag = ConeClassLikeLookupTagImpl(this)
     return ConeClassLikeTypeImpl(lookupTag, typeArguments, isNullable = false)
 }
+
+@JvmName("toConeTypeWithTypeArgumentsArray")
+public fun ClassId.toConeType(typeArguments: Array<ConeTypeProjection>): ConeClassLikeType {
+    val lookupTag = ConeClassLikeLookupTagImpl(this)
+    return ConeClassLikeTypeImpl(lookupTag, typeArguments, isNullable = false)
+}
