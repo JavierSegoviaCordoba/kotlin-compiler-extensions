@@ -32,6 +32,11 @@ public final class com/javiersc/kotlin/compiler/extensions/fir/FirBasedSymbolKt 
 	public static final fun packageFqName (Lorg/jetbrains/kotlin/fir/symbols/FirBasedSymbol;)Lorg/jetbrains/kotlin/name/FqName;
 }
 
+public final class com/javiersc/kotlin/compiler/extensions/fir/FirConstructorKt {
+	public static final fun toPrimaryConstructor (Lorg/jetbrains/kotlin/fir/symbols/impl/FirClassSymbol;Lorg/jetbrains/kotlin/fir/FirSession;Lorg/jetbrains/kotlin/fir/declarations/FirDeclarationOrigin;Lkotlin/jvm/functions/Function2;)Lorg/jetbrains/kotlin/fir/declarations/FirConstructor;
+	public static synthetic fun toPrimaryConstructor$default (Lorg/jetbrains/kotlin/fir/symbols/impl/FirClassSymbol;Lorg/jetbrains/kotlin/fir/FirSession;Lorg/jetbrains/kotlin/fir/declarations/FirDeclarationOrigin;Lkotlin/jvm/functions/Function2;ILjava/lang/Object;)Lorg/jetbrains/kotlin/fir/declarations/FirConstructor;
+}
+
 public final class com/javiersc/kotlin/compiler/extensions/fir/FirContextReceiverKt {
 	public static final fun getTypeRefName (Lorg/jetbrains/kotlin/fir/declarations/FirContextReceiver;)Lorg/jetbrains/kotlin/name/Name;
 }
@@ -59,7 +64,13 @@ public final class com/javiersc/kotlin/compiler/extensions/fir/FirTreeNodeKt {
 	public static final fun toFirTreeNode (Lorg/jetbrains/kotlin/fir/FirElement;)Lcom/javiersc/kotlin/stdlib/tree/TreeNode;
 }
 
+public final class com/javiersc/kotlin/compiler/extensions/fir/FirTypeParameterRefKt {
+	public static final fun toFirTypeParameter (Lorg/jetbrains/kotlin/fir/types/ConeTypeProjection;Lorg/jetbrains/kotlin/fir/FirSession;Lorg/jetbrains/kotlin/fir/declarations/FirDeclarationOrigin;Lorg/jetbrains/kotlin/fir/symbols/FirBasedSymbol;ZLorg/jetbrains/kotlin/types/Variance;)Lorg/jetbrains/kotlin/fir/declarations/FirTypeParameterRef;
+	public static synthetic fun toFirTypeParameter$default (Lorg/jetbrains/kotlin/fir/types/ConeTypeProjection;Lorg/jetbrains/kotlin/fir/FirSession;Lorg/jetbrains/kotlin/fir/declarations/FirDeclarationOrigin;Lorg/jetbrains/kotlin/fir/symbols/FirBasedSymbol;ZLorg/jetbrains/kotlin/types/Variance;ILjava/lang/Object;)Lorg/jetbrains/kotlin/fir/declarations/FirTypeParameterRef;
+}
+
 public final class com/javiersc/kotlin/compiler/extensions/fir/FirTypeRefKt {
+	public static final fun toClassId (Lorg/jetbrains/kotlin/fir/types/FirTypeRef;Lorg/jetbrains/kotlin/fir/FirSession;)Lorg/jetbrains/kotlin/name/ClassId;
 	public static final fun toFirTypeRef (Lorg/jetbrains/kotlin/fir/symbols/impl/FirClassLikeSymbol;Lkotlin/jvm/functions/Function2;)Lorg/jetbrains/kotlin/fir/types/FirTypeRef;
 	public static final fun toFirTypeRef (Lorg/jetbrains/kotlin/name/ClassId;[Lorg/jetbrains/kotlin/fir/types/ConeTypeProjection;Lkotlin/jvm/functions/Function2;)Lorg/jetbrains/kotlin/fir/types/FirTypeRef;
 	public static synthetic fun toFirTypeRef$default (Lorg/jetbrains/kotlin/fir/symbols/impl/FirClassLikeSymbol;Lkotlin/jvm/functions/Function2;ILjava/lang/Object;)Lorg/jetbrains/kotlin/fir/types/FirTypeRef;
@@ -70,9 +81,11 @@ public final class com/javiersc/kotlin/compiler/extensions/fir/FirValueParameter
 	public static final fun contextReceiversToValueParameters (Lorg/jetbrains/kotlin/fir/symbols/impl/FirFunctionSymbol;Lorg/jetbrains/kotlin/fir/FirSession;Lorg/jetbrains/kotlin/fir/declarations/FirDeclarationOrigin;Lkotlin/jvm/functions/Function2;)Ljava/util/List;
 	public static synthetic fun contextReceiversToValueParameters$default (Lorg/jetbrains/kotlin/fir/symbols/impl/FirFunctionSymbol;Lorg/jetbrains/kotlin/fir/FirSession;Lorg/jetbrains/kotlin/fir/declarations/FirDeclarationOrigin;Lkotlin/jvm/functions/Function2;ILjava/lang/Object;)Ljava/util/List;
 	public static final fun toValueParameter (Lorg/jetbrains/kotlin/fir/declarations/FirContextReceiver;Lorg/jetbrains/kotlin/fir/FirSession;Lorg/jetbrains/kotlin/fir/declarations/FirDeclarationOrigin;Lorg/jetbrains/kotlin/fir/symbols/impl/FirFunctionSymbol;Lkotlin/jvm/functions/Function2;)Lorg/jetbrains/kotlin/fir/declarations/FirValueParameter;
-	public static final fun toValueParameter (Lorg/jetbrains/kotlin/fir/symbols/impl/FirClassLikeSymbol;Lorg/jetbrains/kotlin/fir/FirSession;Lorg/jetbrains/kotlin/fir/declarations/FirDeclarationOrigin;Lorg/jetbrains/kotlin/fir/symbols/impl/FirFunctionSymbol;Lorg/jetbrains/kotlin/fir/expressions/FirExpression;Lkotlin/jvm/functions/Function2;)Lorg/jetbrains/kotlin/fir/declarations/FirValueParameter;
+	public static final fun toValueParameter (Lorg/jetbrains/kotlin/fir/symbols/impl/FirClassSymbol;Lorg/jetbrains/kotlin/fir/FirSession;Lorg/jetbrains/kotlin/fir/declarations/FirDeclarationOrigin;Lorg/jetbrains/kotlin/fir/symbols/impl/FirFunctionSymbol;Lkotlin/jvm/functions/Function2;)Lorg/jetbrains/kotlin/fir/declarations/FirValueParameter;
+	public static final fun toValueParameter (Lorg/jetbrains/kotlin/fir/types/FirTypeRef;Lorg/jetbrains/kotlin/fir/FirSession;Lorg/jetbrains/kotlin/fir/declarations/FirDeclarationOrigin;Lorg/jetbrains/kotlin/fir/symbols/impl/FirFunctionSymbol;Lkotlin/jvm/functions/Function2;)Lorg/jetbrains/kotlin/fir/declarations/FirValueParameter;
 	public static synthetic fun toValueParameter$default (Lorg/jetbrains/kotlin/fir/declarations/FirContextReceiver;Lorg/jetbrains/kotlin/fir/FirSession;Lorg/jetbrains/kotlin/fir/declarations/FirDeclarationOrigin;Lorg/jetbrains/kotlin/fir/symbols/impl/FirFunctionSymbol;Lkotlin/jvm/functions/Function2;ILjava/lang/Object;)Lorg/jetbrains/kotlin/fir/declarations/FirValueParameter;
-	public static synthetic fun toValueParameter$default (Lorg/jetbrains/kotlin/fir/symbols/impl/FirClassLikeSymbol;Lorg/jetbrains/kotlin/fir/FirSession;Lorg/jetbrains/kotlin/fir/declarations/FirDeclarationOrigin;Lorg/jetbrains/kotlin/fir/symbols/impl/FirFunctionSymbol;Lorg/jetbrains/kotlin/fir/expressions/FirExpression;Lkotlin/jvm/functions/Function2;ILjava/lang/Object;)Lorg/jetbrains/kotlin/fir/declarations/FirValueParameter;
+	public static synthetic fun toValueParameter$default (Lorg/jetbrains/kotlin/fir/symbols/impl/FirClassSymbol;Lorg/jetbrains/kotlin/fir/FirSession;Lorg/jetbrains/kotlin/fir/declarations/FirDeclarationOrigin;Lorg/jetbrains/kotlin/fir/symbols/impl/FirFunctionSymbol;Lkotlin/jvm/functions/Function2;ILjava/lang/Object;)Lorg/jetbrains/kotlin/fir/declarations/FirValueParameter;
+	public static synthetic fun toValueParameter$default (Lorg/jetbrains/kotlin/fir/types/FirTypeRef;Lorg/jetbrains/kotlin/fir/FirSession;Lorg/jetbrains/kotlin/fir/declarations/FirDeclarationOrigin;Lorg/jetbrains/kotlin/fir/symbols/impl/FirFunctionSymbol;Lkotlin/jvm/functions/Function2;ILjava/lang/Object;)Lorg/jetbrains/kotlin/fir/declarations/FirValueParameter;
 }
 
 public final class com/javiersc/kotlin/compiler/extensions/ir/IrCallKt {

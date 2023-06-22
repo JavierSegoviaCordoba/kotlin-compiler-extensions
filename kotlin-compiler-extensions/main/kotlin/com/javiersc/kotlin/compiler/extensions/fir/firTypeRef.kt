@@ -1,5 +1,7 @@
 package com.javiersc.kotlin.compiler.extensions.fir
 
+import org.jetbrains.kotlin.fir.FirSession
+import org.jetbrains.kotlin.fir.analysis.checkers.toClassLikeSymbol
 import org.jetbrains.kotlin.fir.scopes.impl.toConeType
 import org.jetbrains.kotlin.fir.symbols.impl.FirClassLikeSymbol
 import org.jetbrains.kotlin.fir.types.ConeTypeProjection
@@ -8,6 +10,9 @@ import org.jetbrains.kotlin.fir.types.builder.FirResolvedTypeRefBuilder
 import org.jetbrains.kotlin.fir.types.builder.buildResolvedTypeRef
 import org.jetbrains.kotlin.fir.types.toTypeProjection
 import org.jetbrains.kotlin.name.ClassId
+
+public fun FirTypeRef.toClassId(session: FirSession): ClassId =
+    this.toClassLikeSymbol(session)!!.classId
 
 public fun ClassId.toFirTypeRef(
     vararg typeArguments: ConeTypeProjection,

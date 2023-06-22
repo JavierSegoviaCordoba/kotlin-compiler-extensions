@@ -4,9 +4,12 @@
 
 ### Added
 
+- `FirClassSymbol<*>.toPrimaryConstructor(): FirConstructor`
+- `ConeTypeProjection.toFirTypeParameter(): FirTypeParameterRef`
+- `FirTypeRef.toValueParameter(): FirValueParameter`
+- `FirClassSymbol<*>.toValueParameter(): FirValueParameter`
 - `ClassId.toFirTypeRef(): FirTypeRef`
 - `FirClassLikeSymbol<*>.toFirTypeRef(): FirTypeRef`
-- `FirClassLikeSymbol<*>.toValueParameter(): FirValueParameter`
 - `FirFunctionSymbol<*>.contextReceiversToValueParameters(): List<FirValueParameter>`
 - `ClassId.toConeType(): ConeClassLikeType`
 
@@ -19,6 +22,8 @@
 ### Removed
 
 ### Fixed
+
+- Box tests don't check IR
 
 ### Updated
 

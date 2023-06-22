@@ -6,13 +6,16 @@ import com.javiersc.kotlin.compiler.test.services.ExtensionRegistrarConfigurator
 import com.javiersc.kotlin.compiler.test.services.MetaRuntimeClasspathProvider
 import org.jetbrains.kotlin.compiler.plugin.CompilerPluginRegistrar.ExtensionStorage
 import org.jetbrains.kotlin.config.CompilerConfiguration
+import org.jetbrains.kotlin.platform.jvm.JvmPlatforms
 import org.jetbrains.kotlin.test.Constructor
 import org.jetbrains.kotlin.test.FirParser
+import org.jetbrains.kotlin.test.TargetBackend
 import org.jetbrains.kotlin.test.builders.TestConfigurationBuilder
 import org.jetbrains.kotlin.test.directives.ConfigurationDirectives
 import org.jetbrains.kotlin.test.directives.FirDiagnosticsDirectives
 import org.jetbrains.kotlin.test.directives.configureFirParser
 import org.jetbrains.kotlin.test.initIdeaConfiguration
+import org.jetbrains.kotlin.test.model.DependencyKind
 import org.jetbrains.kotlin.test.model.TestModule
 import org.jetbrains.kotlin.test.runners.AbstractKotlinCompilerTest
 import org.jetbrains.kotlin.test.runners.baseFirDiagnosticTestConfiguration
@@ -43,6 +46,12 @@ internal fun TestConfigurationBuilder.commonPluginConfiguration(
     classpathProvider: Constructor<MetaRuntimeClasspathProvider>?,
     registerCompilerExtensions: ExtensionStorage.(TestModule, CompilerConfiguration) -> Unit
 ) {
+    globalDefaults {
+        targetBackend = TargetBackend.JVM_IR
+        targetPlatform = JvmPlatforms.defaultJvmPlatform
+        dependencyKind = DependencyKind.Binary
+    }
+
     baseFirDiagnosticTestConfiguration()
 
     configureFirParser(FirParser.Psi)
