@@ -7,7 +7,6 @@
 - `FirClassSymbol<*>.toPrimaryConstructor(): FirConstructor`
 - `ConeTypeProjection.toFirTypeParameter(): FirTypeParameterRef`
 - `FirTypeRef.toValueParameter(): FirValueParameter`
-- `FirClassSymbol<*>.toValueParameter(): FirValueParameter`
 - `ClassId.toFirTypeRef(): FirTypeRef`
 - `FirClassLikeSymbol<*>.toFirTypeRef(): FirTypeRef`
 - `FirFunctionSymbol<*>.contextReceiversToValueParameters(): List<FirValueParameter>`
