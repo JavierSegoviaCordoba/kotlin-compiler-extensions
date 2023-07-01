@@ -4,6 +4,7 @@
 
 ### Added
 
+- `FirBasedSymbol<*>.coneKotlinType: ConeKotlinType?`
 - `FirClassSymbol<*>.toPrimaryConstructor(): FirConstructor`
 - `ConeTypeProjection.toFirTypeParameter(): FirTypeParameterRef`
 - `FirTypeRef.toValueParameter(): FirValueParameter`

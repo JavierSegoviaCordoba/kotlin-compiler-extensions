@@ -19,6 +19,7 @@ public final class com/javiersc/kotlin/compiler/extensions/common/NameKt {
 }
 
 public final class com/javiersc/kotlin/compiler/extensions/fir/ConeKotlinTypeKt {
+	public static final fun getConeKotlinType (Lorg/jetbrains/kotlin/fir/symbols/FirBasedSymbol;)Lorg/jetbrains/kotlin/fir/types/ConeKotlinType;
 	public static final fun toConeType (Lorg/jetbrains/kotlin/name/ClassId;[Lorg/jetbrains/kotlin/fir/types/ConeTypeProjection;)Lorg/jetbrains/kotlin/fir/types/ConeClassLikeType;
 	public static final fun toConeTypeWithTypeArgumentsArray (Lorg/jetbrains/kotlin/name/ClassId;[Lorg/jetbrains/kotlin/fir/types/ConeTypeProjection;)Lorg/jetbrains/kotlin/fir/types/ConeClassLikeType;
 }
