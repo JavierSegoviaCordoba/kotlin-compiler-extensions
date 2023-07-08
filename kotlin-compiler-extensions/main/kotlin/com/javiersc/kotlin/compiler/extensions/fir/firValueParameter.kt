@@ -97,18 +97,6 @@ public fun FirContextReceiver.toValueParameter(
     containingFunctionSymbol: FirFunctionSymbol<*>,
     block: FirValueParameterBuilder.(FirContextReceiver) -> Unit = {},
 ): FirValueParameter {
-    val name: Name = typeRefName ?: Name.special("<anonymous>")
-    return buildValueParameter {
-        val contextReceiver = this@toValueParameter
-        this.moduleData = session.moduleData
-        this.origin = origin
-        this.returnTypeRef = contextReceiver.typeRef
-        this.name = name
-        this.symbol = FirValueParameterSymbol(name)
-        this.containingFunctionSymbol = containingFunctionSymbol
-        this.isCrossinline = false
-        this.isNoinline = false
-        this.isVararg = false
-        block(this, contextReceiver)
-    }
+    val builder: FirValueParameterBuilder.(FirTypeRef) -> Unit = { block(this@toValueParameter) }
+    return typeRef.coneType.toValueParameter(session, origin, containingFunctionSymbol, builder)
 }

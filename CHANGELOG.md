@@ -4,7 +4,16 @@
 
 ### Added
 
-- `ConeKotlinType.toValueParameter: FirValueParameter`
+- `KFunction<*>.toName(): Name`
+- `FirBasedSymbol<*>.contextReceivers: List<FirContextReceiver>`
+- `FirBasedSymbol<*>.name: Name`
+- `IrElement.contextReceivers: List<IrValueParameter>`
+- `IrDeclaration.toIrCall(): IrCall`
+- `Sequence<IrTreeNode>.filterIrIsInstance(): Sequence<T>`
+- `IrElement.irType: IrType`
+- `IrType.buildVariable(): IrVariable`
+- `buildVariable(): IrVariable`
+- `ConeKotlinType.toValueParameter(): FirValueParameter`
 - `FirSession.coneKotlinType: ConeKotlinType`
 - `FirBasedSymbol<*>.coneKotlinType: ConeKotlinType?`
 - `FirClassSymbol<*>.toPrimaryConstructor(): FirConstructor`

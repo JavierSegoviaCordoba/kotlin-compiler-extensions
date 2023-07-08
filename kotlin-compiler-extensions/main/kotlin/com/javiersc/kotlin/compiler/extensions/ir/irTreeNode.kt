@@ -50,6 +50,13 @@ public inline fun <reified T : IrElement> IrTreeNode.firstIrOrNull(predicate: (T
 public inline fun <reified T : IrElement> Iterable<IrTreeNode>.firstIrOrNull(): T? =
     this.firstIrOrNull(predicate = { true })
 
+public inline fun <reified T : IrElement> Sequence<IrTreeNode>.firstIrOrNull(): T? =
+    this.firstIrOrNull(predicate = { true })
+
+public inline fun <reified T : IrElement> Sequence<IrTreeNode>.firstIrOrNull(
+    predicate: (T) -> Boolean
+): T? = this.asIterable().firstIrOrNull(predicate)
+
 public inline fun <reified T : IrElement> Iterable<IrTreeNode>.firstIrOrNull(
     predicate: (T) -> Boolean
 ): T? =
@@ -61,6 +68,9 @@ public inline fun <reified T : IrElement> Iterable<IrTreeNode>.firstIrOrNull(
         ?.asIr()
 
 public inline fun <reified T : IrElement> IrTreeNode.filterIrIsInstance(): List<T> =
+    this.mapNotNull { it.value.asIr() }
+
+public inline fun <reified T : IrElement> Sequence<IrTreeNode>.filterIrIsInstance(): Sequence<T> =
     this.mapNotNull { it.value.asIr() }
 
 public inline fun <reified T : IrElement> Iterable<IrTreeNode>.filterIrIsInstance(): List<T> =

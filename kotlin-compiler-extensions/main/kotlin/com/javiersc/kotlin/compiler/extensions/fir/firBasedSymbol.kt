@@ -1,6 +1,7 @@
 package com.javiersc.kotlin.compiler.extensions.fir
 
 import kotlin.contracts.contract
+import org.jetbrains.kotlin.fir.declarations.FirMemberDeclaration
 import org.jetbrains.kotlin.fir.getOwnerLookupTag
 import org.jetbrains.kotlin.fir.symbols.FirBasedSymbol
 import org.jetbrains.kotlin.fir.symbols.impl.FirCallableSymbol
@@ -8,12 +9,13 @@ import org.jetbrains.kotlin.fir.symbols.impl.FirClassLikeSymbol
 import org.jetbrains.kotlin.fir.symbols.impl.FirFunctionSymbol
 import org.jetbrains.kotlin.fir.symbols.impl.FirPropertySymbol
 import org.jetbrains.kotlin.name.FqName
+import org.jetbrains.kotlin.name.Name
 
-public fun FirBasedSymbol<*>.packageFqName(): FqName? {
+public fun FirBasedSymbol<*>.packageFqName(): FqName {
     return when (this) {
         is FirClassLikeSymbol<*> -> classId.packageFqName
         is FirCallableSymbol<*> -> callableId.packageName
-        else -> null
+        else -> TODO("Not implemented")
     }
 }
 
@@ -35,3 +37,10 @@ public fun FirBasedSymbol<*>.isFunction(): Boolean {
     contract { returns(true) implies (this@FirBasedSymbol is FirFunctionSymbol) }
     return this is FirFunctionSymbol
 }
+
+public val FirBasedSymbol<*>.name: Name
+    get() =
+        when (val fir = this.fir) {
+            is FirMemberDeclaration -> fir.name
+            else -> TODO("Not implemented")
+        }
