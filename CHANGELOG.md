@@ -4,6 +4,7 @@
 
 ### Added
 
+- `IrPluginContext.irType(): IrType`
 - `KFunction<*>.toName(): Name`
 - `FirBasedSymbol<*>.contextReceivers: List<FirContextReceiver>`
 - `FirBasedSymbol<*>.name: Name`
