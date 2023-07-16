@@ -11,7 +11,12 @@ import org.jetbrains.kotlin.fir.types.ConeKotlinType
 import org.jetbrains.kotlin.fir.types.ConeTypeProjection
 import org.jetbrains.kotlin.fir.types.coneType
 import org.jetbrains.kotlin.fir.types.impl.ConeClassLikeTypeImpl
+import org.jetbrains.kotlin.fir.types.typeContext
 import org.jetbrains.kotlin.name.ClassId
+import org.jetbrains.kotlin.types.AbstractTypeChecker
+
+public fun FirSession.isSubtypeOf(subType: ConeKotlinType, superType: ConeKotlinType): Boolean =
+    AbstractTypeChecker.isSubtypeOf(typeContext, subType, superType)
 
 public inline fun <reified T> FirSession.coneKotlinType(
     vararg typeArguments: ConeTypeProjection

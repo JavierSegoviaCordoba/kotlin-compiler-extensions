@@ -14,6 +14,7 @@ pluginManagement {
                 includeGroup("com.javiersc.hubdle")
             }
         }
+        maven(url = "https://maven.pkg.jetbrains.space/kotlin/p/kotlin/bootstrap")
         maven("https://oss.sonatype.org/content/repositories/snapshots")
     }
 
@@ -36,12 +37,19 @@ dependencyResolutionManagement {
                 includeGroup("com.javiersc.hubdle")
             }
         }
+        maven(url = "https://maven.pkg.jetbrains.space/kotlin/p/kotlin/bootstrap")
         sonatypeSnapshot()
     }
 }
 
+val kotlinVersion: String =
+    file("$rootDir/gradle/libs.versions.toml")
+        .readLines()
+        .first { it.contains("kotlin") }
+        .split("\"")[1]
+
 hubdleSettings {
     catalog { //
-        replaceStrictVersion("kotlin" to "1.9.255-SNAPSHOT")
+        replaceStrictVersion("kotlin" to kotlinVersion)
     }
 }

@@ -4,6 +4,7 @@
 
 ### Added
 
+- `isSubtypeOf(): Boolean`
 - `IrPluginContext.irType(): IrType`
 - `KFunction<*>.toName(): Name`
 - `FirBasedSymbol<*>.contextReceivers: List<FirContextReceiver>`
@@ -28,6 +29,7 @@
 ### Changed
 
 - Kotlin version to `1.9.255-SNAPSHOT`
+- `irCall` extensions
 
 ### Deprecated
 
