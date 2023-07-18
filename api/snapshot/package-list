@@ -4,6 +4,7 @@ $dokka.linkExtension:html
 module:kotlin-compiler-extensions
 com.javiersc.kotlin.compiler.extensions.common
 com.javiersc.kotlin.compiler.extensions.fir
+com.javiersc.kotlin.compiler.extensions.fir.context.receivers
 com.javiersc.kotlin.compiler.extensions.ir
 com.javiersc.kotlin.compiler.extensions.ir.context.receivers
 module:kotlin-compiler-test-extensions
