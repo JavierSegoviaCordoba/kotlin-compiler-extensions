@@ -4,6 +4,10 @@
 
 ### Added
 
+- `IrValueParameter.createIrField(): IrField`
+- `IrPluginContext.createIrField(): IrField`
+- `IrDeclaration.toIrExpression(): IrExpression`
+- `IrPluginContext.createIrBlockBody(): IrBlockBody`
 - `isSubtypeOf(): Boolean`
 - `IrPluginContext.irType(): IrType`
 - `KFunction<*>.toName(): Name`
@@ -25,9 +29,12 @@
 - `FirClassLikeSymbol<*>.toFirTypeRef(): FirTypeRef`
 - `FirFunctionSymbol<*>.contextReceiversToValueParameters(): List<FirValueParameter>`
 - `ClassId.toConeType(): ConeClassLikeType`
+- and many more...
 
 ### Changed
 
+- `FirBasedSymbol<*>.packageFqName()` -> `FirBasedSymbol<*>.packageFqName`
+- `buildVariable` to `createIrVariable`
 - Kotlin version to `1.9.255-SNAPSHOT`
 - `irCall` extensions
 

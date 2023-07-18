@@ -11,13 +11,13 @@ import org.jetbrains.kotlin.fir.symbols.impl.FirPropertySymbol
 import org.jetbrains.kotlin.name.FqName
 import org.jetbrains.kotlin.name.Name
 
-public fun FirBasedSymbol<*>.packageFqName(): FqName {
-    return when (this) {
-        is FirClassLikeSymbol<*> -> classId.packageFqName
-        is FirCallableSymbol<*> -> callableId.packageName
-        else -> TODO("Not implemented")
-    }
-}
+public val FirBasedSymbol<*>.packageFqName: FqName
+    get() =
+        when (this) {
+            is FirClassLikeSymbol<*> -> classId.packageFqName
+            is FirCallableSymbol<*> -> callableId.packageName
+            else -> TODO("Not implemented")
+        }
 
 public val FirBasedSymbol<*>.isTopLevel: Boolean
     get() = !hasOwner

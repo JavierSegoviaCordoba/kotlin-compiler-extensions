@@ -1,6 +1,6 @@
 [versions]
 hubdle = "0.5.0-SNAPSHOT"
-kotlin = "1.9.20-dev-6571"
+kotlin = "1.9.20-dev-5788"
 
 [plugins]
 javiersc-hubdle = { id = "com.javiersc.hubdle", version.ref = "hubdle" }

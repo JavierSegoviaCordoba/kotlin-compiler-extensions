@@ -27,11 +27,11 @@ public inline fun <reified T> FirSession.coneKotlinType(
     typeArguments: Array<ConeTypeProjection> = emptyArray()
 ): ConeKotlinType = classId<T>().createConeType(this, typeArguments)
 
-public val FirBasedSymbol<*>.coneKotlinType: ConeKotlinType?
+public val FirBasedSymbol<*>.coneKotlinType: ConeKotlinType
     get() =
         when (this) {
             is FirCallableSymbol<*> -> resolvedReturnTypeRef.coneType
-            else -> null
+            else -> TODO()
         }
 
 public fun ClassId.toConeType(vararg typeArguments: ConeTypeProjection): ConeClassLikeType {

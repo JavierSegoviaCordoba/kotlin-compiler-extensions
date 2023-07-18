@@ -29,11 +29,11 @@ public final class com/javiersc/kotlin/compiler/extensions/fir/ConeKotlinTypeKt 
 public final class com/javiersc/kotlin/compiler/extensions/fir/FirBasedSymbolKt {
 	public static final fun getHasOwner (Lorg/jetbrains/kotlin/fir/symbols/FirBasedSymbol;)Z
 	public static final fun getName (Lorg/jetbrains/kotlin/fir/symbols/FirBasedSymbol;)Lorg/jetbrains/kotlin/name/Name;
+	public static final fun getPackageFqName (Lorg/jetbrains/kotlin/fir/symbols/FirBasedSymbol;)Lorg/jetbrains/kotlin/name/FqName;
 	public static final fun isFunction (Lorg/jetbrains/kotlin/fir/symbols/FirBasedSymbol;)Z
 	public static final fun isNested (Lorg/jetbrains/kotlin/fir/symbols/FirBasedSymbol;)Z
 	public static final fun isProperty (Lorg/jetbrains/kotlin/fir/symbols/FirBasedSymbol;)Z
 	public static final fun isTopLevel (Lorg/jetbrains/kotlin/fir/symbols/FirBasedSymbol;)Z
-	public static final fun packageFqName (Lorg/jetbrains/kotlin/fir/symbols/FirBasedSymbol;)Lorg/jetbrains/kotlin/name/FqName;
 }
 
 public final class com/javiersc/kotlin/compiler/extensions/fir/FirConstructorKt {
@@ -108,11 +108,17 @@ public final class com/javiersc/kotlin/compiler/extensions/fir/context/receivers
 	public static final fun isSubtypeOf (Lorg/jetbrains/kotlin/fir/FirSession;Lorg/jetbrains/kotlin/fir/types/ConeKotlinType;Lorg/jetbrains/kotlin/fir/types/ConeKotlinType;)Z
 }
 
+public final class com/javiersc/kotlin/compiler/extensions/ir/IrBlockBodyKt {
+	public static final fun createIrBlockBody (Lorg/jetbrains/kotlin/backend/common/extensions/IrPluginContext;IILkotlin/jvm/functions/Function1;)Lorg/jetbrains/kotlin/ir/expressions/IrBlockBody;
+	public static synthetic fun createIrBlockBody$default (Lorg/jetbrains/kotlin/backend/common/extensions/IrPluginContext;IILkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lorg/jetbrains/kotlin/ir/expressions/IrBlockBody;
+}
+
 public final class com/javiersc/kotlin/compiler/extensions/ir/IrCallKt {
 	public static final fun toIrCall (Lorg/jetbrains/kotlin/ir/declarations/IrSimpleFunction;IILorg/jetbrains/kotlin/ir/symbols/IrSimpleFunctionSymbol;Lorg/jetbrains/kotlin/ir/types/IrType;IILorg/jetbrains/kotlin/ir/expressions/IrStatementOrigin;Lorg/jetbrains/kotlin/ir/symbols/IrClassSymbol;Lkotlin/jvm/functions/Function1;)Lorg/jetbrains/kotlin/ir/expressions/IrCall;
 	public static synthetic fun toIrCall$default (Lorg/jetbrains/kotlin/ir/declarations/IrSimpleFunction;IILorg/jetbrains/kotlin/ir/symbols/IrSimpleFunctionSymbol;Lorg/jetbrains/kotlin/ir/types/IrType;IILorg/jetbrains/kotlin/ir/expressions/IrStatementOrigin;Lorg/jetbrains/kotlin/ir/symbols/IrClassSymbol;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lorg/jetbrains/kotlin/ir/expressions/IrCall;
 	public static final fun toIrConstructorCall (Lorg/jetbrains/kotlin/ir/declarations/IrConstructor;IILorg/jetbrains/kotlin/ir/symbols/IrConstructorSymbol;Lorg/jetbrains/kotlin/ir/types/IrType;IILorg/jetbrains/kotlin/ir/expressions/IrStatementOrigin;Lorg/jetbrains/kotlin/descriptors/SourceElement;Lkotlin/jvm/functions/Function1;)Lorg/jetbrains/kotlin/ir/expressions/IrConstructorCall;
 	public static synthetic fun toIrConstructorCall$default (Lorg/jetbrains/kotlin/ir/declarations/IrConstructor;IILorg/jetbrains/kotlin/ir/symbols/IrConstructorSymbol;Lorg/jetbrains/kotlin/ir/types/IrType;IILorg/jetbrains/kotlin/ir/expressions/IrStatementOrigin;Lorg/jetbrains/kotlin/descriptors/SourceElement;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lorg/jetbrains/kotlin/ir/expressions/IrConstructorCall;
+	public static final fun toIrExpression (Lorg/jetbrains/kotlin/ir/declarations/IrDeclaration;)Lorg/jetbrains/kotlin/ir/expressions/IrExpression;
 	public static final fun toIrFunctionAccessExpression (Lorg/jetbrains/kotlin/ir/declarations/IrDeclaration;IILorg/jetbrains/kotlin/ir/symbols/IrFunctionSymbol;Lorg/jetbrains/kotlin/ir/types/IrType;IILorg/jetbrains/kotlin/ir/expressions/IrStatementOrigin;Lorg/jetbrains/kotlin/ir/symbols/IrClassSymbol;Lorg/jetbrains/kotlin/descriptors/SourceElement;Lkotlin/jvm/functions/Function1;)Lorg/jetbrains/kotlin/ir/expressions/IrFunctionAccessExpression;
 	public static final fun toIrFunctionAccessExpression (Lorg/jetbrains/kotlin/ir/declarations/IrFunction;IILorg/jetbrains/kotlin/ir/symbols/IrFunctionSymbol;Lorg/jetbrains/kotlin/ir/types/IrType;IILorg/jetbrains/kotlin/ir/expressions/IrStatementOrigin;Lorg/jetbrains/kotlin/ir/symbols/IrClassSymbol;Lorg/jetbrains/kotlin/descriptors/SourceElement;Lkotlin/jvm/functions/Function1;)Lorg/jetbrains/kotlin/ir/expressions/IrFunctionAccessExpression;
 	public static synthetic fun toIrFunctionAccessExpression$default (Lorg/jetbrains/kotlin/ir/declarations/IrDeclaration;IILorg/jetbrains/kotlin/ir/symbols/IrFunctionSymbol;Lorg/jetbrains/kotlin/ir/types/IrType;IILorg/jetbrains/kotlin/ir/expressions/IrStatementOrigin;Lorg/jetbrains/kotlin/ir/symbols/IrClassSymbol;Lorg/jetbrains/kotlin/descriptors/SourceElement;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lorg/jetbrains/kotlin/ir/expressions/IrFunctionAccessExpression;
@@ -165,6 +171,13 @@ public final class com/javiersc/kotlin/compiler/extensions/ir/IrElementKt {
 	public static final fun hasAnnotation (Lorg/jetbrains/kotlin/ir/IrElement;Lorg/jetbrains/kotlin/name/FqName;)Z
 }
 
+public final class com/javiersc/kotlin/compiler/extensions/ir/IrFieldKt {
+	public static final fun createIrField (Lorg/jetbrains/kotlin/backend/common/extensions/IrPluginContext;IILorg/jetbrains/kotlin/ir/declarations/IrDeclarationOrigin;Lorg/jetbrains/kotlin/name/Name;Lorg/jetbrains/kotlin/descriptors/DescriptorVisibility;Lorg/jetbrains/kotlin/ir/symbols/IrFieldSymbol;Lorg/jetbrains/kotlin/ir/types/IrType;ZZZLkotlin/jvm/functions/Function1;)Lorg/jetbrains/kotlin/ir/declarations/IrField;
+	public static synthetic fun createIrField$default (Lorg/jetbrains/kotlin/backend/common/extensions/IrPluginContext;IILorg/jetbrains/kotlin/ir/declarations/IrDeclarationOrigin;Lorg/jetbrains/kotlin/name/Name;Lorg/jetbrains/kotlin/descriptors/DescriptorVisibility;Lorg/jetbrains/kotlin/ir/symbols/IrFieldSymbol;Lorg/jetbrains/kotlin/ir/types/IrType;ZZZLkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lorg/jetbrains/kotlin/ir/declarations/IrField;
+	public static final fun toIrField (Lorg/jetbrains/kotlin/ir/declarations/IrValueParameter;Lorg/jetbrains/kotlin/backend/common/extensions/IrPluginContext;IILorg/jetbrains/kotlin/ir/declarations/IrDeclarationOrigin;Lorg/jetbrains/kotlin/name/Name;Lorg/jetbrains/kotlin/descriptors/DescriptorVisibility;Lorg/jetbrains/kotlin/ir/symbols/IrFieldSymbol;Lorg/jetbrains/kotlin/ir/types/IrType;ZZZLkotlin/jvm/functions/Function1;)Lorg/jetbrains/kotlin/ir/declarations/IrField;
+	public static synthetic fun toIrField$default (Lorg/jetbrains/kotlin/ir/declarations/IrValueParameter;Lorg/jetbrains/kotlin/backend/common/extensions/IrPluginContext;IILorg/jetbrains/kotlin/ir/declarations/IrDeclarationOrigin;Lorg/jetbrains/kotlin/name/Name;Lorg/jetbrains/kotlin/descriptors/DescriptorVisibility;Lorg/jetbrains/kotlin/ir/symbols/IrFieldSymbol;Lorg/jetbrains/kotlin/ir/types/IrType;ZZZLkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lorg/jetbrains/kotlin/ir/declarations/IrField;
+}
+
 public final class com/javiersc/kotlin/compiler/extensions/ir/IrFunctionAccessExpressionKt {
 	public static final fun getAnnotations (Lorg/jetbrains/kotlin/ir/expressions/IrFunctionAccessExpression;)Ljava/util/List;
 	public static final fun getCallableId (Lorg/jetbrains/kotlin/ir/expressions/IrFunctionAccessExpression;)Lorg/jetbrains/kotlin/name/CallableId;
@@ -173,7 +186,18 @@ public final class com/javiersc/kotlin/compiler/extensions/ir/IrFunctionAccessEx
 	public static final fun hasAnnotation (Lorg/jetbrains/kotlin/ir/expressions/IrFunctionAccessExpression;Lorg/jetbrains/kotlin/name/FqName;)Z
 }
 
+public final class com/javiersc/kotlin/compiler/extensions/ir/IrFunctionExpressionKt {
+	public static final fun createIrFunctionExpression (IILorg/jetbrains/kotlin/ir/types/IrType;Lorg/jetbrains/kotlin/ir/declarations/IrSimpleFunction;Lorg/jetbrains/kotlin/ir/expressions/IrStatementOrigin;)Lorg/jetbrains/kotlin/ir/expressions/IrFunctionExpression;
+	public static synthetic fun createIrFunctionExpression$default (IILorg/jetbrains/kotlin/ir/types/IrType;Lorg/jetbrains/kotlin/ir/declarations/IrSimpleFunction;Lorg/jetbrains/kotlin/ir/expressions/IrStatementOrigin;ILjava/lang/Object;)Lorg/jetbrains/kotlin/ir/expressions/IrFunctionExpression;
+}
+
 public final class com/javiersc/kotlin/compiler/extensions/ir/IrFunctionKt {
+	public static final fun createDefaultPropertyAccessor (Lorg/jetbrains/kotlin/backend/common/extensions/IrPluginContext;Ljava/lang/String;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;)Lorg/jetbrains/kotlin/ir/declarations/IrSimpleFunction;
+	public static synthetic fun createDefaultPropertyAccessor$default (Lorg/jetbrains/kotlin/backend/common/extensions/IrPluginContext;Ljava/lang/String;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lorg/jetbrains/kotlin/ir/declarations/IrSimpleFunction;
+	public static final fun createGetterIrSimpleFunction (Lorg/jetbrains/kotlin/backend/common/extensions/IrPluginContext;Lorg/jetbrains/kotlin/name/Name;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;)Lorg/jetbrains/kotlin/ir/declarations/IrSimpleFunction;
+	public static synthetic fun createGetterIrSimpleFunction$default (Lorg/jetbrains/kotlin/backend/common/extensions/IrPluginContext;Lorg/jetbrains/kotlin/name/Name;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lorg/jetbrains/kotlin/ir/declarations/IrSimpleFunction;
+	public static final fun createLambdaIrSimpleFunction (Lorg/jetbrains/kotlin/backend/common/extensions/IrPluginContext;IILorg/jetbrains/kotlin/ir/declarations/IrDeclarationOrigin;Lorg/jetbrains/kotlin/name/Name;Lorg/jetbrains/kotlin/descriptors/DescriptorVisibility;ZZLorg/jetbrains/kotlin/ir/types/IrType;Lorg/jetbrains/kotlin/descriptors/Modality;Lorg/jetbrains/kotlin/ir/symbols/IrSimpleFunctionSymbol;ZZZZZLorg/jetbrains/kotlin/serialization/deserialization/descriptors/DeserializedContainerSource;ZLkotlin/jvm/functions/Function1;)Lorg/jetbrains/kotlin/ir/declarations/IrSimpleFunction;
+	public static synthetic fun createLambdaIrSimpleFunction$default (Lorg/jetbrains/kotlin/backend/common/extensions/IrPluginContext;IILorg/jetbrains/kotlin/ir/declarations/IrDeclarationOrigin;Lorg/jetbrains/kotlin/name/Name;Lorg/jetbrains/kotlin/descriptors/DescriptorVisibility;ZZLorg/jetbrains/kotlin/ir/types/IrType;Lorg/jetbrains/kotlin/descriptors/Modality;Lorg/jetbrains/kotlin/ir/symbols/IrSimpleFunctionSymbol;ZZZZZLorg/jetbrains/kotlin/serialization/deserialization/descriptors/DeserializedContainerSource;ZLkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lorg/jetbrains/kotlin/ir/declarations/IrSimpleFunction;
 	public static final fun findIrFunction (Lorg/jetbrains/kotlin/backend/common/extensions/IrPluginContext;Lorg/jetbrains/kotlin/name/CallableId;)Lorg/jetbrains/kotlin/ir/declarations/IrFunction;
 	public static final fun findIrFunctionSymbol (Lorg/jetbrains/kotlin/backend/common/extensions/IrPluginContext;Lorg/jetbrains/kotlin/name/CallableId;)Lorg/jetbrains/kotlin/ir/symbols/IrFunctionSymbol;
 	public static final fun findIrSimpleFunction (Lorg/jetbrains/kotlin/backend/common/extensions/IrPluginContext;Lorg/jetbrains/kotlin/name/CallableId;)Lorg/jetbrains/kotlin/ir/declarations/IrSimpleFunction;
@@ -185,8 +209,17 @@ public final class com/javiersc/kotlin/compiler/extensions/ir/IrGetEnumValueKt {
 	public static final fun toIrGetEnumValue (Lorg/jetbrains/kotlin/ir/types/IrType;Lorg/jetbrains/kotlin/ir/declarations/IrEnumEntry;)Lorg/jetbrains/kotlin/ir/expressions/IrGetEnumValue;
 }
 
+public final class com/javiersc/kotlin/compiler/extensions/ir/IrGetValueKt {
+	public static final fun createIrGetValue (IILorg/jetbrains/kotlin/ir/types/IrType;Lorg/jetbrains/kotlin/ir/symbols/IrValueSymbol;Lorg/jetbrains/kotlin/ir/expressions/IrStatementOrigin;Lkotlin/jvm/functions/Function1;)Lorg/jetbrains/kotlin/ir/expressions/IrGetValue;
+	public static synthetic fun createIrGetValue$default (IILorg/jetbrains/kotlin/ir/types/IrType;Lorg/jetbrains/kotlin/ir/symbols/IrValueSymbol;Lorg/jetbrains/kotlin/ir/expressions/IrStatementOrigin;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lorg/jetbrains/kotlin/ir/expressions/IrGetValue;
+	public static final fun toIrGetValue (Lorg/jetbrains/kotlin/ir/declarations/IrClass;IILorg/jetbrains/kotlin/ir/symbols/IrValueSymbol;Lkotlin/jvm/functions/Function1;)Lorg/jetbrains/kotlin/ir/expressions/IrGetValue;
+	public static synthetic fun toIrGetValue$default (Lorg/jetbrains/kotlin/ir/declarations/IrClass;IILorg/jetbrains/kotlin/ir/symbols/IrValueSymbol;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lorg/jetbrains/kotlin/ir/expressions/IrGetValue;
+}
+
 public final class com/javiersc/kotlin/compiler/extensions/ir/IrReturnKt {
 	public static final fun copyIrReturn (Lorg/jetbrains/kotlin/ir/declarations/IrFunction;Lorg/jetbrains/kotlin/ir/expressions/IrExpression;)Lorg/jetbrains/kotlin/ir/expressions/IrReturn;
+	public static final fun createIrReturn (IILorg/jetbrains/kotlin/ir/types/IrType;Lorg/jetbrains/kotlin/ir/symbols/IrReturnTargetSymbol;Lorg/jetbrains/kotlin/ir/expressions/IrExpression;Lkotlin/jvm/functions/Function1;)Lorg/jetbrains/kotlin/ir/expressions/IrReturn;
+	public static synthetic fun createIrReturn$default (IILorg/jetbrains/kotlin/ir/types/IrType;Lorg/jetbrains/kotlin/ir/symbols/IrReturnTargetSymbol;Lorg/jetbrains/kotlin/ir/expressions/IrExpression;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lorg/jetbrains/kotlin/ir/expressions/IrReturn;
 	public static final fun getIrReturn (Lorg/jetbrains/kotlin/ir/declarations/IrFunction;)Lorg/jetbrains/kotlin/ir/expressions/IrReturn;
 	public static final fun getIrReturn (Lorg/jetbrains/kotlin/ir/expressions/IrFunctionExpression;)Lorg/jetbrains/kotlin/ir/expressions/IrReturn;
 }
@@ -214,11 +247,20 @@ public final class com/javiersc/kotlin/compiler/extensions/ir/IrTypeKt {
 	public static final fun getIrType (Lorg/jetbrains/kotlin/ir/IrElement;)Lorg/jetbrains/kotlin/ir/types/IrType;
 }
 
+public final class com/javiersc/kotlin/compiler/extensions/ir/IrValueParameterKt {
+	public static final fun toIrGetValue (Lorg/jetbrains/kotlin/ir/declarations/IrValueParameter;)Lorg/jetbrains/kotlin/ir/expressions/IrGetValue;
+}
+
 public final class com/javiersc/kotlin/compiler/extensions/ir/IrVariableKt {
-	public static final fun buildVariable (Lorg/jetbrains/kotlin/ir/types/IrType;Lorg/jetbrains/kotlin/name/Name;Lorg/jetbrains/kotlin/ir/declarations/IrDeclarationParent;IILorg/jetbrains/kotlin/ir/declarations/IrDeclarationOrigin;ZZZLkotlin/jvm/functions/Function1;)Lorg/jetbrains/kotlin/ir/declarations/IrVariable;
-	public static final fun buildVariable (Lorg/jetbrains/kotlin/name/Name;Lorg/jetbrains/kotlin/ir/types/IrType;Lorg/jetbrains/kotlin/ir/declarations/IrDeclarationParent;IILorg/jetbrains/kotlin/ir/declarations/IrDeclarationOrigin;ZZZLkotlin/jvm/functions/Function1;)Lorg/jetbrains/kotlin/ir/declarations/IrVariable;
-	public static synthetic fun buildVariable$default (Lorg/jetbrains/kotlin/ir/types/IrType;Lorg/jetbrains/kotlin/name/Name;Lorg/jetbrains/kotlin/ir/declarations/IrDeclarationParent;IILorg/jetbrains/kotlin/ir/declarations/IrDeclarationOrigin;ZZZLkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lorg/jetbrains/kotlin/ir/declarations/IrVariable;
-	public static synthetic fun buildVariable$default (Lorg/jetbrains/kotlin/name/Name;Lorg/jetbrains/kotlin/ir/types/IrType;Lorg/jetbrains/kotlin/ir/declarations/IrDeclarationParent;IILorg/jetbrains/kotlin/ir/declarations/IrDeclarationOrigin;ZZZLkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lorg/jetbrains/kotlin/ir/declarations/IrVariable;
+	public static final fun createVariable (Lorg/jetbrains/kotlin/ir/types/IrType;Lorg/jetbrains/kotlin/name/Name;Lorg/jetbrains/kotlin/ir/declarations/IrDeclarationParent;IILorg/jetbrains/kotlin/ir/declarations/IrDeclarationOrigin;ZZZLkotlin/jvm/functions/Function1;)Lorg/jetbrains/kotlin/ir/declarations/IrVariable;
+	public static final fun createVariable (Lorg/jetbrains/kotlin/name/Name;Lorg/jetbrains/kotlin/ir/types/IrType;Lorg/jetbrains/kotlin/ir/declarations/IrDeclarationParent;IILorg/jetbrains/kotlin/ir/declarations/IrDeclarationOrigin;ZZZLkotlin/jvm/functions/Function1;)Lorg/jetbrains/kotlin/ir/declarations/IrVariable;
+	public static synthetic fun createVariable$default (Lorg/jetbrains/kotlin/ir/types/IrType;Lorg/jetbrains/kotlin/name/Name;Lorg/jetbrains/kotlin/ir/declarations/IrDeclarationParent;IILorg/jetbrains/kotlin/ir/declarations/IrDeclarationOrigin;ZZZLkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lorg/jetbrains/kotlin/ir/declarations/IrVariable;
+	public static synthetic fun createVariable$default (Lorg/jetbrains/kotlin/name/Name;Lorg/jetbrains/kotlin/ir/types/IrType;Lorg/jetbrains/kotlin/ir/declarations/IrDeclarationParent;IILorg/jetbrains/kotlin/ir/declarations/IrDeclarationOrigin;ZZZLkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lorg/jetbrains/kotlin/ir/declarations/IrVariable;
+}
+
+public final class com/javiersc/kotlin/compiler/extensions/ir/context/receivers/IrFieldKt {
+	public static final fun toIrField (Lorg/jetbrains/kotlin/backend/common/extensions/IrPluginContext;Lorg/jetbrains/kotlin/ir/declarations/IrValueParameter;IILorg/jetbrains/kotlin/ir/declarations/IrDeclarationOrigin;Lorg/jetbrains/kotlin/name/Name;Lorg/jetbrains/kotlin/descriptors/DescriptorVisibility;Lorg/jetbrains/kotlin/ir/symbols/IrFieldSymbol;Lorg/jetbrains/kotlin/ir/types/IrType;ZZZLkotlin/jvm/functions/Function1;)Lorg/jetbrains/kotlin/ir/declarations/IrField;
+	public static synthetic fun toIrField$default (Lorg/jetbrains/kotlin/backend/common/extensions/IrPluginContext;Lorg/jetbrains/kotlin/ir/declarations/IrValueParameter;IILorg/jetbrains/kotlin/ir/declarations/IrDeclarationOrigin;Lorg/jetbrains/kotlin/name/Name;Lorg/jetbrains/kotlin/descriptors/DescriptorVisibility;Lorg/jetbrains/kotlin/ir/symbols/IrFieldSymbol;Lorg/jetbrains/kotlin/ir/types/IrType;ZZZLkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lorg/jetbrains/kotlin/ir/declarations/IrField;
 }
 
 public final class com/javiersc/kotlin/compiler/extensions/ir/context/receivers/IrFunctionKt {

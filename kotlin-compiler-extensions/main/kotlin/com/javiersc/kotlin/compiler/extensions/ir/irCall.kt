@@ -8,8 +8,10 @@ import org.jetbrains.kotlin.ir.declarations.IrConstructor
 import org.jetbrains.kotlin.ir.declarations.IrDeclaration
 import org.jetbrains.kotlin.ir.declarations.IrFunction
 import org.jetbrains.kotlin.ir.declarations.IrSimpleFunction
+import org.jetbrains.kotlin.ir.declarations.IrValueParameter
 import org.jetbrains.kotlin.ir.expressions.IrCall
 import org.jetbrains.kotlin.ir.expressions.IrConstructorCall
+import org.jetbrains.kotlin.ir.expressions.IrExpression
 import org.jetbrains.kotlin.ir.expressions.IrFunctionAccessExpression
 import org.jetbrains.kotlin.ir.expressions.IrStatementOrigin
 import org.jetbrains.kotlin.ir.expressions.impl.IrCallImpl
@@ -19,6 +21,13 @@ import org.jetbrains.kotlin.ir.symbols.IrConstructorSymbol
 import org.jetbrains.kotlin.ir.symbols.IrFunctionSymbol
 import org.jetbrains.kotlin.ir.symbols.IrSimpleFunctionSymbol
 import org.jetbrains.kotlin.ir.types.IrType
+
+public fun IrDeclaration.toIrExpression(): IrExpression =
+    when (this) {
+        is IrFunction -> toIrFunctionAccessExpression()
+        is IrValueParameter -> toIrGetValue()
+        else -> TODO()
+    }
 
 public fun IrDeclaration.toIrFunctionAccessExpression(
     startOffset: Int = UNDEFINED_OFFSET,
@@ -37,7 +46,7 @@ public fun IrDeclaration.toIrFunctionAccessExpression(
     block: IrFunctionAccessExpression.() -> Unit = {},
 ): IrFunctionAccessExpression =
     when (this) {
-        is IrFunction ->
+        is IrFunction -> {
             toIrFunctionAccessExpression(
                 startOffset = startOffset,
                 endOffset = endOffset,
@@ -50,6 +59,7 @@ public fun IrDeclaration.toIrFunctionAccessExpression(
                 source = source,
                 block = block,
             )
+        }
         else -> TODO()
     }
 
@@ -104,7 +114,7 @@ public fun IrSimpleFunction.toIrCall(
     valueArgumentsCount: Int = symbol.owner.valueParameters.size,
     origin: IrStatementOrigin? = null,
     superQualifierSymbol: IrClassSymbol? = null,
-    block: IrFunctionAccessExpression.() -> Unit = {},
+    block: IrCall.() -> Unit = {},
 ): IrCall =
     IrCallImpl(
             startOffset = startOffset,
