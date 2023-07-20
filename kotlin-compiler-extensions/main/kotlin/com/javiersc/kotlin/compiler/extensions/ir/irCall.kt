@@ -109,9 +109,9 @@ public fun IrSimpleFunction.toIrCall(
     startOffset: Int = UNDEFINED_OFFSET,
     endOffset: Int = UNDEFINED_OFFSET,
     symbol: IrSimpleFunctionSymbol = this.symbol,
-    type: IrType = symbol.owner.returnType,
-    typeArgumentsCount: Int = symbol.owner.typeParameters.size,
-    valueArgumentsCount: Int = symbol.owner.valueParameters.size,
+    type: IrType = returnType,
+    typeArgumentsCount: Int = typeParameters.size,
+    valueArgumentsCount: Int = valueParameters.size,
     origin: IrStatementOrigin? = null,
     superQualifierSymbol: IrClassSymbol? = null,
     block: IrCall.() -> Unit = {},
@@ -126,7 +126,16 @@ public fun IrSimpleFunction.toIrCall(
             origin = origin,
             superQualifierSymbol = superQualifierSymbol,
         )
-        .apply(block)
+        .apply {
+            val function = this@toIrCall
+            this.dispatchReceiver = function.dispatchReceiverParameter?.toIrGetValue()
+            this.extensionReceiver = function.extensionReceiverParameter?.toIrGetValue()
+            val functionValueParameters: List<IrValueParameter> = function.valueParameters
+            for ((index: Int, param: IrValueParameter) in functionValueParameters.withIndex()) {
+                putValueArgument(index, param.toIrGetValue())
+            }
+            block()
+        }
 
 public fun IrConstructor.toIrConstructorCall(
     startOffset: Int = UNDEFINED_OFFSET,

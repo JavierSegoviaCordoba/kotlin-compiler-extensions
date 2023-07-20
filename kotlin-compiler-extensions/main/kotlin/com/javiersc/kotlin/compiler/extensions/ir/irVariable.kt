@@ -9,7 +9,7 @@ import org.jetbrains.kotlin.ir.types.IrType
 import org.jetbrains.kotlin.name.Name
 import org.jetbrains.kotlin.ir.builders.declarations.buildVariable as buildVariableImpl
 
-public fun IrType.createVariable(
+public fun IrType.createIrVariable(
     name: Name,
     parent: IrDeclarationParent? = null,
     startOffset: Int = UNDEFINED_OFFSET,
@@ -20,7 +20,7 @@ public fun IrType.createVariable(
     isLateinit: Boolean = false,
     block: IrVariableImpl.() -> Unit = {},
 ): IrVariable =
-    createVariable(
+    createIrVariable(
         name = name,
         type = this,
         parent = parent,
@@ -33,7 +33,7 @@ public fun IrType.createVariable(
         block = block,
     )
 
-public fun createVariable(
+public fun createIrVariable(
     name: Name,
     type: IrType,
     parent: IrDeclarationParent? = null,

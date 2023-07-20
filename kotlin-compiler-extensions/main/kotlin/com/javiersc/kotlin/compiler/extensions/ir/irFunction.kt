@@ -77,7 +77,7 @@ public fun IrPluginContext.createLambdaIrSimpleFunction(
     isExternal: Boolean = false,
     containerSource: DeserializedContainerSource? = null,
     isFakeOverride: Boolean = origin == IrDeclarationOrigin.FAKE_OVERRIDE,
-    block: IrSimpleFunction.() -> Unit,
+    block: IrSimpleFunction.() -> Unit = {},
 ): IrSimpleFunction =
     irFactory
         .createSimpleFunction(

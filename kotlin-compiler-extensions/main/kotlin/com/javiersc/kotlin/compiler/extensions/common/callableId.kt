@@ -10,3 +10,5 @@ public fun String.toCallableId(): CallableId =
 public fun FqName.toCallableId(): CallableId = CallableId(parent(), shortName())
 
 public fun ClassId.toCallableId(): CallableId = CallableId(packageFqName, this.shortClassName)
+
+public inline fun <reified T> callableId(): CallableId = fqName<T>().toCallableId()

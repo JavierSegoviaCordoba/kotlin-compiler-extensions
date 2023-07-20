@@ -171,6 +171,11 @@ public final class com/javiersc/kotlin/compiler/extensions/ir/IrElementKt {
 	public static final fun hasAnnotation (Lorg/jetbrains/kotlin/ir/IrElement;Lorg/jetbrains/kotlin/name/FqName;)Z
 }
 
+public final class com/javiersc/kotlin/compiler/extensions/ir/IrExpressionBodyKt {
+	public static final fun createExpressionBody (Lorg/jetbrains/kotlin/backend/common/extensions/IrPluginContext;IILorg/jetbrains/kotlin/ir/expressions/IrExpression;)Lorg/jetbrains/kotlin/ir/expressions/IrExpressionBody;
+	public static synthetic fun createExpressionBody$default (Lorg/jetbrains/kotlin/backend/common/extensions/IrPluginContext;IILorg/jetbrains/kotlin/ir/expressions/IrExpression;ILjava/lang/Object;)Lorg/jetbrains/kotlin/ir/expressions/IrExpressionBody;
+}
+
 public final class com/javiersc/kotlin/compiler/extensions/ir/IrFieldKt {
 	public static final fun createIrField (Lorg/jetbrains/kotlin/backend/common/extensions/IrPluginContext;IILorg/jetbrains/kotlin/ir/declarations/IrDeclarationOrigin;Lorg/jetbrains/kotlin/name/Name;Lorg/jetbrains/kotlin/descriptors/DescriptorVisibility;Lorg/jetbrains/kotlin/ir/symbols/IrFieldSymbol;Lorg/jetbrains/kotlin/ir/types/IrType;ZZZLkotlin/jvm/functions/Function1;)Lorg/jetbrains/kotlin/ir/declarations/IrField;
 	public static synthetic fun createIrField$default (Lorg/jetbrains/kotlin/backend/common/extensions/IrPluginContext;IILorg/jetbrains/kotlin/ir/declarations/IrDeclarationOrigin;Lorg/jetbrains/kotlin/name/Name;Lorg/jetbrains/kotlin/descriptors/DescriptorVisibility;Lorg/jetbrains/kotlin/ir/symbols/IrFieldSymbol;Lorg/jetbrains/kotlin/ir/types/IrType;ZZZLkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lorg/jetbrains/kotlin/ir/declarations/IrField;
@@ -207,6 +212,11 @@ public final class com/javiersc/kotlin/compiler/extensions/ir/IrFunctionKt {
 
 public final class com/javiersc/kotlin/compiler/extensions/ir/IrGetEnumValueKt {
 	public static final fun toIrGetEnumValue (Lorg/jetbrains/kotlin/ir/types/IrType;Lorg/jetbrains/kotlin/ir/declarations/IrEnumEntry;)Lorg/jetbrains/kotlin/ir/expressions/IrGetEnumValue;
+}
+
+public final class com/javiersc/kotlin/compiler/extensions/ir/IrGetObjectValueKt {
+	public static final fun toIrGetObjectValue (Lorg/jetbrains/kotlin/ir/declarations/IrClass;IILorg/jetbrains/kotlin/ir/symbols/IrClassSymbol;Lorg/jetbrains/kotlin/ir/types/IrType;)Lorg/jetbrains/kotlin/ir/expressions/IrGetObjectValue;
+	public static synthetic fun toIrGetObjectValue$default (Lorg/jetbrains/kotlin/ir/declarations/IrClass;IILorg/jetbrains/kotlin/ir/symbols/IrClassSymbol;Lorg/jetbrains/kotlin/ir/types/IrType;ILjava/lang/Object;)Lorg/jetbrains/kotlin/ir/expressions/IrGetObjectValue;
 }
 
 public final class com/javiersc/kotlin/compiler/extensions/ir/IrGetValueKt {
@@ -247,15 +257,20 @@ public final class com/javiersc/kotlin/compiler/extensions/ir/IrTypeKt {
 	public static final fun getIrType (Lorg/jetbrains/kotlin/ir/IrElement;)Lorg/jetbrains/kotlin/ir/types/IrType;
 }
 
+public final class com/javiersc/kotlin/compiler/extensions/ir/IrTypeProjectionKt {
+	public static final fun toIrTypeProjection (Lorg/jetbrains/kotlin/ir/types/IrSimpleType;)Lorg/jetbrains/kotlin/ir/types/IrTypeProjection;
+	public static final fun toIrTypeProjection (Lorg/jetbrains/kotlin/ir/types/IrType;)Lorg/jetbrains/kotlin/ir/types/IrTypeProjection;
+}
+
 public final class com/javiersc/kotlin/compiler/extensions/ir/IrValueParameterKt {
 	public static final fun toIrGetValue (Lorg/jetbrains/kotlin/ir/declarations/IrValueParameter;)Lorg/jetbrains/kotlin/ir/expressions/IrGetValue;
 }
 
 public final class com/javiersc/kotlin/compiler/extensions/ir/IrVariableKt {
-	public static final fun createVariable (Lorg/jetbrains/kotlin/ir/types/IrType;Lorg/jetbrains/kotlin/name/Name;Lorg/jetbrains/kotlin/ir/declarations/IrDeclarationParent;IILorg/jetbrains/kotlin/ir/declarations/IrDeclarationOrigin;ZZZLkotlin/jvm/functions/Function1;)Lorg/jetbrains/kotlin/ir/declarations/IrVariable;
-	public static final fun createVariable (Lorg/jetbrains/kotlin/name/Name;Lorg/jetbrains/kotlin/ir/types/IrType;Lorg/jetbrains/kotlin/ir/declarations/IrDeclarationParent;IILorg/jetbrains/kotlin/ir/declarations/IrDeclarationOrigin;ZZZLkotlin/jvm/functions/Function1;)Lorg/jetbrains/kotlin/ir/declarations/IrVariable;
-	public static synthetic fun createVariable$default (Lorg/jetbrains/kotlin/ir/types/IrType;Lorg/jetbrains/kotlin/name/Name;Lorg/jetbrains/kotlin/ir/declarations/IrDeclarationParent;IILorg/jetbrains/kotlin/ir/declarations/IrDeclarationOrigin;ZZZLkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lorg/jetbrains/kotlin/ir/declarations/IrVariable;
-	public static synthetic fun createVariable$default (Lorg/jetbrains/kotlin/name/Name;Lorg/jetbrains/kotlin/ir/types/IrType;Lorg/jetbrains/kotlin/ir/declarations/IrDeclarationParent;IILorg/jetbrains/kotlin/ir/declarations/IrDeclarationOrigin;ZZZLkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lorg/jetbrains/kotlin/ir/declarations/IrVariable;
+	public static final fun createIrVariable (Lorg/jetbrains/kotlin/ir/types/IrType;Lorg/jetbrains/kotlin/name/Name;Lorg/jetbrains/kotlin/ir/declarations/IrDeclarationParent;IILorg/jetbrains/kotlin/ir/declarations/IrDeclarationOrigin;ZZZLkotlin/jvm/functions/Function1;)Lorg/jetbrains/kotlin/ir/declarations/IrVariable;
+	public static final fun createIrVariable (Lorg/jetbrains/kotlin/name/Name;Lorg/jetbrains/kotlin/ir/types/IrType;Lorg/jetbrains/kotlin/ir/declarations/IrDeclarationParent;IILorg/jetbrains/kotlin/ir/declarations/IrDeclarationOrigin;ZZZLkotlin/jvm/functions/Function1;)Lorg/jetbrains/kotlin/ir/declarations/IrVariable;
+	public static synthetic fun createIrVariable$default (Lorg/jetbrains/kotlin/ir/types/IrType;Lorg/jetbrains/kotlin/name/Name;Lorg/jetbrains/kotlin/ir/declarations/IrDeclarationParent;IILorg/jetbrains/kotlin/ir/declarations/IrDeclarationOrigin;ZZZLkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lorg/jetbrains/kotlin/ir/declarations/IrVariable;
+	public static synthetic fun createIrVariable$default (Lorg/jetbrains/kotlin/name/Name;Lorg/jetbrains/kotlin/ir/types/IrType;Lorg/jetbrains/kotlin/ir/declarations/IrDeclarationParent;IILorg/jetbrains/kotlin/ir/declarations/IrDeclarationOrigin;ZZZLkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lorg/jetbrains/kotlin/ir/declarations/IrVariable;
 }
 
 public final class com/javiersc/kotlin/compiler/extensions/ir/context/receivers/IrFieldKt {
