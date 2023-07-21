@@ -7,6 +7,6 @@ import org.jetbrains.kotlin.ir.types.impl.buildTypeProjection
 import org.jetbrains.kotlin.ir.types.impl.toBuilder
 
 public fun IrType.toIrTypeProjection(): IrTypeProjection =
-    asIr<IrSimpleType>()!!.toBuilder().buildTypeProjection()
+    this.asIrOrNull<IrSimpleType>()?.toBuilder()?.buildTypeProjection()!!
 
-public fun IrSimpleType.toIrTypeProjection(): IrTypeProjection = toBuilder().buildTypeProjection()
+public fun IrSimpleType.toIrTypeProjection(): IrTypeProjection = toIrTypeProjection()

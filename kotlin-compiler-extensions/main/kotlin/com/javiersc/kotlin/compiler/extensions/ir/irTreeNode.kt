@@ -41,11 +41,11 @@ public inline fun <reified T : IrElement> IrTreeNode.firstIrOrNull(): T? =
 
 public inline fun <reified T : IrElement> IrTreeNode.firstIrOrNull(predicate: (T) -> Boolean): T? =
     this.firstOrNull {
-            val asIr: T? = it.value.asIr<T>()
+            val asIr: T? = it.value.asIrOrNull<T>()
             if (asIr == null) false else predicate(asIr)
         }
         ?.value
-        ?.asIr()
+        ?.asIrOrNull()
 
 public inline fun <reified T : IrElement> Iterable<IrTreeNode>.firstIrOrNull(): T? =
     this.firstIrOrNull(predicate = { true })
@@ -61,25 +61,25 @@ public inline fun <reified T : IrElement> Iterable<IrTreeNode>.firstIrOrNull(
     predicate: (T) -> Boolean
 ): T? =
     this.firstOrNull {
-            val asIr = it.value.asIr<T>()
+            val asIr: T? = it.value.asIrOrNull<T>()
             if (asIr == null) false else predicate(asIr)
         }
         ?.value
-        ?.asIr()
+        ?.asIrOrNull()
 
 public inline fun <reified T : IrElement> IrTreeNode.filterIrIsInstance(): List<T> =
-    this.mapNotNull { it.value.asIr() }
+    this.mapNotNull { it.value.asIrOrNull() }
 
 public inline fun <reified T : IrElement> Sequence<IrTreeNode>.filterIrIsInstance(): Sequence<T> =
-    this.mapNotNull { it.value.asIr() }
+    this.mapNotNull { it.value.asIrOrNull() }
 
 public inline fun <reified T : IrElement> Iterable<IrTreeNode>.filterIrIsInstance(): List<T> =
-    this.mapNotNull { it.value.asIr() }
+    this.mapNotNull { it.value.asIrOrNull() }
 
 public val IrTreeNode.irFile: IrFile?
     get() {
         val recursive = DeepRecursiveFunction { node: TreeNode<IrElement> ->
-            val irFile: IrFile? = node.value.asIr()
+            val irFile: IrFile? = node.value.asIrOrNull()
             val parent: TreeNode<IrElement>? = parent
             when {
                 irFile != null -> irFile
@@ -93,7 +93,7 @@ public val IrTreeNode.irFile: IrFile?
 public val IrTreeNode.parentIrClass: IrClass?
     get() {
         val recursive = DeepRecursiveFunction { node: TreeNode<IrElement> ->
-            val irClass: IrClass? = node.value.asIr()
+            val irClass: IrClass? = node.value.asIrOrNull()
             val parent: TreeNode<IrElement>? = parent
             when {
                 irClass != null -> irClass
@@ -107,7 +107,7 @@ public val IrTreeNode.parentIrClass: IrClass?
 public val IrTreeNode.parentIrDeclaration: IrDeclaration?
     get() {
         val recursive = DeepRecursiveFunction { node: TreeNode<IrElement> ->
-            val irDeclaration: IrDeclaration? = node.value.asIr()
+            val irDeclaration: IrDeclaration? = node.value.asIrOrNull()
             val parent: TreeNode<IrElement>? = parent
             when {
                 irDeclaration != null -> irDeclaration
@@ -121,7 +121,7 @@ public val IrTreeNode.parentIrDeclaration: IrDeclaration?
 public val IrTreeNode.parentIrDeclarationWithName: IrDeclarationWithName?
     get() {
         val recursive = DeepRecursiveFunction { node: TreeNode<IrElement> ->
-            val irDeclaration: IrDeclarationWithName? = node.value.asIr()
+            val irDeclaration: IrDeclarationWithName? = node.value.asIrOrNull()
             val parent: TreeNode<IrElement>? = parent
             when {
                 irDeclaration != null -> irDeclaration
@@ -135,7 +135,7 @@ public val IrTreeNode.parentIrDeclarationWithName: IrDeclarationWithName?
 public val IrTreeNode.parentIrFunction: IrFunction?
     get() {
         val recursive = DeepRecursiveFunction { node: TreeNode<IrElement> ->
-            val irDeclaration: IrFunction? = node.value.asIr()
+            val irDeclaration: IrFunction? = node.value.asIrOrNull()
             val parent: TreeNode<IrElement>? = parent
             when {
                 irDeclaration != null -> irDeclaration

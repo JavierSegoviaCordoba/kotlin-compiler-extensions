@@ -23,17 +23,30 @@ import org.jetbrains.kotlin.serialization.deserialization.descriptors.Deserializ
 public val IrFunction.contextReceivers: List<IrValueParameter>
     get() = valueParameters.take(contextReceiverParametersCount)
 
-public fun IrPluginContext.findIrSimpleFunctionSymbol(
+public fun IrPluginContext.firstIrSimpleFunctionSymbol(
+    callableId: CallableId
+): IrSimpleFunctionSymbol = firstIrSimpleFunctionSymbolOrNull(callableId)!!
+
+public fun IrPluginContext.firstIrSimpleFunctionSymbolOrNull(
     callableId: CallableId
 ): IrSimpleFunctionSymbol? = referenceFunctions(callableId).firstOrNull()
 
-public fun IrPluginContext.findIrFunctionSymbol(callableId: CallableId): IrFunctionSymbol? =
+public fun IrPluginContext.firstIrFunctionSymbol(callableId: CallableId): IrFunctionSymbol =
+    firstIrFunctionSymbolOrNull(callableId)!!
+
+public fun IrPluginContext.firstIrFunctionSymbolOrNull(callableId: CallableId): IrFunctionSymbol? =
     referenceFunctions(callableId).firstOrNull()
 
-public fun IrPluginContext.findIrSimpleFunction(callableId: CallableId): IrSimpleFunction? =
+public fun IrPluginContext.firstIrSimpleFunction(callableId: CallableId): IrSimpleFunction =
+    firstIrSimpleFunctionOrNull(callableId)!!
+
+public fun IrPluginContext.firstIrSimpleFunctionOrNull(callableId: CallableId): IrSimpleFunction? =
     referenceFunctions(callableId).firstOrNull()?.owner
 
-public fun IrPluginContext.findIrFunction(callableId: CallableId): IrFunction? =
+public fun IrPluginContext.firstIrFunction(callableId: CallableId): IrFunction =
+    firstIrFunctionOrNull(callableId)!!
+
+public fun IrPluginContext.firstIrFunctionOrNull(callableId: CallableId): IrFunction? =
     referenceFunctions(callableId).firstOrNull()?.owner
 
 public fun IrPluginContext.createGetterIrSimpleFunction(

@@ -5,6 +5,7 @@ import org.jetbrains.kotlin.backend.common.extensions.IrPluginContext
 import org.jetbrains.kotlin.ir.IrElement
 import org.jetbrains.kotlin.ir.declarations.IrClass
 import org.jetbrains.kotlin.ir.declarations.IrFunction
+import org.jetbrains.kotlin.ir.declarations.IrProperty
 import org.jetbrains.kotlin.ir.declarations.IrValueParameter
 import org.jetbrains.kotlin.ir.symbols.IrClassSymbol
 import org.jetbrains.kotlin.ir.types.IrType
@@ -18,16 +19,17 @@ public fun Iterable<IrType?>.dumpKotlinLike(): String =
 
 public val IrElement.irType: IrType
     get() =
-        when (this) {
-            is IrType -> this
-            is IrFunction -> returnType
-            is IrClass -> defaultType
-            is IrValueParameter -> type
+        when (val irElement = this) {
+            is IrType -> irElement
+            is IrFunction -> irElement.returnType
+            is IrClass -> irElement.defaultType
+            is IrValueParameter -> irElement.type
+            is IrProperty -> irElement.getter!!.returnType
             else -> TODO()
         }
 
 public inline fun <reified T> IrPluginContext.irType(): IrType {
     val classId: ClassId = classId<T>()
-    val irClassSymbol: IrClassSymbol = checkNotNull(this.findIrClassSymbol(classId))
+    val irClassSymbol: IrClassSymbol = this.firstIrClassSymbol(classId)
     return irClassSymbol.defaultType
 }
