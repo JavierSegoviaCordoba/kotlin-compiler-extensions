@@ -164,6 +164,7 @@ public final class com/javiersc/kotlin/compiler/extensions/ir/IrClassExhaustiveK
 	public static final field Interface Lcom/javiersc/kotlin/compiler/extensions/ir/IrClassExhaustiveKind;
 	public static final field Object Lcom/javiersc/kotlin/compiler/extensions/ir/IrClassExhaustiveKind;
 	public static final field ValueClass Lcom/javiersc/kotlin/compiler/extensions/ir/IrClassExhaustiveKind;
+	public static fun getEntries ()Lkotlin/enums/EnumEntries;
 	public fun toString ()Ljava/lang/String;
 	public static fun valueOf (Ljava/lang/String;)Lcom/javiersc/kotlin/compiler/extensions/ir/IrClassExhaustiveKind;
 	public static fun values ()[Lcom/javiersc/kotlin/compiler/extensions/ir/IrClassExhaustiveKind;
@@ -251,7 +252,9 @@ public final class com/javiersc/kotlin/compiler/extensions/ir/IrGetValueKt {
 	public static final fun createIrGetValue (IILorg/jetbrains/kotlin/ir/types/IrType;Lorg/jetbrains/kotlin/ir/symbols/IrValueSymbol;Lorg/jetbrains/kotlin/ir/expressions/IrStatementOrigin;Lkotlin/jvm/functions/Function1;)Lorg/jetbrains/kotlin/ir/expressions/IrGetValue;
 	public static synthetic fun createIrGetValue$default (IILorg/jetbrains/kotlin/ir/types/IrType;Lorg/jetbrains/kotlin/ir/symbols/IrValueSymbol;Lorg/jetbrains/kotlin/ir/expressions/IrStatementOrigin;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lorg/jetbrains/kotlin/ir/expressions/IrGetValue;
 	public static final fun toIrGetValue (Lorg/jetbrains/kotlin/ir/declarations/IrClass;IILorg/jetbrains/kotlin/ir/symbols/IrValueSymbol;Lkotlin/jvm/functions/Function1;)Lorg/jetbrains/kotlin/ir/expressions/IrGetValue;
+	public static final fun toIrGetValue (Lorg/jetbrains/kotlin/ir/declarations/IrFunction;IILorg/jetbrains/kotlin/ir/symbols/IrValueSymbol;Lorg/jetbrains/kotlin/ir/types/IrType;Lorg/jetbrains/kotlin/ir/expressions/IrStatementOrigin;Lkotlin/jvm/functions/Function1;)Lorg/jetbrains/kotlin/ir/expressions/IrGetValue;
 	public static synthetic fun toIrGetValue$default (Lorg/jetbrains/kotlin/ir/declarations/IrClass;IILorg/jetbrains/kotlin/ir/symbols/IrValueSymbol;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lorg/jetbrains/kotlin/ir/expressions/IrGetValue;
+	public static synthetic fun toIrGetValue$default (Lorg/jetbrains/kotlin/ir/declarations/IrFunction;IILorg/jetbrains/kotlin/ir/symbols/IrValueSymbol;Lorg/jetbrains/kotlin/ir/types/IrType;Lorg/jetbrains/kotlin/ir/expressions/IrStatementOrigin;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lorg/jetbrains/kotlin/ir/expressions/IrGetValue;
 }
 
 public final class com/javiersc/kotlin/compiler/extensions/ir/IrReturnKt {
