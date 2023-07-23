@@ -48,6 +48,7 @@
 
 ### Updated
 
+- `org.jetbrains.kotlin.jvm:org.jetbrains.kotlin.jvm.gradle.plugin -> 1.9.20-station-823`
 - `com.javiersc.hubdle:com.javiersc.hubdle.gradle.plugin -> 0.5.0-SNAPSHOT`
 - `gradle -> 8.2.1`
 
