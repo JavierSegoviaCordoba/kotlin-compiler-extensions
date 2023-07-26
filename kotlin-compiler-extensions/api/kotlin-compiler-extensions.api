@@ -53,6 +53,11 @@ public final class com/javiersc/kotlin/compiler/extensions/fir/FirBasedSymbolKt 
 	public static final fun isTopLevel (Lorg/jetbrains/kotlin/fir/symbols/FirBasedSymbol;)Z
 }
 
+public final class com/javiersc/kotlin/compiler/extensions/fir/FirConstExpressionKt {
+	public static final fun createFirConstExpression (Lorg/jetbrains/kotlin/types/ConstantValueKind;Ljava/lang/Object;Lorg/jetbrains/kotlin/KtSourceElement;Ljava/util/List;Z)Lorg/jetbrains/kotlin/fir/expressions/FirConstExpression;
+	public static synthetic fun createFirConstExpression$default (Lorg/jetbrains/kotlin/types/ConstantValueKind;Ljava/lang/Object;Lorg/jetbrains/kotlin/KtSourceElement;Ljava/util/List;ZILjava/lang/Object;)Lorg/jetbrains/kotlin/fir/expressions/FirConstExpression;
+}
+
 public final class com/javiersc/kotlin/compiler/extensions/fir/FirConstructorKt {
 	public static final fun toPrimaryConstructor (Lorg/jetbrains/kotlin/fir/symbols/impl/FirClassSymbol;Lorg/jetbrains/kotlin/fir/FirSession;Lorg/jetbrains/kotlin/GeneratedDeclarationKey;Lkotlin/jvm/functions/Function2;)Lorg/jetbrains/kotlin/fir/declarations/FirConstructor;
 	public static final fun toPrimaryConstructor (Lorg/jetbrains/kotlin/fir/symbols/impl/FirClassSymbol;Lorg/jetbrains/kotlin/fir/FirSession;Lorg/jetbrains/kotlin/fir/declarations/FirDeclarationOrigin;Lkotlin/jvm/functions/Function2;)Lorg/jetbrains/kotlin/fir/declarations/FirConstructor;
@@ -67,6 +72,10 @@ public final class com/javiersc/kotlin/compiler/extensions/fir/FirContextReceive
 
 public final class com/javiersc/kotlin/compiler/extensions/fir/FirElementKt {
 	public static final fun render (Ljava/util/List;)Ljava/lang/String;
+}
+
+public final class com/javiersc/kotlin/compiler/extensions/fir/FirEnumEntryDeserializedAccessExpressionKt {
+	public static final fun createFirEnumEntryDeserializedAccessExpression (Lorg/jetbrains/kotlin/name/Name;Lorg/jetbrains/kotlin/name/ClassId;)Lorg/jetbrains/kotlin/fir/expressions/FirEnumEntryDeserializedAccessExpression;
 }
 
 public final class com/javiersc/kotlin/compiler/extensions/fir/FirFunctionCallKt {
