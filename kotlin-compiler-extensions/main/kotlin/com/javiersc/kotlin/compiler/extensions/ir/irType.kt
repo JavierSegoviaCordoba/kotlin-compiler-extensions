@@ -7,11 +7,13 @@ import org.jetbrains.kotlin.ir.declarations.IrClass
 import org.jetbrains.kotlin.ir.declarations.IrFunction
 import org.jetbrains.kotlin.ir.declarations.IrProperty
 import org.jetbrains.kotlin.ir.declarations.IrValueParameter
+import org.jetbrains.kotlin.ir.expressions.IrCall
 import org.jetbrains.kotlin.ir.symbols.IrClassSymbol
 import org.jetbrains.kotlin.ir.types.IrType
 import org.jetbrains.kotlin.ir.types.defaultType
 import org.jetbrains.kotlin.ir.util.defaultType
 import org.jetbrains.kotlin.ir.util.dumpKotlinLike
+import org.jetbrains.kotlin.ir.util.render
 import org.jetbrains.kotlin.name.ClassId
 
 public fun Iterable<IrType?>.dumpKotlinLike(): String =
@@ -25,7 +27,8 @@ public val IrElement.irType: IrType
             is IrClass -> irElement.defaultType
             is IrValueParameter -> irElement.type
             is IrProperty -> irElement.getter!!.returnType
-            else -> TODO()
+            is IrCall -> irElement.type
+            else -> error("`IrElement::irType` not supported for `${irElement.render()}`")
         }
 
 public inline fun <reified T> IrPluginContext.irType(): IrType {
