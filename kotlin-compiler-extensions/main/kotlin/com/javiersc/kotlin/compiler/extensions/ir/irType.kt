@@ -6,14 +6,18 @@ import org.jetbrains.kotlin.ir.IrElement
 import org.jetbrains.kotlin.ir.declarations.IrClass
 import org.jetbrains.kotlin.ir.declarations.IrFunction
 import org.jetbrains.kotlin.ir.declarations.IrProperty
+import org.jetbrains.kotlin.ir.declarations.IrTypeParametersContainer
 import org.jetbrains.kotlin.ir.declarations.IrValueParameter
 import org.jetbrains.kotlin.ir.expressions.IrCall
 import org.jetbrains.kotlin.ir.symbols.IrClassSymbol
+import org.jetbrains.kotlin.ir.symbols.IrTypeParameterSymbol
 import org.jetbrains.kotlin.ir.types.IrType
 import org.jetbrains.kotlin.ir.types.defaultType
 import org.jetbrains.kotlin.ir.util.defaultType
 import org.jetbrains.kotlin.ir.util.dumpKotlinLike
+import org.jetbrains.kotlin.ir.util.makeTypeParameterSubstitutionMap
 import org.jetbrains.kotlin.ir.util.render
+import org.jetbrains.kotlin.ir.util.substitute
 import org.jetbrains.kotlin.name.ClassId
 
 public fun Iterable<IrType?>.dumpKotlinLike(): String =
@@ -36,3 +40,11 @@ public inline fun <reified T> IrPluginContext.irType(): IrType {
     val irClassSymbol: IrClassSymbol = this.firstIrClassSymbol(classId)
     return irClassSymbol.defaultType
 }
+
+public fun IrType.substituteOrSelf(
+    original: IrTypeParametersContainer,
+    transformed: IrTypeParametersContainer
+): IrType = this.substituteOrSelf(makeTypeParameterSubstitutionMap(original, transformed))
+
+public fun IrType.substituteOrSelf(substitutionMap: Map<IrTypeParameterSymbol, IrType>?): IrType =
+    substitutionMap?.let { this.substitute(it) } ?: this

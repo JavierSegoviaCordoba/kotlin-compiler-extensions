@@ -297,6 +297,16 @@ public final class com/javiersc/kotlin/compiler/extensions/ir/IrTypeArgumentKt {
 public final class com/javiersc/kotlin/compiler/extensions/ir/IrTypeKt {
 	public static final fun dumpKotlinLike (Ljava/lang/Iterable;)Ljava/lang/String;
 	public static final fun getIrType (Lorg/jetbrains/kotlin/ir/IrElement;)Lorg/jetbrains/kotlin/ir/types/IrType;
+	public static final fun substituteOrSelf (Lorg/jetbrains/kotlin/ir/types/IrType;Ljava/util/Map;)Lorg/jetbrains/kotlin/ir/types/IrType;
+	public static final fun substituteOrSelf (Lorg/jetbrains/kotlin/ir/types/IrType;Lorg/jetbrains/kotlin/ir/declarations/IrTypeParametersContainer;Lorg/jetbrains/kotlin/ir/declarations/IrTypeParametersContainer;)Lorg/jetbrains/kotlin/ir/types/IrType;
+}
+
+public final class com/javiersc/kotlin/compiler/extensions/ir/IrTypeParameterKt {
+	public static final fun getTypeParameters (Lorg/jetbrains/kotlin/ir/IrElement;)Ljava/util/List;
+}
+
+public final class com/javiersc/kotlin/compiler/extensions/ir/IrTypeParameterSymbolKt {
+	public static final fun getTypeParameterSymbols (Lorg/jetbrains/kotlin/ir/IrElement;)Ljava/util/List;
 }
 
 public final class com/javiersc/kotlin/compiler/extensions/ir/IrTypeProjectionKt {
