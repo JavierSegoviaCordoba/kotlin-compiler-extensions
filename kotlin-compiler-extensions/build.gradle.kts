@@ -32,7 +32,11 @@ hubdle {
                 contextReceivers()
             }
 
-            main { dependencies { api(hubdle.jetbrains.kotlin.kotlinCompiler) } }
+            main { //
+                dependencies { //
+                    api(hubdle.jetbrains.kotlin.kotlinCompiler)
+                }
+            }
 
             test {
                 dependencies {
@@ -68,8 +72,6 @@ tasks.named("test").configure {
     finalizedBy(checkCompilerExtensionsAreCalled)
 }
 
-tasks.named("allTestsReport").configure {
-    dependsOn(checkCompilerExtensionsAreCalled)
-}
+tasks.named("allTestsReport").configure { dependsOn(checkCompilerExtensionsAreCalled) }
 
 tasks.check.dependsOn(checkCompilerExtensionsAreCalled)
