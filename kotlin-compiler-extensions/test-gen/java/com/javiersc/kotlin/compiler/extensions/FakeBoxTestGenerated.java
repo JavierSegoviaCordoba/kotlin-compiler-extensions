@@ -21,4 +21,10 @@ public class FakeBoxTestGenerated extends AbstractFakeBoxTest {
     public void testAllFilesPresentInBox() throws Exception {
         KtTestUtil.assertAllTestsPresentByMetadataWithExcluded(this.getClass(), new File("test-data/box"), Pattern.compile("^(.+)\\.kt$"), null, TargetBackend.JVM_IR, true);
     }
+
+    @Test
+    @TestMetadata("simple-1.kt")
+    public void testSimple_1() throws Exception {
+        runTest("test-data/box/simple-1.kt");
+    }
 }

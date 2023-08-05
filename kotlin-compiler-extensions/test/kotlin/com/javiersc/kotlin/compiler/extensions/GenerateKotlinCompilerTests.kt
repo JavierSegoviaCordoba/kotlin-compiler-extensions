@@ -2,6 +2,9 @@
 
 package com.javiersc.kotlin.compiler.extensions
 
+import com.javiersc.kotlin.compiler.extensions.fir.FakeFirExtensionRegistrar
+import com.javiersc.kotlin.compiler.extensions.ir.FakeIrExtension
+import com.javiersc.kotlin.compiler.extensions.shared.compilerExtensionsTestDir
 import com.javiersc.kotlin.compiler.test.generateKotlinCompilerTests
 import com.javiersc.kotlin.compiler.test.runners.BoxTest
 import com.javiersc.kotlin.compiler.test.runners.DiagnosticTest
@@ -9,6 +12,7 @@ import org.jetbrains.kotlin.backend.common.extensions.IrGenerationExtension
 import org.jetbrains.kotlin.compiler.plugin.CompilerPluginRegistrar.ExtensionStorage
 import org.jetbrains.kotlin.compiler.plugin.ExperimentalCompilerApi
 import org.jetbrains.kotlin.config.CompilerConfiguration
+import org.jetbrains.kotlin.fir.extensions.FirExtensionRegistrarAdapter
 import org.jetbrains.kotlin.test.model.TestModule
 
 fun main() {
@@ -19,6 +23,8 @@ private fun ExtensionStorage.allExtensions(
     module: TestModule,
     configuration: CompilerConfiguration
 ) {
+    compilerExtensionsTestDir.deleteRecursively()
+    FirExtensionRegistrarAdapter.registerExtension(FakeFirExtensionRegistrar())
     IrGenerationExtension.registerExtension(FakeIrExtension())
 }
 

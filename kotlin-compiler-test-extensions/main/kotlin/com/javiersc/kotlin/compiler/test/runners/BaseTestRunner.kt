@@ -57,7 +57,7 @@ internal fun TestConfigurationBuilder.commonPluginConfiguration(
     configureFirParser(FirParser.Psi)
 
     defaultDirectives {
-        +ConfigurationDirectives.WITH_STDLIB
+//        +ConfigurationDirectives.WITH_STDLIB
         +FirDiagnosticsDirectives.ENABLE_PLUGIN_PHASES
         +FirDiagnosticsDirectives.FIR_DUMP
         +AdditionalFilesDirectives.SOME_FILE_DIRECTIVE

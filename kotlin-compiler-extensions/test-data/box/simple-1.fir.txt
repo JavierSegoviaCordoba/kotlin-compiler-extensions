@@ -1,0 +1,18 @@
+FILE: simple-1.kt
+    package com.javiersc.kotlin.compiler.extensions.playground
+
+    public final fun box(): R|kotlin/String| {
+        lval hello: R|kotlin/String| = R|kotlin/run|<R|kotlin/String|>(<L> = run@fun <anonymous>(): R|kotlin/String| <inline=Inline, kind=EXACTLY_ONCE>  {
+            ^ String(Hello)
+        }
+        )
+        ^box when () {
+            ==(R|<local>/hello|, String(Hello)) ->  {
+                String(OK)
+            }
+            else ->  {
+                String(Fail)
+            }
+        }
+
+    }

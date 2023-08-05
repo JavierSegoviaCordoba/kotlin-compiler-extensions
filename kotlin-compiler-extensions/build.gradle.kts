@@ -1,3 +1,5 @@
+import com.android.build.gradle.internal.tasks.factory.dependsOn
+
 hubdle {
     config {
         analysis()
@@ -13,26 +15,24 @@ hubdle {
             experimentalContracts()
         }
         publishing()
+        projectConfig()
     }
 
     kotlin {
         jvm {
             features {
                 compiler {
-                    addExtensionDependencies(false)
-                    generateTestOnSync(false)
                     mainClass.set(
                         "com.javiersc.kotlin.compiler.extensions.GenerateKotlinCompilerTestsKt"
                     )
+                    addExtensionDependencies(false)
+                    generateTestOnSync(false)
+                    testDependencies(hubdle.javiersc.kotlin.kotlinStdlib)
                 }
                 contextReceivers()
             }
 
-            main {
-                dependencies {
-                    api(hubdle.jetbrains.kotlin.kotlinCompiler)
-                }
-            }
+            main { dependencies { api(hubdle.jetbrains.kotlin.kotlinCompiler) } }
 
             test {
                 dependencies {
@@ -43,3 +43,33 @@ hubdle {
         }
     }
 }
+
+val compilerExtensionTestsDir: File = buildDir.resolve("compiler-extensions-tests")
+val firTxtFile = compilerExtensionTestsDir.resolve("fir.txt")
+val irTxtFile = compilerExtensionTestsDir.resolve("ir.txt")
+
+val checkCompilerExtensionsAreCalled = tasks.register("checkCompilerExtensionsAreCalled")
+
+checkCompilerExtensionsAreCalled.configure {
+    inputs.files(compilerExtensionTestsDir, firTxtFile, irTxtFile)
+    outputs.files(firTxtFile, irTxtFile)
+    doLast {
+        check(compilerExtensionTestsDir.exists() && compilerExtensionTestsDir.isDirectory) {
+            "Compiler extensions tests directory does not exist: $compilerExtensionTestsDir"
+        }
+        check(firTxtFile.exists() && firTxtFile.isFile) { "Fir file does not exist: $firTxtFile" }
+        check(irTxtFile.exists() && irTxtFile.isFile) { "Ir file does not exist: $irTxtFile" }
+    }
+}
+
+tasks.named("test").configure {
+    inputs.files(compilerExtensionTestsDir)
+    outputs.files(firTxtFile, irTxtFile)
+    finalizedBy(checkCompilerExtensionsAreCalled)
+}
+
+tasks.named("allTestsReport").configure {
+    dependsOn(checkCompilerExtensionsAreCalled)
+}
+
+tasks.check.dependsOn(checkCompilerExtensionsAreCalled)

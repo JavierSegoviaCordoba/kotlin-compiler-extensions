@@ -26,6 +26,48 @@ public final class com/javiersc/kotlin/compiler/extensions/fir/ConeKotlinTypeKt 
 	public static final fun toConeTypeWithTypeArgumentsArray (Lorg/jetbrains/kotlin/name/ClassId;[Lorg/jetbrains/kotlin/fir/types/ConeTypeProjection;)Lorg/jetbrains/kotlin/fir/types/ConeClassLikeType;
 }
 
+public final class com/javiersc/kotlin/compiler/extensions/fir/ConeKotlinTypeTreeNodeKt {
+	public static final fun getTreeNode (Lorg/jetbrains/kotlin/fir/types/ConeKotlinType;)Lcom/javiersc/kotlin/stdlib/tree/TreeNode;
+	public static final fun toTreeNode (Lorg/jetbrains/kotlin/fir/types/ConeKotlinType;)Lcom/javiersc/kotlin/stdlib/tree/TreeNode;
+}
+
+public abstract class com/javiersc/kotlin/compiler/extensions/fir/ConeNode {
+	public abstract fun getLookupTag ()Lorg/jetbrains/kotlin/fir/symbols/ConeClassifierLookupTag;
+	public abstract fun getType ()Lorg/jetbrains/kotlin/fir/types/ConeKotlinType;
+}
+
+public final class com/javiersc/kotlin/compiler/extensions/fir/ConeNode$ClassLike : com/javiersc/kotlin/compiler/extensions/fir/ConeNode {
+	public fun <init> (Lorg/jetbrains/kotlin/fir/types/ConeClassLikeType;)V
+	public final fun component1 ()Lorg/jetbrains/kotlin/fir/types/ConeClassLikeType;
+	public final fun copy (Lorg/jetbrains/kotlin/fir/types/ConeClassLikeType;)Lcom/javiersc/kotlin/compiler/extensions/fir/ConeNode$ClassLike;
+	public static synthetic fun copy$default (Lcom/javiersc/kotlin/compiler/extensions/fir/ConeNode$ClassLike;Lorg/jetbrains/kotlin/fir/types/ConeClassLikeType;ILjava/lang/Object;)Lcom/javiersc/kotlin/compiler/extensions/fir/ConeNode$ClassLike;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getClassId ()Lorg/jetbrains/kotlin/name/ClassId;
+	public fun getLookupTag ()Lorg/jetbrains/kotlin/fir/symbols/ConeClassLikeLookupTag;
+	public synthetic fun getLookupTag ()Lorg/jetbrains/kotlin/fir/symbols/ConeClassifierLookupTag;
+	public fun getType ()Lorg/jetbrains/kotlin/fir/types/ConeClassLikeType;
+	public synthetic fun getType ()Lorg/jetbrains/kotlin/fir/types/ConeKotlinType;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/javiersc/kotlin/compiler/extensions/fir/ConeNode$TypeParameter : com/javiersc/kotlin/compiler/extensions/fir/ConeNode {
+	public fun <init> (Lorg/jetbrains/kotlin/fir/types/ConeTypeParameterType;)V
+	public final fun component1 ()Lorg/jetbrains/kotlin/fir/types/ConeTypeParameterType;
+	public final fun copy (Lorg/jetbrains/kotlin/fir/types/ConeTypeParameterType;)Lcom/javiersc/kotlin/compiler/extensions/fir/ConeNode$TypeParameter;
+	public static synthetic fun copy$default (Lcom/javiersc/kotlin/compiler/extensions/fir/ConeNode$TypeParameter;Lorg/jetbrains/kotlin/fir/types/ConeTypeParameterType;ILjava/lang/Object;)Lcom/javiersc/kotlin/compiler/extensions/fir/ConeNode$TypeParameter;
+	public fun equals (Ljava/lang/Object;)Z
+	public fun getLookupTag ()Lorg/jetbrains/kotlin/fir/symbols/ConeClassifierLookupTag;
+	public synthetic fun getType ()Lorg/jetbrains/kotlin/fir/types/ConeKotlinType;
+	public fun getType ()Lorg/jetbrains/kotlin/fir/types/ConeTypeParameterType;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class com/javiersc/kotlin/compiler/extensions/fir/ConeTypeParameterTypeKt {
+	public static final fun isTypeParameterType (Lorg/jetbrains/kotlin/fir/types/ConeKotlinType;)Z
+}
+
 public final class com/javiersc/kotlin/compiler/extensions/fir/FirAnnotationKt {
 	public static final fun createFirAnnotation (Lorg/jetbrains/kotlin/fir/types/FirTypeRef;Lorg/jetbrains/kotlin/fir/expressions/FirAnnotationArgumentMapping;Lkotlin/jvm/functions/Function1;)Lorg/jetbrains/kotlin/fir/expressions/FirAnnotation;
 	public static synthetic fun createFirAnnotation$default (Lorg/jetbrains/kotlin/fir/types/FirTypeRef;Lorg/jetbrains/kotlin/fir/expressions/FirAnnotationArgumentMapping;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lorg/jetbrains/kotlin/fir/expressions/FirAnnotation;
@@ -140,7 +182,11 @@ public final class com/javiersc/kotlin/compiler/extensions/fir/context/receivers
 }
 
 public final class com/javiersc/kotlin/compiler/extensions/ir/IrBlockBodyKt {
+	public static final fun createIrBlockBody (Lorg/jetbrains/kotlin/backend/common/extensions/IrPluginContext;II)Lorg/jetbrains/kotlin/ir/expressions/IrBlockBody;
+	public static final fun createIrBlockBody (Lorg/jetbrains/kotlin/backend/common/extensions/IrPluginContext;IILjava/util/List;)Lorg/jetbrains/kotlin/ir/expressions/IrBlockBody;
 	public static final fun createIrBlockBody (Lorg/jetbrains/kotlin/backend/common/extensions/IrPluginContext;IILkotlin/jvm/functions/Function1;)Lorg/jetbrains/kotlin/ir/expressions/IrBlockBody;
+	public static synthetic fun createIrBlockBody$default (Lorg/jetbrains/kotlin/backend/common/extensions/IrPluginContext;IIILjava/lang/Object;)Lorg/jetbrains/kotlin/ir/expressions/IrBlockBody;
+	public static synthetic fun createIrBlockBody$default (Lorg/jetbrains/kotlin/backend/common/extensions/IrPluginContext;IILjava/util/List;ILjava/lang/Object;)Lorg/jetbrains/kotlin/ir/expressions/IrBlockBody;
 	public static synthetic fun createIrBlockBody$default (Lorg/jetbrains/kotlin/backend/common/extensions/IrPluginContext;IILkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lorg/jetbrains/kotlin/ir/expressions/IrBlockBody;
 }
 
@@ -345,5 +391,18 @@ public abstract interface class com/javiersc/kotlin/compiler/extensions/ir/conte
 
 public final class com/javiersc/kotlin/compiler/extensions/ir/context/receivers/IrGeneration$DefaultImpls {
 	public static fun getExtension (Lcom/javiersc/kotlin/compiler/extensions/ir/context/receivers/IrGeneration;)Lorg/jetbrains/kotlin/backend/common/extensions/IrGenerationExtension;
+}
+
+public final class com/javiersc/kotlin/kotlin/compiler/extensions/KotlinCompilerExtensionsProjectData {
+	public static final field Group Ljava/lang/String;
+	public static final field INSTANCE Lcom/javiersc/kotlin/kotlin/compiler/extensions/KotlinCompilerExtensionsProjectData;
+	public static final field Library Ljava/lang/String;
+	public static final field Name Ljava/lang/String;
+	public static final field ProjectDirAbsolutePath Ljava/lang/String;
+	public static final field ProjectDirPath Ljava/lang/String;
+	public static final field RelativeDirPath Ljava/lang/String;
+	public static final field RootDirAbsolutePath Ljava/lang/String;
+	public static final field RootDirPath Ljava/lang/String;
+	public static final field Version Ljava/lang/String;
 }
 

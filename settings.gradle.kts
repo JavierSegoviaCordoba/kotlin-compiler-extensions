@@ -43,15 +43,3 @@ dependencyResolutionManagement {
         sonatypeSnapshot()
     }
 }
-
-val kotlinVersion: String =
-    file("$rootDir/gradle/libs.versions.toml")
-        .readLines()
-        .first { it.contains("kotlin") }
-        .split("\"")[1]
-
-hubdleSettings {
-    catalog { //
-        replaceStrictVersion("kotlin" to kotlinVersion)
-    }
-}
