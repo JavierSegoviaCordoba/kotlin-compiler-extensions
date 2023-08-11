@@ -1,4 +1,5 @@
 import com.android.build.gradle.internal.tasks.factory.dependsOn
+import org.jetbrains.kotlin.gradle.plugin.getKotlinPluginVersion
 
 hubdle {
     config {
@@ -16,6 +17,14 @@ hubdle {
         }
         publishing()
         projectConfig()
+        versioning {
+            semver {
+                mapVersion { gradleVersion ->
+                    val mappedVersion = gradleVersion.copy(metadata = getKotlinPluginVersion())
+                    "$mappedVersion"
+                }
+            }
+        }
     }
 
     kotlin {
