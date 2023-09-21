@@ -48,8 +48,8 @@
 
 ### Updated
 
+- `com.javiersc.hubdle:com.javiersc.hubdle.gradle.plugin -> 0.5.0+1.9.30-dev-2548-SNAPSHOT`
 - `gradle -> 8.3`
-- `com.javiersc.hubdle:com.javiersc.hubdle.gradle.plugin -> 0.5.0+1.9.20-dev-6963-SNAPSHOT`
 
 ## [0.1.1-alpha.4] - 2023-06-13
 
