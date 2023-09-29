@@ -4,6 +4,20 @@
 
 ### Added
 
+### Changed
+
+### Deprecated
+
+### Removed
+
+### Fixed
+
+### Updated
+
+## [0.1.1-alpha.5] - 2023-09-29
+
+### Added
+
 - `IrValueParameter.createIrField(): IrField`
 - `IrPluginContext.createIrField(): IrField`
 - `IrDeclaration.toIrExpression(): IrExpression`
@@ -37,10 +51,6 @@
 - `buildVariable` to `createIrVariable`
 - Kotlin version to `1.9.255-SNAPSHOT`
 - `irCall` extensions
-
-### Deprecated
-
-### Removed
 
 ### Fixed
 
@@ -148,7 +158,9 @@
 
 - `kotlin-compiler-test` to `kotlin-compiler-extensions-test`
 
-[Unreleased]: https://github.com/JavierSegoviaCordoba/kotlin-compiler-extensions/compare/0.1.1-alpha.4...HEAD
+[Unreleased]: https://github.com/JavierSegoviaCordoba/kotlin-compiler-extensions/compare/0.1.1-alpha.5...HEAD
+
+[0.1.1-alpha.5]: https://github.com/JavierSegoviaCordoba/kotlin-compiler-extensions/compare/0.1.1-alpha.4...0.1.1-alpha.5
 
 [0.1.1-alpha.4]: https://github.com/JavierSegoviaCordoba/kotlin-compiler-extensions/compare/0.1.1-alpha.3...0.1.1-alpha.4
 
