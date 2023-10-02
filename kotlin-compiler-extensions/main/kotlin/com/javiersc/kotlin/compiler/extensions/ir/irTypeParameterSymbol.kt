@@ -10,5 +10,7 @@ public val IrElement.typeParameterSymbols: List<IrTypeParameterSymbol>
     get() =
         when (val irElement: IrElement = this) {
             is IrTypeParametersContainer -> irElement.typeParameters.map(IrTypeParameter::symbol)
-            else -> error("`IrElement::typeParameterSymbols` not supported for `${irElement.render()}`")
+            else -> {
+                error("`IrElement::typeParameterSymbols` not supported for `${irElement.render()}`")
+            }
         }

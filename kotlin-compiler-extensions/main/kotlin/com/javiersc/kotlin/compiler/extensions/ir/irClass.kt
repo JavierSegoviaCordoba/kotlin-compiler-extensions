@@ -5,8 +5,7 @@ import org.jetbrains.kotlin.ir.declarations.IrClass
 import org.jetbrains.kotlin.ir.symbols.IrClassSymbol
 import org.jetbrains.kotlin.name.ClassId
 
-public fun IrPluginContext.firstIrClass(classId: ClassId): IrClass =
-    firstIrClassOrNull(classId)!!
+public fun IrPluginContext.firstIrClass(classId: ClassId): IrClass = firstIrClassOrNull(classId)!!
 
 public fun IrPluginContext.firstIrClassOrNull(classId: ClassId): IrClass? =
     firstIrClassSymbolOrNull(classId)?.owner

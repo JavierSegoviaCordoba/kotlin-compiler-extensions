@@ -11,7 +11,6 @@ import org.jetbrains.kotlin.test.Constructor
 import org.jetbrains.kotlin.test.FirParser
 import org.jetbrains.kotlin.test.TargetBackend
 import org.jetbrains.kotlin.test.builders.TestConfigurationBuilder
-import org.jetbrains.kotlin.test.directives.ConfigurationDirectives
 import org.jetbrains.kotlin.test.directives.FirDiagnosticsDirectives
 import org.jetbrains.kotlin.test.directives.configureFirParser
 import org.jetbrains.kotlin.test.initIdeaConfiguration
@@ -57,7 +56,7 @@ internal fun TestConfigurationBuilder.commonPluginConfiguration(
     configureFirParser(FirParser.Psi)
 
     defaultDirectives {
-//        +ConfigurationDirectives.WITH_STDLIB
+        //        +ConfigurationDirectives.WITH_STDLIB
         +FirDiagnosticsDirectives.ENABLE_PLUGIN_PHASES
         +FirDiagnosticsDirectives.FIR_DUMP
         +AdditionalFilesDirectives.SOME_FILE_DIRECTIVE

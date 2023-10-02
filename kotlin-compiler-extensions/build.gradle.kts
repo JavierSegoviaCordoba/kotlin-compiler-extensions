@@ -9,9 +9,6 @@ hubdle {
             api()
         }
         explicitApi()
-        // TODO: https://github.com/facebook/ktfmt/pull/400
-        //  https://github.com/facebook/ktfmt/issues/314
-        format.isEnabled.set(false)
         languageSettings { //
             experimentalContracts()
         }

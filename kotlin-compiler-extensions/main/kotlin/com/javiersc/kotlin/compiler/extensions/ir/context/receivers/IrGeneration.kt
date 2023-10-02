@@ -9,13 +9,13 @@ public fun interface IrGeneration {
     context(IrModuleFragment, IrPluginContext)
     public fun generate()
 
-    public fun getExtension(): IrGenerationExtension = object : IrGenerationExtension {
-        override fun generate(moduleFragment: IrModuleFragment, pluginContext: IrPluginContext) {
-            with(moduleFragment) {
-                with(pluginContext) {
-                    generate()
-                }
+    public fun getExtension(): IrGenerationExtension =
+        object : IrGenerationExtension {
+            override fun generate(
+                moduleFragment: IrModuleFragment,
+                pluginContext: IrPluginContext
+            ) {
+                with(moduleFragment) { with(pluginContext) { generate() } }
             }
         }
-    }
 }

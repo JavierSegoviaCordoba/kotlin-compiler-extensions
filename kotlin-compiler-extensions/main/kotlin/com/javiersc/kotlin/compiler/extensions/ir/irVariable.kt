@@ -1,13 +1,13 @@
 package com.javiersc.kotlin.compiler.extensions.ir
 
 import org.jetbrains.kotlin.ir.UNDEFINED_OFFSET
+import org.jetbrains.kotlin.ir.builders.declarations.buildVariable as buildVariableImpl
 import org.jetbrains.kotlin.ir.declarations.IrDeclarationOrigin
 import org.jetbrains.kotlin.ir.declarations.IrDeclarationParent
 import org.jetbrains.kotlin.ir.declarations.IrVariable
 import org.jetbrains.kotlin.ir.declarations.impl.IrVariableImpl
 import org.jetbrains.kotlin.ir.types.IrType
 import org.jetbrains.kotlin.name.Name
-import org.jetbrains.kotlin.ir.builders.declarations.buildVariable as buildVariableImpl
 
 public fun IrType.createIrVariable(
     name: Name,
