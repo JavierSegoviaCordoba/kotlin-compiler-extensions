@@ -3,13 +3,14 @@ package com.javiersc.kotlin.compiler.extensions.fir
 import com.javiersc.kotlin.compiler.extensions.common.classId
 import org.jetbrains.kotlin.fir.FirSession
 import org.jetbrains.kotlin.fir.plugin.createConeType
+import org.jetbrains.kotlin.fir.render
 import org.jetbrains.kotlin.fir.symbols.FirBasedSymbol
 import org.jetbrains.kotlin.fir.symbols.impl.ConeClassLikeLookupTagImpl
 import org.jetbrains.kotlin.fir.symbols.impl.FirCallableSymbol
 import org.jetbrains.kotlin.fir.types.ConeClassLikeType
 import org.jetbrains.kotlin.fir.types.ConeKotlinType
 import org.jetbrains.kotlin.fir.types.ConeTypeProjection
-import org.jetbrains.kotlin.fir.types.coneType
+import org.jetbrains.kotlin.fir.types.coneTypeSafe
 import org.jetbrains.kotlin.fir.types.impl.ConeClassLikeTypeImpl
 import org.jetbrains.kotlin.fir.types.typeContext
 import org.jetbrains.kotlin.name.ClassId
@@ -28,10 +29,13 @@ public inline fun <reified T> FirSession.coneKotlinType(
 ): ConeKotlinType = classId<T>().createConeType(this, typeArguments)
 
 public val FirBasedSymbol<*>.coneKotlinType: ConeKotlinType
+    get() = coneKotlinTypeOrNull ?: error("Symbol ${this.fir.render()} does not have a type")
+
+public val FirBasedSymbol<*>.coneKotlinTypeOrNull: ConeKotlinType?
     get() =
         when (this) {
-            is FirCallableSymbol<*> -> resolvedReturnTypeRef.coneType
-            else -> TODO()
+            is FirCallableSymbol<*> -> resolvedReturnTypeRef.coneTypeSafe()
+            else -> null
         }
 
 public fun ClassId.toConeType(vararg typeArguments: ConeTypeProjection): ConeClassLikeType {

@@ -12,6 +12,7 @@ import org.jetbrains.kotlin.fir.symbols.impl.FirTypeParameterSymbol
 import org.jetbrains.kotlin.fir.types.ConeTypeProjection
 import org.jetbrains.kotlin.fir.types.toRegularClassSymbol
 import org.jetbrains.kotlin.fir.types.type
+import org.jetbrains.kotlin.name.Name
 import org.jetbrains.kotlin.types.Variance
 
 public fun ConeTypeProjection.toFirTypeParameter(
@@ -20,8 +21,9 @@ public fun ConeTypeProjection.toFirTypeParameter(
     containingDeclarationSymbol: FirBasedSymbol<*>,
     isReified: Boolean = false,
     variance: Variance = Variance.INVARIANT,
+    name: Name = this.type?.toRegularClassSymbol(session)?.name ?: Name.special("<anonymous>")
 ): FirTypeParameterRef =
-    toFirTypeParameter(session, key.origin, containingDeclarationSymbol, isReified, variance)
+    toFirTypeParameter(session, key.origin, containingDeclarationSymbol, isReified, variance, name)
 
 public fun ConeTypeProjection.toFirTypeParameter(
     session: FirSession,
@@ -29,16 +31,13 @@ public fun ConeTypeProjection.toFirTypeParameter(
     containingDeclarationSymbol: FirBasedSymbol<*>,
     isReified: Boolean = false,
     variance: Variance = Variance.INVARIANT,
-): FirTypeParameterRef {
-    val type = this.type!!
-    val name = type.toRegularClassSymbol(session)!!.name
-    return buildTypeParameter {
-        this.moduleData = session.moduleData
-        this.origin = origin
-        this.name = name
-        this.symbol = FirTypeParameterSymbol()
-        this.containingDeclarationSymbol = containingDeclarationSymbol
-        this.isReified = isReified
-        this.variance = variance
-    }
+    name: Name = this.type?.toRegularClassSymbol(session)?.name ?: Name.special("<anonymous>")
+): FirTypeParameterRef = buildTypeParameter {
+    this.moduleData = session.moduleData
+    this.origin = origin
+    this.name = name
+    this.symbol = FirTypeParameterSymbol()
+    this.containingDeclarationSymbol = containingDeclarationSymbol
+    this.isReified = isReified
+    this.variance = variance
 }

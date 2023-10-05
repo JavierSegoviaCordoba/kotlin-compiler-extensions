@@ -13,6 +13,9 @@ import org.jetbrains.kotlin.name.ClassId
 public fun FirTypeRef.toClassId(session: FirSession): ClassId =
     this.toClassLikeSymbol(session)!!.classId
 
+public fun FirTypeRef.toClassIdOrNull(session: FirSession): ClassId? =
+    this.toClassLikeSymbol(session)?.classId
+
 public fun ClassId.toFirTypeRef(vararg typeArguments: ConeTypeProjection): FirTypeRef =
     this.toConeType(*typeArguments).toFirResolvedTypeRef()
 

@@ -4,6 +4,8 @@
 
 ### Added
 
+- multiple safe FIR functions based on getting nullable types
+
 ### Changed
 
 ### Deprecated
@@ -11,6 +13,8 @@
 ### Removed
 
 ### Fixed
+
+- avoid throwing exceptions in some FIR functions
 
 ### Updated
 
