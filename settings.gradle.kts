@@ -43,3 +43,15 @@ dependencyResolutionManagement {
         sonatypeSnapshot()
     }
 }
+
+val hubdleCatalogVersion: String =
+    file("$rootDir/gradle/libs.versions.toml")
+        .readLines()
+        .first { it.contains("hubdleCatalog") }
+        .split("\"")[1]
+
+hubdleSettings {
+    catalog {
+        version(hubdleCatalogVersion)
+    }
+}

@@ -14,10 +14,11 @@ public fun IrPluginContext.createIrBlockBody(
     startOffset: Int = UNDEFINED_OFFSET,
     endOffset: Int = UNDEFINED_OFFSET,
     initializer: IrBlockBody.() -> Unit,
-): IrBlockBody = irFactory.createBlockBody(startOffset, endOffset, initializer)
+): IrBlockBody = irFactory.createBlockBody(startOffset, endOffset).apply(initializer)
 
 public fun IrPluginContext.createIrBlockBody(
     startOffset: Int = UNDEFINED_OFFSET,
     endOffset: Int = UNDEFINED_OFFSET,
     statements: List<IrStatement>,
-): IrBlockBody = irFactory.createBlockBody(startOffset, endOffset, statements)
+): IrBlockBody =
+    irFactory.createBlockBody(startOffset, endOffset).apply { this.statements.addAll(statements) }
