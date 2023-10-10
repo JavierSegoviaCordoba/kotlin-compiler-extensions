@@ -15,8 +15,10 @@ import org.jetbrains.kotlin.test.builders.fir2IrStep
 import org.jetbrains.kotlin.test.builders.irHandlersStep
 import org.jetbrains.kotlin.test.builders.jvmArtifactsHandlersStep
 import org.jetbrains.kotlin.test.directives.CodegenTestDirectives.DUMP_IR
+import org.jetbrains.kotlin.test.model.FrontendKind
 import org.jetbrains.kotlin.test.model.TestModule
 import org.jetbrains.kotlin.test.runners.RunnerWithTargetBackendForTestGeneratorMarker
+import org.jetbrains.kotlin.test.runners.codegen.configureDumpHandlersForCodegenTest
 
 public abstract class BoxTest : BaseTestRunner(), RunnerWithTargetBackendForTestGeneratorMarker {
 
@@ -29,12 +31,18 @@ public abstract class BoxTest : BaseTestRunner(), RunnerWithTargetBackendForTest
         configuration: CompilerConfiguration,
     )
 
+    public open fun commonServicesConfiguration(): ((FrontendKind<*>) -> Unit)? = null
+
     override fun TestConfigurationBuilder.configuration() {
         defaultDirectives { +DUMP_IR }
 
-        commonPluginConfiguration(runtimeClasspathProvider) { module, configuration ->
-            registerExtensions(module, configuration)
-        }
+        commonPluginConfiguration(
+            classpathProvider = runtimeClasspathProvider,
+            registerCompilerExtensions = { module, configuration ->
+                registerExtensions(module, configuration)
+            },
+            commonServicesConfiguration = commonServicesConfiguration(),
+        )
         fir2IrStep()
         irHandlersStep {
             useHandlers(
@@ -46,5 +54,6 @@ public abstract class BoxTest : BaseTestRunner(), RunnerWithTargetBackendForTest
         jvmArtifactsHandlersStep { useHandlers(::JvmBoxRunner) }
 
         useAfterAnalysisCheckers(::BlackBoxCodegenSuppressor)
+        configureDumpHandlersForCodegenTest()
     }
 }

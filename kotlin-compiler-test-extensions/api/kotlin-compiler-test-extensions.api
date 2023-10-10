@@ -11,6 +11,7 @@ public final class com/javiersc/kotlin/compiler/test/runners/BaseTestRunner$Comp
 
 public abstract class com/javiersc/kotlin/compiler/test/runners/BoxTest : com/javiersc/kotlin/compiler/test/runners/BaseTestRunner, org/jetbrains/kotlin/test/runners/RunnerWithTargetBackendForTestGeneratorMarker {
 	public fun <init> ()V
+	public fun commonServicesConfiguration ()Lkotlin/jvm/functions/Function1;
 	public fun configuration (Lorg/jetbrains/kotlin/test/builders/TestConfigurationBuilder;)V
 	public fun getRuntimeClasspathProvider ()Lkotlin/jvm/functions/Function1;
 	public fun getTargetBackend ()Lorg/jetbrains/kotlin/test/TargetBackend;
@@ -19,6 +20,7 @@ public abstract class com/javiersc/kotlin/compiler/test/runners/BoxTest : com/ja
 
 public abstract class com/javiersc/kotlin/compiler/test/runners/DiagnosticTest : com/javiersc/kotlin/compiler/test/runners/BaseTestRunner {
 	public fun <init> ()V
+	public fun commonServicesConfiguration ()Lkotlin/jvm/functions/Function1;
 	public fun configuration (Lorg/jetbrains/kotlin/test/builders/TestConfigurationBuilder;)V
 	public fun createKotlinStandardLibrariesPathProvider ()Lorg/jetbrains/kotlin/test/services/KotlinStandardLibrariesPathProvider;
 	public fun getRuntimeClasspathProvider ()Lkotlin/jvm/functions/Function1;

@@ -5,6 +5,7 @@ import org.jetbrains.kotlin.compiler.plugin.CompilerPluginRegistrar.ExtensionSto
 import org.jetbrains.kotlin.config.CompilerConfiguration
 import org.jetbrains.kotlin.test.Constructor
 import org.jetbrains.kotlin.test.builders.TestConfigurationBuilder
+import org.jetbrains.kotlin.test.model.FrontendKind
 import org.jetbrains.kotlin.test.model.TestModule
 import org.jetbrains.kotlin.test.services.EnvironmentBasedStandardLibrariesPathProvider
 import org.jetbrains.kotlin.test.services.KotlinStandardLibrariesPathProvider
@@ -18,10 +19,16 @@ public abstract class DiagnosticTest : BaseTestRunner() {
         configuration: CompilerConfiguration,
     )
 
+    public open fun commonServicesConfiguration(): ((FrontendKind<*>) -> Unit)? = null
+
     override fun TestConfigurationBuilder.configuration() {
-        commonPluginConfiguration(runtimeClasspathProvider) { module, configuration ->
-            registerExtensions(module, configuration)
-        }
+        commonPluginConfiguration(
+            classpathProvider = runtimeClasspathProvider,
+            registerCompilerExtensions = { module, configuration ->
+                registerExtensions(module, configuration)
+            },
+            commonServicesConfiguration = commonServicesConfiguration(),
+        )
     }
 
     override fun createKotlinStandardLibrariesPathProvider(): KotlinStandardLibrariesPathProvider {

@@ -93,7 +93,7 @@ public fun IrPluginContext.createLambdaIrSimpleFunction(
     block: IrSimpleFunction.() -> Unit = {},
 ): IrSimpleFunction =
     irFactory
-        .createFunction(
+        .createSimpleFunction(
             startOffset = startOffset,
             endOffset = endOffset,
             origin = origin,
