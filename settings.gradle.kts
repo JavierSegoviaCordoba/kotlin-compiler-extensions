@@ -30,7 +30,7 @@ dependencyResolutionManagement {
         google()
         maven(url = "https://maven.pkg.jetbrains.space/kotlin/p/kotlin/bootstrap")
         maven(url = "https://maven.pkg.jetbrains.space/kotlin/p/kotlin/dev")
-        sonatypeSnapshot()
+        maven("https://oss.sonatype.org/content/repositories/snapshots")
     }
 }
 
