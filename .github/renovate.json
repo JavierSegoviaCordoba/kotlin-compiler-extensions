@@ -1,5 +1,16 @@
 {
   "extends": [
     "github>JavierSegoviaCordoba/reusable-workflows//.github/renovate-reusable.json"
-  ]
+  ],
+  "packageRules": [
+    {
+      "groupName": "Hubdle",
+      "matchPackagePatterns": [
+        "com.javiersc.hubdle",
+        "com.javiersc.hubdle:hubdle-version-catalog"
+      ],
+      "allowedVersions": "/(.+-dev-.+)$/"
+    }
+  ],
+  "ignoreUnstable": false
 }
