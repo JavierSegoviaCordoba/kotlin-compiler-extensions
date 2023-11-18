@@ -4,6 +4,7 @@
 
 ### Added
 
+- `nothingFirAnonymousFunctionExpression`
 - multiple safe FIR functions based on getting nullable types
 
 ### Changed

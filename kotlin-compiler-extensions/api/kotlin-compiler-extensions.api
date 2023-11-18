@@ -79,6 +79,8 @@ public final class com/javiersc/kotlin/compiler/extensions/fir/FirAnnotationKt {
 public final class com/javiersc/kotlin/compiler/extensions/fir/FirAnonymousFunctionExpressionKt {
 	public static final fun createFirAnonymousFunctionExpression (Lorg/jetbrains/kotlin/fir/declarations/FirAnonymousFunction;Lkotlin/jvm/functions/Function1;)Lorg/jetbrains/kotlin/fir/expressions/FirAnonymousFunctionExpression;
 	public static synthetic fun createFirAnonymousFunctionExpression$default (Lorg/jetbrains/kotlin/fir/declarations/FirAnonymousFunction;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lorg/jetbrains/kotlin/fir/expressions/FirAnonymousFunctionExpression;
+	public static final fun nothingFirAnonymousFunctionExpression (Lorg/jetbrains/kotlin/fir/FirSession;Lorg/jetbrains/kotlin/GeneratedDeclarationKey;)Lorg/jetbrains/kotlin/fir/expressions/FirAnonymousFunctionExpression;
+	public static final fun nothingFirAnonymousFunctionExpression (Lorg/jetbrains/kotlin/fir/FirSession;Lorg/jetbrains/kotlin/fir/declarations/FirDeclarationOrigin;)Lorg/jetbrains/kotlin/fir/expressions/FirAnonymousFunctionExpression;
 }
 
 public final class com/javiersc/kotlin/compiler/extensions/fir/FirAnonymousFunctionKt {
