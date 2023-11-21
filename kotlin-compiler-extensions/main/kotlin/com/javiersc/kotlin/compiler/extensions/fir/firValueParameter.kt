@@ -2,13 +2,18 @@ package com.javiersc.kotlin.compiler.extensions.fir
 
 import org.jetbrains.kotlin.GeneratedDeclarationKey
 import org.jetbrains.kotlin.fir.FirSession
+import org.jetbrains.kotlin.fir.declarations.FirCallableDeclaration
 import org.jetbrains.kotlin.fir.declarations.FirContextReceiver
 import org.jetbrains.kotlin.fir.declarations.FirDeclarationOrigin
+import org.jetbrains.kotlin.fir.declarations.FirFunction
+import org.jetbrains.kotlin.fir.declarations.FirRegularClass
 import org.jetbrains.kotlin.fir.declarations.FirValueParameter
 import org.jetbrains.kotlin.fir.declarations.builder.FirValueParameterBuilder
 import org.jetbrains.kotlin.fir.declarations.builder.buildValueParameter
 import org.jetbrains.kotlin.fir.declarations.origin
+import org.jetbrains.kotlin.fir.declarations.primaryConstructorIfAny
 import org.jetbrains.kotlin.fir.moduleData
+import org.jetbrains.kotlin.fir.symbols.FirBasedSymbol
 import org.jetbrains.kotlin.fir.symbols.impl.FirFunctionSymbol
 import org.jetbrains.kotlin.fir.symbols.impl.FirValueParameterSymbol
 import org.jetbrains.kotlin.fir.types.ConeKotlinType
@@ -19,6 +24,17 @@ import org.jetbrains.kotlin.fir.types.coneType
 import org.jetbrains.kotlin.fir.types.coneTypeOrNull
 import org.jetbrains.kotlin.fir.types.toFirResolvedTypeRef
 import org.jetbrains.kotlin.name.Name
+
+public fun FirBasedSymbol<*>.valueParameters(session: FirSession): List<FirValueParameter> =
+    when (val fir = this.fir) {
+        is FirFunction -> fir.valueParameters
+        is FirRegularClass -> fir.primaryConstructorIfAny(session)?.fir?.valueParameters.orEmpty()
+        is FirCallableDeclaration -> {
+            val declaration: FirFunction? = fir.asFirOrNull<FirFunction>()
+            declaration?.valueParameters.orEmpty()
+        }
+        else -> emptyList()
+    }
 
 public fun ConeKotlinType.toValueParameter(
     session: FirSession,

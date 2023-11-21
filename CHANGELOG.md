@@ -4,6 +4,7 @@
 
 ### Added
 
+- `FirBasedSymbol<*>.valueParameters`
 - `nothingFirAnonymousFunctionExpression`
 - multiple safe FIR functions based on getting nullable types
 
