@@ -369,8 +369,12 @@ public final class com/javiersc/kotlin/compiler/extensions/ir/IrTypeParameterSym
 }
 
 public final class com/javiersc/kotlin/compiler/extensions/ir/IrTypeProjectionKt {
-	public static final fun toIrTypeProjection (Lorg/jetbrains/kotlin/ir/types/IrSimpleType;)Lorg/jetbrains/kotlin/ir/types/IrTypeProjection;
-	public static final fun toIrTypeProjection (Lorg/jetbrains/kotlin/ir/types/IrType;)Lorg/jetbrains/kotlin/ir/types/IrTypeProjection;
+	public static final fun toIrTypeProjection (Lorg/jetbrains/kotlin/ir/types/IrSimpleType;Lorg/jetbrains/kotlin/types/Variance;)Lorg/jetbrains/kotlin/ir/types/IrTypeProjection;
+	public static final fun toIrTypeProjection (Lorg/jetbrains/kotlin/ir/types/IrType;Lorg/jetbrains/kotlin/types/Variance;)Lorg/jetbrains/kotlin/ir/types/IrTypeProjection;
+	public static synthetic fun toIrTypeProjection$default (Lorg/jetbrains/kotlin/ir/types/IrSimpleType;Lorg/jetbrains/kotlin/types/Variance;ILjava/lang/Object;)Lorg/jetbrains/kotlin/ir/types/IrTypeProjection;
+	public static synthetic fun toIrTypeProjection$default (Lorg/jetbrains/kotlin/ir/types/IrType;Lorg/jetbrains/kotlin/types/Variance;ILjava/lang/Object;)Lorg/jetbrains/kotlin/ir/types/IrTypeProjection;
+	public static final fun toIrTypeProjectionOrNull (Lorg/jetbrains/kotlin/ir/types/IrType;Lorg/jetbrains/kotlin/types/Variance;)Lorg/jetbrains/kotlin/ir/types/IrTypeProjection;
+	public static synthetic fun toIrTypeProjectionOrNull$default (Lorg/jetbrains/kotlin/ir/types/IrType;Lorg/jetbrains/kotlin/types/Variance;ILjava/lang/Object;)Lorg/jetbrains/kotlin/ir/types/IrTypeProjection;
 }
 
 public final class com/javiersc/kotlin/compiler/extensions/ir/IrValueParameterKt {

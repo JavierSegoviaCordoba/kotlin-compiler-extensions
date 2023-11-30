@@ -5,8 +5,15 @@ import org.jetbrains.kotlin.ir.types.IrType
 import org.jetbrains.kotlin.ir.types.IrTypeProjection
 import org.jetbrains.kotlin.ir.types.impl.buildTypeProjection
 import org.jetbrains.kotlin.ir.types.impl.toBuilder
+import org.jetbrains.kotlin.types.Variance
 
-public fun IrType.toIrTypeProjection(): IrTypeProjection =
-    this.asIrOrNull<IrSimpleType>()?.toBuilder()?.buildTypeProjection()!!
+public fun IrType.toIrTypeProjectionOrNull(
+    variance: Variance = Variance.INVARIANT
+): IrTypeProjection? = asIrOrNull<IrSimpleType>()?.toIrTypeProjection(variance)
 
-public fun IrSimpleType.toIrTypeProjection(): IrTypeProjection = toIrTypeProjection()
+public fun IrType.toIrTypeProjection(variance: Variance = Variance.INVARIANT): IrTypeProjection =
+    asIrOrNull<IrSimpleType>()!!.toIrTypeProjection(variance)
+
+public fun IrSimpleType.toIrTypeProjection(
+    variance: Variance = Variance.INVARIANT
+): IrTypeProjection = toBuilder().buildTypeProjection(variance)
