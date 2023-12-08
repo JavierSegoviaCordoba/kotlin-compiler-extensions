@@ -20,7 +20,7 @@
 
 ### Updated
 
-- `gradle -> 8.5`
+- `gradle -> 8.6-milestone-1`
 - `com.javiersc.hubdle:com.javiersc.hubdle.gradle.plugin -> 0.5.0+2.0.0-dev-9013-SNAPSHOT`
 - `com.javiersc.hubdle:hubdle-version-catalog -> 0.1.16+2.0.0-dev-9013-SNAPSHOT`
 
