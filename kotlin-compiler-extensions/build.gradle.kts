@@ -55,9 +55,10 @@ hubdle {
     }
 }
 
-val compilerExtensionTestsDir: File = buildDir.resolve("compiler-extensions-tests")
-val firTxtFile = compilerExtensionTestsDir.resolve("fir.txt")
-val irTxtFile = compilerExtensionTestsDir.resolve("ir.txt")
+val compilerExtensionTestsDir: Provider<Directory> =
+    layout.buildDirectory.dir("compiler-extensions-tests")
+val firTxtFile: Provider<RegularFile> = compilerExtensionTestsDir.map { it.file("fir.txt") }
+val irTxtFile = compilerExtensionTestsDir.map { it.file("ir.txt") }
 
 val checkCompilerExtensionsAreCalled = tasks.register("checkCompilerExtensionsAreCalled")
 
@@ -65,11 +66,15 @@ checkCompilerExtensionsAreCalled.configure {
     inputs.files(compilerExtensionTestsDir, firTxtFile, irTxtFile)
     outputs.files(firTxtFile, irTxtFile)
     doLast {
-        check(compilerExtensionTestsDir.exists() && compilerExtensionTestsDir.isDirectory) {
+        check(compilerExtensionTestsDir.get().asFile.run { exists() && isDirectory }) {
             "Compiler extensions tests directory does not exist: $compilerExtensionTestsDir"
         }
-        check(firTxtFile.exists() && firTxtFile.isFile) { "Fir file does not exist: $firTxtFile" }
-        check(irTxtFile.exists() && irTxtFile.isFile) { "Ir file does not exist: $irTxtFile" }
+        check(firTxtFile.get().asFile.run { exists() && isFile }) {
+            "Fir file does not exist: $firTxtFile"
+        }
+        check(irTxtFile.get().asFile.run { exists() && isFile }) {
+            "Ir file does not exist: $irTxtFile"
+        }
     }
 }
 
@@ -78,8 +83,6 @@ tasks.named("test").configure {
     outputs.files(firTxtFile, irTxtFile)
     finalizedBy(checkCompilerExtensionsAreCalled)
 }
-
-tasks.named("allTestsReport").configure { dependsOn(checkCompilerExtensionsAreCalled) }
 
 tasks.check.dependsOn(checkCompilerExtensionsAreCalled)
 
