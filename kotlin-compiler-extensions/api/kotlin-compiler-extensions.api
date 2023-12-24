@@ -386,6 +386,7 @@ public final class com/javiersc/kotlin/compiler/extensions/ir/IrVariableKt {
 	public static final fun createIrVariable (Lorg/jetbrains/kotlin/name/Name;Lorg/jetbrains/kotlin/ir/types/IrType;Lorg/jetbrains/kotlin/ir/declarations/IrDeclarationParent;IILorg/jetbrains/kotlin/ir/declarations/IrDeclarationOrigin;ZZZLkotlin/jvm/functions/Function1;)Lorg/jetbrains/kotlin/ir/declarations/IrVariable;
 	public static synthetic fun createIrVariable$default (Lorg/jetbrains/kotlin/ir/types/IrType;Lorg/jetbrains/kotlin/name/Name;Lorg/jetbrains/kotlin/ir/declarations/IrDeclarationParent;IILorg/jetbrains/kotlin/ir/declarations/IrDeclarationOrigin;ZZZLkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lorg/jetbrains/kotlin/ir/declarations/IrVariable;
 	public static synthetic fun createIrVariable$default (Lorg/jetbrains/kotlin/name/Name;Lorg/jetbrains/kotlin/ir/types/IrType;Lorg/jetbrains/kotlin/ir/declarations/IrDeclarationParent;IILorg/jetbrains/kotlin/ir/declarations/IrDeclarationOrigin;ZZZLkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lorg/jetbrains/kotlin/ir/declarations/IrVariable;
+	public static final fun toIrGetValue (Lorg/jetbrains/kotlin/ir/declarations/IrVariable;)Lorg/jetbrains/kotlin/ir/expressions/IrGetValue;
 }
 
 public final class com/javiersc/kotlin/compiler/extensions/ir/context/receivers/IrFieldKt {

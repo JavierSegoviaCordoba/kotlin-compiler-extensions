@@ -9,6 +9,7 @@ import org.jetbrains.kotlin.ir.declarations.IrDeclaration
 import org.jetbrains.kotlin.ir.declarations.IrFunction
 import org.jetbrains.kotlin.ir.declarations.IrSimpleFunction
 import org.jetbrains.kotlin.ir.declarations.IrValueParameter
+import org.jetbrains.kotlin.ir.declarations.IrVariable
 import org.jetbrains.kotlin.ir.expressions.IrCall
 import org.jetbrains.kotlin.ir.expressions.IrConstructorCall
 import org.jetbrains.kotlin.ir.expressions.IrExpression
@@ -26,6 +27,7 @@ public fun IrDeclaration.toIrExpression(): IrExpression =
     when (this) {
         is IrFunction -> toIrFunctionAccessExpression()
         is IrValueParameter -> toIrGetValue()
+        is IrVariable -> toIrGetValue()
         else -> TODO()
     }
 
