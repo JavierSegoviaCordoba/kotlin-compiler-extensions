@@ -4,6 +4,7 @@
 
 ### Added
 
+- `IrPluginContext.declarationIrBuilder: DeclarationIrBuilder`
 - `IrVariable.toIrGetValue(): IrGetValue`
 - `FirBasedSymbol<*>.valueParameters`
 - `nothingFirAnonymousFunctionExpression`

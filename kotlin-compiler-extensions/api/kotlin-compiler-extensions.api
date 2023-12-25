@@ -194,6 +194,11 @@ public final class com/javiersc/kotlin/compiler/extensions/fir/context/receivers
 	public static final fun isSubtypeOf (Lorg/jetbrains/kotlin/fir/FirSession;Lorg/jetbrains/kotlin/fir/types/ConeKotlinType;Lorg/jetbrains/kotlin/fir/types/ConeKotlinType;)Z
 }
 
+public final class com/javiersc/kotlin/compiler/extensions/ir/DeclarationIrBuilderKt {
+	public static final fun declarationIrBuilder (Lorg/jetbrains/kotlin/backend/common/extensions/IrPluginContext;Lorg/jetbrains/kotlin/ir/declarations/IrSymbolOwner;)Lorg/jetbrains/kotlin/backend/common/lower/DeclarationIrBuilder;
+	public static final fun declarationIrBuilder (Lorg/jetbrains/kotlin/backend/common/extensions/IrPluginContext;Lorg/jetbrains/kotlin/ir/symbols/IrSymbol;)Lorg/jetbrains/kotlin/backend/common/lower/DeclarationIrBuilder;
+}
+
 public final class com/javiersc/kotlin/compiler/extensions/ir/IrBlockBodyKt {
 	public static final fun createIrBlockBody (Lorg/jetbrains/kotlin/backend/common/extensions/IrPluginContext;II)Lorg/jetbrains/kotlin/ir/expressions/IrBlockBody;
 	public static final fun createIrBlockBody (Lorg/jetbrains/kotlin/backend/common/extensions/IrPluginContext;IILjava/util/List;)Lorg/jetbrains/kotlin/ir/expressions/IrBlockBody;
