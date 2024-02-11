@@ -16,4 +16,4 @@ public fun IrType.toIrTypeProjection(variance: Variance = Variance.INVARIANT): I
 
 public fun IrSimpleType.toIrTypeProjection(
     variance: Variance = Variance.INVARIANT
-): IrTypeProjection = toBuilder().buildTypeProjection(variance)
+): IrTypeProjection = toBuilder().apply { this.variance = variance }.buildTypeProjection()

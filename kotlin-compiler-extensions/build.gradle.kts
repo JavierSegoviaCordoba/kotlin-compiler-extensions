@@ -34,20 +34,20 @@ hubdle {
                     )
                     addExtensionDependencies(false)
                     generateTestOnSync(false)
-                    testDependencies(hubdle.javiersc.kotlin.kotlinStdlib)
+                    testDependencies(hubdle.javiersc.kotlin.stdlib)
                 }
                 contextReceivers()
             }
 
             main { //
                 dependencies { //
-                    api(hubdle.jetbrains.kotlin.kotlinCompiler)
+                    api(hubdle.jetbrains.kotlin.compiler)
                 }
             }
 
             test {
                 dependencies {
-                    compileOnly(hubdle.jetbrains.kotlin.kotlinCompilerInternalTestFramework)
+                    compileOnly(hubdle.jetbrains.kotlin.compiler.internal.test.framework)
                     implementation(projects.kotlinCompilerTestExtensions)
                 }
             }
