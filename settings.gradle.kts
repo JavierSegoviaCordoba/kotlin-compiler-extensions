@@ -41,7 +41,7 @@ val hubdleCatalogVersion: String =
         .split("\"")[1]
 
 hubdleSettings {
-    catalog {
+    catalog { //
         version(hubdleCatalogVersion)
     }
 }

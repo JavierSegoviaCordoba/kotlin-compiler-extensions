@@ -98,11 +98,6 @@ public final class com/javiersc/kotlin/compiler/extensions/fir/FirBasedSymbolKt 
 	public static final fun isTopLevel (Lorg/jetbrains/kotlin/fir/symbols/FirBasedSymbol;)Z
 }
 
-public final class com/javiersc/kotlin/compiler/extensions/fir/FirConstExpressionKt {
-	public static final fun createFirConstExpression (Lorg/jetbrains/kotlin/types/ConstantValueKind;Ljava/lang/Object;Lorg/jetbrains/kotlin/KtSourceElement;Ljava/util/List;Z)Lorg/jetbrains/kotlin/fir/expressions/FirConstExpression;
-	public static synthetic fun createFirConstExpression$default (Lorg/jetbrains/kotlin/types/ConstantValueKind;Ljava/lang/Object;Lorg/jetbrains/kotlin/KtSourceElement;Ljava/util/List;ZILjava/lang/Object;)Lorg/jetbrains/kotlin/fir/expressions/FirConstExpression;
-}
-
 public final class com/javiersc/kotlin/compiler/extensions/fir/FirConstructorKt {
 	public static final fun toPrimaryConstructor (Lorg/jetbrains/kotlin/fir/symbols/impl/FirClassSymbol;Lorg/jetbrains/kotlin/fir/FirSession;Lorg/jetbrains/kotlin/GeneratedDeclarationKey;Lkotlin/jvm/functions/Function2;)Lorg/jetbrains/kotlin/fir/declarations/FirConstructor;
 	public static final fun toPrimaryConstructor (Lorg/jetbrains/kotlin/fir/symbols/impl/FirClassSymbol;Lorg/jetbrains/kotlin/fir/FirSession;Lorg/jetbrains/kotlin/fir/declarations/FirDeclarationOrigin;Lkotlin/jvm/functions/Function2;)Lorg/jetbrains/kotlin/fir/declarations/FirConstructor;
@@ -130,6 +125,11 @@ public final class com/javiersc/kotlin/compiler/extensions/fir/FirFunctionCallKt
 public final class com/javiersc/kotlin/compiler/extensions/fir/FirFunctionKt {
 	public static final fun nothingFirFunction (Lorg/jetbrains/kotlin/fir/FirSession;Lorg/jetbrains/kotlin/GeneratedDeclarationKey;)Lorg/jetbrains/kotlin/fir/declarations/FirFunction;
 	public static final fun nothingFirFunction (Lorg/jetbrains/kotlin/fir/FirSession;Lorg/jetbrains/kotlin/fir/declarations/FirDeclarationOrigin;)Lorg/jetbrains/kotlin/fir/declarations/FirFunction;
+}
+
+public final class com/javiersc/kotlin/compiler/extensions/fir/FirLiteralExpressionKt {
+	public static final fun createFirLiteralExpression (Lorg/jetbrains/kotlin/types/ConstantValueKind;Ljava/lang/Object;Lorg/jetbrains/kotlin/KtSourceElement;Ljava/util/List;Z)Lorg/jetbrains/kotlin/fir/expressions/FirLiteralExpression;
+	public static synthetic fun createFirLiteralExpression$default (Lorg/jetbrains/kotlin/types/ConstantValueKind;Ljava/lang/Object;Lorg/jetbrains/kotlin/KtSourceElement;Ljava/util/List;ZILjava/lang/Object;)Lorg/jetbrains/kotlin/fir/expressions/FirLiteralExpression;
 }
 
 public final class com/javiersc/kotlin/compiler/extensions/fir/FirMemberDeclarationKt {
