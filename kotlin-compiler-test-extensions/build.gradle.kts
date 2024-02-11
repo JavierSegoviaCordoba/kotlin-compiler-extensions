@@ -30,9 +30,9 @@ hubdle {
 
             main {
                 dependencies {
-                    compileOnly(hubdle.jetbrains.kotlin.kotlinCompiler)
-                    compileOnly(hubdle.jetbrains.kotlin.kotlinCompilerInternalTestFramework)
-                    implementation(hubdle.junit.jupiter.junitJupiterApi)
+                    compileOnly(hubdle.jetbrains.kotlin.compiler)
+                    compileOnly(hubdle.jetbrains.kotlin.compiler.internal.test.framework)
+                    implementation(hubdle.junit.jupiter.junit.jupiter.api)
                 }
             }
         }
