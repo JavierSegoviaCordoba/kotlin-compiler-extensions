@@ -6,7 +6,6 @@ import com.intellij.testFramework.TestDataPath;
 import org.jetbrains.kotlin.test.util.KtTestUtil;
 import org.jetbrains.kotlin.test.TargetBackend;
 import org.jetbrains.kotlin.test.TestMetadata;
-import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
 import java.io.File;
@@ -17,14 +16,14 @@ import java.util.regex.Pattern;
 @TestMetadata("test-data/box")
 @TestDataPath("$PROJECT_ROOT")
 public class FakeBoxTestGenerated extends AbstractFakeBoxTest {
-    @Test
-    public void testAllFilesPresentInBox() throws Exception {
-        KtTestUtil.assertAllTestsPresentByMetadataWithExcluded(this.getClass(), new File("test-data/box"), Pattern.compile("^(.+)\\.kt$"), null, TargetBackend.JVM_IR, true);
-    }
+  @Test
+  public void testAllFilesPresentInBox() {
+    KtTestUtil.assertAllTestsPresentByMetadataWithExcluded(this.getClass(), new File("test-data/box"), Pattern.compile("^(.+)\\.kt$"), null, TargetBackend.JVM_IR, true);
+  }
 
-    @Test
-    @TestMetadata("simple-1.kt")
-    public void testSimple_1() throws Exception {
-        runTest("test-data/box/simple-1.kt");
-    }
+  @Test
+  @TestMetadata("simple-1.kt")
+  public void testSimple_1() {
+    runTest("test-data/box/simple-1.kt");
+  }
 }

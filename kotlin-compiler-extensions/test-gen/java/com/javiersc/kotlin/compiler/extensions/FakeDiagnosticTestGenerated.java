@@ -5,7 +5,6 @@ package com.javiersc.kotlin.compiler.extensions;
 import com.intellij.testFramework.TestDataPath;
 import org.jetbrains.kotlin.test.util.KtTestUtil;
 import org.jetbrains.kotlin.test.TestMetadata;
-import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
 import java.io.File;
@@ -16,8 +15,8 @@ import java.util.regex.Pattern;
 @TestMetadata("test-data/diagnostics")
 @TestDataPath("$PROJECT_ROOT")
 public class FakeDiagnosticTestGenerated extends AbstractFakeDiagnosticTest {
-    @Test
-    public void testAllFilesPresentInDiagnostics() throws Exception {
-        KtTestUtil.assertAllTestsPresentByMetadataWithExcluded(this.getClass(), new File("test-data/diagnostics"), Pattern.compile("^(.+)\\.kt$"), null, true);
-    }
+  @Test
+  public void testAllFilesPresentInDiagnostics() {
+    KtTestUtil.assertAllTestsPresentByMetadataWithExcluded(this.getClass(), new File("test-data/diagnostics"), Pattern.compile("^(.+)\\.kt$"), null, true);
+  }
 }

@@ -11,7 +11,7 @@ public val FirSession.nothingFirFunctionCall: FirFunctionCall
     get() = buildFunctionCall {
         val nothingSymbol =
             builtinTypes.nothingType.toClassLikeSymbol(this@nothingFirFunctionCall)!!
-        argumentList = buildResolvedArgumentList(LinkedHashMap())
+        argumentList = buildResolvedArgumentList(null, LinkedHashMap())
         calleeReference = buildResolvedNamedReference {
             this.name = nothingSymbol.name
             resolvedSymbol = nothingSymbol
