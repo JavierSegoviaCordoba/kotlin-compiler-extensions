@@ -13,6 +13,8 @@ import org.jetbrains.kotlin.test.TargetBackend
 import org.jetbrains.kotlin.test.backend.ir.JvmIrBackendFacade
 import org.jetbrains.kotlin.test.builders.TestConfigurationBuilder
 import org.jetbrains.kotlin.test.directives.FirDiagnosticsDirectives
+import org.jetbrains.kotlin.test.directives.JvmEnvironmentConfigurationDirectives
+import org.jetbrains.kotlin.test.directives.LanguageSettingsDirectives
 import org.jetbrains.kotlin.test.directives.configureFirParser
 import org.jetbrains.kotlin.test.frontend.fir.Fir2IrJvmResultsConverter
 import org.jetbrains.kotlin.test.frontend.fir.FirFrontendFacade
@@ -87,10 +89,13 @@ internal fun TestConfigurationBuilder.commonPluginConfiguration(
     configureFirParser(FirParser.Psi)
 
     defaultDirectives {
+        LanguageSettingsDirectives.LANGUAGE with "+ContextReceivers"
+
         // +ConfigurationDirectives.WITH_STDLIB
         +FirDiagnosticsDirectives.ENABLE_PLUGIN_PHASES
         +FirDiagnosticsDirectives.FIR_DUMP
         +AdditionalFilesDirectives.SOME_FILE_DIRECTIVE
+        +JvmEnvironmentConfigurationDirectives.FULL_JDK
     }
 
     val configurators: List<Constructor<AbstractEnvironmentConfigurator>> = buildList {

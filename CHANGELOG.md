@@ -4,6 +4,7 @@
 
 ### Added
 
+- `FULL_JDK` and Context Receivers to test configuration
 - `IrPluginContext.declarationIrBuilder: DeclarationIrBuilder`
 - `IrVariable.toIrGetValue(): IrGetValue`
 - `FirBasedSymbol<*>.valueParameters`
