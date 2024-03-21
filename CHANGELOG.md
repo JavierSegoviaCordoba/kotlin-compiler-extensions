@@ -17,16 +17,17 @@
 
 ### Deprecated
 
-### Removed
-
 ### Fixed
 
 - avoid throwing exceptions in some FIR functions
 
+### Removed
+
 ### Updated
 
+- `com.javiersc.hubdle:hubdle-version-catalog -> 0.2.5+2.0.0-dev-19480-SNAPSHOT`
+- `com.javiersc.hubdle:com.javiersc.hubdle.gradle.plugin -> 0.6.4+2.0.0-dev-19480-SNAPSHOT`
 - `com.javiersc.hubdle:com.javiersc.hubdle.gradle.plugin -> 0.6.4+2.0.0-dev-18803-SNAPSHOT`
-- `com.javiersc.hubdle:hubdle-version-catalog -> 0.2.5+2.0.0-dev-17175-SNAPSHOT`
 - `gradle -> 8.6`
 
 ## [0.1.1-alpha.5] - 2023-09-29
