@@ -1,5 +1,5 @@
 [versions]
-hubdle = "0.6.4+2.0.0-dev-19480-SNAPSHOT"
+hubdle = "0.6.5"
 hubdleCatalog = "0.2.5+2.0.0-dev-19480-SNAPSHOT"
 
 [libraries]
