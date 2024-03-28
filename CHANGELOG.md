@@ -25,9 +25,9 @@
 
 ### Updated
 
+- `com.javiersc.hubdle:com.javiersc.hubdle.gradle.plugin -> 0.6.5`
 - `gradle -> 8.7`
 - `com.javiersc.hubdle:hubdle-version-catalog -> 0.2.5+2.0.0-dev-19480-SNAPSHOT`
-- `com.javiersc.hubdle:com.javiersc.hubdle.gradle.plugin -> 0.6.4+2.0.0-dev-19480-SNAPSHOT`
 
 ## [0.1.1-alpha.5] - 2023-09-29
 
