@@ -1,8 +1,11 @@
+@file:OptIn(ExperimentalTopLevelDeclarationsGenerationApi::class)
+
 package com.javiersc.kotlin.compiler.extensions.fir
 
 import com.javiersc.kotlin.compiler.extensions.shared.compilerExtensionsTestDir
 import java.io.File
 import org.jetbrains.kotlin.fir.FirSession
+import org.jetbrains.kotlin.fir.extensions.ExperimentalTopLevelDeclarationsGenerationApi
 import org.jetbrains.kotlin.fir.extensions.FirDeclarationGenerationExtension
 import org.jetbrains.kotlin.name.CallableId
 
