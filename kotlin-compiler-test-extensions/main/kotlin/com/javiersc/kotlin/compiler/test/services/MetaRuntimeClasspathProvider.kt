@@ -12,12 +12,18 @@ import org.jetbrains.kotlin.test.services.TestServices
 
 public abstract class MetaRuntimeClasspathProvider(
     testServices: TestServices,
+    private val isLoggingEnabled: Boolean = false,
 ) : RuntimeClasspathProvider(testServices) {
 
     public abstract val jarPaths: List<String>
 
     public val classpathConfigurator: ClasspathConfigurator
-        get() = ClasspathConfigurator(jarPaths, testServices)
+        get() =
+            ClasspathConfigurator(
+                jarPaths = jarPaths,
+                testServices = testServices,
+                isLoggingEnabled = isLoggingEnabled
+            )
 
     override fun runtimeClassPaths(module: TestModule): List<File> = classpathConfigurator.jarFiles
 }
@@ -25,6 +31,7 @@ public abstract class MetaRuntimeClasspathProvider(
 public class ClasspathConfigurator(
     public val jarPaths: List<String>,
     testServices: TestServices,
+    private val isLoggingEnabled: Boolean,
 ) : EnvironmentConfigurator(testServices) {
 
     public val jarFiles: List<File>
@@ -35,7 +42,7 @@ public class ClasspathConfigurator(
         module: TestModule
     ) {
         for (jar: File in jarFiles) {
-            println("Jar found: $jar".ansiColor(AnsiColor.Foreground.Cyan))
+            if (isLoggingEnabled) println("Jar found: $jar".ansiColor(AnsiColor.Foreground.Cyan))
             configuration.addJvmClasspathRoot(jar)
         }
     }

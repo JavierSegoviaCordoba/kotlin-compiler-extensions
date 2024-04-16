@@ -4,6 +4,8 @@
 
 ### Added
 
+- allow disabling logging in `MetaRuntimeClasspathProvider`
+
 ### Changed
 
 ### Deprecated

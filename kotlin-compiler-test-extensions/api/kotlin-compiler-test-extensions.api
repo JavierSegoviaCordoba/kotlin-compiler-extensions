@@ -40,13 +40,14 @@ public final class com/javiersc/kotlin/compiler/test/services/AdditionalFilesPro
 }
 
 public final class com/javiersc/kotlin/compiler/test/services/ClasspathConfigurator : org/jetbrains/kotlin/test/services/EnvironmentConfigurator {
-	public fun <init> (Ljava/util/List;Lorg/jetbrains/kotlin/test/services/TestServices;)V
+	public fun <init> (Ljava/util/List;Lorg/jetbrains/kotlin/test/services/TestServices;Z)V
 	public final fun getJarFiles ()Ljava/util/List;
 	public final fun getJarPaths ()Ljava/util/List;
 }
 
 public abstract class com/javiersc/kotlin/compiler/test/services/MetaRuntimeClasspathProvider : org/jetbrains/kotlin/test/services/RuntimeClasspathProvider {
-	public fun <init> (Lorg/jetbrains/kotlin/test/services/TestServices;)V
+	public fun <init> (Lorg/jetbrains/kotlin/test/services/TestServices;Z)V
+	public synthetic fun <init> (Lorg/jetbrains/kotlin/test/services/TestServices;ZILkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public final fun getClasspathConfigurator ()Lcom/javiersc/kotlin/compiler/test/services/ClasspathConfigurator;
 	public abstract fun getJarPaths ()Ljava/util/List;
 	public fun runtimeClassPaths (Lorg/jetbrains/kotlin/test/model/TestModule;)Ljava/util/List;
