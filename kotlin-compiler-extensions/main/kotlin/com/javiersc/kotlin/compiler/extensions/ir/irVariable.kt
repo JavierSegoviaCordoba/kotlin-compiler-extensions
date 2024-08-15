@@ -13,11 +13,7 @@ import org.jetbrains.kotlin.name.Name
 
 public fun IrVariable.toIrGetValue(): IrGetValue =
     IrGetValueImpl(
-        startOffset = UNDEFINED_OFFSET,
-        endOffset = UNDEFINED_OFFSET,
-        type = type,
-        symbol = symbol
-    )
+        startOffset = UNDEFINED_OFFSET, endOffset = UNDEFINED_OFFSET, type = type, symbol = symbol)
 
 public fun IrType.createIrVariable(
     name: Name,

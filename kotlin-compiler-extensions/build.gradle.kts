@@ -1,8 +1,4 @@
 import com.android.build.gradle.internal.tasks.factory.dependsOn
-import com.javiersc.gradle.properties.extensions.getStringProperty
-import com.javiersc.gradle.version.GradleVersion
-import com.javiersc.gradle.version.isSnapshot
-import org.jetbrains.kotlin.gradle.plugin.getKotlinPluginVersion
 
 hubdle {
     config {
@@ -17,27 +13,14 @@ hubdle {
         }
         publishing()
         projectConfig()
-        versioning {
-            semver {
-                mapVersion { gradleVersion ->
-                    val kotlinVersion = getKotlinPluginVersion()
-                    val metadata =
-                        gradleVersion.metadata?.let { "$kotlinVersion-$it" } ?: kotlinVersion
-                    "${gradleVersion.copy(metadata = metadata)}"
-                }
-            }
-        }
     }
-
-
 
     kotlin {
         jvm {
             features {
                 compiler {
                     mainClass.set(
-                        "com.javiersc.kotlin.compiler.extensions.GenerateKotlinCompilerTestsKt"
-                    )
+                        "com.javiersc.kotlin.compiler.extensions.GenerateKotlinCompilerTestsKt")
                     addExtensionDependencies(false)
                     generateTestOnSync(false)
                     testDependencies(hubdle.javiersc.kotlin.stdlib)
