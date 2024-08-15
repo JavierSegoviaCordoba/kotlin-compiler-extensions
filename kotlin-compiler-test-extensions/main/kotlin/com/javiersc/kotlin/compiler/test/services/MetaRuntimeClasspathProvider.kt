@@ -22,8 +22,7 @@ public abstract class MetaRuntimeClasspathProvider(
             ClasspathConfigurator(
                 jarPaths = jarPaths,
                 testServices = testServices,
-                isLoggingEnabled = isLoggingEnabled
-            )
+                isLoggingEnabled = isLoggingEnabled)
 
     override fun runtimeClassPaths(module: TestModule): List<File> = classpathConfigurator.jarFiles
 }

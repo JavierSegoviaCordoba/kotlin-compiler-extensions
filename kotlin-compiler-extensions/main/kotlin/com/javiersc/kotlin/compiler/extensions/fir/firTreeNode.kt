@@ -15,8 +15,7 @@ public fun FirElement.toFirTreeNode(): FirTreeNode {
             override fun visitElement(element: FirElement) {
                 firTree.addChild(element.toFirTreeNode())
             }
-        }
-    )
+        })
     return firTree
 }
 

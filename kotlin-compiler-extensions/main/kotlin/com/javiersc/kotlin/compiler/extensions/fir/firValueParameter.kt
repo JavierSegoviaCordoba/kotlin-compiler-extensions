@@ -151,9 +151,5 @@ public fun FirContextReceiver.toValueParameterOrNull(
         block(this@toValueParameterOrNull)
     }
     return typeRef.coneTypeOrNull?.toValueParameter(
-        session,
-        origin,
-        containingFunctionSymbol,
-        builder
-    )
+        session, origin, containingFunctionSymbol, builder)
 }

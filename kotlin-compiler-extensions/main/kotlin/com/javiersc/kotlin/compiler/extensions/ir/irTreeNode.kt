@@ -22,8 +22,7 @@ public fun IrElement.toIrTreeNode(): IrTreeNode {
             override fun visitElement(element: IrElement) {
                 irTree.addChild(element.toIrTreeNode())
             }
-        }
-    )
+        })
     return irTree
 }
 

@@ -41,5 +41,4 @@ public fun FirSession.nothingFirAnonymousFunctionExpression(
                 this.returnTypeRef = buildResolvedTypeRef {
                     this.type = builtinTypes.nothingType.coneType
                 }
-            }
-    )
+            })
