@@ -4,8 +4,6 @@
 
 ### Added
 
-- allow disabling logging in `MetaRuntimeClasspathProvider`
-
 ### Changed
 
 ### Deprecated
@@ -13,6 +11,14 @@
 ### Fixed
 
 ### Removed
+
+### Updated
+
+## [0.2.0+2.0.10] - 2024-08-16
+
+### Added
+
+- allow disabling logging in `MetaRuntimeClasspathProvider`
 
 ### Updated
 
@@ -35,13 +41,9 @@
 
 - `FirConstExpression` to `FirLiteralExpression`
 
-### Deprecated
-
 ### Fixed
 
 - avoid throwing exceptions in some FIR functions
-
-### Removed
 
 ### Updated
 
@@ -193,7 +195,11 @@
 
 - `kotlin-compiler-test` to `kotlin-compiler-extensions-test`
 
-[Unreleased]: https://github.com/JavierSegoviaCordoba/kotlin-compiler-extensions/compare/0.1.1-alpha.5...HEAD
+[Unreleased]: https://github.com/JavierSegoviaCordoba/kotlin-compiler-extensions/compare/0.2.0+2.0.10...HEAD
+
+[0.2.0+2.0.10]: https://github.com/JavierSegoviaCordoba/kotlin-compiler-extensions/compare/0.1.1+2.0.0-RC1...0.2.0+2.0.10
+
+[0.1.1+2.0.0-RC1]: https://github.com/JavierSegoviaCordoba/kotlin-compiler-extensions/compare/0.1.1-alpha.5...0.1.1+2.0.0-RC1
 
 [0.1.1-alpha.5]: https://github.com/JavierSegoviaCordoba/kotlin-compiler-extensions/compare/0.1.1-alpha.4...0.1.1-alpha.5
 
