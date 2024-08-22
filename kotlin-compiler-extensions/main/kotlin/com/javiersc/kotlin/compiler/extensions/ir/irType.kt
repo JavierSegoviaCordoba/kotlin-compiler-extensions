@@ -43,7 +43,7 @@ public inline fun <reified T> IrPluginContext.irType(): IrType {
 
 public fun IrType.substituteOrSelf(
     original: IrTypeParametersContainer,
-    transformed: IrTypeParametersContainer
+    transformed: IrTypeParametersContainer,
 ): IrType = this.substituteOrSelf(makeTypeParameterSubstitutionMap(original, transformed))
 
 public fun IrType.substituteOrSelf(substitutionMap: Map<IrTypeParameterSymbol, IrType>?): IrType =

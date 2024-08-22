@@ -7,12 +7,12 @@ import org.jetbrains.kotlin.fir.expressions.builder.buildLiteralExpression
 import org.jetbrains.kotlin.types.ConstantValueKind
 
 public fun <T> createFirLiteralExpression(
-    kind: ConstantValueKind<T>,
+    kind: ConstantValueKind,
     value: T,
     source: KtSourceElement? = null,
     annotations: MutableList<FirAnnotation> = mutableListOf(),
-    setType: Boolean = true
-): FirLiteralExpression<T> =
+    setType: Boolean = true,
+): FirLiteralExpression =
     buildLiteralExpression(
         source = source,
         kind = kind,

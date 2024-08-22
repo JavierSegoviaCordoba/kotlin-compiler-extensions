@@ -15,4 +15,8 @@ public fun IrClass.toIrGetObjectValue(
     type: IrType = symbol.owner.defaultType,
 ): IrGetObjectValue =
     IrGetObjectValueImpl(
-        startOffset = startOffset, endOffset = endOffset, type = type, symbol = symbol)
+        startOffset = startOffset,
+        endOffset = endOffset,
+        type = type,
+        symbol = symbol,
+    )

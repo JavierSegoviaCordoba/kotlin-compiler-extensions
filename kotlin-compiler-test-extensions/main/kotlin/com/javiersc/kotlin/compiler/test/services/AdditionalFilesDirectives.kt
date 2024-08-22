@@ -12,5 +12,6 @@ public object AdditionalFilesDirectives : SimpleDirectivesContainer() {
                     Adds common context annotations
                     See file ./test-data/additional-files/SomeFile.kt
                 """
-                    .trimIndent())
+                    .trimIndent()
+        )
 }

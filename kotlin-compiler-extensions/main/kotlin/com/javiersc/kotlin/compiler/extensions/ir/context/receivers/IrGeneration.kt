@@ -13,7 +13,7 @@ public fun interface IrGeneration {
         object : IrGenerationExtension {
             override fun generate(
                 moduleFragment: IrModuleFragment,
-                pluginContext: IrPluginContext
+                pluginContext: IrPluginContext,
             ) {
                 with(moduleFragment) { with(pluginContext) { generate() } }
             }

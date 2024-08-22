@@ -10,4 +10,5 @@ public fun IrValueParameter.toIrGetValue(): IrGetValue =
         startOffset = UNDEFINED_OFFSET,
         endOffset = UNDEFINED_OFFSET,
         type = symbol.owner.type,
-        symbol = symbol)
+        symbol = symbol,
+    )

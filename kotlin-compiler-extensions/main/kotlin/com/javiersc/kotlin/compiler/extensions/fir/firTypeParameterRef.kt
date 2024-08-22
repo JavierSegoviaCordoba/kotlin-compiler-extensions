@@ -21,7 +21,7 @@ public fun ConeTypeProjection.toFirTypeParameter(
     containingDeclarationSymbol: FirBasedSymbol<*>,
     isReified: Boolean = false,
     variance: Variance = Variance.INVARIANT,
-    name: Name = this.type?.toRegularClassSymbol(session)?.name ?: Name.special("<anonymous>")
+    name: Name = this.type?.toRegularClassSymbol(session)?.name ?: Name.special("<anonymous>"),
 ): FirTypeParameterRef =
     toFirTypeParameter(session, key.origin, containingDeclarationSymbol, isReified, variance, name)
 
@@ -31,7 +31,7 @@ public fun ConeTypeProjection.toFirTypeParameter(
     containingDeclarationSymbol: FirBasedSymbol<*>,
     isReified: Boolean = false,
     variance: Variance = Variance.INVARIANT,
-    name: Name = this.type?.toRegularClassSymbol(session)?.name ?: Name.special("<anonymous>")
+    name: Name = this.type?.toRegularClassSymbol(session)?.name ?: Name.special("<anonymous>"),
 ): FirTypeParameterRef = buildTypeParameter {
     this.moduleData = session.moduleData
     this.origin = origin

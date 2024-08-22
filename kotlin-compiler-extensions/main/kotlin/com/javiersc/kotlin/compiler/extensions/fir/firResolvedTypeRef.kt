@@ -7,7 +7,7 @@ import org.jetbrains.kotlin.fir.types.builder.buildResolvedTypeRef
 
 public fun createFirResolvedTypeRef(
     type: ConeKotlinType,
-    builder: FirResolvedTypeRefBuilder.() -> Unit = {}
+    builder: FirResolvedTypeRefBuilder.() -> Unit = {},
 ): FirResolvedTypeRef = buildResolvedTypeRef {
     this.type = type
     builder()
