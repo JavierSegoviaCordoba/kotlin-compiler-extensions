@@ -46,12 +46,7 @@ public abstract class BoxTest : BaseTestRunner(), RunnerWithTargetBackendForTest
             commonServicesConfiguration = commonServicesConfiguration(),
         )
         fir2IrStep()
-        irHandlersStep {
-            useHandlers(
-                ::IrTextDumpHandler,
-                ::IrTreeVerifierHandler,
-            )
-        }
+        irHandlersStep { useHandlers(::IrTextDumpHandler, ::IrTreeVerifierHandler) }
         facadeStep(::JvmIrBackendFacade)
         jvmArtifactsHandlersStep { useHandlers(::JvmBoxRunner) }
 

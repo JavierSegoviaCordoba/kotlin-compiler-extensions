@@ -25,8 +25,7 @@ public enum class IrClassExhaustiveKind {
     ExpectClass,
     ExpectInterface,
     ExpectAnnotationClass,
-    FunInterface,
-    ;
+    FunInterface;
 
     override fun toString(): String = name.transform_string().replace("_", " ")
 

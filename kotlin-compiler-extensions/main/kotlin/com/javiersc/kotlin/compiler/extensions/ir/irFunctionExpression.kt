@@ -12,7 +12,7 @@ public fun createIrFunctionExpression(
     endOffset: Int = UNDEFINED_OFFSET,
     type: IrType,
     function: IrSimpleFunction,
-    origin: IrStatementOrigin
+    origin: IrStatementOrigin,
 ): IrFunctionExpression =
     IrFunctionExpressionImpl(
         startOffset = startOffset,

@@ -21,7 +21,7 @@ fun main() {
 
 private fun ExtensionStorage.allExtensions(
     module: TestModule,
-    configuration: CompilerConfiguration
+    configuration: CompilerConfiguration,
 ) {
     compilerExtensionsTestDir.deleteRecursively()
     FirExtensionRegistrarAdapter.registerExtension(FakeFirExtensionRegistrar())
@@ -32,7 +32,7 @@ open class AbstractFakeDiagnosticTest : DiagnosticTest() {
 
     override fun ExtensionStorage.registerExtensions(
         module: TestModule,
-        configuration: CompilerConfiguration
+        configuration: CompilerConfiguration,
     ) {
         allExtensions(module, configuration)
     }
@@ -42,7 +42,7 @@ open class AbstractFakeBoxTest : BoxTest() {
 
     override fun ExtensionStorage.registerExtensions(
         module: TestModule,
-        configuration: CompilerConfiguration
+        configuration: CompilerConfiguration,
     ) {
         allExtensions(module, configuration)
     }

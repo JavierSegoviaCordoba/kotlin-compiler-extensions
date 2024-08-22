@@ -9,12 +9,12 @@ import org.jetbrains.kotlin.test.services.TestServices
 internal class ExtensionRegistrarConfigurator(
     testServices: TestServices,
     private val registerCompilerExtensions:
-        ExtensionStorage.(TestModule, CompilerConfiguration) -> Unit
+        ExtensionStorage.(TestModule, CompilerConfiguration) -> Unit,
 ) : EnvironmentConfigurator(testServices) {
 
     override fun ExtensionStorage.registerCompilerExtensions(
         module: TestModule,
-        configuration: CompilerConfiguration
+        configuration: CompilerConfiguration,
     ) {
         this@ExtensionRegistrarConfigurator.registerCompilerExtensions(this, module, configuration)
     }

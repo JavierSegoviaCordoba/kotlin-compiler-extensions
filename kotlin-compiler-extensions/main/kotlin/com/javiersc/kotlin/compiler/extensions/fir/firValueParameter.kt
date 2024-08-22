@@ -16,13 +16,13 @@ import org.jetbrains.kotlin.fir.moduleData
 import org.jetbrains.kotlin.fir.symbols.FirBasedSymbol
 import org.jetbrains.kotlin.fir.symbols.impl.FirFunctionSymbol
 import org.jetbrains.kotlin.fir.symbols.impl.FirValueParameterSymbol
+import org.jetbrains.kotlin.fir.toFirResolvedTypeRef
 import org.jetbrains.kotlin.fir.types.ConeKotlinType
 import org.jetbrains.kotlin.fir.types.FirResolvedTypeRef
 import org.jetbrains.kotlin.fir.types.FirTypeRef
 import org.jetbrains.kotlin.fir.types.classId
 import org.jetbrains.kotlin.fir.types.coneType
 import org.jetbrains.kotlin.fir.types.coneTypeOrNull
-import org.jetbrains.kotlin.fir.types.toFirResolvedTypeRef
 import org.jetbrains.kotlin.name.Name
 
 public fun FirBasedSymbol<*>.valueParameters(session: FirSession): List<FirValueParameter> =
@@ -151,5 +151,9 @@ public fun FirContextReceiver.toValueParameterOrNull(
         block(this@toValueParameterOrNull)
     }
     return typeRef.coneTypeOrNull?.toValueParameter(
-        session, origin, containingFunctionSymbol, builder)
+        session,
+        origin,
+        containingFunctionSymbol,
+        builder,
+    )
 }

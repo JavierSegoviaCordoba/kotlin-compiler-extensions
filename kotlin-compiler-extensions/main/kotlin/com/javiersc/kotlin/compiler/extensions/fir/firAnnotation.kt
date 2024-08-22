@@ -10,7 +10,7 @@ import org.jetbrains.kotlin.fir.types.FirTypeRef
 public fun createFirAnnotation(
     annotationTypeRef: FirTypeRef,
     argumentMapping: FirAnnotationArgumentMapping = FirEmptyAnnotationArgumentMapping,
-    builder: FirAnnotationBuilder.() -> Unit = {}
+    builder: FirAnnotationBuilder.() -> Unit = {},
 ): FirAnnotation = buildAnnotation {
     this.annotationTypeRef = annotationTypeRef
     this.argumentMapping = argumentMapping
@@ -19,5 +19,5 @@ public fun createFirAnnotation(
 
 public fun FirTypeRef.toFirAnnotation(
     argumentMapping: FirAnnotationArgumentMapping = FirEmptyAnnotationArgumentMapping,
-    builder: FirAnnotationBuilder.() -> Unit = {}
+    builder: FirAnnotationBuilder.() -> Unit = {},
 ): FirAnnotation = createFirAnnotation(this, argumentMapping, builder)

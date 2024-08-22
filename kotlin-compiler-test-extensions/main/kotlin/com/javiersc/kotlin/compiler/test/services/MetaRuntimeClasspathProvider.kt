@@ -22,7 +22,8 @@ public abstract class MetaRuntimeClasspathProvider(
             ClasspathConfigurator(
                 jarPaths = jarPaths,
                 testServices = testServices,
-                isLoggingEnabled = isLoggingEnabled)
+                isLoggingEnabled = isLoggingEnabled,
+            )
 
     override fun runtimeClassPaths(module: TestModule): List<File> = classpathConfigurator.jarFiles
 }
@@ -38,7 +39,7 @@ public class ClasspathConfigurator(
 
     override fun configureCompilerConfiguration(
         configuration: CompilerConfiguration,
-        module: TestModule
+        module: TestModule,
     ) {
         for (jar: File in jarFiles) {
             if (isLoggingEnabled) println("Jar found: $jar".ansiColor(AnsiColor.Foreground.Cyan))

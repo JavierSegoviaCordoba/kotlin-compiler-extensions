@@ -10,12 +10,7 @@ public fun IrExpression.toIrConst(
     irType: IrType = type,
     startOffset: Int = SYNTHETIC_OFFSET,
     endOffset: Int = SYNTHETIC_OFFSET,
-): IrConst<*> =
-    originalToIrConst(
-        irType = irType,
-        startOffset = startOffset,
-        endOffset = endOffset,
-    )
+): IrConst<*> = originalToIrConst(irType = irType, startOffset = startOffset, endOffset = endOffset)
 
 public fun IrExpression?.toIrConstOrNull(
     irType: IrType? = this?.type,
