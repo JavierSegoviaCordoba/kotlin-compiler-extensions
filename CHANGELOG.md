@@ -4,6 +4,8 @@
 
 ### Added
 
+- `kotlin-compiler-gradle-extensions` project
+
 ### Changed
 
 - remove all functions that use context receivers

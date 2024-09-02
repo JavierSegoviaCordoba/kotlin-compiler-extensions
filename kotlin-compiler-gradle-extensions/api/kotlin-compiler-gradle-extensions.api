@@ -1,0 +1,31 @@
+public abstract interface class com/javiersc/kotlin/compiler/gradle/extensions/KotlinCompilerGradlePlugin : org/jetbrains/kotlin/gradle/plugin/KotlinCompilerPluginSupportPlugin {
+	public abstract fun apply (Lorg/gradle/api/Project;)V
+	public abstract fun compilerClasspath (Lorg/gradle/kotlin/dsl/DependencyHandlerScope;Ljava/lang/Object;)V
+	public abstract fun configureFreeCompilerArgs (Lorg/gradle/api/Project;Lorg/gradle/api/artifacts/Configuration;)V
+}
+
+public final class com/javiersc/kotlin/compiler/gradle/extensions/KotlinCompilerGradlePlugin$DefaultImpls {
+	public static fun apply (Lcom/javiersc/kotlin/compiler/gradle/extensions/KotlinCompilerGradlePlugin;Lorg/gradle/api/Project;)V
+	public static fun compilerClasspath (Lcom/javiersc/kotlin/compiler/gradle/extensions/KotlinCompilerGradlePlugin;Lorg/gradle/kotlin/dsl/DependencyHandlerScope;Ljava/lang/Object;)V
+	public static fun configureFreeCompilerArgs (Lcom/javiersc/kotlin/compiler/gradle/extensions/KotlinCompilerGradlePlugin;Lorg/gradle/api/Project;Lorg/gradle/api/artifacts/Configuration;)V
+	public static fun getPluginArtifactForNative (Lcom/javiersc/kotlin/compiler/gradle/extensions/KotlinCompilerGradlePlugin;)Lorg/jetbrains/kotlin/gradle/plugin/SubpluginArtifact;
+}
+
+public final class com/javiersc/kotlin/compiler/gradle/extensions/KotlinCompilerGradlePlugin$DefaultImpls$inlined$sam$i$org_gradle_api_Action$0 : org/gradle/api/Action {
+	public fun <init> (Lkotlin/jvm/functions/Function1;)V
+	public final synthetic fun execute (Ljava/lang/Object;)V
+}
+
+public final class com/javiersc/kotlin/kotlin/compiler/gradle/extensions/KotlinCompilerGradleExtensionsProjectData {
+	public static final field Group Ljava/lang/String;
+	public static final field INSTANCE Lcom/javiersc/kotlin/kotlin/compiler/gradle/extensions/KotlinCompilerGradleExtensionsProjectData;
+	public static final field Library Ljava/lang/String;
+	public static final field Name Ljava/lang/String;
+	public static final field ProjectDirAbsolutePath Ljava/lang/String;
+	public static final field ProjectDirPath Ljava/lang/String;
+	public static final field RelativeDirPath Ljava/lang/String;
+	public static final field RootDirAbsolutePath Ljava/lang/String;
+	public static final field RootDirPath Ljava/lang/String;
+	public static final field Version Ljava/lang/String;
+}
+
