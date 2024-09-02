@@ -10,11 +10,15 @@
 
 ### Fixed
 
-- `compilerClasspath` does not support `String`
-
 ### Removed
 
 ### Updated
+
+## [0.4.1+2.0.20] - 2024-09-02
+
+### Fixed
+
+- `compilerClasspath` does not support `String`
 
 ## [0.4.0+2.0.20] - 2024-09-02
 
@@ -220,7 +224,9 @@
 
 - `kotlin-compiler-test` to `kotlin-compiler-extensions-test`
 
-[Unreleased]: https://github.com/JavierSegoviaCordoba/kotlin-compiler-extensions/compare/0.4.0+2.0.20...HEAD
+[Unreleased]: https://github.com/JavierSegoviaCordoba/kotlin-compiler-extensions/compare/0.4.1+2.0.20...HEAD
+
+[0.4.1+2.0.20]: https://github.com/JavierSegoviaCordoba/kotlin-compiler-extensions/compare/0.4.0+2.0.20...0.4.1+2.0.20
 
 [0.4.0+2.0.20]: https://github.com/JavierSegoviaCordoba/kotlin-compiler-extensions/compare/0.3.0+2.0.20...0.4.0+2.0.20
 
