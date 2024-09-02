@@ -73,6 +73,3 @@ tasks.named("test").configure {
 }
 
 tasks.check.dependsOn(checkCompilerExtensionsAreCalled)
-
-fun String.isKotlinDevVersion(): Boolean =
-    matches(Regex("""(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)-dev-(0|[1-9]\d*)"""))
