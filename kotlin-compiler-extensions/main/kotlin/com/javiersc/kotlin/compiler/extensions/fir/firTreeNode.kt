@@ -20,9 +20,9 @@ public fun FirElement.toFirTreeNode(): FirTreeNode {
     return firTree
 }
 
-public val FirElement.treeNode: FirTreeNode
+public inline val FirElement.treeNode: FirTreeNode
     get() = this.toFirTreeNode()
 
-public fun FirTreeNode.render(): String = value.render()
+public inline fun FirTreeNode.render(): String = value.render()
 
-public fun FirTreeNode.renderWithType(): String = value.renderWithType()
+public inline fun FirTreeNode.renderWithType(): String = value.renderWithType()

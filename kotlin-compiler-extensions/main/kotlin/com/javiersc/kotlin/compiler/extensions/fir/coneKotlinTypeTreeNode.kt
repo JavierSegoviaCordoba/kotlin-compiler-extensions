@@ -28,7 +28,7 @@ public fun ConeKotlinType.toTreeNode(): ConeKotlinTypeTreeNode {
     return tree
 }
 
-public val ConeKotlinType.treeNode: ConeKotlinTypeTreeNode
+public inline val ConeKotlinType.treeNode: ConeKotlinTypeTreeNode
     get() = this.toTreeNode()
 
 public sealed class ConeNode {

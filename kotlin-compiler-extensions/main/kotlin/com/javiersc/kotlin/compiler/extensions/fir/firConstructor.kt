@@ -15,13 +15,13 @@ import org.jetbrains.kotlin.fir.symbols.impl.ConeClassLikeLookupTagImpl
 import org.jetbrains.kotlin.fir.symbols.impl.FirClassSymbol
 import org.jetbrains.kotlin.fir.symbols.impl.FirConstructorSymbol
 
-public fun FirClassSymbol<*>.toPrimaryConstructor(
+public inline fun FirClassSymbol<*>.toPrimaryConstructor(
     session: FirSession,
     key: GeneratedDeclarationKey,
     block: FirPrimaryConstructorBuilder.(FirClassSymbol<*>) -> Unit = {},
 ): FirConstructor = toPrimaryConstructor(session, key.origin, block)
 
-public fun FirClassSymbol<*>.toPrimaryConstructor(
+public inline fun FirClassSymbol<*>.toPrimaryConstructor(
     session: FirSession,
     origin: FirDeclarationOrigin,
     block: FirPrimaryConstructorBuilder.(FirClassSymbol<*>) -> Unit = {},

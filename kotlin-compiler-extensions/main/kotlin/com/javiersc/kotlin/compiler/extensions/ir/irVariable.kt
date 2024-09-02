@@ -11,7 +11,7 @@ import org.jetbrains.kotlin.ir.expressions.impl.IrGetValueImpl
 import org.jetbrains.kotlin.ir.types.IrType
 import org.jetbrains.kotlin.name.Name
 
-public fun IrVariable.toIrGetValue(): IrGetValue =
+public inline fun IrVariable.toIrGetValue(): IrGetValue =
     IrGetValueImpl(
         startOffset = UNDEFINED_OFFSET,
         endOffset = UNDEFINED_OFFSET,
@@ -19,7 +19,7 @@ public fun IrVariable.toIrGetValue(): IrGetValue =
         symbol = symbol,
     )
 
-public fun IrType.createIrVariable(
+public inline fun IrType.createIrVariable(
     name: Name,
     parent: IrDeclarationParent? = null,
     startOffset: Int = UNDEFINED_OFFSET,
@@ -43,7 +43,7 @@ public fun IrType.createIrVariable(
         block = block,
     )
 
-public fun createIrVariable(
+public inline fun createIrVariable(
     name: Name,
     type: IrType,
     parent: IrDeclarationParent? = null,

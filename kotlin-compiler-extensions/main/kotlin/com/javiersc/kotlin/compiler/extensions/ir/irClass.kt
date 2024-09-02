@@ -5,16 +5,17 @@ import org.jetbrains.kotlin.ir.declarations.IrClass
 import org.jetbrains.kotlin.ir.symbols.IrClassSymbol
 import org.jetbrains.kotlin.name.ClassId
 
-public fun IrPluginContext.firstIrClass(classId: ClassId): IrClass = firstIrClassOrNull(classId)!!
+public inline fun IrPluginContext.firstIrClass(classId: ClassId): IrClass =
+    firstIrClassOrNull(classId)!!
 
-public fun IrPluginContext.firstIrClassOrNull(classId: ClassId): IrClass? =
+public inline fun IrPluginContext.firstIrClassOrNull(classId: ClassId): IrClass? =
     firstIrClassSymbolOrNull(classId)?.owner
 
-public fun IrPluginContext.firstIrClassSymbol(classId: ClassId): IrClassSymbol =
+public inline fun IrPluginContext.firstIrClassSymbol(classId: ClassId): IrClassSymbol =
     firstIrClassSymbolOrNull(classId)!!
 
-public fun IrPluginContext.firstIrClassSymbolOrNull(classId: ClassId): IrClassSymbol? =
+public inline fun IrPluginContext.firstIrClassSymbolOrNull(classId: ClassId): IrClassSymbol? =
     referenceClass(classId)
 
-public val IrClass.exhaustiveKind: IrClassExhaustiveKind
+public inline val IrClass.exhaustiveKind: IrClassExhaustiveKind
     get() = IrClassExhaustiveKind.from(this)

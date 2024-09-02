@@ -15,7 +15,7 @@ import org.jetbrains.kotlin.fir.types.type
 import org.jetbrains.kotlin.name.Name
 import org.jetbrains.kotlin.types.Variance
 
-public fun ConeTypeProjection.toFirTypeParameter(
+public inline fun ConeTypeProjection.toFirTypeParameter(
     session: FirSession,
     key: GeneratedDeclarationKey,
     containingDeclarationSymbol: FirBasedSymbol<*>,
@@ -25,7 +25,7 @@ public fun ConeTypeProjection.toFirTypeParameter(
 ): FirTypeParameterRef =
     toFirTypeParameter(session, key.origin, containingDeclarationSymbol, isReified, variance, name)
 
-public fun ConeTypeProjection.toFirTypeParameter(
+public inline fun ConeTypeProjection.toFirTypeParameter(
     session: FirSession,
     origin: FirDeclarationOrigin,
     containingDeclarationSymbol: FirBasedSymbol<*>,

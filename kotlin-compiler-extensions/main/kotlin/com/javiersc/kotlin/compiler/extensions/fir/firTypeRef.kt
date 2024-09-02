@@ -10,16 +10,16 @@ import org.jetbrains.kotlin.fir.types.FirTypeRef
 import org.jetbrains.kotlin.fir.types.toTypeProjection
 import org.jetbrains.kotlin.name.ClassId
 
-public fun FirTypeRef.toClassId(session: FirSession): ClassId =
+public inline fun FirTypeRef.toClassId(session: FirSession): ClassId =
     this.toClassLikeSymbol(session)!!.classId
 
-public fun FirTypeRef.toClassIdOrNull(session: FirSession): ClassId? =
+public inline fun FirTypeRef.toClassIdOrNull(session: FirSession): ClassId? =
     this.toClassLikeSymbol(session)?.classId
 
-public fun ClassId.toFirTypeRef(vararg typeArguments: ConeTypeProjection): FirTypeRef =
+public inline fun ClassId.toFirTypeRef(vararg typeArguments: ConeTypeProjection): FirTypeRef =
     this.toConeType(*typeArguments).toFirResolvedTypeRef()
 
-public fun FirClassLikeSymbol<*>.toFirTypeRef(): FirTypeRef {
+public inline fun FirClassLikeSymbol<*>.toFirTypeRef(): FirTypeRef {
     val types: Array<ConeTypeProjection> =
         this.typeParameterSymbols
             .map { symbol -> symbol.toConeType().toTypeProjection(symbol.variance) }

@@ -27,14 +27,14 @@ public fun IrElement.toIrTreeNode(): IrTreeNode {
     return irTree
 }
 
-public val IrElement.treeNode: IrTreeNode
+public inline val IrElement.treeNode: IrTreeNode
     get() = this.toIrTreeNode()
 
-public fun IrTreeNode.dump(): String = value.dump()
+public inline fun IrTreeNode.dump(): String = value.dump()
 
-public fun IrTreeNode.dumpKotlinLike(): String = value.dumpKotlinLike()
+public inline fun IrTreeNode.dumpKotlinLike(): String = value.dumpKotlinLike()
 
-public fun IrTreeNode.render(): String = value.render()
+public inline fun IrTreeNode.render(): String = value.render()
 
 public inline fun <reified T : IrElement> IrTreeNode.firstIrOrNull(): T? =
     this.firstIrOrNull { true }
@@ -146,5 +146,5 @@ public val IrTreeNode.parentIrFunction: IrFunction?
         return recursive(this)
     }
 
-public val IrTreeNode.lineNumber: Int?
+public inline val IrTreeNode.lineNumber: Int?
     get() = irFile?.fileEntry?.getLineNumber(value.startOffset)?.plus(1)

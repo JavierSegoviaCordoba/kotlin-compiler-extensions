@@ -13,14 +13,15 @@ import org.jetbrains.kotlin.ir.util.hasAnnotation
 import org.jetbrains.kotlin.ir.util.primaryConstructor
 import org.jetbrains.kotlin.name.FqName
 
-public fun Iterable<IrElement>.dump(): String = joinToString("\n") { it.dump() }
+public inline fun Iterable<IrElement>.dump(): String = joinToString("\n") { it.dump() }
 
-public fun Iterable<IrElement>.dumpKotlinLike(): String = joinToString("\n") { it.dumpKotlinLike() }
+public inline fun Iterable<IrElement>.dumpKotlinLike(): String =
+    joinToString("\n") { it.dumpKotlinLike() }
 
 public inline fun <reified T : Annotation> IrElement.hasAnnotation(): Boolean =
     hasAnnotation(T::class.toFqName())
 
-public fun IrElement.hasAnnotation(annotation: FqName): Boolean =
+public inline fun IrElement.hasAnnotation(annotation: FqName): Boolean =
     when (this) {
         is IrClass -> hasAnnotation(annotation)
         is IrFunctionAccessExpression -> hasAnnotation(annotation)
@@ -28,7 +29,7 @@ public fun IrElement.hasAnnotation(annotation: FqName): Boolean =
         else -> false
     }
 
-public val IrElement.contextReceivers: List<IrValueParameter>
+public inline val IrElement.contextReceivers: List<IrValueParameter>
     get() =
         when (this) {
             is IrFunction -> contextReceivers

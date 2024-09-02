@@ -31,7 +31,7 @@ public enum class IrClassExhaustiveKind {
 
     public companion object {
 
-        public fun from(irClass: IrClass): IrClassExhaustiveKind =
+        public inline fun from(irClass: IrClass): IrClassExhaustiveKind =
             with(irClass) {
                 when {
                     isExpect && isAnnotationClass -> ExpectAnnotationClass

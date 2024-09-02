@@ -14,10 +14,6 @@ hubdle {
 
     kotlin {
         jvm {
-            features { //
-                contextReceivers()
-            }
-
             main {
                 dependencies {
                     compileOnly(hubdle.jetbrains.kotlin.compiler)

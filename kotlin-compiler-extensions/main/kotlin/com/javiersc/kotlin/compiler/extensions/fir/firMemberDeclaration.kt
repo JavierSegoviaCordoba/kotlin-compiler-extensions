@@ -7,7 +7,7 @@ import org.jetbrains.kotlin.fir.declarations.FirTypeAlias
 import org.jetbrains.kotlin.fir.declarations.utils.classId
 import org.jetbrains.kotlin.name.Name
 
-public val FirMemberDeclaration.name: Name
+public inline val FirMemberDeclaration.name: Name
     get() =
         when (this) {
             is FirCallableDeclaration -> this.symbol.callableId.callableName

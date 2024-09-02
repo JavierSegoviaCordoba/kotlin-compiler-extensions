@@ -4,11 +4,12 @@ import org.jetbrains.kotlin.name.CallableId
 import org.jetbrains.kotlin.name.ClassId
 import org.jetbrains.kotlin.name.FqName
 
-public fun String.toCallableId(): CallableId =
+public inline fun String.toCallableId(): CallableId =
     FqName(this).run { CallableId(parent(), shortName()) }
 
-public fun FqName.toCallableId(): CallableId = CallableId(parent(), shortName())
+public inline fun FqName.toCallableId(): CallableId = CallableId(parent(), shortName())
 
-public fun ClassId.toCallableId(): CallableId = CallableId(packageFqName, this.shortClassName)
+public inline fun ClassId.toCallableId(): CallableId =
+    CallableId(packageFqName, this.shortClassName)
 
 public inline fun <reified T> callableId(): CallableId = fqName<T>().toCallableId()

@@ -8,10 +8,10 @@ import org.jetbrains.kotlin.fir.types.ConeLookupTagBasedType
 import org.jetbrains.kotlin.fir.types.coneType
 import org.jetbrains.kotlin.name.Name
 
-public val FirContextReceiver.typeRefName: Name?
+public inline val FirContextReceiver.typeRefName: Name?
     get() = (typeRef.coneType as? ConeLookupTagBasedType)?.lookupTag?.name
 
-public val FirBasedSymbol<*>.contextReceivers: List<FirContextReceiver>
+public inline val FirBasedSymbol<*>.contextReceivers: List<FirContextReceiver>
     get() =
         when (val fir = this.fir) {
             is FirSimpleFunction -> fir.contextReceivers

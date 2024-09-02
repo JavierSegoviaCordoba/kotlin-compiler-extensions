@@ -7,13 +7,14 @@ import org.jetbrains.kotlin.ir.types.impl.buildTypeProjection
 import org.jetbrains.kotlin.ir.types.impl.toBuilder
 import org.jetbrains.kotlin.types.Variance
 
-public fun IrType.toIrTypeProjectionOrNull(
+public inline fun IrType.toIrTypeProjectionOrNull(
     variance: Variance = Variance.INVARIANT
 ): IrTypeProjection? = asIrOrNull<IrSimpleType>()?.toIrTypeProjection(variance)
 
-public fun IrType.toIrTypeProjection(variance: Variance = Variance.INVARIANT): IrTypeProjection =
-    asIrOrNull<IrSimpleType>()!!.toIrTypeProjection(variance)
+public inline fun IrType.toIrTypeProjection(
+    variance: Variance = Variance.INVARIANT
+): IrTypeProjection = asIrOrNull<IrSimpleType>()!!.toIrTypeProjection(variance)
 
-public fun IrSimpleType.toIrTypeProjection(
+public inline fun IrSimpleType.toIrTypeProjection(
     variance: Variance = Variance.INVARIANT
 ): IrTypeProjection = toBuilder().buildTypeProjection(variance)

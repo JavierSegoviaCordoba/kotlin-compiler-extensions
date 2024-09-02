@@ -6,7 +6,7 @@ import org.jetbrains.kotlin.ir.declarations.IrTypeParametersContainer
 import org.jetbrains.kotlin.ir.symbols.IrTypeParameterSymbol
 import org.jetbrains.kotlin.ir.util.render
 
-public val IrElement.typeParameterSymbols: List<IrTypeParameterSymbol>
+public inline val IrElement.typeParameterSymbols: List<IrTypeParameterSymbol>
     get() =
         when (val irElement: IrElement = this) {
             is IrTypeParametersContainer -> irElement.typeParameters.map(IrTypeParameter::symbol)

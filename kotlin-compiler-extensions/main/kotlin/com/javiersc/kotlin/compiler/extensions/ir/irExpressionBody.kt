@@ -5,7 +5,7 @@ import org.jetbrains.kotlin.ir.UNDEFINED_OFFSET
 import org.jetbrains.kotlin.ir.expressions.IrExpression
 import org.jetbrains.kotlin.ir.expressions.IrExpressionBody
 
-public fun IrPluginContext.createExpressionBody(
+public inline fun IrPluginContext.createExpressionBody(
     startOffset: Int = UNDEFINED_OFFSET,
     endOffset: Int = UNDEFINED_OFFSET,
     expression: IrExpression,

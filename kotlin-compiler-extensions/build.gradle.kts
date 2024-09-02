@@ -25,7 +25,6 @@ hubdle {
                     generateTestOnSync(false)
                     testDependencies(hubdle.javiersc.kotlin.stdlib)
                 }
-                contextReceivers()
             }
 
             main { //

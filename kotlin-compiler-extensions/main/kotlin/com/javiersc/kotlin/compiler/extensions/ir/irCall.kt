@@ -23,7 +23,7 @@ import org.jetbrains.kotlin.ir.symbols.IrFunctionSymbol
 import org.jetbrains.kotlin.ir.symbols.IrSimpleFunctionSymbol
 import org.jetbrains.kotlin.ir.types.IrType
 
-public fun IrDeclaration.toIrExpression(): IrExpression =
+public inline fun IrDeclaration.toIrExpression(): IrExpression =
     when (this) {
         is IrFunction -> toIrFunctionAccessExpression()
         is IrValueParameter -> toIrGetValue()
@@ -31,7 +31,7 @@ public fun IrDeclaration.toIrExpression(): IrExpression =
         else -> TODO()
     }
 
-public fun IrDeclaration.toIrFunctionAccessExpression(
+public inline fun IrDeclaration.toIrFunctionAccessExpression(
     startOffset: Int = UNDEFINED_OFFSET,
     endOffset: Int = UNDEFINED_OFFSET,
     symbol: IrFunctionSymbol =
@@ -65,7 +65,7 @@ public fun IrDeclaration.toIrFunctionAccessExpression(
         else -> TODO()
     }
 
-public fun IrFunction.toIrFunctionAccessExpression(
+public inline fun IrFunction.toIrFunctionAccessExpression(
     startOffset: Int = UNDEFINED_OFFSET,
     endOffset: Int = UNDEFINED_OFFSET,
     symbol: IrFunctionSymbol = this.symbol,
@@ -107,7 +107,7 @@ public fun IrFunction.toIrFunctionAccessExpression(
         else -> TODO()
     }.apply(block)
 
-public fun IrSimpleFunction.toIrCall(
+public inline fun IrSimpleFunction.toIrCall(
     startOffset: Int = UNDEFINED_OFFSET,
     endOffset: Int = UNDEFINED_OFFSET,
     symbol: IrSimpleFunctionSymbol = this.symbol,
@@ -139,7 +139,7 @@ public fun IrSimpleFunction.toIrCall(
             block()
         }
 
-public fun IrConstructor.toIrConstructorCall(
+public inline fun IrConstructor.toIrConstructorCall(
     startOffset: Int = UNDEFINED_OFFSET,
     endOffset: Int = UNDEFINED_OFFSET,
     symbol: IrConstructorSymbol = this.symbol,

@@ -8,7 +8,7 @@ import org.jetbrains.kotlin.ir.symbols.IrClassSymbol
 import org.jetbrains.kotlin.ir.types.IrType
 import org.jetbrains.kotlin.ir.util.defaultType
 
-public fun IrClass.toIrGetObjectValue(
+public inline fun IrClass.toIrGetObjectValue(
     startOffset: Int = UNDEFINED_OFFSET,
     endOffset: Int = UNDEFINED_OFFSET,
     symbol: IrClassSymbol = this.symbol,

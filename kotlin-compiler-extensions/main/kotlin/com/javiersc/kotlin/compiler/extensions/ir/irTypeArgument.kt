@@ -5,11 +5,11 @@ import org.jetbrains.kotlin.ir.types.IrTypeArgument
 import org.jetbrains.kotlin.ir.types.IrTypeProjection
 import org.jetbrains.kotlin.ir.util.dumpKotlinLike
 
-public fun Iterable<IrTypeArgument?>.dumpKotlinLike(): String =
+public inline fun Iterable<IrTypeArgument?>.dumpKotlinLike(): String =
     joinToString("\n") { "${it?.dumpKotlinLike()}" }
 
-public val IrTypeArgument.type: IrType
+public inline val IrTypeArgument.type: IrType
     get() = (this as IrTypeProjection).type
 
-public val IrTypeArgument.irType: IrType
+public inline val IrTypeArgument.irType: IrType
     get() = type

@@ -17,10 +17,10 @@ import org.jetbrains.kotlin.fir.symbols.impl.FirNamedFunctionSymbol
 import org.jetbrains.kotlin.fir.types.impl.FirImplicitNothingTypeRef
 import org.jetbrains.kotlin.name.StandardClassIds
 
-public fun FirSession.nothingFirFunction(key: GeneratedDeclarationKey): FirFunction =
+public inline fun FirSession.nothingFirFunction(key: GeneratedDeclarationKey): FirFunction =
     nothingFirFunction(key.origin)
 
-public fun FirSession.nothingFirFunction(origin: FirDeclarationOrigin): FirFunction =
+public inline fun FirSession.nothingFirFunction(origin: FirDeclarationOrigin): FirFunction =
     buildSimpleFunction {
         val session = this@nothingFirFunction
         this.moduleData = session.moduleData

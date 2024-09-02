@@ -20,42 +20,44 @@ import org.jetbrains.kotlin.name.Name
 import org.jetbrains.kotlin.name.SpecialNames
 import org.jetbrains.kotlin.serialization.deserialization.descriptors.DeserializedContainerSource
 
-public val IrFunction.contextReceivers: List<IrValueParameter>
+public inline val IrFunction.contextReceivers: List<IrValueParameter>
     get() = valueParameters.take(contextReceiverParametersCount)
 
-public fun IrPluginContext.firstIrSimpleFunctionSymbol(
+public inline fun IrPluginContext.firstIrSimpleFunctionSymbol(
     callableId: CallableId
 ): IrSimpleFunctionSymbol = firstIrSimpleFunctionSymbolOrNull(callableId)!!
 
-public fun IrPluginContext.firstIrSimpleFunctionSymbolOrNull(
+public inline fun IrPluginContext.firstIrSimpleFunctionSymbolOrNull(
     callableId: CallableId
 ): IrSimpleFunctionSymbol? = referenceFunctions(callableId).firstOrNull()
 
-public fun IrPluginContext.firstIrFunctionSymbol(callableId: CallableId): IrFunctionSymbol =
+public inline fun IrPluginContext.firstIrFunctionSymbol(callableId: CallableId): IrFunctionSymbol =
     firstIrFunctionSymbolOrNull(callableId)!!
 
-public fun IrPluginContext.firstIrFunctionSymbolOrNull(callableId: CallableId): IrFunctionSymbol? =
-    referenceFunctions(callableId).firstOrNull()
+public inline fun IrPluginContext.firstIrFunctionSymbolOrNull(
+    callableId: CallableId
+): IrFunctionSymbol? = referenceFunctions(callableId).firstOrNull()
 
-public fun IrPluginContext.firstIrSimpleFunction(callableId: CallableId): IrSimpleFunction =
+public inline fun IrPluginContext.firstIrSimpleFunction(callableId: CallableId): IrSimpleFunction =
     firstIrSimpleFunctionOrNull(callableId)!!
 
-public fun IrPluginContext.firstIrSimpleFunctionOrNull(callableId: CallableId): IrSimpleFunction? =
-    referenceFunctions(callableId).firstOrNull()?.owner
+public inline fun IrPluginContext.firstIrSimpleFunctionOrNull(
+    callableId: CallableId
+): IrSimpleFunction? = referenceFunctions(callableId).firstOrNull()?.owner
 
-public fun IrPluginContext.firstIrFunction(callableId: CallableId): IrFunction =
+public inline fun IrPluginContext.firstIrFunction(callableId: CallableId): IrFunction =
     firstIrFunctionOrNull(callableId)!!
 
-public fun IrPluginContext.firstIrFunctionOrNull(callableId: CallableId): IrFunction? =
+public inline fun IrPluginContext.firstIrFunctionOrNull(callableId: CallableId): IrFunction? =
     referenceFunctions(callableId).firstOrNull()?.owner
 
-public fun IrPluginContext.createGetterIrSimpleFunction(
+public inline fun IrPluginContext.createGetterIrSimpleFunction(
     name: Name,
     builder: IrFunctionBuilder.() -> Unit = {},
     function: IrSimpleFunction.() -> Unit = {},
 ): IrSimpleFunction = createDefaultPropertyAccessor("<get-$name>", builder, function)
 
-public fun IrPluginContext.createDefaultPropertyAccessor(
+public inline fun IrPluginContext.createDefaultPropertyAccessor(
     name: String,
     builder: IrFunctionBuilder.() -> Unit = {},
     function: IrSimpleFunction.() -> Unit = {},
@@ -72,7 +74,7 @@ public fun IrPluginContext.createDefaultPropertyAccessor(
         }
         .apply(function)
 
-public fun IrPluginContext.createLambdaIrSimpleFunction(
+public inline fun IrPluginContext.createLambdaIrSimpleFunction(
     startOffset: Int = UNDEFINED_OFFSET,
     endOffset: Int = UNDEFINED_OFFSET,
     origin: IrDeclarationOrigin = IrDeclarationOrigin.LOCAL_FUNCTION_FOR_LAMBDA,

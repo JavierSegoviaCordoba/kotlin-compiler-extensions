@@ -6,6 +6,9 @@
 
 ### Changed
 
+- remove all functions that use context receivers
+- all functions to be `inline`
+
 ### Deprecated
 
 ### Fixed

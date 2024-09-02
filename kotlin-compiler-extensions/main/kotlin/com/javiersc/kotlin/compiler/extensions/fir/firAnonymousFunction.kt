@@ -9,7 +9,7 @@ import org.jetbrains.kotlin.fir.moduleData
 import org.jetbrains.kotlin.fir.symbols.impl.FirAnonymousFunctionSymbol
 import org.jetbrains.kotlin.fir.types.FirTypeRef
 
-public fun FirSession.createFirAnonymousFunction(
+public inline fun FirSession.createFirAnonymousFunction(
     origin: FirDeclarationOrigin,
     returnTypeRef: FirTypeRef,
     symbol: FirAnonymousFunctionSymbol = FirAnonymousFunctionSymbol(),

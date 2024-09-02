@@ -14,7 +14,7 @@ import org.jetbrains.kotlin.fir.symbols.impl.FirAnonymousFunctionSymbol
 import org.jetbrains.kotlin.fir.types.builder.buildResolvedTypeRef
 import org.jetbrains.kotlin.fir.types.coneType
 
-public fun createFirAnonymousFunctionExpression(
+public inline fun createFirAnonymousFunctionExpression(
     anonymousFunction: FirAnonymousFunction,
     builder: FirAnonymousFunctionExpressionBuilder.() -> Unit = {},
 ): FirAnonymousFunctionExpression = buildAnonymousFunctionExpression {
@@ -22,11 +22,11 @@ public fun createFirAnonymousFunctionExpression(
     builder()
 }
 
-public fun FirSession.nothingFirAnonymousFunctionExpression(
+public inline fun FirSession.nothingFirAnonymousFunctionExpression(
     key: GeneratedDeclarationKey
 ): FirAnonymousFunctionExpression = nothingFirAnonymousFunctionExpression(origin = key.origin)
 
-public fun FirSession.nothingFirAnonymousFunctionExpression(
+public inline fun FirSession.nothingFirAnonymousFunctionExpression(
     origin: FirDeclarationOrigin
 ): FirAnonymousFunctionExpression =
     createFirAnonymousFunctionExpression(

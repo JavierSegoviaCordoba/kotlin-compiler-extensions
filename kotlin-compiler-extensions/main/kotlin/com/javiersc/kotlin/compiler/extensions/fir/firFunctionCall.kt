@@ -7,7 +7,7 @@ import org.jetbrains.kotlin.fir.expressions.buildResolvedArgumentList
 import org.jetbrains.kotlin.fir.expressions.builder.buildFunctionCall
 import org.jetbrains.kotlin.fir.references.builder.buildResolvedNamedReference
 
-public val FirSession.nothingFirFunctionCall: FirFunctionCall
+public inline val FirSession.nothingFirFunctionCall: FirFunctionCall
     get() = buildFunctionCall {
         val nothingSymbol =
             builtinTypes.nothingType.toClassLikeSymbol(this@nothingFirFunctionCall)!!

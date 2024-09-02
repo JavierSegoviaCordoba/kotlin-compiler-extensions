@@ -11,7 +11,7 @@ import org.jetbrains.kotlin.ir.types.IrType
 import org.jetbrains.kotlin.ir.util.defaultType
 import org.jetbrains.kotlin.ir.util.dumpKotlinLike
 
-public fun createIrGetValue(
+public inline fun createIrGetValue(
     startOffset: Int = UNDEFINED_OFFSET,
     endOffset: Int = UNDEFINED_OFFSET,
     type: IrType,
@@ -28,7 +28,7 @@ public fun createIrGetValue(
         )
         .apply(block)
 
-public fun IrFunction.toIrGetValue(
+public inline fun IrFunction.toIrGetValue(
     startOffset: Int = UNDEFINED_OFFSET,
     endOffset: Int = UNDEFINED_OFFSET,
     symbol: IrValueSymbol = this.dispatchReceiverParameter!!.symbol,
@@ -45,7 +45,7 @@ public fun IrFunction.toIrGetValue(
         block = block,
     )
 
-public fun IrClass.toIrGetValue(
+public inline fun IrClass.toIrGetValue(
     startOffset: Int = UNDEFINED_OFFSET,
     endOffset: Int = UNDEFINED_OFFSET,
     symbol: IrValueSymbol =

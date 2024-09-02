@@ -5,7 +5,7 @@ import org.jetbrains.kotlin.ir.expressions.IrGetEnumValue
 import org.jetbrains.kotlin.ir.expressions.impl.IrGetEnumValueImpl
 import org.jetbrains.kotlin.ir.types.IrType
 
-public fun IrType.toIrGetEnumValue(enumEntry: IrEnumEntry): IrGetEnumValue =
+public inline fun IrType.toIrGetEnumValue(enumEntry: IrEnumEntry): IrGetEnumValue =
     IrGetEnumValueImpl(
         startOffset = enumEntry.startOffset,
         endOffset = enumEntry.endOffset,

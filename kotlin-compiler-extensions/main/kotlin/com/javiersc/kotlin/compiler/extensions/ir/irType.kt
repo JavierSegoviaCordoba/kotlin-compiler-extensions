@@ -20,10 +20,10 @@ import org.jetbrains.kotlin.ir.util.render
 import org.jetbrains.kotlin.ir.util.substitute
 import org.jetbrains.kotlin.name.ClassId
 
-public fun Iterable<IrType?>.dumpKotlinLike(): String =
+public inline fun Iterable<IrType?>.dumpKotlinLike(): String =
     joinToString("\n") { "${it?.dumpKotlinLike()}" }
 
-public val IrElement.irType: IrType
+public inline val IrElement.irType: IrType
     get() =
         when (val irElement = this) {
             is IrType -> irElement
@@ -41,10 +41,11 @@ public inline fun <reified T> IrPluginContext.irType(): IrType {
     return irClassSymbol.defaultType
 }
 
-public fun IrType.substituteOrSelf(
+public inline fun IrType.substituteOrSelf(
     original: IrTypeParametersContainer,
     transformed: IrTypeParametersContainer,
 ): IrType = this.substituteOrSelf(makeTypeParameterSubstitutionMap(original, transformed))
 
-public fun IrType.substituteOrSelf(substitutionMap: Map<IrTypeParameterSymbol, IrType>?): IrType =
-    substitutionMap?.let { this.substitute(it) } ?: this
+public inline fun IrType.substituteOrSelf(
+    substitutionMap: Map<IrTypeParameterSymbol, IrType>?
+): IrType = substitutionMap?.let { this.substitute(it) } ?: this

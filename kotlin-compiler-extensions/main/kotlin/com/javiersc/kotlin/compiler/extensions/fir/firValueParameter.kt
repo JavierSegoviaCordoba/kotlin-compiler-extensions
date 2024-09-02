@@ -25,7 +25,7 @@ import org.jetbrains.kotlin.fir.types.coneType
 import org.jetbrains.kotlin.fir.types.coneTypeOrNull
 import org.jetbrains.kotlin.name.Name
 
-public fun FirBasedSymbol<*>.valueParameters(session: FirSession): List<FirValueParameter> =
+public inline fun FirBasedSymbol<*>.valueParameters(session: FirSession): List<FirValueParameter> =
     when (val fir = this.fir) {
         is FirFunction -> fir.valueParameters
         is FirRegularClass -> fir.primaryConstructorIfAny(session)?.fir?.valueParameters.orEmpty()
@@ -33,17 +33,18 @@ public fun FirBasedSymbol<*>.valueParameters(session: FirSession): List<FirValue
             val declaration: FirFunction? = fir.asFirOrNull<FirFunction>()
             declaration?.valueParameters.orEmpty()
         }
+
         else -> emptyList()
     }
 
-public fun ConeKotlinType.toValueParameter(
+public inline fun ConeKotlinType.toValueParameter(
     session: FirSession,
     key: GeneratedDeclarationKey,
     containingFunctionSymbol: FirFunctionSymbol<*>,
     block: FirValueParameterBuilder.(FirTypeRef) -> Unit = {},
 ): FirValueParameter = toValueParameter(session, key.origin, containingFunctionSymbol, block)
 
-public fun ConeKotlinType.toValueParameter(
+public inline fun ConeKotlinType.toValueParameter(
     session: FirSession,
     origin: FirDeclarationOrigin,
     containingFunctionSymbol: FirFunctionSymbol<*>,
@@ -69,7 +70,7 @@ public fun ConeKotlinType.toValueParameter(
     }
 }
 
-public fun FirTypeRef.toValueParameter(
+public inline fun FirTypeRef.toValueParameter(
     session: FirSession,
     key: GeneratedDeclarationKey,
     containingFunctionSymbol: FirFunctionSymbol<*>,
@@ -77,7 +78,7 @@ public fun FirTypeRef.toValueParameter(
 ): FirValueParameter =
     coneType.toValueParameter(session, key.origin, containingFunctionSymbol, block)
 
-public fun FirTypeRef.toValueParameterOrNull(
+public inline fun FirTypeRef.toValueParameterOrNull(
     session: FirSession,
     key: GeneratedDeclarationKey,
     containingFunctionSymbol: FirFunctionSymbol<*>,
@@ -85,14 +86,14 @@ public fun FirTypeRef.toValueParameterOrNull(
 ): FirValueParameter? =
     coneTypeOrNull?.toValueParameter(session, key.origin, containingFunctionSymbol, block)
 
-public fun FirTypeRef.toValueParameter(
+public inline fun FirTypeRef.toValueParameter(
     session: FirSession,
     origin: FirDeclarationOrigin,
     containingFunctionSymbol: FirFunctionSymbol<*>,
     block: FirValueParameterBuilder.(FirTypeRef) -> Unit = {},
 ): FirValueParameter = coneType.toValueParameter(session, origin, containingFunctionSymbol, block)
 
-public fun FirTypeRef.toValueParameterOrNull(
+public inline fun FirTypeRef.toValueParameterOrNull(
     session: FirSession,
     origin: FirDeclarationOrigin,
     containingFunctionSymbol: FirFunctionSymbol<*>,
@@ -100,16 +101,16 @@ public fun FirTypeRef.toValueParameterOrNull(
 ): FirValueParameter? =
     coneTypeOrNull?.toValueParameter(session, origin, containingFunctionSymbol, block)
 
-public fun FirFunctionSymbol<*>.contextReceiversToValueParameters(
+public inline fun FirFunctionSymbol<*>.contextReceiversToValueParameters(
     session: FirSession,
     key: GeneratedDeclarationKey,
-    block: FirValueParameterBuilder.(FirContextReceiver) -> Unit = {},
+    crossinline block: FirValueParameterBuilder.(FirContextReceiver) -> Unit = {},
 ): List<FirValueParameter> = contextReceiversToValueParameters(session, key.origin, block)
 
-public fun FirFunctionSymbol<*>.contextReceiversToValueParameters(
+public inline fun FirFunctionSymbol<*>.contextReceiversToValueParameters(
     session: FirSession,
     origin: FirDeclarationOrigin,
-    block: FirValueParameterBuilder.(FirContextReceiver) -> Unit = {},
+    crossinline block: FirValueParameterBuilder.(FirContextReceiver) -> Unit = {},
 ): List<FirValueParameter> {
     val contextReceivers: List<FirContextReceiver> = this.resolvedContextReceivers
     return contextReceivers.mapNotNull { contextReceiver ->
@@ -117,35 +118,35 @@ public fun FirFunctionSymbol<*>.contextReceiversToValueParameters(
     }
 }
 
-public fun FirContextReceiver.toValueParameter(
+public inline fun FirContextReceiver.toValueParameter(
     session: FirSession,
     key: GeneratedDeclarationKey,
     containingFunctionSymbol: FirFunctionSymbol<*>,
-    block: FirValueParameterBuilder.(FirContextReceiver) -> Unit = {},
+    crossinline block: FirValueParameterBuilder.(FirContextReceiver) -> Unit = {},
 ): FirValueParameter = toValueParameter(session, key.origin, containingFunctionSymbol, block)
 
-public fun FirContextReceiver.toValueParameterOrNull(
+public inline fun FirContextReceiver.toValueParameterOrNull(
     session: FirSession,
     key: GeneratedDeclarationKey,
     containingFunctionSymbol: FirFunctionSymbol<*>,
-    block: FirValueParameterBuilder.(FirContextReceiver) -> Unit = {},
+    crossinline block: FirValueParameterBuilder.(FirContextReceiver) -> Unit = {},
 ): FirValueParameter? = toValueParameterOrNull(session, key.origin, containingFunctionSymbol, block)
 
-public fun FirContextReceiver.toValueParameter(
+public inline fun FirContextReceiver.toValueParameter(
     session: FirSession,
     origin: FirDeclarationOrigin,
     containingFunctionSymbol: FirFunctionSymbol<*>,
-    block: FirValueParameterBuilder.(FirContextReceiver) -> Unit = {},
+    crossinline block: FirValueParameterBuilder.(FirContextReceiver) -> Unit = {},
 ): FirValueParameter {
     val builder: FirValueParameterBuilder.(FirTypeRef) -> Unit = { block(this@toValueParameter) }
     return typeRef.coneType.toValueParameter(session, origin, containingFunctionSymbol, builder)
 }
 
-public fun FirContextReceiver.toValueParameterOrNull(
+public inline fun FirContextReceiver.toValueParameterOrNull(
     session: FirSession,
     origin: FirDeclarationOrigin,
     containingFunctionSymbol: FirFunctionSymbol<*>,
-    block: FirValueParameterBuilder.(FirContextReceiver) -> Unit = {},
+    crossinline block: FirValueParameterBuilder.(FirContextReceiver) -> Unit = {},
 ): FirValueParameter? {
     val builder: FirValueParameterBuilder.(FirTypeRef) -> Unit = {
         block(this@toValueParameterOrNull)

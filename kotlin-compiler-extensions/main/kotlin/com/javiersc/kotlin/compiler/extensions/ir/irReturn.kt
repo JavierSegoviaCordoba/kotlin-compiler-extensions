@@ -12,7 +12,7 @@ import org.jetbrains.kotlin.ir.util.SYNTHETIC_OFFSET
 import org.jetbrains.kotlin.ir.util.statements
 import org.jetbrains.kotlin.utils.addToStdlib.firstIsInstanceOrNull
 
-public fun createIrReturn(
+public inline fun createIrReturn(
     startOffset: Int = UNDEFINED_OFFSET,
     endOffset: Int = UNDEFINED_OFFSET,
     type: IrType,
@@ -29,11 +29,11 @@ public fun createIrReturn(
         )
         .apply(block)
 
-public val IrFunctionExpression.irReturn: IrReturn?
+public inline val IrFunctionExpression.irReturn: IrReturn?
     get() = function.irReturn
 
-public val IrFunction.irReturn: IrReturn?
+public inline val IrFunction.irReturn: IrReturn?
     get() = body?.statements?.firstIsInstanceOrNull()
 
-public fun IrFunction.copyIrReturn(value: IrExpression): IrReturn =
+public inline fun IrFunction.copyIrReturn(value: IrExpression): IrReturn =
     IrReturnImpl(SYNTHETIC_OFFSET, SYNTHETIC_OFFSET, this.returnType, this.symbol, value)

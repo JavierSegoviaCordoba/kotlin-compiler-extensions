@@ -5,7 +5,7 @@ import org.jetbrains.kotlin.ir.declarations.IrValueParameter
 import org.jetbrains.kotlin.ir.expressions.IrGetValue
 import org.jetbrains.kotlin.ir.expressions.impl.IrGetValueImpl
 
-public fun IrValueParameter.toIrGetValue(): IrGetValue =
+public inline fun IrValueParameter.toIrGetValue(): IrGetValue =
     IrGetValueImpl(
         startOffset = UNDEFINED_OFFSET,
         endOffset = UNDEFINED_OFFSET,

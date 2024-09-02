@@ -6,7 +6,7 @@ import org.jetbrains.kotlin.fir.expressions.FirLiteralExpression
 import org.jetbrains.kotlin.fir.expressions.builder.buildLiteralExpression
 import org.jetbrains.kotlin.types.ConstantValueKind
 
-public fun <T> createFirLiteralExpression(
+public inline fun <T> createFirLiteralExpression(
     kind: ConstantValueKind,
     value: T,
     source: KtSourceElement? = null,

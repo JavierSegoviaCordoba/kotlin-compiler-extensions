@@ -15,7 +15,7 @@ public inline fun <reified T : Enum<T>> createFirEnumEntryDeserializedAccessExpr
         enumClassId = classId<T>(),
     )
 
-public fun createFirEnumEntryDeserializedAccessExpression(
+public inline fun createFirEnumEntryDeserializedAccessExpression(
     enumEntryName: Name,
     enumClassId: ClassId,
 ): FirEnumEntryDeserializedAccessExpression = buildEnumEntryDeserializedAccessExpression {

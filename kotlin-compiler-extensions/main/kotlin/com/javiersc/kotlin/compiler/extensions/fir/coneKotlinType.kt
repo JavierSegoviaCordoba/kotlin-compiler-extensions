@@ -16,8 +16,10 @@ import org.jetbrains.kotlin.fir.types.typeContext
 import org.jetbrains.kotlin.name.ClassId
 import org.jetbrains.kotlin.types.AbstractTypeChecker
 
-public fun FirSession.isSubtypeOf(subType: ConeKotlinType, superType: ConeKotlinType): Boolean =
-    AbstractTypeChecker.isSubtypeOf(typeContext, subType, superType)
+public inline fun FirSession.isSubtypeOf(
+    subType: ConeKotlinType,
+    superType: ConeKotlinType,
+): Boolean = AbstractTypeChecker.isSubtypeOf(typeContext, subType, superType)
 
 public inline fun <reified T> FirSession.coneKotlinType(
     vararg typeArguments: ConeTypeProjection
@@ -28,23 +30,23 @@ public inline fun <reified T> FirSession.coneKotlinType(
     typeArguments: Array<ConeTypeProjection> = emptyArray()
 ): ConeKotlinType = classId<T>().createConeType(this, typeArguments)
 
-public val FirBasedSymbol<*>.coneKotlinType: ConeKotlinType
+public inline val FirBasedSymbol<*>.coneKotlinType: ConeKotlinType
     get() = coneKotlinTypeOrNull ?: error("Symbol ${this.fir.render()} does not have a type")
 
-public val FirBasedSymbol<*>.coneKotlinTypeOrNull: ConeKotlinType?
+public inline val FirBasedSymbol<*>.coneKotlinTypeOrNull: ConeKotlinType?
     get() =
         when (this) {
             is FirCallableSymbol<*> -> resolvedReturnTypeRef.coneTypeSafe()
             else -> null
         }
 
-public fun ClassId.toConeType(vararg typeArguments: ConeTypeProjection): ConeClassLikeType {
+public inline fun ClassId.toConeType(vararg typeArguments: ConeTypeProjection): ConeClassLikeType {
     val lookupTag = ConeClassLikeLookupTagImpl(this)
     return ConeClassLikeTypeImpl(lookupTag, typeArguments, isNullable = false)
 }
 
 @JvmName("toConeTypeWithTypeArgumentsArray")
-public fun ClassId.toConeType(typeArguments: Array<ConeTypeProjection>): ConeClassLikeType {
+public inline fun ClassId.toConeType(typeArguments: Array<ConeTypeProjection>): ConeClassLikeType {
     val lookupTag = ConeClassLikeLookupTagImpl(this)
     return ConeClassLikeTypeImpl(lookupTag, typeArguments, isNullable = false)
 }
