@@ -10,6 +10,8 @@
 
 ### Fixed
 
+- `compilerClasspath` does not support `String`
+
 ### Removed
 
 ### Updated

@@ -44,6 +44,7 @@ public interface KotlinCompilerGradlePlugin : KotlinCompilerPluginSupportPlugin 
         when (val dep = this) {
             is Provider<*> -> dep.get().dependencyToString()
             is Dependency -> "${dep.group}:${dep.name}:${dep.version}"
+            is String -> dep
             else -> error("The type of $dep is not supported: ${dep::class}")
         }
 }
