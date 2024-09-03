@@ -26,7 +26,8 @@ public interface KotlinCompilerGradlePlugin : KotlinCompilerPluginSupportPlugin 
         pluginManager.withPlugin("org.jetbrains.kotlin.multiplatform") {
             configure<KotlinMultiplatformExtension> {
                 val xpluginArg: Provider<String> = provider {
-                    val pathDependencies: String = compilerClasspath.asPath.replace(";", ",")
+                    val pathDependencies: String =
+                        compilerClasspath.asPath.replace(";", ",").replace(":", ",")
                     "-Xplugin=$pathDependencies"
                 }
                 compilerOptions.freeCompilerArgs.add(xpluginArg)
@@ -38,6 +39,7 @@ public interface KotlinCompilerGradlePlugin : KotlinCompilerPluginSupportPlugin 
         configurations.create("compilerClasspath").apply {
             exclude("org.jetbrains")
             exclude("org.jetbrains.kotlin")
+            exclude("org.jetbrains.kotlinx")
         }
 
     private fun Any.dependencyToString(): String =
