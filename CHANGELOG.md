@@ -10,9 +10,15 @@
 
 ### Fixed
 
-- `:` separator not supported in `compilerClasspath`
-
 ### Removed
+
+### Updated
+
+## [0.4.2+2.0.20] - 2024-09-03
+
+### Fixed
+
+- `:` separator not supported in `compilerClasspath`
 
 ### Updated
 
@@ -229,7 +235,9 @@
 
 - `kotlin-compiler-test` to `kotlin-compiler-extensions-test`
 
-[Unreleased]: https://github.com/JavierSegoviaCordoba/kotlin-compiler-extensions/compare/0.4.1+2.0.20...HEAD
+[Unreleased]: https://github.com/JavierSegoviaCordoba/kotlin-compiler-extensions/compare/0.4.2+2.0.20...HEAD
+
+[0.4.2+2.0.20]: https://github.com/JavierSegoviaCordoba/kotlin-compiler-extensions/compare/0.4.1+2.0.20...0.4.2+2.0.20
 
 [0.4.1+2.0.20]: https://github.com/JavierSegoviaCordoba/kotlin-compiler-extensions/compare/0.4.0+2.0.20...0.4.1+2.0.20
 
