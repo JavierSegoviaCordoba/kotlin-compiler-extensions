@@ -10,11 +10,15 @@
 
 ### Fixed
 
-- `compilerClasspath` configuration not working properly on Windows
-
 ### Removed
 
 ### Updated
+
+## [0.4.3+2.0.20] - 2024-09-08
+
+### Fixed
+
+- `compilerClasspath` configuration not working properly on Windows
 
 ## [0.4.2+2.0.20] - 2024-09-03
 
@@ -237,7 +241,9 @@
 
 - `kotlin-compiler-test` to `kotlin-compiler-extensions-test`
 
-[Unreleased]: https://github.com/JavierSegoviaCordoba/kotlin-compiler-extensions/compare/0.4.2+2.0.20...HEAD
+[Unreleased]: https://github.com/JavierSegoviaCordoba/kotlin-compiler-extensions/compare/0.4.3+2.0.20...HEAD
+
+[0.4.3+2.0.20]: https://github.com/JavierSegoviaCordoba/kotlin-compiler-extensions/compare/0.4.2+2.0.20...0.4.3+2.0.20
 
 [0.4.2+2.0.20]: https://github.com/JavierSegoviaCordoba/kotlin-compiler-extensions/compare/0.4.1+2.0.20...0.4.2+2.0.20
 
