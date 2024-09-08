@@ -1,5 +1,6 @@
 package com.javiersc.kotlin.compiler.gradle.extensions
 
+import java.io.File
 import org.gradle.api.Project
 import org.gradle.api.artifacts.Configuration
 import org.gradle.api.artifacts.Dependency
@@ -27,7 +28,9 @@ public interface KotlinCompilerGradlePlugin : KotlinCompilerPluginSupportPlugin 
             configure<KotlinMultiplatformExtension> {
                 val xpluginArg: Provider<String> = provider {
                     val pathDependencies: String =
-                        compilerClasspath.asPath.replace(";", ",").replace(":", ",")
+                        compilerClasspath.incoming.files
+                            .filter(File::exists)
+                            .joinToString(separator = ",", transform = File::getAbsolutePath)
                     "-Xplugin=$pathDependencies"
                 }
                 compilerOptions.freeCompilerArgs.add(xpluginArg)

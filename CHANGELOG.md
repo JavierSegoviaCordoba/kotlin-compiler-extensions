@@ -10,6 +10,8 @@
 
 ### Fixed
 
+- `compilerClasspath` configuration not working properly on Windows
+
 ### Removed
 
 ### Updated
