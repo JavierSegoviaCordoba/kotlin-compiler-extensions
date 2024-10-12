@@ -1,5 +1,5 @@
 [versions]
-hubdle = "0.7.14"
+hubdle = "0.7.15"
 hubdleCatalog = "0.3.13"
 
 [libraries]
