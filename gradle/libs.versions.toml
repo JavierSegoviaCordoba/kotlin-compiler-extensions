@@ -1,6 +1,6 @@
 [versions]
 hubdle = "0.7.14"
-hubdleCatalog = "0.3.12"
+hubdleCatalog = "0.3.13"
 
 [libraries]
 hubdle-catalog = { module = "com.javiersc.hubdle:hubdle-version-catalog", version.ref = "hubdleCatalog" }
