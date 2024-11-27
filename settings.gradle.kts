@@ -12,9 +12,9 @@ pluginManagement {
         gradlePluginPortal()
         mavenCentral()
         google()
-        maven(url = "https://maven.pkg.jetbrains.space/kotlin/p/kotlin/bootstrap")
-        maven(url = "https://maven.pkg.jetbrains.space/kotlin/p/kotlin/dev")
-        maven("https://oss.sonatype.org/content/repositories/snapshots")
+        // maven(url = "https://maven.pkg.jetbrains.space/kotlin/p/kotlin/bootstrap")
+        // maven(url = "https://maven.pkg.jetbrains.space/kotlin/p/kotlin/dev")
+        // maven("https://oss.sonatype.org/content/repositories/snapshots")
     }
 
     plugins { //
@@ -31,9 +31,9 @@ dependencyResolutionManagement {
         gradlePluginPortal()
         mavenCentral()
         google()
-        maven(url = "https://maven.pkg.jetbrains.space/kotlin/p/kotlin/bootstrap")
-        maven(url = "https://maven.pkg.jetbrains.space/kotlin/p/kotlin/dev")
-        maven("https://oss.sonatype.org/content/repositories/snapshots")
+        // maven(url = "https://maven.pkg.jetbrains.space/kotlin/p/kotlin/bootstrap")
+        // maven(url = "https://maven.pkg.jetbrains.space/kotlin/p/kotlin/dev")
+        // maven("https://oss.sonatype.org/content/repositories/snapshots")
     }
 }
 
