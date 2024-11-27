@@ -1,3 +1,4 @@
+FILE fqName:foo.bar.some.additional.files fileName:/SomeFile.kt
 FILE fqName:com.javiersc.kotlin.compiler.extensions.playground fileName:/simple-1.kt
   FUN name:box visibility:public modality:FINAL <> () returnType:kotlin.String
     BLOCK_BODY
@@ -19,4 +20,3 @@ FILE fqName:com.javiersc.kotlin.compiler.extensions.playground fileName:/simple-
           BRANCH
             if: CONST Boolean type=kotlin.Boolean value=true
             then: CONST String type=kotlin.String value="Fail"
-FILE fqName:foo.bar.some.additional.files fileName:/SomeFile.kt

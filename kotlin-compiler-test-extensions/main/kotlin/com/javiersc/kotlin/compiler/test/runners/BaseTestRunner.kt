@@ -10,13 +10,12 @@ import org.jetbrains.kotlin.platform.jvm.JvmPlatforms
 import org.jetbrains.kotlin.test.Constructor
 import org.jetbrains.kotlin.test.FirParser
 import org.jetbrains.kotlin.test.TargetBackend
-import org.jetbrains.kotlin.test.backend.ir.JvmIrBackendFacade
 import org.jetbrains.kotlin.test.builders.TestConfigurationBuilder
 import org.jetbrains.kotlin.test.directives.FirDiagnosticsDirectives
 import org.jetbrains.kotlin.test.directives.JvmEnvironmentConfigurationDirectives
 import org.jetbrains.kotlin.test.directives.LanguageSettingsDirectives
 import org.jetbrains.kotlin.test.directives.configureFirParser
-import org.jetbrains.kotlin.test.frontend.fir.Fir2IrJvmResultsConverter
+import org.jetbrains.kotlin.test.frontend.fir.Fir2IrResultsConverter
 import org.jetbrains.kotlin.test.frontend.fir.FirFrontendFacade
 import org.jetbrains.kotlin.test.frontend.fir.FirOutputArtifact
 import org.jetbrains.kotlin.test.initIdeaConfiguration
@@ -66,15 +65,13 @@ internal fun TestConfigurationBuilder.commonPluginConfiguration(
 
     val targetFrontend: FrontendKinds.FIR = FrontendKinds.FIR
     val frontendFacade: Constructor<FrontendFacade<FirOutputArtifact>> = ::FirFrontendFacade
-    val frontendToBackendConverter = ::Fir2IrJvmResultsConverter
-    val backendFacade = ::JvmIrBackendFacade
+    val frontendToBackendConverter = ::Fir2IrResultsConverter
 
     if (commonServicesConfiguration != null) {
         commonConfigurationForTest(
             targetFrontend = targetFrontend,
             frontendFacade = frontendFacade,
             frontendToBackendConverter = frontendToBackendConverter,
-            backendFacade = backendFacade,
             commonServicesConfiguration = commonServicesConfiguration,
         )
     } else {
@@ -82,7 +79,6 @@ internal fun TestConfigurationBuilder.commonPluginConfiguration(
             targetFrontend = targetFrontend,
             frontendFacade = frontendFacade,
             frontendToBackendConverter = frontendToBackendConverter,
-            backendFacade = ::JvmIrBackendFacade,
         )
     }
 

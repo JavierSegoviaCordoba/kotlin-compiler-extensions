@@ -42,11 +42,11 @@ public inline val FirBasedSymbol<*>.coneKotlinTypeOrNull: ConeKotlinType?
 
 public inline fun ClassId.toConeType(vararg typeArguments: ConeTypeProjection): ConeClassLikeType {
     val lookupTag = ConeClassLikeLookupTagImpl(this)
-    return ConeClassLikeTypeImpl(lookupTag, typeArguments, isNullable = false)
+    return ConeClassLikeTypeImpl(lookupTag, typeArguments, isMarkedNullable = false)
 }
 
 @JvmName("toConeTypeWithTypeArgumentsArray")
 public inline fun ClassId.toConeType(typeArguments: Array<ConeTypeProjection>): ConeClassLikeType {
     val lookupTag = ConeClassLikeLookupTagImpl(this)
-    return ConeClassLikeTypeImpl(lookupTag, typeArguments, isNullable = false)
+    return ConeClassLikeTypeImpl(lookupTag, typeArguments, isMarkedNullable = false)
 }

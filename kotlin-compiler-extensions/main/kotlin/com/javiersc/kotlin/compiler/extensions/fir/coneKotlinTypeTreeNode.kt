@@ -3,9 +3,9 @@ package com.javiersc.kotlin.compiler.extensions.fir
 import com.javiersc.kotlin.compiler.extensions.fir.ConeNode.ClassLike
 import com.javiersc.kotlin.compiler.extensions.fir.ConeNode.TypeParameter
 import com.javiersc.kotlin.stdlib.tree.TreeNode
-import org.jetbrains.kotlin.fir.symbols.ConeClassLikeLookupTag
-import org.jetbrains.kotlin.fir.symbols.ConeClassifierLookupTag
+import org.jetbrains.kotlin.fir.types.ConeClassLikeLookupTag
 import org.jetbrains.kotlin.fir.types.ConeClassLikeType
+import org.jetbrains.kotlin.fir.types.ConeClassifierLookupTag
 import org.jetbrains.kotlin.fir.types.ConeKotlinType
 import org.jetbrains.kotlin.fir.types.ConeTypeParameterType
 import org.jetbrains.kotlin.fir.types.ConeTypeProjection

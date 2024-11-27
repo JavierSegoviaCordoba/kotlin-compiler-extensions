@@ -41,7 +41,6 @@ public inline fun IrDeclaration.toIrFunctionAccessExpression(
         },
     type: IrType = symbol.owner.returnType,
     typeArgumentsCount: Int = symbol.owner.typeParameters.size,
-    valueArgumentsCount: Int = symbol.owner.valueParameters.size,
     origin: IrStatementOrigin? = null,
     superQualifierSymbol: IrClassSymbol? = null,
     source: SourceElement = SourceElement.NO_SOURCE,
@@ -55,13 +54,13 @@ public inline fun IrDeclaration.toIrFunctionAccessExpression(
                 symbol = symbol,
                 type = type,
                 typeArgumentsCount = typeArgumentsCount,
-                valueArgumentsCount = valueArgumentsCount,
                 origin = origin,
                 superQualifierSymbol = superQualifierSymbol,
                 source = source,
                 block = block,
             )
         }
+
         else -> TODO()
     }
 
@@ -71,7 +70,6 @@ public inline fun IrFunction.toIrFunctionAccessExpression(
     symbol: IrFunctionSymbol = this.symbol,
     type: IrType = symbol.owner.returnType,
     typeArgumentsCount: Int = symbol.owner.typeParameters.size,
-    valueArgumentsCount: Int = symbol.owner.valueParameters.size,
     origin: IrStatementOrigin? = null,
     superQualifierSymbol: IrClassSymbol? = null,
     source: SourceElement = SourceElement.NO_SOURCE,
@@ -85,12 +83,12 @@ public inline fun IrFunction.toIrFunctionAccessExpression(
                 type = type,
                 symbol = symbol as IrSimpleFunctionSymbol,
                 typeArgumentsCount = typeArgumentsCount,
-                valueArgumentsCount = valueArgumentsCount,
                 origin = origin,
                 superQualifierSymbol = superQualifierSymbol,
                 block = block,
             )
         }
+
         is IrConstructor -> {
             function.toIrConstructorCall(
                 startOffset = startOffset,
@@ -98,12 +96,12 @@ public inline fun IrFunction.toIrFunctionAccessExpression(
                 type = type,
                 symbol = symbol as IrConstructorSymbol,
                 typeArgumentsCount = typeArgumentsCount,
-                valueArgumentsCount = valueArgumentsCount,
                 origin = origin,
                 source = source,
                 block = block,
             )
         }
+
         else -> TODO()
     }.apply(block)
 
@@ -113,7 +111,6 @@ public inline fun IrSimpleFunction.toIrCall(
     symbol: IrSimpleFunctionSymbol = this.symbol,
     type: IrType = returnType,
     typeArgumentsCount: Int = typeParameters.size,
-    valueArgumentsCount: Int = valueParameters.size,
     origin: IrStatementOrigin? = null,
     superQualifierSymbol: IrClassSymbol? = null,
     block: IrCall.() -> Unit = {},
@@ -124,7 +121,6 @@ public inline fun IrSimpleFunction.toIrCall(
             type = type,
             symbol = symbol,
             typeArgumentsCount = typeArgumentsCount,
-            valueArgumentsCount = valueArgumentsCount,
             origin = origin,
             superQualifierSymbol = superQualifierSymbol,
         )
@@ -145,7 +141,6 @@ public inline fun IrConstructor.toIrConstructorCall(
     symbol: IrConstructorSymbol = this.symbol,
     type: IrType = symbol.owner.returnType,
     typeArgumentsCount: Int = symbol.owner.typeParameters.size,
-    valueArgumentsCount: Int = symbol.owner.valueParameters.size,
     origin: IrStatementOrigin? = null,
     source: SourceElement = SourceElement.NO_SOURCE,
     block: IrFunctionAccessExpression.() -> Unit = {},
@@ -157,7 +152,6 @@ public inline fun IrConstructor.toIrConstructorCall(
             symbol = symbol,
             typeArgumentsCount = typeArgumentsCount,
             constructorTypeArgumentsCount = typeArgumentsCount,
-            valueArgumentsCount = valueArgumentsCount,
             origin = origin,
             source = source,
         )

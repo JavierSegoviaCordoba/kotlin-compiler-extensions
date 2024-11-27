@@ -1,11 +1,9 @@
 [versions]
-hubdle = "0.7.18"
-hubdleCatalog = "0.3.13"
-jetbrains-kotlin = "2.1.0"
+hubdle = "0.8.0"
+hubdleCatalog = "0.4.0"
 
 [libraries]
 hubdle-catalog = { module = "com.javiersc.hubdle:hubdle-version-catalog", version.ref = "hubdleCatalog" }
-jetbrains-kotlin-gradle-plugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "jetbrains-kotlin" }
 
 [plugins]
 javiersc-hubdle = { id = "com.javiersc.hubdle", version.ref = "hubdle" }
