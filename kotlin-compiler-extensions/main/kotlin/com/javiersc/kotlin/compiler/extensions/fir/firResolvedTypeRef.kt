@@ -9,6 +9,6 @@ public inline fun createFirResolvedTypeRef(
     type: ConeKotlinType,
     builder: FirResolvedTypeRefBuilder.() -> Unit = {},
 ): FirResolvedTypeRef = buildResolvedTypeRef {
-    this.type = type
+    this.coneType = type
     builder()
 }

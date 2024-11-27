@@ -39,7 +39,7 @@ public inline fun FirSession.nothingFirAnonymousFunctionExpression(
                 this.isLambda = false
                 this.hasExplicitParameterList = false
                 this.returnTypeRef = buildResolvedTypeRef {
-                    this.type = builtinTypes.nothingType.coneType
+                    this.coneType = builtinTypes.nothingType.coneType
                 }
             }
     )
