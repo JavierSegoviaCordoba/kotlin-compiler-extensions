@@ -1,4 +1,3 @@
-import com.javiersc.gradle.project.extensions.withPlugins
 import com.javiersc.semver.project.gradle.plugin.SemverExtension
 import org.jetbrains.kotlin.gradle.plugin.getKotlinPluginVersion
 
@@ -43,6 +42,27 @@ val hubdleCatalogVersion: String =
         .readLines()
         .first { it.contains("hubdleCatalog") }
         .split("\"")[1]
+
+buildscript {
+    dependencies {
+        constraints {
+            val kotlinVersion: String =
+                file("$rootDir/gradle/libs.versions.toml")
+                    .readLines()
+                    .first { it.contains("kotlin") }
+                    .split("\"")[1]
+
+            val kotlinModule =
+                file("$rootDir/gradle/libs.versions.toml")
+                    .readLines()
+                    .first { it.contains("jetbrains-kotlin-gradle-plugin") }
+                    .split("\"")[1]
+
+            val kotlinDependency = "$kotlinModule:$kotlinVersion"
+            classpath(kotlinDependency)
+        }
+    }
+}
 
 hubdleSettings {
     catalog { //

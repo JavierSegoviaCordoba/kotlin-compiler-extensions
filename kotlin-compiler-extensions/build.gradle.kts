@@ -19,8 +19,7 @@ hubdle {
         jvm {
             features {
                 compiler {
-                    mainClass.set(
-                        "com.javiersc.kotlin.compiler.extensions.GenerateKotlinCompilerTestsKt")
+                    mainClass.set("com.javiersc.kotlin.compiler.extensions.GenerateKotlinCompilerTestsKt")
                     addExtensionDependencies(false)
                     generateTestOnSync(false)
                     testDependencies(hubdle.javiersc.kotlin.stdlib)
