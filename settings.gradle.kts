@@ -37,15 +37,41 @@ dependencyResolutionManagement {
     }
 }
 
+buildscript {
+    dependencies {
+        val kotlinVersion: String =
+            file("$rootDir/gradle/libs.versions.toml")
+                .readLines()
+                .first { it.contains("jetbrains-kotlin") }
+                .split("\"")[1]
+
+        val kotlinModule =
+            file("$rootDir/gradle/libs.versions.toml")
+                .readLines()
+                .first { it.contains("jetbrains-kotlin-gradle-plugin") }
+                .split("\"")[1]
+
+        val kotlinDependency = "$kotlinModule:$kotlinVersion"
+        classpath(kotlinDependency)
+    }
+}
+
 val hubdleCatalogVersion: String =
     file("$rootDir/gradle/libs.versions.toml")
         .readLines()
         .first { it.contains("hubdleCatalog") }
         .split("\"")[1]
 
+val kotlinVersion: String =
+    file("$rootDir/gradle/libs.versions.toml")
+        .readLines()
+        .first { it.contains("jetbrains-kotlin") }
+        .split("\"")[1]
+
 hubdleSettings {
     catalog { //
         version(hubdleCatalogVersion)
+        replaceVersion("jetbrains-kotlin" to kotlinVersion)
     }
 }
 
