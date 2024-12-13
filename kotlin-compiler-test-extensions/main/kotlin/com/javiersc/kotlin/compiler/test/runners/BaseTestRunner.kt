@@ -21,7 +21,6 @@ import org.jetbrains.kotlin.test.frontend.fir.FirOutputArtifact
 import org.jetbrains.kotlin.test.initIdeaConfiguration
 import org.jetbrains.kotlin.test.model.DependencyKind
 import org.jetbrains.kotlin.test.model.FrontendFacade
-import org.jetbrains.kotlin.test.model.FrontendKind
 import org.jetbrains.kotlin.test.model.FrontendKinds
 import org.jetbrains.kotlin.test.model.TestModule
 import org.jetbrains.kotlin.test.runners.AbstractKotlinCompilerTest
@@ -52,8 +51,8 @@ public abstract class BaseTestRunner : AbstractKotlinCompilerTest() {
 
 internal fun TestConfigurationBuilder.commonPluginConfiguration(
     classpathProvider: Constructor<MetaRuntimeClasspathProvider>?,
+    additionalFilesProvider: Constructor<AdditionalFilesProvider>?,
     registerCompilerExtensions: ExtensionStorage.(TestModule, CompilerConfiguration) -> Unit,
-    commonServicesConfiguration: ((FrontendKind<*>) -> Unit)? = null,
 ) {
     globalDefaults {
         targetBackend = TargetBackend.JVM_IR
@@ -67,20 +66,12 @@ internal fun TestConfigurationBuilder.commonPluginConfiguration(
     val frontendFacade: Constructor<FrontendFacade<FirOutputArtifact>> = ::FirFrontendFacade
     val frontendToBackendConverter = ::Fir2IrResultsConverter
 
-    if (commonServicesConfiguration != null) {
-        commonConfigurationForTest(
-            targetFrontend = targetFrontend,
-            frontendFacade = frontendFacade,
-            frontendToBackendConverter = frontendToBackendConverter,
-            commonServicesConfiguration = commonServicesConfiguration,
-        )
-    } else {
-        commonConfigurationForTest(
-            targetFrontend = targetFrontend,
-            frontendFacade = frontendFacade,
-            frontendToBackendConverter = frontendToBackendConverter,
-        )
-    }
+    commonConfigurationForTest(
+        targetFrontend = targetFrontend,
+        frontendFacade = frontendFacade,
+        frontendToBackendConverter = frontendToBackendConverter,
+        additionalSourceProvider = additionalFilesProvider,
+    )
 
     configureFirParser(FirParser.Psi)
 
