@@ -14,7 +14,7 @@
 
 ### Updated
 
-- `Kotlin -> 2.1.20-Beta2`
+- `org.jetbrains.kotlin:kotlin-gradle-plugin -> 2.1.20-RC`
 - `com.javiersc.hubdle:hubdle-version-catalog -> 0.4.4`
 - `com.javiersc.hubdle:com.javiersc.hubdle.gradle.plugin -> 0.8.3`
 
