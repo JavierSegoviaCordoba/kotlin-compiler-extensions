@@ -16,8 +16,12 @@ public class AdditionalFilesProvider(testServices: TestServices, baseDir: String
 
     private val filesPath = File("$baseDir/test-data/additional-files/")
 
-    private val directiveToFileMap: Map<SimpleDirective, String> =
-        mapOf(SOME_FILE_DIRECTIVE to File("$filesPath/SomeFile.kt").path)
+    private val directiveToFileMap: Map<SimpleDirective, File> =
+        filesPath
+            .walkTopDown()
+            .filter { it.isFile && it.extension == "kt" }
+            .map { SOME_FILE_DIRECTIVE to it }
+            .toMap()
 
     override val directiveContainers: List<DirectivesContainer> = listOf(AdditionalFilesDirectives)
 
@@ -26,9 +30,9 @@ public class AdditionalFilesProvider(testServices: TestServices, baseDir: String
         module: TestModule,
         testModuleStructure: TestModuleStructure,
     ): List<TestFile> = buildList {
-        for ((directive, path) in directiveToFileMap) {
+        for ((directive, file) in directiveToFileMap) {
             if (directive in module.directives) {
-                add(File(path).toTestFile())
+                add(file.toTestFile())
             }
         }
     }

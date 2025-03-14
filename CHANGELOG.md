@@ -6,6 +6,8 @@
 
 ### Changed
 
+- `AdditionalFilesProvider` picks all files in `test-data/additional-files`
+
 ### Deprecated
 
 ### Fixed
