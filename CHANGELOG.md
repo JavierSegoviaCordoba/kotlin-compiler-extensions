@@ -14,7 +14,7 @@
 
 ### Updated
 
-- `org.jetbrains.kotlin:kotlin-gradle-plugin -> 2.1.20-RC3`
+- `org.jetbrains.kotlin:kotlin-gradle-plugin -> 2.1.20`
 - `gradle -> 8.13`
 - `com.javiersc.hubdle:com.javiersc.hubdle.gradle.plugin -> 0.8.7`
 - `com.javiersc.hubdle:hubdle-version-catalog -> 0.4.7`
