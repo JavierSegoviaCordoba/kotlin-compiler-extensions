@@ -16,6 +16,8 @@
 
 ### Updated
 
+- `com.javiersc.hubdle:hubdle-version-catalog -> 0.5.2`
+
 ## [0.6.1+2.1.21] - 2025-06-16
 
 ### Updated
