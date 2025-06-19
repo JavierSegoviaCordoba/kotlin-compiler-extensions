@@ -6,13 +6,19 @@
 
 ### Changed
 
-- `AdditionalFilesProvider` picks all files in `test-data/additional-files`
-
 ### Deprecated
 
 ### Fixed
 
 ### Removed
+
+### Updated
+
+## [0.6.2+2.1.21] - 2025-06-19
+
+### Changed
+
+- `AdditionalFilesProvider` picks all files in `test-data/additional-files`
 
 ### Updated
 
@@ -297,7 +303,9 @@
 
 - `kotlin-compiler-test` to `kotlin-compiler-extensions-test`
 
-[Unreleased]: https://github.com/JavierSegoviaCordoba/kotlin-compiler-extensions/compare/0.6.1+2.1.21...HEAD
+[Unreleased]: https://github.com/JavierSegoviaCordoba/kotlin-compiler-extensions/compare/0.6.2+2.1.21...HEAD
+
+[0.6.2+2.1.21]: https://github.com/JavierSegoviaCordoba/kotlin-compiler-extensions/compare/0.6.1+2.1.21...0.6.2+2.1.21
 
 [0.6.1+2.1.21]: https://github.com/JavierSegoviaCordoba/kotlin-compiler-extensions/compare/0.6.0+2.1.20...0.6.1+2.1.21
 
