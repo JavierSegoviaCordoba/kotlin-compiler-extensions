@@ -4,6 +4,8 @@
 
 ### Added
 
+- `fun IrFunctionAccessExpression.getExtensionReceiverOrNull(): IrExpression?`
+
 ### Changed
 
 ### Deprecated

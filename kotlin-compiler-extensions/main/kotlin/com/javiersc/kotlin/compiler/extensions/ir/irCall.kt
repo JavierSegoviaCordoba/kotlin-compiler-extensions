@@ -1,4 +1,4 @@
-@file:Suppress("LongParameterList")
+@file:Suppress("LongParameterList", "NOTHING_TO_INLINE")
 
 package com.javiersc.kotlin.compiler.extensions.ir
 
