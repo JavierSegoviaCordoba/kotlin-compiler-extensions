@@ -1,3 +1,5 @@
+@file:Suppress("NOTHING_TO_INLINE")
+
 package com.javiersc.kotlin.compiler.extensions.ir
 
 import org.jetbrains.kotlin.backend.common.extensions.IrPluginContext
@@ -20,8 +22,14 @@ import org.jetbrains.kotlin.name.Name
 import org.jetbrains.kotlin.name.SpecialNames
 import org.jetbrains.kotlin.serialization.deserialization.descriptors.DeserializedContainerSource
 
-public inline val IrFunction.contextReceivers: List<IrValueParameter>
-    get() = valueParameters.take(contextReceiverParametersCount)
+public inline val IrFunction.contextParameters: List<IrValueParameter>
+    get() = parameters.filter(IrValueParameter::isContextParameter)
+
+public inline val IrFunction.dispatchReceiver: IrValueParameter?
+    get() = parameters.firstOrNull(IrValueParameter::isDispatchReceiver)
+
+public inline val IrFunction.extensionReceiver: IrValueParameter?
+    get() = parameters.firstOrNull(IrValueParameter::isExtensionReceiver)
 
 public inline fun IrPluginContext.firstIrSimpleFunctionSymbol(
     callableId: CallableId

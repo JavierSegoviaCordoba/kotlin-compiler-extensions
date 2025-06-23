@@ -1,3 +1,5 @@
+@file:Suppress("NOTHING_TO_INLINE")
+
 package com.javiersc.kotlin.compiler.extensions.ir
 
 import com.javiersc.kotlin.stdlib.tree.TreeNode
@@ -10,7 +12,7 @@ import org.jetbrains.kotlin.ir.declarations.IrFunction
 import org.jetbrains.kotlin.ir.util.dump
 import org.jetbrains.kotlin.ir.util.dumpKotlinLike
 import org.jetbrains.kotlin.ir.util.render
-import org.jetbrains.kotlin.ir.visitors.IrElementVisitorVoid
+import org.jetbrains.kotlin.ir.visitors.IrVisitorVoid
 import org.jetbrains.kotlin.ir.visitors.acceptChildrenVoid
 
 public typealias IrTreeNode = TreeNode<IrElement>
@@ -18,7 +20,7 @@ public typealias IrTreeNode = TreeNode<IrElement>
 public fun IrElement.toIrTreeNode(): IrTreeNode {
     val irTree: TreeNode<IrElement> = IrTreeNode(this)
     this.acceptChildrenVoid(
-        object : IrElementVisitorVoid {
+        object : IrVisitorVoid() {
             override fun visitElement(element: IrElement) {
                 irTree.addChild(element.toIrTreeNode())
             }

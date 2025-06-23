@@ -5,40 +5,50 @@ import com.javiersc.kotlin.compiler.test.services.MetaRuntimeClasspathProvider
 import org.jetbrains.kotlin.compiler.plugin.CompilerPluginRegistrar.ExtensionStorage
 import org.jetbrains.kotlin.config.CompilerConfiguration
 import org.jetbrains.kotlin.test.Constructor
-import org.jetbrains.kotlin.test.TargetBackend
+import org.jetbrains.kotlin.test.FirParser
 import org.jetbrains.kotlin.test.backend.BlackBoxCodegenSuppressor
 import org.jetbrains.kotlin.test.backend.handlers.IrTextDumpHandler
 import org.jetbrains.kotlin.test.backend.handlers.IrTreeVerifierHandler
 import org.jetbrains.kotlin.test.backend.handlers.JvmBoxRunner
 import org.jetbrains.kotlin.test.backend.ir.JvmIrBackendFacade
 import org.jetbrains.kotlin.test.builders.TestConfigurationBuilder
-import org.jetbrains.kotlin.test.builders.fir2IrStep
 import org.jetbrains.kotlin.test.builders.irHandlersStep
 import org.jetbrains.kotlin.test.builders.jvmArtifactsHandlersStep
 import org.jetbrains.kotlin.test.configuration.configureDumpHandlersForCodegenTest
-import org.jetbrains.kotlin.test.directives.CodegenTestDirectives.DUMP_IR
+import org.jetbrains.kotlin.test.directives.CodegenTestDirectives
+import org.jetbrains.kotlin.test.directives.FirDiagnosticsDirectives
+import org.jetbrains.kotlin.test.directives.JvmEnvironmentConfigurationDirectives
 import org.jetbrains.kotlin.test.model.TestModule
-import org.jetbrains.kotlin.test.runners.RunnerWithTargetBackendForTestGeneratorMarker
+import org.jetbrains.kotlin.test.runners.codegen.AbstractFirBlackBoxCodegenTestBase
+import org.jetbrains.kotlin.test.services.EnvironmentBasedStandardLibrariesPathProvider
+import org.jetbrains.kotlin.test.services.KotlinStandardLibrariesPathProvider
 
-public abstract class BoxTest : BaseTestRunner(), RunnerWithTargetBackendForTestGeneratorMarker {
+public abstract class JvmBoxTest : AbstractFirBlackBoxCodegenTestBase(FirParser.LightTree) {
 
     public open val runtimeClasspathProvider: Constructor<MetaRuntimeClasspathProvider>? = null
 
     public open val additionalFilesProvider: Constructor<AdditionalFilesProvider>? = null
 
-    override val targetBackend: TargetBackend = TargetBackend.JVM_IR
+    override fun configure(builder: TestConfigurationBuilder) {
+        super.configure(builder)
+
+        with(builder) { configuration() }
+    }
+
+    override fun createKotlinStandardLibrariesPathProvider(): KotlinStandardLibrariesPathProvider =
+        EnvironmentBasedStandardLibrariesPathProvider
 
     public abstract fun ExtensionStorage.registerExtensions(
         module: TestModule,
         configuration: CompilerConfiguration,
     )
 
-    override fun configure(builder: TestConfigurationBuilder): Unit =
-        with(builder) { configuration() }
-
     private fun TestConfigurationBuilder.configuration() {
         defaultDirectives { //
-            +DUMP_IR
+            +CodegenTestDirectives.DUMP_IR
+            +FirDiagnosticsDirectives.FIR_DUMP
+            +JvmEnvironmentConfigurationDirectives.FULL_JDK
+            +CodegenTestDirectives.IGNORE_DEXING
         }
 
         commonPluginConfiguration(
@@ -48,7 +58,6 @@ public abstract class BoxTest : BaseTestRunner(), RunnerWithTargetBackendForTest
                 registerExtensions(module, configuration)
             },
         )
-        fir2IrStep()
         irHandlersStep { useHandlers(::IrTextDumpHandler, ::IrTreeVerifierHandler) }
         facadeStep(::JvmIrBackendFacade)
         jvmArtifactsHandlersStep { useHandlers(::JvmBoxRunner) }

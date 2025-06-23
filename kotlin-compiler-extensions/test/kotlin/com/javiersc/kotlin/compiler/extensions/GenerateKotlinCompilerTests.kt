@@ -6,8 +6,8 @@ import com.javiersc.kotlin.compiler.extensions.fir.FakeFirExtensionRegistrar
 import com.javiersc.kotlin.compiler.extensions.ir.FakeIrExtension
 import com.javiersc.kotlin.compiler.extensions.shared.compilerExtensionsTestDir
 import com.javiersc.kotlin.compiler.test.generateKotlinCompilerTests
-import com.javiersc.kotlin.compiler.test.runners.BoxTest
-import com.javiersc.kotlin.compiler.test.runners.DiagnosticTest
+import com.javiersc.kotlin.compiler.test.runners.JvmBoxTest
+import com.javiersc.kotlin.compiler.test.runners.JvmDiagnosticTest
 import org.jetbrains.kotlin.backend.common.extensions.IrGenerationExtension
 import org.jetbrains.kotlin.compiler.plugin.CompilerPluginRegistrar.ExtensionStorage
 import org.jetbrains.kotlin.compiler.plugin.ExperimentalCompilerApi
@@ -19,31 +19,28 @@ fun main() {
     generateKotlinCompilerTests<AbstractFakeDiagnosticTest, AbstractFakeBoxTest>()
 }
 
-private fun ExtensionStorage.allExtensions(
-    module: TestModule,
-    configuration: CompilerConfiguration,
-) {
+private fun ExtensionStorage.allExtensions() {
     compilerExtensionsTestDir.deleteRecursively()
     FirExtensionRegistrarAdapter.registerExtension(FakeFirExtensionRegistrar())
     IrGenerationExtension.registerExtension(FakeIrExtension())
 }
 
-open class AbstractFakeDiagnosticTest : DiagnosticTest() {
+open class AbstractFakeDiagnosticTest : JvmDiagnosticTest() {
 
     override fun ExtensionStorage.registerExtensions(
         module: TestModule,
         configuration: CompilerConfiguration,
     ) {
-        allExtensions(module, configuration)
+        allExtensions()
     }
 }
 
-open class AbstractFakeBoxTest : BoxTest() {
+open class AbstractFakeBoxTest : JvmBoxTest() {
 
     override fun ExtensionStorage.registerExtensions(
         module: TestModule,
         configuration: CompilerConfiguration,
     ) {
-        allExtensions(module, configuration)
+        allExtensions()
     }
 }
