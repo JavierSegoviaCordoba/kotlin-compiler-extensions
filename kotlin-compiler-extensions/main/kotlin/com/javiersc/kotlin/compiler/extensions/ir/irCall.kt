@@ -127,10 +127,11 @@ public inline fun IrSimpleFunction.toIrCall(
         .apply {
             val function = this@toIrCall
             this.dispatchReceiver = function.dispatchReceiverParameter?.toIrGetValue()
-            this.extensionReceiver = function.extensionReceiverParameter?.toIrGetValue()
-            val functionValueParameters: List<IrValueParameter> = function.valueParameters
+            this.insertExtensionReceiver(function.extensionReceiver?.toIrGetValue())
+
+            val functionValueParameters: List<IrValueParameter> = function.parameters
             for ((index: Int, param: IrValueParameter) in functionValueParameters.withIndex()) {
-                putValueArgument(index, param.toIrGetValue())
+                this.arguments[index] = param.toIrGetValue()
             }
             block()
         }

@@ -1,7 +1,8 @@
 public abstract interface class com/javiersc/kotlin/compiler/gradle/extensions/KotlinCompilerGradlePlugin : org/jetbrains/kotlin/gradle/plugin/KotlinCompilerPluginSupportPlugin {
-	public abstract fun apply (Lorg/gradle/api/Project;)V
-	public abstract fun compilerClasspath (Lorg/gradle/kotlin/dsl/DependencyHandlerScope;Ljava/lang/Object;)V
-	public abstract fun configureFreeCompilerArgs (Lorg/gradle/api/Project;Lorg/gradle/api/artifacts/Configuration;)V
+	public synthetic fun apply (Ljava/lang/Object;)V
+	public fun apply (Lorg/gradle/api/Project;)V
+	public fun compilerClasspath (Lorg/gradle/kotlin/dsl/DependencyHandlerScope;Ljava/lang/Object;)V
+	public fun configureFreeCompilerArgs (Lorg/gradle/api/Project;Lorg/gradle/api/artifacts/Configuration;)V
 }
 
 public final class com/javiersc/kotlin/compiler/gradle/extensions/KotlinCompilerGradlePlugin$DefaultImpls {
@@ -11,7 +12,7 @@ public final class com/javiersc/kotlin/compiler/gradle/extensions/KotlinCompiler
 	public static fun getPluginArtifactForNative (Lcom/javiersc/kotlin/compiler/gradle/extensions/KotlinCompilerGradlePlugin;)Lorg/jetbrains/kotlin/gradle/plugin/SubpluginArtifact;
 }
 
-public final class com/javiersc/kotlin/compiler/gradle/extensions/KotlinCompilerGradlePlugin$DefaultImpls$inlined$sam$i$org_gradle_api_Action$0 : org/gradle/api/Action {
+public final class com/javiersc/kotlin/compiler/gradle/extensions/KotlinCompilerGradlePlugin$inlined$sam$i$org_gradle_api_Action$0 : org/gradle/api/Action {
 	public fun <init> (Lkotlin/jvm/functions/Function1;)V
 	public final synthetic fun execute (Ljava/lang/Object;)V
 }

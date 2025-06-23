@@ -19,7 +19,9 @@ hubdle {
         jvm {
             features {
                 compiler {
-                    mainClass.set("com.javiersc.kotlin.compiler.extensions.GenerateKotlinCompilerTestsKt")
+                    mainClass.set(
+                        "com.javiersc.kotlin.compiler.extensions.GenerateKotlinCompilerTestsKt"
+                    )
                     addExtensionDependencies(false)
                     generateTestOnSync(false)
                     testDependencies(hubdle.javiersc.kotlin.stdlib)
@@ -54,13 +56,13 @@ checkCompilerExtensionsAreCalled.configure {
     outputs.files(firTxtFile, irTxtFile)
     doLast {
         check(compilerExtensionTestsDir.get().asFile.run { exists() && isDirectory }) {
-            "Compiler extensions tests directory does not exist: $compilerExtensionTestsDir"
+            "Compiler extensions tests directory does not exist: ${compilerExtensionTestsDir.orNull?.asFile}"
         }
         check(firTxtFile.get().asFile.run { exists() && isFile }) {
-            "Fir file does not exist: $firTxtFile"
+            "Fir file does not exist: ${firTxtFile.orNull?.asFile}"
         }
         check(irTxtFile.get().asFile.run { exists() && isFile }) {
-            "Ir file does not exist: $irTxtFile"
+            "Ir file does not exist: ${irTxtFile.orNull?.asFile}"
         }
     }
 }

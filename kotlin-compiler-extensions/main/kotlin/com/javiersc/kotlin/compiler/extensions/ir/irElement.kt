@@ -1,3 +1,5 @@
+@file:Suppress("NOTHING_TO_INLINE")
+
 package com.javiersc.kotlin.compiler.extensions.ir
 
 import com.javiersc.kotlin.compiler.extensions.common.toFqName
@@ -29,10 +31,10 @@ public inline fun IrElement.hasAnnotation(annotation: FqName): Boolean =
         else -> false
     }
 
-public inline val IrElement.contextReceivers: List<IrValueParameter>
+public inline val IrElement.contextParameters: List<IrValueParameter>
     get() =
         when (this) {
-            is IrFunction -> contextReceivers
-            is IrClass -> primaryConstructor?.contextReceivers.orEmpty()
+            is IrFunction -> contextParameters
+            is IrClass -> primaryConstructor?.contextParameters.orEmpty()
             else -> TODO()
         }

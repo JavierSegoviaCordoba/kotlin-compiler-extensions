@@ -244,7 +244,7 @@ public final class com/javiersc/kotlin/compiler/extensions/ir/IrConstKt {
 public final class com/javiersc/kotlin/compiler/extensions/ir/IrElementKt {
 	public static final fun dump (Ljava/lang/Iterable;)Ljava/lang/String;
 	public static final fun dumpKotlinLike (Ljava/lang/Iterable;)Ljava/lang/String;
-	public static final fun getContextReceivers (Lorg/jetbrains/kotlin/ir/IrElement;)Ljava/util/List;
+	public static final fun getContextParameters (Lorg/jetbrains/kotlin/ir/IrElement;)Ljava/util/List;
 	public static final fun hasAnnotation (Lorg/jetbrains/kotlin/ir/IrElement;Lorg/jetbrains/kotlin/name/FqName;)Z
 }
 
@@ -288,7 +288,9 @@ public final class com/javiersc/kotlin/compiler/extensions/ir/IrFunctionKt {
 	public static final fun firstIrSimpleFunctionOrNull (Lorg/jetbrains/kotlin/backend/common/extensions/IrPluginContext;Lorg/jetbrains/kotlin/name/CallableId;)Lorg/jetbrains/kotlin/ir/declarations/IrSimpleFunction;
 	public static final fun firstIrSimpleFunctionSymbol (Lorg/jetbrains/kotlin/backend/common/extensions/IrPluginContext;Lorg/jetbrains/kotlin/name/CallableId;)Lorg/jetbrains/kotlin/ir/symbols/IrSimpleFunctionSymbol;
 	public static final fun firstIrSimpleFunctionSymbolOrNull (Lorg/jetbrains/kotlin/backend/common/extensions/IrPluginContext;Lorg/jetbrains/kotlin/name/CallableId;)Lorg/jetbrains/kotlin/ir/symbols/IrSimpleFunctionSymbol;
-	public static final fun getContextReceivers (Lorg/jetbrains/kotlin/ir/declarations/IrFunction;)Ljava/util/List;
+	public static final fun getContextParameters (Lorg/jetbrains/kotlin/ir/declarations/IrFunction;)Ljava/util/List;
+	public static final fun getDispatchReceiver (Lorg/jetbrains/kotlin/ir/declarations/IrFunction;)Lorg/jetbrains/kotlin/ir/declarations/IrValueParameter;
+	public static final fun getExtensionReceiver (Lorg/jetbrains/kotlin/ir/declarations/IrFunction;)Lorg/jetbrains/kotlin/ir/declarations/IrValueParameter;
 }
 
 public final class com/javiersc/kotlin/compiler/extensions/ir/IrGetEnumValueKt {
@@ -362,6 +364,10 @@ public final class com/javiersc/kotlin/compiler/extensions/ir/IrTypeProjectionKt
 }
 
 public final class com/javiersc/kotlin/compiler/extensions/ir/IrValueParameterKt {
+	public static final fun isContextParameter (Lorg/jetbrains/kotlin/ir/declarations/IrValueParameter;)Z
+	public static final fun isDispatchReceiver (Lorg/jetbrains/kotlin/ir/declarations/IrValueParameter;)Z
+	public static final fun isExtensionReceiver (Lorg/jetbrains/kotlin/ir/declarations/IrValueParameter;)Z
+	public static final fun isRegular (Lorg/jetbrains/kotlin/ir/declarations/IrValueParameter;)Z
 	public static final fun toIrGetValue (Lorg/jetbrains/kotlin/ir/declarations/IrValueParameter;)Lorg/jetbrains/kotlin/ir/expressions/IrGetValue;
 }
 
