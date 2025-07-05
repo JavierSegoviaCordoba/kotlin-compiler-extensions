@@ -12,11 +12,6 @@ public final class com/javiersc/kotlin/compiler/gradle/extensions/KotlinCompiler
 	public static fun getPluginArtifactForNative (Lcom/javiersc/kotlin/compiler/gradle/extensions/KotlinCompilerGradlePlugin;)Lorg/jetbrains/kotlin/gradle/plugin/SubpluginArtifact;
 }
 
-public final class com/javiersc/kotlin/compiler/gradle/extensions/KotlinCompilerGradlePlugin$inlined$sam$i$org_gradle_api_Action$0 : org/gradle/api/Action {
-	public fun <init> (Lkotlin/jvm/functions/Function1;)V
-	public final synthetic fun execute (Ljava/lang/Object;)V
-}
-
 public final class com/javiersc/kotlin/kotlin/compiler/gradle/extensions/KotlinCompilerGradleExtensionsProjectData {
 	public static final field Group Ljava/lang/String;
 	public static final field INSTANCE Lcom/javiersc/kotlin/kotlin/compiler/gradle/extensions/KotlinCompilerGradleExtensionsProjectData;
