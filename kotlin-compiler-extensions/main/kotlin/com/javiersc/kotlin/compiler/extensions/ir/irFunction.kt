@@ -22,14 +22,17 @@ import org.jetbrains.kotlin.name.Name
 import org.jetbrains.kotlin.name.SpecialNames
 import org.jetbrains.kotlin.serialization.deserialization.descriptors.DeserializedContainerSource
 
-public inline val IrFunction.contextParameters: List<IrValueParameter>
-    get() = parameters.filter(IrValueParameter::isContextParameter)
-
 public inline val IrFunction.dispatchReceiver: IrValueParameter?
     get() = parameters.firstOrNull(IrValueParameter::isDispatchReceiver)
 
+public inline val IrFunction.contextParameters: List<IrValueParameter>
+    get() = parameters.filter(IrValueParameter::isContextParameter)
+
 public inline val IrFunction.extensionReceiver: IrValueParameter?
     get() = parameters.firstOrNull(IrValueParameter::isExtensionReceiver)
+
+public inline val IrFunction.regularParameters: List<IrValueParameter>
+    get() = parameters.filter(IrValueParameter::isRegular)
 
 public inline fun IrPluginContext.firstIrSimpleFunctionSymbol(
     callableId: CallableId

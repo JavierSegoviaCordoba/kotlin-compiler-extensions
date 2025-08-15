@@ -297,6 +297,7 @@ public final class com/javiersc/kotlin/compiler/extensions/ir/IrFunctionKt {
 	public static final fun getContextParameters (Lorg/jetbrains/kotlin/ir/declarations/IrFunction;)Ljava/util/List;
 	public static final fun getDispatchReceiver (Lorg/jetbrains/kotlin/ir/declarations/IrFunction;)Lorg/jetbrains/kotlin/ir/declarations/IrValueParameter;
 	public static final fun getExtensionReceiver (Lorg/jetbrains/kotlin/ir/declarations/IrFunction;)Lorg/jetbrains/kotlin/ir/declarations/IrValueParameter;
+	public static final fun getRegularParameters (Lorg/jetbrains/kotlin/ir/declarations/IrFunction;)Ljava/util/List;
 }
 
 public final class com/javiersc/kotlin/compiler/extensions/ir/IrGetEnumValueKt {

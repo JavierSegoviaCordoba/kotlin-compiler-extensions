@@ -16,11 +16,11 @@ public inline fun IrValueParameter.toIrGetValue(): IrGetValue =
         symbol = symbol,
     )
 
-public val IrValueParameter.isContextParameter: Boolean
-    get() = kind == IrParameterKind.Context
-
 public val IrValueParameter.isDispatchReceiver: Boolean
     get() = kind == IrParameterKind.DispatchReceiver
+
+public val IrValueParameter.isContextParameter: Boolean
+    get() = kind == IrParameterKind.Context
 
 public val IrValueParameter.isExtensionReceiver: Boolean
     get() = kind == IrParameterKind.ExtensionReceiver

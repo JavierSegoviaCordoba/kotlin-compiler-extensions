@@ -10,6 +10,7 @@
 - `IrCall.extensionReceiverArgument: IrExpression?`
 - `IrCall.regularArguments: List<IrExpression>`
 - `IrCall.argumentsMap(): Map<IrExpression?, IrValueParameter>`
+- `IrFunction.regularParameters: List<IrValueParameter>`
 
 ### Changed
 
