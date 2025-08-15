@@ -188,6 +188,11 @@ public final class com/javiersc/kotlin/compiler/extensions/ir/IrBlockBodyKt {
 }
 
 public final class com/javiersc/kotlin/compiler/extensions/ir/IrCallKt {
+	public static final fun argumentsMap (Lorg/jetbrains/kotlin/ir/expressions/IrCall;)Ljava/util/Map;
+	public static final fun getContextParameterArguments (Lorg/jetbrains/kotlin/ir/expressions/IrCall;)Ljava/util/List;
+	public static final fun getDispatchReceiverArgument (Lorg/jetbrains/kotlin/ir/expressions/IrCall;)Lorg/jetbrains/kotlin/ir/expressions/IrExpression;
+	public static final fun getExtensionReceiverArgument (Lorg/jetbrains/kotlin/ir/expressions/IrCall;)Lorg/jetbrains/kotlin/ir/expressions/IrExpression;
+	public static final fun getRegularArguments (Lorg/jetbrains/kotlin/ir/expressions/IrCall;)Ljava/util/List;
 	public static final fun toIrCall (Lorg/jetbrains/kotlin/ir/declarations/IrSimpleFunction;IILorg/jetbrains/kotlin/ir/symbols/IrSimpleFunctionSymbol;Lorg/jetbrains/kotlin/ir/types/IrType;ILorg/jetbrains/kotlin/ir/expressions/IrStatementOrigin;Lorg/jetbrains/kotlin/ir/symbols/IrClassSymbol;Lkotlin/jvm/functions/Function1;)Lorg/jetbrains/kotlin/ir/expressions/IrCall;
 	public static synthetic fun toIrCall$default (Lorg/jetbrains/kotlin/ir/declarations/IrSimpleFunction;IILorg/jetbrains/kotlin/ir/symbols/IrSimpleFunctionSymbol;Lorg/jetbrains/kotlin/ir/types/IrType;ILorg/jetbrains/kotlin/ir/expressions/IrStatementOrigin;Lorg/jetbrains/kotlin/ir/symbols/IrClassSymbol;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lorg/jetbrains/kotlin/ir/expressions/IrCall;
 	public static final fun toIrConstructorCall (Lorg/jetbrains/kotlin/ir/declarations/IrConstructor;IILorg/jetbrains/kotlin/ir/symbols/IrConstructorSymbol;Lorg/jetbrains/kotlin/ir/types/IrType;ILorg/jetbrains/kotlin/ir/expressions/IrStatementOrigin;Lorg/jetbrains/kotlin/descriptors/SourceElement;Lkotlin/jvm/functions/Function1;)Lorg/jetbrains/kotlin/ir/expressions/IrConstructorCall;

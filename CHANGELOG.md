@@ -5,6 +5,11 @@
 ### Added
 
 - `fun IrFunctionAccessExpression.getExtensionReceiverOrNull(): IrExpression?`
+- `IrCall.dispatchReceiverArgument: IrExpression?`
+- `IrCall.contextParameterArguments: List<IrExpression>`
+- `IrCall.extensionReceiverArgument: IrExpression?`
+- `IrCall.regularArguments: List<IrExpression>`
+- `IrCall.argumentsMap(): Map<IrExpression?, IrValueParameter>`
 
 ### Changed
 

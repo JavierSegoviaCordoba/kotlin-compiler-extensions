@@ -23,6 +23,21 @@ import org.jetbrains.kotlin.ir.symbols.IrFunctionSymbol
 import org.jetbrains.kotlin.ir.symbols.IrSimpleFunctionSymbol
 import org.jetbrains.kotlin.ir.types.IrType
 
+public val IrCall.dispatchReceiverArgument: IrExpression?
+    get() = argumentsMap().filterValues(IrValueParameter::isDispatchReceiver).keys.firstOrNull()
+
+public val IrCall.contextParameterArguments: List<IrExpression>
+    get() = argumentsMap().filterValues(IrValueParameter::isContextParameter).keys.filterNotNull()
+
+public val IrCall.extensionReceiverArgument: IrExpression?
+    get() = argumentsMap().filterValues(IrValueParameter::isExtensionReceiver).keys.firstOrNull()
+
+public val IrCall.regularArguments: List<IrExpression>
+    get() = argumentsMap().filterValues(IrValueParameter::isRegular).keys.filterNotNull()
+
+public fun IrCall.argumentsMap(): Map<IrExpression?, IrValueParameter> =
+    (arguments zip symbol.owner.parameters).toMap()
+
 public inline fun IrDeclaration.toIrExpression(): IrExpression =
     when (this) {
         is IrFunction -> toIrFunctionAccessExpression()
