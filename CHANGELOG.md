@@ -4,14 +4,6 @@
 
 ### Added
 
-- `fun IrFunctionAccessExpression.getExtensionReceiverOrNull(): IrExpression?`
-- `IrCall.dispatchReceiverArgument: IrExpression?`
-- `IrCall.contextParameterArguments: List<IrExpression>`
-- `IrCall.extensionReceiverArgument: IrExpression?`
-- `IrCall.regularArguments: List<IrExpression>`
-- `IrCall.argumentsMap(): Map<IrExpression?, IrValueParameter>`
-- `IrFunction.regularParameters: List<IrValueParameter>`
-
 ### Changed
 
 ### Deprecated
@@ -19,6 +11,20 @@
 ### Fixed
 
 ### Removed
+
+### Updated
+
+## [0.8.0+2.2.10] - 2025-08-16
+
+### Added
+
+- `fun IrFunctionAccessExpression.getExtensionReceiverOrNull(): IrExpression?`
+- `IrCall.dispatchReceiverArgument: IrExpression?`
+- `IrCall.contextParameterArguments: List<IrExpression>`
+- `IrCall.extensionReceiverArgument: IrExpression?`
+- `IrCall.regularArguments: List<IrExpression>`
+- `IrCall.argumentsMap(): Map<IrExpression?, IrValueParameter>`
+- `IrFunction.regularParameters: List<IrValueParameter>`
 
 ### Updated
 
@@ -322,7 +328,9 @@
 
 - `kotlin-compiler-test` to `kotlin-compiler-extensions-test`
 
-[Unreleased]: https://github.com/JavierSegoviaCordoba/kotlin-compiler-extensions/compare/0.7.0+2.2.0...HEAD
+[Unreleased]: https://github.com/JavierSegoviaCordoba/kotlin-compiler-extensions/compare/0.8.0+2.2.10...HEAD
+
+[0.8.0+2.2.10]: https://github.com/JavierSegoviaCordoba/kotlin-compiler-extensions/compare/0.7.0+2.2.0...0.8.0+2.2.10
 
 [0.7.0+2.2.0]: https://github.com/JavierSegoviaCordoba/kotlin-compiler-extensions/compare/0.6.2+2.1.21...0.7.0+2.2.0
 
