@@ -318,6 +318,11 @@ public final class com/javiersc/kotlin/compiler/extensions/ir/IrGetValueKt {
 	public static synthetic fun toIrGetValue$default (Lorg/jetbrains/kotlin/ir/declarations/IrFunction;IILorg/jetbrains/kotlin/ir/symbols/IrValueSymbol;Lorg/jetbrains/kotlin/ir/types/IrType;Lorg/jetbrains/kotlin/ir/expressions/IrStatementOrigin;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lorg/jetbrains/kotlin/ir/expressions/IrGetValue;
 }
 
+public final class com/javiersc/kotlin/compiler/extensions/ir/IrMemberAccessExpressionKt {
+	public static final fun getExtensionReceiverArgument (Lorg/jetbrains/kotlin/ir/expressions/IrMemberAccessExpression;)Lorg/jetbrains/kotlin/ir/expressions/IrExpression;
+	public static final fun getExtensionReceiverIndex (Lorg/jetbrains/kotlin/ir/expressions/IrMemberAccessExpression;)I
+}
+
 public final class com/javiersc/kotlin/compiler/extensions/ir/IrReturnKt {
 	public static final fun copyIrReturn (Lorg/jetbrains/kotlin/ir/declarations/IrFunction;Lorg/jetbrains/kotlin/ir/expressions/IrExpression;)Lorg/jetbrains/kotlin/ir/expressions/IrReturn;
 	public static final fun createIrReturn (IILorg/jetbrains/kotlin/ir/types/IrType;Lorg/jetbrains/kotlin/ir/symbols/IrReturnTargetSymbol;Lorg/jetbrains/kotlin/ir/expressions/IrExpression;Lkotlin/jvm/functions/Function1;)Lorg/jetbrains/kotlin/ir/expressions/IrReturn;

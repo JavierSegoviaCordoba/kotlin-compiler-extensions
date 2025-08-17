@@ -4,6 +4,9 @@
 
 ### Added
 
+- `val IrMemberAccessExpression<IrFunctionSymbol>.extensionReceiverIndex: Int`
+- `val IrMemberAccessExpression<IrFunctionSymbol>.extensionReceiverArgument: IrExpression?`
+
 ### Changed
 
 ### Deprecated
@@ -18,13 +21,13 @@
 
 ### Added
 
+- `val IrFunction.regularParameters: List<IrValueParameter>`
 - `fun IrFunctionAccessExpression.getExtensionReceiverOrNull(): IrExpression?`
-- `IrCall.dispatchReceiverArgument: IrExpression?`
-- `IrCall.contextParameterArguments: List<IrExpression>`
-- `IrCall.extensionReceiverArgument: IrExpression?`
-- `IrCall.regularArguments: List<IrExpression>`
-- `IrCall.argumentsMap(): Map<IrExpression?, IrValueParameter>`
-- `IrFunction.regularParameters: List<IrValueParameter>`
+- `val IrCall.dispatchReceiverArgument: IrExpression?`
+- `val IrCall.contextParameterArguments: List<IrExpression>`
+- `val IrCall.extensionReceiverArgument: IrExpression?`
+- `val IrCall.regularArguments: List<IrExpression>`
+- `fun IrCall.argumentsMap(): Map<IrExpression?, IrValueParameter>`
 
 ### Updated
 
