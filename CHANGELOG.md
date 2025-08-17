@@ -4,9 +4,6 @@
 
 ### Added
 
-- `val IrMemberAccessExpression<IrFunctionSymbol>.extensionReceiverIndex: Int`
-- `val IrMemberAccessExpression<IrFunctionSymbol>.extensionReceiverArgument: IrExpression?`
-
 ### Changed
 
 ### Deprecated
@@ -16,6 +13,13 @@
 ### Removed
 
 ### Updated
+
+## [0.8.1+2.2.10] - 2025-08-17
+
+### Added
+
+- `val IrMemberAccessExpression<IrFunctionSymbol>.extensionReceiverIndex: Int`
+- `val IrMemberAccessExpression<IrFunctionSymbol>.extensionReceiverArgument: IrExpression?`
 
 ## [0.8.0+2.2.10] - 2025-08-16
 
@@ -331,7 +335,9 @@
 
 - `kotlin-compiler-test` to `kotlin-compiler-extensions-test`
 
-[Unreleased]: https://github.com/JavierSegoviaCordoba/kotlin-compiler-extensions/compare/0.8.0+2.2.10...HEAD
+[Unreleased]: https://github.com/JavierSegoviaCordoba/kotlin-compiler-extensions/compare/0.8.1+2.2.10...HEAD
+
+[0.8.1+2.2.10]: https://github.com/JavierSegoviaCordoba/kotlin-compiler-extensions/compare/0.8.0+2.2.10...0.8.1+2.2.10
 
 [0.8.0+2.2.10]: https://github.com/JavierSegoviaCordoba/kotlin-compiler-extensions/compare/0.7.0+2.2.0...0.8.0+2.2.10
 
