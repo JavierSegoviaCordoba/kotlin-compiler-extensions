@@ -60,7 +60,7 @@ public inline fun ConeKotlinType.toValueParameter(
         this.origin = origin
         this.returnTypeRef = typeRef
         this.name = name
-        this.symbol = FirValueParameterSymbol(name)
+        this.symbol = FirValueParameterSymbol()
         this.containingDeclarationSymbol = containingDeclarationSymbol
         this.isCrossinline = false
         this.isNoinline = false
