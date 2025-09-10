@@ -10,7 +10,7 @@ import org.jetbrains.kotlin.name.Name
 public inline val FirMemberDeclaration.name: Name
     get() =
         when (this) {
-            is FirCallableDeclaration -> this.symbol.callableId.callableName
+            is FirCallableDeclaration -> this.symbol.callableId?.callableName
             is FirClass -> this.classId.shortClassName
             is FirTypeAlias -> this.name
-        }
+        } ?: Name.special("<anonymous>")

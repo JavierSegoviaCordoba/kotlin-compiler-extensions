@@ -1,3 +1,5 @@
+@file:Suppress("NOTHING_TO_INLINE")
+
 package com.javiersc.kotlin.compiler.extensions.fir
 
 import kotlin.contracts.contract
@@ -15,7 +17,7 @@ public inline val FirBasedSymbol<*>.packageFqName: FqName
     get() =
         when (this) {
             is FirClassLikeSymbol<*> -> classId.packageFqName
-            is FirCallableSymbol<*> -> callableId.packageName
+            is FirCallableSymbol<*> -> callableId?.packageName ?: FqName.ROOT
             else -> TODO("Not implemented")
         }
 
