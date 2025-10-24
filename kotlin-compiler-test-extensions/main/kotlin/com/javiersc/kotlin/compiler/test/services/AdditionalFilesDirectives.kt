@@ -9,8 +9,8 @@ public object AdditionalFilesDirectives : SimpleDirectivesContainer() {
         directive(
             description =
                 """
-                    Adds common context annotations
-                    See file ./test-data/additional-files/SomeFile.kt
+                Adds common context annotations
+                See file ./test-data/additional-files/SomeFile.kt
                 """
                     .trimIndent()
         )
