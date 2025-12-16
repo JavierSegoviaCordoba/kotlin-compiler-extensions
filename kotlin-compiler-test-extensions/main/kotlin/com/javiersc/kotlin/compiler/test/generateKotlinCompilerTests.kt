@@ -2,7 +2,7 @@ package com.javiersc.kotlin.compiler.test
 
 import com.javiersc.kotlin.compiler.test.runners.JvmBoxTest
 import com.javiersc.kotlin.compiler.test.runners.JvmDiagnosticTest
-import org.jetbrains.kotlin.generators.generateTestGroupSuiteWithJUnit5
+import org.jetbrains.kotlin.generators.dsl.junit5.generateTestGroupSuiteWithJUnit5
 
 public inline fun <
     reified D : JvmDiagnosticTest,
