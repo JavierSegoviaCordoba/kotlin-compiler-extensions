@@ -1,3 +1,5 @@
+@file:Suppress("NOTHING_TO_INLINE")
+
 package com.javiersc.kotlin.compiler.extensions.fir
 
 import org.jetbrains.kotlin.GeneratedDeclarationKey
@@ -24,7 +26,8 @@ import org.jetbrains.kotlin.fir.types.coneType
 import org.jetbrains.kotlin.fir.types.coneTypeOrNull
 import org.jetbrains.kotlin.name.Name
 
-public inline fun FirBasedSymbol<*>.valueParameters(session: FirSession): List<FirValueParameter> =
+context(session: FirSession)
+public inline fun FirBasedSymbol<*>.valueParameters(): List<FirValueParameter> =
     when (val fir = this.fir) {
         is FirFunction -> fir.valueParameters
         is FirRegularClass -> fir.primaryConstructorIfAny(session)?.fir?.valueParameters.orEmpty()
@@ -36,15 +39,15 @@ public inline fun FirBasedSymbol<*>.valueParameters(session: FirSession): List<F
         else -> emptyList()
     }
 
+context(session: FirSession)
 public inline fun ConeKotlinType.toValueParameter(
-    session: FirSession,
     key: GeneratedDeclarationKey,
     containingDeclarationSymbol: FirBasedSymbol<*>,
     block: FirValueParameterBuilder.(FirTypeRef) -> Unit = {},
-): FirValueParameter = toValueParameter(session, key.origin, containingDeclarationSymbol, block)
+): FirValueParameter = toValueParameter(key.origin, containingDeclarationSymbol, block)
 
+context(session: FirSession)
 public inline fun ConeKotlinType.toValueParameter(
-    session: FirSession,
     origin: FirDeclarationOrigin,
     containingDeclarationSymbol: FirBasedSymbol<*>,
     block: FirValueParameterBuilder.(FirTypeRef) -> Unit = {},
@@ -69,45 +72,46 @@ public inline fun ConeKotlinType.toValueParameter(
     }
 }
 
+context(session: FirSession)
 public inline fun FirTypeRef.toValueParameter(
-    session: FirSession,
     key: GeneratedDeclarationKey,
     containingFunctionSymbol: FirFunctionSymbol<*>,
     block: FirValueParameterBuilder.(FirTypeRef) -> Unit = {},
 ): FirValueParameter =
-    coneType.toValueParameter(session, key.origin, containingFunctionSymbol, block)
+    with(session) { coneType.toValueParameter(key.origin, containingFunctionSymbol, block) }
 
+context(session: FirSession)
 public inline fun FirTypeRef.toValueParameterOrNull(
-    session: FirSession,
     key: GeneratedDeclarationKey,
     containingFunctionSymbol: FirFunctionSymbol<*>,
     block: FirValueParameterBuilder.(FirTypeRef) -> Unit = {},
 ): FirValueParameter? =
-    coneTypeOrNull?.toValueParameter(session, key.origin, containingFunctionSymbol, block)
+    with(session) { coneTypeOrNull?.toValueParameter(key.origin, containingFunctionSymbol, block) }
 
+context(session: FirSession)
 public inline fun FirTypeRef.toValueParameter(
-    session: FirSession,
     origin: FirDeclarationOrigin,
     containingFunctionSymbol: FirFunctionSymbol<*>,
     block: FirValueParameterBuilder.(FirTypeRef) -> Unit = {},
-): FirValueParameter = coneType.toValueParameter(session, origin, containingFunctionSymbol, block)
+): FirValueParameter =
+    with(session) { coneType.toValueParameter(origin, containingFunctionSymbol, block) }
 
+context(session: FirSession)
 public inline fun FirTypeRef.toValueParameterOrNull(
-    session: FirSession,
     origin: FirDeclarationOrigin,
     containingFunctionSymbol: FirFunctionSymbol<*>,
     block: FirValueParameterBuilder.(FirTypeRef) -> Unit = {},
 ): FirValueParameter? =
-    coneTypeOrNull?.toValueParameter(session, origin, containingFunctionSymbol, block)
+    with(session) { coneTypeOrNull?.toValueParameter(origin, containingFunctionSymbol, block) }
 
+// context(session: FirSession)
 // public inline fun FirFunctionSymbol<*>.contextReceiversToValueParameters(
-//    session: FirSession,
 //    key: GeneratedDeclarationKey,
 //    crossinline block: FirValueParameterBuilder.(FirContextReceiver) -> Unit = {},
 // ): List<FirValueParameter> = contextReceiversToValueParameters(session, key.origin, block)
 //
+// context(session: FirSession)
 // public inline fun FirFunctionSymbol<*>.contextReceiversToValueParameters(
-//    session: FirSession,
 //    origin: FirDeclarationOrigin,
 //    crossinline block: FirValueParameterBuilder.(FirContextReceiver) -> Unit = {},
 // ): List<FirValueParameter> {
@@ -117,23 +121,23 @@ public inline fun FirTypeRef.toValueParameterOrNull(
 //    }
 // }
 //
+// context(session: FirSession)
 // public inline fun FirContextReceiver.toValueParameter(
-//    session: FirSession,
 //    key: GeneratedDeclarationKey,
 //    containingFunctionSymbol: FirFunctionSymbol<*>,
 //    crossinline block: FirValueParameterBuilder.(FirContextReceiver) -> Unit = {},
 // ): FirValueParameter = toValueParameter(session, key.origin, containingFunctionSymbol, block)
 //
+// context(session: FirSession)
 // public inline fun FirContextReceiver.toValueParameterOrNull(
-//    session: FirSession,
 //    key: GeneratedDeclarationKey,
 //    containingFunctionSymbol: FirFunctionSymbol<*>,
 //    crossinline block: FirValueParameterBuilder.(FirContextReceiver) -> Unit = {},
 // ): FirValueParameter? = toValueParameterOrNull(session, key.origin, containingFunctionSymbol,
 // block)
 //
+// context(session: FirSession)
 // public inline fun FirContextReceiver.toValueParameter(
-//    session: FirSession,
 //    origin: FirDeclarationOrigin,
 //    containingFunctionSymbol: FirFunctionSymbol<*>,
 //    crossinline block: FirValueParameterBuilder.(FirContextReceiver) -> Unit = {},
@@ -142,8 +146,8 @@ public inline fun FirTypeRef.toValueParameterOrNull(
 //    return typeRef.coneType.toValueParameter(session, origin, containingFunctionSymbol, builder)
 // }
 //
+// context(session: FirSession)
 // public inline fun FirContextReceiver.toValueParameterOrNull(
-//    session: FirSession,
 //    origin: FirDeclarationOrigin,
 //    containingFunctionSymbol: FirFunctionSymbol<*>,
 //    crossinline block: FirValueParameterBuilder.(FirContextReceiver) -> Unit = {},

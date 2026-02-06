@@ -1,9 +1,12 @@
+@file:Suppress("NOTHING_TO_INLINE")
+
 package com.javiersc.kotlin.compiler.extensions.ir
 
 import com.javiersc.kotlin.compiler.extensions.common.classId
 import org.jetbrains.kotlin.backend.common.extensions.IrPluginContext
 import org.jetbrains.kotlin.ir.IrElement
 import org.jetbrains.kotlin.ir.declarations.IrClass
+import org.jetbrains.kotlin.ir.declarations.IrFile
 import org.jetbrains.kotlin.ir.declarations.IrFunction
 import org.jetbrains.kotlin.ir.declarations.IrProperty
 import org.jetbrains.kotlin.ir.declarations.IrTypeParametersContainer
@@ -35,9 +38,17 @@ public inline val IrElement.irType: IrType
             else -> error("`IrElement::irType` not supported for `${irElement.render()}`")
         }
 
-public inline fun <reified T> IrPluginContext.irType(): IrType {
+context(context: IrPluginContext)
+public inline fun <reified T> irType(): IrType {
     val classId: ClassId = classId<T>()
-    val irClassSymbol: IrClassSymbol = this.firstIrClassSymbol(classId)
+    val irClassSymbol: IrClassSymbol = firstIrClassSymbol(classId)
+    return irClassSymbol.defaultType
+}
+
+context(context: IrPluginContext)
+public inline fun <reified T> IrFile.irType(): IrType {
+    val classId: ClassId = classId<T>()
+    val irClassSymbol: IrClassSymbol = this@irType.firstIrClassSymbol(classId)
     return irClassSymbol.defaultType
 }
 

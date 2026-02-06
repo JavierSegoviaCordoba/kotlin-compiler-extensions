@@ -27,20 +27,16 @@ private fun ExtensionStorage.allExtensions() {
 
 open class AbstractFakeDiagnosticTest : JvmDiagnosticTest() {
 
-    override fun ExtensionStorage.registerExtensions(
-        module: TestModule,
-        configuration: CompilerConfiguration,
-    ) {
-        allExtensions()
+    context(extensionStorage: ExtensionStorage)
+    override fun registerExtensions(module: TestModule, configuration: CompilerConfiguration) {
+        extensionStorage.allExtensions()
     }
 }
 
 open class AbstractFakeBoxTest : JvmBoxTest() {
 
-    override fun ExtensionStorage.registerExtensions(
-        module: TestModule,
-        configuration: CompilerConfiguration,
-    ) {
-        allExtensions()
+    context(extensionStorage: ExtensionStorage)
+    override fun registerExtensions(module: TestModule, configuration: CompilerConfiguration) {
+        extensionStorage.allExtensions()
     }
 }

@@ -12,7 +12,8 @@ import org.jetbrains.kotlin.ir.symbols.impl.IrFieldSymbolImpl
 import org.jetbrains.kotlin.ir.types.IrType
 import org.jetbrains.kotlin.name.Name
 
-public inline fun IrPluginContext.createIrField(
+context(context: IrPluginContext)
+public inline fun createIrField(
     startOffset: Int = UNDEFINED_OFFSET,
     endOffset: Int = UNDEFINED_OFFSET,
     origin: IrDeclarationOrigin = IrDeclarationOrigin.DEFINED,
@@ -25,7 +26,7 @@ public inline fun IrPluginContext.createIrField(
     isExternal: Boolean = false,
     block: IrField.() -> Unit = {},
 ): IrField =
-    irFactory
+    context.irFactory
         .createField(
             startOffset = startOffset,
             endOffset = endOffset,
@@ -40,8 +41,8 @@ public inline fun IrPluginContext.createIrField(
         )
         .apply(block)
 
+context(context: IrPluginContext)
 public inline fun IrValueParameter.toIrField(
-    pluginContext: IrPluginContext,
     startOffset: Int = UNDEFINED_OFFSET,
     endOffset: Int = UNDEFINED_OFFSET,
     origin: IrDeclarationOrigin = IrDeclarationOrigin.DEFINED,
@@ -54,8 +55,7 @@ public inline fun IrValueParameter.toIrField(
     isExternal: Boolean = false,
     block: IrField.() -> Unit = {},
 ): IrField =
-    pluginContext
-        .createIrField(
+    createIrField(
             startOffset = startOffset,
             endOffset = endOffset,
             origin = origin,

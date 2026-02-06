@@ -38,13 +38,15 @@ public abstract class JvmBoxTest : AbstractFirBlackBoxCodegenTestBase(FirParser.
     override fun createKotlinStandardLibrariesPathProvider(): KotlinStandardLibrariesPathProvider =
         EnvironmentBasedStandardLibrariesPathProvider
 
-    public abstract fun ExtensionStorage.registerExtensions(
+    context(extensionStorage: ExtensionStorage)
+    public abstract fun registerExtensions(
         module: TestModule,
         configuration: CompilerConfiguration,
     )
 
-    private fun TestConfigurationBuilder.configuration() {
-        defaultDirectives { //
+    context(testConfigurationBuilder: TestConfigurationBuilder)
+    private fun configuration() {
+        testConfigurationBuilder.defaultDirectives { //
             +CodegenTestDirectives.DUMP_IR
             +FirDiagnosticsDirectives.FIR_DUMP
             +JvmEnvironmentConfigurationDirectives.FULL_JDK
@@ -58,11 +60,13 @@ public abstract class JvmBoxTest : AbstractFirBlackBoxCodegenTestBase(FirParser.
                 registerExtensions(module, configuration)
             },
         )
-        irHandlersStep { useHandlers(::IrTextDumpHandler, ::IrTreeVerifierHandler) }
-        facadeStep(::JvmIrBackendFacade)
-        jvmArtifactsHandlersStep { useHandlers(::JvmBoxRunner) }
+        testConfigurationBuilder.irHandlersStep {
+            useHandlers(::IrTextDumpHandler, ::IrTreeVerifierHandler)
+        }
+        testConfigurationBuilder.facadeStep(::JvmIrBackendFacade)
+        testConfigurationBuilder.jvmArtifactsHandlersStep { useHandlers(::JvmBoxRunner) }
 
-        useAfterAnalysisCheckers(::BlackBoxCodegenSuppressor)
-        configureDumpHandlersForCodegenTest()
+        testConfigurationBuilder.useAfterAnalysisCheckers(::BlackBoxCodegenSuppressor)
+        testConfigurationBuilder.configureDumpHandlersForCodegenTest()
     }
 }

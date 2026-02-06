@@ -1,3 +1,5 @@
+@file:Suppress("NOTHING_TO_INLINE")
+
 package com.javiersc.kotlin.compiler.extensions.fir
 
 import com.javiersc.kotlin.compiler.extensions.common.toCallableId
@@ -9,7 +11,7 @@ import org.jetbrains.kotlin.descriptors.Visibilities
 import org.jetbrains.kotlin.fir.FirSession
 import org.jetbrains.kotlin.fir.declarations.FirDeclarationOrigin
 import org.jetbrains.kotlin.fir.declarations.FirFunction
-import org.jetbrains.kotlin.fir.declarations.builder.buildSimpleFunction
+import org.jetbrains.kotlin.fir.declarations.builder.buildNamedFunction
 import org.jetbrains.kotlin.fir.declarations.impl.FirResolvedDeclarationStatusImpl
 import org.jetbrains.kotlin.fir.declarations.origin
 import org.jetbrains.kotlin.fir.moduleData
@@ -17,12 +19,13 @@ import org.jetbrains.kotlin.fir.symbols.impl.FirNamedFunctionSymbol
 import org.jetbrains.kotlin.fir.types.impl.FirImplicitNothingTypeRef
 import org.jetbrains.kotlin.name.StandardClassIds
 
-public inline fun FirSession.nothingFirFunction(key: GeneratedDeclarationKey): FirFunction =
+context(session: FirSession)
+public inline fun nothingFirFunction(key: GeneratedDeclarationKey): FirFunction =
     nothingFirFunction(key.origin)
 
-public inline fun FirSession.nothingFirFunction(origin: FirDeclarationOrigin): FirFunction =
-    buildSimpleFunction {
-        val session = this@nothingFirFunction
+context(session: FirSession)
+public inline fun nothingFirFunction(origin: FirDeclarationOrigin): FirFunction =
+    buildNamedFunction {
         this.moduleData = session.moduleData
         this.origin = origin
         this.status =

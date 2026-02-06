@@ -32,18 +32,19 @@ import org.jetbrains.kotlin.test.services.TestServices
 import org.jetbrains.kotlin.test.services.configuration.CommonEnvironmentConfigurator
 import org.jetbrains.kotlin.test.services.configuration.JvmEnvironmentConfigurator
 
-internal fun TestConfigurationBuilder.commonPluginConfiguration(
+context(testConfigurationBuilder: TestConfigurationBuilder)
+internal fun commonPluginConfiguration(
     classpathProvider: Constructor<MetaRuntimeClasspathProvider>?,
     additionalFilesProvider: Constructor<AdditionalFilesProvider>?,
     registerCompilerExtensions: ExtensionStorage.(TestModule, CompilerConfiguration) -> Unit,
 ) {
-    globalDefaults {
+    testConfigurationBuilder.globalDefaults {
         targetBackend = TargetBackend.JVM_IR
         targetPlatform = JvmPlatforms.defaultJvmPlatform
         dependencyKind = DependencyKind.Binary
     }
 
-    baseFirDiagnosticTestConfiguration()
+    testConfigurationBuilder.baseFirDiagnosticTestConfiguration()
 
     val targetFrontend: FrontendKinds.FIR = FrontendKinds.FIR
     val frontendFacade: Constructor<FrontendFacade<FirOutputArtifact>> = ::FirFrontendFacade
@@ -52,7 +53,7 @@ internal fun TestConfigurationBuilder.commonPluginConfiguration(
     val backendFacade: Constructor<BackendFacade<IrBackendInput, BinaryArtifacts.Jvm>> =
         ::JvmIrBackendFacade
 
-    commonConfigurationForJvmTest(
+    testConfigurationBuilder.commonConfigurationForJvmTest(
         targetFrontend = targetFrontend,
         frontendFacade = frontendFacade,
         frontendToBackendConverter = frontendToBackendConverter,
@@ -60,7 +61,7 @@ internal fun TestConfigurationBuilder.commonPluginConfiguration(
         additionalSourceProvider = additionalFilesProvider,
     )
 
-    defaultDirectives {
+    testConfigurationBuilder.defaultDirectives {
         LanguageSettingsDirectives.LANGUAGE with "+ContextReceivers"
 
         // +ConfigurationDirectives.WITH_STDLIB
@@ -81,8 +82,8 @@ internal fun TestConfigurationBuilder.commonPluginConfiguration(
     }
 
     if (classpathProvider != null) {
-        useCustomRuntimeClasspathProviders(classpathProvider)
+        testConfigurationBuilder.useCustomRuntimeClasspathProviders(classpathProvider)
     }
-    useConfigurators(*configurators.toTypedArray())
-    useAdditionalSourceProviders(::AdditionalFilesProvider)
+    testConfigurationBuilder.useConfigurators(*configurators.toTypedArray())
+    testConfigurationBuilder.useAdditionalSourceProviders(::AdditionalFilesProvider)
 }

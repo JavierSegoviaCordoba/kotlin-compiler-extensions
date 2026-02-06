@@ -1,3 +1,5 @@
+@file:Suppress("NOTHING_TO_INLINE")
+
 package com.javiersc.kotlin.compiler.extensions.common
 
 import kotlin.reflect.KFunction
