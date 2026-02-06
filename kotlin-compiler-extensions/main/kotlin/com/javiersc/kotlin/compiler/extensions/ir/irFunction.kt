@@ -1,4 +1,4 @@
-@file:Suppress("NOTHING_TO_INLINE")
+@file:Suppress("NOTHING_TO_INLINE", "TooManyFunctions")
 
 package com.javiersc.kotlin.compiler.extensions.ir
 
@@ -10,6 +10,7 @@ import org.jetbrains.kotlin.ir.UNDEFINED_OFFSET
 import org.jetbrains.kotlin.ir.builders.declarations.IrFunctionBuilder
 import org.jetbrains.kotlin.ir.builders.declarations.buildFun
 import org.jetbrains.kotlin.ir.declarations.IrDeclarationOrigin
+import org.jetbrains.kotlin.ir.declarations.IrFile
 import org.jetbrains.kotlin.ir.declarations.IrFunction
 import org.jetbrains.kotlin.ir.declarations.IrSimpleFunction
 import org.jetbrains.kotlin.ir.declarations.IrValueParameter
@@ -34,46 +35,102 @@ public inline val IrFunction.extensionReceiver: IrValueParameter?
 public inline val IrFunction.regularParameters: List<IrValueParameter>
     get() = parameters.filter(IrValueParameter::isRegular)
 
-public inline fun IrPluginContext.firstIrSimpleFunctionSymbol(
+context(context: IrPluginContext)
+public inline fun IrFile.firstIrSimpleFunctionSymbol(
     callableId: CallableId
 ): IrSimpleFunctionSymbol = firstIrSimpleFunctionSymbolOrNull(callableId)!!
 
-public inline fun IrPluginContext.firstIrSimpleFunctionSymbolOrNull(
-    callableId: CallableId
-): IrSimpleFunctionSymbol? = referenceFunctions(callableId).firstOrNull()
+context(context: IrPluginContext)
+public inline fun firstIrSimpleFunctionSymbol(callableId: CallableId): IrSimpleFunctionSymbol =
+    firstIrSimpleFunctionSymbolOrNull(callableId)!!
 
-public inline fun IrPluginContext.firstIrFunctionSymbol(callableId: CallableId): IrFunctionSymbol =
+context(context: IrPluginContext)
+public inline fun IrFile.firstIrSimpleFunctionSymbolOrNull(
+    callableId: CallableId
+): IrSimpleFunctionSymbol? =
+    context
+        .finderForSource(this@firstIrSimpleFunctionSymbolOrNull)
+        .findFunctions(callableId)
+        .firstOrNull()
+
+context(context: IrPluginContext)
+public inline fun firstIrSimpleFunctionSymbolOrNull(
+    callableId: CallableId
+): IrSimpleFunctionSymbol? = context.finderForBuiltins().findFunctions(callableId).firstOrNull()
+
+context(context: IrPluginContext)
+public inline fun IrFile.firstIrFunctionSymbol(callableId: CallableId): IrFunctionSymbol =
     firstIrFunctionSymbolOrNull(callableId)!!
 
-public inline fun IrPluginContext.firstIrFunctionSymbolOrNull(
-    callableId: CallableId
-): IrFunctionSymbol? = referenceFunctions(callableId).firstOrNull()
+context(context: IrPluginContext)
+public inline fun firstIrFunctionSymbol(callableId: CallableId): IrFunctionSymbol =
+    firstIrFunctionSymbolOrNull(callableId)!!
 
-public inline fun IrPluginContext.firstIrSimpleFunction(callableId: CallableId): IrSimpleFunction =
+context(context: IrPluginContext)
+public inline fun IrFile.firstIrFunctionSymbolOrNull(callableId: CallableId): IrFunctionSymbol? =
+    context
+        .finderForSource(this@firstIrFunctionSymbolOrNull)
+        .findFunctions(callableId)
+        .firstOrNull()
+
+context(context: IrPluginContext)
+public inline fun firstIrFunctionSymbolOrNull(callableId: CallableId): IrFunctionSymbol? =
+    context.finderForBuiltins().findFunctions(callableId).firstOrNull()
+
+context(context: IrPluginContext)
+public inline fun IrFile.firstIrSimpleFunction(callableId: CallableId): IrSimpleFunction =
     firstIrSimpleFunctionOrNull(callableId)!!
 
-public inline fun IrPluginContext.firstIrSimpleFunctionOrNull(
-    callableId: CallableId
-): IrSimpleFunction? = referenceFunctions(callableId).firstOrNull()?.owner
+context(context: IrPluginContext)
+public inline fun firstIrSimpleFunction(callableId: CallableId): IrSimpleFunction =
+    firstIrSimpleFunctionOrNull(callableId)!!
 
-public inline fun IrPluginContext.firstIrFunction(callableId: CallableId): IrFunction =
+context(context: IrPluginContext)
+public inline fun IrFile.firstIrSimpleFunctionOrNull(callableId: CallableId): IrSimpleFunction? =
+    context
+        .finderForSource(this@firstIrSimpleFunctionOrNull)
+        .findFunctions(callableId)
+        .firstOrNull()
+        ?.owner
+
+context(context: IrPluginContext)
+public inline fun firstIrSimpleFunctionOrNull(callableId: CallableId): IrSimpleFunction? =
+    context.finderForBuiltins().findFunctions(callableId).firstOrNull()?.owner
+
+context(context: IrPluginContext)
+public inline fun IrFile.firstIrFunction(callableId: CallableId): IrFunction =
     firstIrFunctionOrNull(callableId)!!
 
-public inline fun IrPluginContext.firstIrFunctionOrNull(callableId: CallableId): IrFunction? =
-    referenceFunctions(callableId).firstOrNull()?.owner
+context(context: IrPluginContext)
+public inline fun firstIrFunction(callableId: CallableId): IrFunction =
+    firstIrFunctionOrNull(callableId)!!
 
-public inline fun IrPluginContext.createGetterIrSimpleFunction(
+context(context: IrPluginContext)
+public inline fun IrFile.firstIrFunctionOrNull(callableId: CallableId): IrFunction? =
+    context
+        .finderForSource(this@firstIrFunctionOrNull)
+        .findFunctions(callableId)
+        .firstOrNull()
+        ?.owner
+
+context(context: IrPluginContext)
+public inline fun firstIrFunctionOrNull(callableId: CallableId): IrFunction? =
+    context.finderForBuiltins().findFunctions(callableId).firstOrNull()?.owner
+
+context(context: IrPluginContext)
+public inline fun createGetterIrSimpleFunction(
     name: Name,
     builder: IrFunctionBuilder.() -> Unit = {},
     function: IrSimpleFunction.() -> Unit = {},
 ): IrSimpleFunction = createDefaultPropertyAccessor("<get-$name>", builder, function)
 
-public inline fun IrPluginContext.createDefaultPropertyAccessor(
+context(context: IrPluginContext)
+public inline fun createDefaultPropertyAccessor(
     name: String,
     builder: IrFunctionBuilder.() -> Unit = {},
     function: IrSimpleFunction.() -> Unit = {},
 ): IrSimpleFunction =
-    irFactory
+    context.irFactory
         .buildFun {
             startOffset = UNDEFINED_OFFSET
             endOffset = UNDEFINED_OFFSET
@@ -85,7 +142,8 @@ public inline fun IrPluginContext.createDefaultPropertyAccessor(
         }
         .apply(function)
 
-public inline fun IrPluginContext.createLambdaIrSimpleFunction(
+context(context: IrPluginContext)
+public inline fun createLambdaIrSimpleFunction(
     startOffset: Int = UNDEFINED_OFFSET,
     endOffset: Int = UNDEFINED_OFFSET,
     origin: IrDeclarationOrigin = IrDeclarationOrigin.LOCAL_FUNCTION_FOR_LAMBDA,
@@ -93,7 +151,7 @@ public inline fun IrPluginContext.createLambdaIrSimpleFunction(
     visibility: DescriptorVisibility = DescriptorVisibilities.LOCAL,
     isInline: Boolean = false,
     isExpect: Boolean = false,
-    returnType: IrType = irBuiltIns.nothingType,
+    returnType: IrType = context.irBuiltIns.nothingType,
     modality: Modality = Modality.FINAL,
     symbol: IrSimpleFunctionSymbol = IrSimpleFunctionSymbolImpl(),
     isTailrec: Boolean = false,
@@ -105,7 +163,7 @@ public inline fun IrPluginContext.createLambdaIrSimpleFunction(
     isFakeOverride: Boolean = origin == IrDeclarationOrigin.FAKE_OVERRIDE,
     block: IrSimpleFunction.() -> Unit = {},
 ): IrSimpleFunction =
-    irFactory
+    context.irFactory
         .createSimpleFunction(
             startOffset = startOffset,
             endOffset = endOffset,

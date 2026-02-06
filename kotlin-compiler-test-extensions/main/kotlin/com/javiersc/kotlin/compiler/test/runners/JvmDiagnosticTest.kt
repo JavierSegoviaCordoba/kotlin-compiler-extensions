@@ -21,7 +21,8 @@ public abstract class JvmDiagnosticTest : AbstractFirPhasedDiagnosticTest(FirPar
 
     public open val additionalFilesProvider: Constructor<AdditionalFilesProvider>? = null
 
-    public abstract fun ExtensionStorage.registerExtensions(
+    context(extensionStorage: ExtensionStorage)
+    public abstract fun registerExtensions(
         module: TestModule,
         configuration: CompilerConfiguration,
     )
@@ -32,8 +33,9 @@ public abstract class JvmDiagnosticTest : AbstractFirPhasedDiagnosticTest(FirPar
     override fun createKotlinStandardLibrariesPathProvider(): KotlinStandardLibrariesPathProvider =
         EnvironmentBasedStandardLibrariesPathProvider
 
-    private fun TestConfigurationBuilder.configuration() {
-        defaultDirectives {
+    context(testConfigurationBuilder: TestConfigurationBuilder)
+    private fun configuration() {
+        testConfigurationBuilder.defaultDirectives {
             +FirDiagnosticsDirectives.FIR_DUMP
             +JvmEnvironmentConfigurationDirectives.FULL_JDK
             +CodegenTestDirectives.IGNORE_DEXING

@@ -116,8 +116,6 @@ public inline fun IrFunction.toIrFunctionAccessExpression(
                 block = block,
             )
         }
-
-        else -> TODO()
     }.apply(block)
 
 public inline fun IrSimpleFunction.toIrCall(

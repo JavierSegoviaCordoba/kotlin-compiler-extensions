@@ -1,3 +1,5 @@
+@file:Suppress("NOTHING_TO_INLINE")
+
 package com.javiersc.kotlin.compiler.extensions.fir
 
 import org.jetbrains.kotlin.fir.FirSession
@@ -10,11 +12,11 @@ import org.jetbrains.kotlin.fir.types.FirTypeRef
 import org.jetbrains.kotlin.fir.types.toTypeProjection
 import org.jetbrains.kotlin.name.ClassId
 
-public inline fun FirTypeRef.toClassId(session: FirSession): ClassId =
-    this.toClassLikeSymbol(session)!!.classId
+context(session: FirSession)
+public inline fun FirTypeRef.toClassId(): ClassId = this.toClassLikeSymbol(session)!!.classId
 
-public inline fun FirTypeRef.toClassIdOrNull(session: FirSession): ClassId? =
-    this.toClassLikeSymbol(session)?.classId
+context(session: FirSession)
+public inline fun FirTypeRef.toClassIdOrNull(): ClassId? = this.toClassLikeSymbol(session)?.classId
 
 public inline fun ClassId.toFirTypeRef(vararg typeArguments: ConeTypeProjection): FirTypeRef =
     this.toConeType(*typeArguments).toFirResolvedTypeRef()

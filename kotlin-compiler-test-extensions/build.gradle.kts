@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.gradle.internal.config.LanguageFeature
+
 hubdle {
     config {
         analysis()
@@ -7,6 +9,7 @@ hubdle {
         }
         explicitApi()
         languageSettings { //
+            enableLanguageFeatures(LanguageFeature.ContextParameters)
             optIn("org.jetbrains.kotlin.compiler.plugin.ExperimentalCompilerApi")
         }
         publishing()

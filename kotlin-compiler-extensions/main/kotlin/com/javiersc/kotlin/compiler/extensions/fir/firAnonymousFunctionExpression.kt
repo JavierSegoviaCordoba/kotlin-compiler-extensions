@@ -1,3 +1,5 @@
+@file:Suppress("NOTHING_TO_INLINE")
+
 package com.javiersc.kotlin.compiler.extensions.fir
 
 import org.jetbrains.kotlin.GeneratedDeclarationKey
@@ -12,7 +14,6 @@ import org.jetbrains.kotlin.fir.expressions.builder.buildAnonymousFunctionExpres
 import org.jetbrains.kotlin.fir.moduleData
 import org.jetbrains.kotlin.fir.symbols.impl.FirAnonymousFunctionSymbol
 import org.jetbrains.kotlin.fir.types.builder.buildResolvedTypeRef
-import org.jetbrains.kotlin.fir.types.coneType
 
 public inline fun createFirAnonymousFunctionExpression(
     anonymousFunction: FirAnonymousFunction,
@@ -22,24 +23,25 @@ public inline fun createFirAnonymousFunctionExpression(
     builder()
 }
 
-public inline fun FirSession.nothingFirAnonymousFunctionExpression(
+context(session: FirSession)
+public inline fun nothingFirAnonymousFunctionExpression(
     key: GeneratedDeclarationKey
 ): FirAnonymousFunctionExpression = nothingFirAnonymousFunctionExpression(origin = key.origin)
 
-public inline fun FirSession.nothingFirAnonymousFunctionExpression(
+context(session: FirSession)
+public inline fun nothingFirAnonymousFunctionExpression(
     origin: FirDeclarationOrigin
 ): FirAnonymousFunctionExpression =
     createFirAnonymousFunctionExpression(
         anonymousFunction =
             buildAnonymousFunction {
-                val session: FirSession = this@nothingFirAnonymousFunctionExpression
                 this.moduleData = session.moduleData
                 this.origin = origin
                 this.symbol = FirAnonymousFunctionSymbol()
                 this.isLambda = false
                 this.hasExplicitParameterList = false
                 this.returnTypeRef = buildResolvedTypeRef {
-                    this.coneType = builtinTypes.nothingType.coneType
+                    this.coneType = session.builtinTypes.nothingType.coneType
                 }
-            }
+            },
     )

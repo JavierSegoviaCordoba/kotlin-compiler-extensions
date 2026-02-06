@@ -1,4 +1,5 @@
 import com.android.build.gradle.internal.tasks.factory.dependsOn
+import org.jetbrains.kotlin.gradle.internal.config.LanguageFeature
 
 hubdle {
     config {
@@ -9,6 +10,7 @@ hubdle {
         }
         explicitApi()
         languageSettings { //
+            enableLanguageFeatures(LanguageFeature.ContextParameters)
             experimentalContracts()
         }
         publishing()
