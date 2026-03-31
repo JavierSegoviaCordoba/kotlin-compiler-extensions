@@ -15,6 +15,10 @@ import java.util.regex.Pattern;
 @TestMetadata("test-data/box")
 @TestDataPath("$PROJECT_ROOT")
 public class FakeBoxTestGenerated extends AbstractFakeBoxTest {
+  private void run(String fileName) {
+    runTest("test-data/box/" + fileName);
+  }
+
   @Test
   public void testAllFilesPresentInBox() {
     KtTestUtil.assertAllTestsPresentByMetadataWithExcluded(this.getClass(), new File("test-data/box"), Pattern.compile("^(.+)\\.kt$"), null, true);
@@ -23,6 +27,6 @@ public class FakeBoxTestGenerated extends AbstractFakeBoxTest {
   @Test
   @TestMetadata("simple-1.kt")
   public void testSimple_1() {
-    runTest("test-data/box/simple-1.kt");
+    run("simple-1.kt");
   }
 }

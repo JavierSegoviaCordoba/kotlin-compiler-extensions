@@ -9,7 +9,6 @@ public final class com/javiersc/kotlin/compiler/gradle/extensions/KotlinCompiler
 	public static fun apply (Lcom/javiersc/kotlin/compiler/gradle/extensions/KotlinCompilerGradlePlugin;Lorg/gradle/api/Project;)V
 	public static fun compilerClasspath (Lcom/javiersc/kotlin/compiler/gradle/extensions/KotlinCompilerGradlePlugin;Lorg/gradle/kotlin/dsl/DependencyHandlerScope;Ljava/lang/Object;)V
 	public static fun configureFreeCompilerArgs (Lcom/javiersc/kotlin/compiler/gradle/extensions/KotlinCompilerGradlePlugin;Lorg/gradle/api/Project;Lorg/gradle/api/artifacts/Configuration;)V
-	public static fun getPluginArtifactForNative (Lcom/javiersc/kotlin/compiler/gradle/extensions/KotlinCompilerGradlePlugin;)Lorg/jetbrains/kotlin/gradle/plugin/SubpluginArtifact;
 }
 
 public final class com/javiersc/kotlin/kotlin/compiler/gradle/extensions/KotlinCompilerGradleExtensionsProjectData {

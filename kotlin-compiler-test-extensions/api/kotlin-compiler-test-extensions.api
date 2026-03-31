@@ -1,6 +1,6 @@
 public abstract class com/javiersc/kotlin/compiler/test/runners/JvmBoxTest : org/jetbrains/kotlin/test/runners/codegen/AbstractFirBlackBoxCodegenTestBase {
 	public fun <init> ()V
-	public fun configure (Lorg/jetbrains/kotlin/test/builders/TestConfigurationBuilder;)V
+	public fun configure (Lorg/jetbrains/kotlin/test/builders/NonGroupingPhaseTestConfigurationBuilder;)V
 	public fun createKotlinStandardLibrariesPathProvider ()Lorg/jetbrains/kotlin/test/services/KotlinStandardLibrariesPathProvider;
 	public fun getAdditionalFilesProvider ()Lkotlin/jvm/functions/Function1;
 	public fun getRuntimeClasspathProvider ()Lkotlin/jvm/functions/Function1;
@@ -9,7 +9,7 @@ public abstract class com/javiersc/kotlin/compiler/test/runners/JvmBoxTest : org
 
 public abstract class com/javiersc/kotlin/compiler/test/runners/JvmDiagnosticTest : org/jetbrains/kotlin/test/runners/AbstractFirPhasedDiagnosticTest {
 	public fun <init> ()V
-	public fun configure (Lorg/jetbrains/kotlin/test/builders/TestConfigurationBuilder;)V
+	public fun configure (Lorg/jetbrains/kotlin/test/builders/NonGroupingPhaseTestConfigurationBuilder;)V
 	public fun createKotlinStandardLibrariesPathProvider ()Lorg/jetbrains/kotlin/test/services/KotlinStandardLibrariesPathProvider;
 	public fun getAdditionalFilesProvider ()Lkotlin/jvm/functions/Function1;
 	public fun getRuntimeClasspathProvider ()Lkotlin/jvm/functions/Function1;

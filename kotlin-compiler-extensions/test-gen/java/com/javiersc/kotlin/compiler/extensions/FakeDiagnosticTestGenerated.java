@@ -15,6 +15,10 @@ import java.util.regex.Pattern;
 @TestMetadata("test-data/diagnostics")
 @TestDataPath("$PROJECT_ROOT")
 public class FakeDiagnosticTestGenerated extends AbstractFakeDiagnosticTest {
+  private void run(String fileName) {
+    runTest("test-data/diagnostics/" + fileName);
+  }
+
   @Test
   public void testAllFilesPresentInDiagnostics() {
     KtTestUtil.assertAllTestsPresentByMetadataWithExcluded(this.getClass(), new File("test-data/diagnostics"), Pattern.compile("^(.+)\\.kt$"), null, true);
