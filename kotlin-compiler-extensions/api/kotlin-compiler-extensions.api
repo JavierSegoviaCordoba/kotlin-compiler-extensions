@@ -275,7 +275,6 @@ public final class com/javiersc/kotlin/compiler/extensions/ir/IrFunctionAccessEx
 	public static final fun getExtensionReceiver (Lorg/jetbrains/kotlin/ir/expressions/IrFunctionAccessExpression;)Lorg/jetbrains/kotlin/ir/expressions/IrExpression;
 	public static final fun getName (Lorg/jetbrains/kotlin/ir/expressions/IrFunctionAccessExpression;)Lorg/jetbrains/kotlin/name/Name;
 	public static final fun getPackageFqName (Lorg/jetbrains/kotlin/ir/expressions/IrFunctionAccessExpression;)Lorg/jetbrains/kotlin/name/FqName;
-	public static final fun hasAnnotation (Lorg/jetbrains/kotlin/ir/expressions/IrFunctionAccessExpression;Lorg/jetbrains/kotlin/name/FqName;)Z
 }
 
 public final class com/javiersc/kotlin/compiler/extensions/ir/IrFunctionExpressionKt {

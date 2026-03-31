@@ -12,6 +12,7 @@ import org.jetbrains.kotlin.ir.expressions.IrFunctionAccessExpression
 import org.jetbrains.kotlin.ir.util.dump
 import org.jetbrains.kotlin.ir.util.dumpKotlinLike
 import org.jetbrains.kotlin.ir.util.hasAnnotation
+import org.jetbrains.kotlin.ir.util.hasEqualFqName
 import org.jetbrains.kotlin.ir.util.primaryConstructor
 import org.jetbrains.kotlin.name.FqName
 
@@ -26,7 +27,7 @@ public inline fun <reified T : Annotation> IrElement.hasAnnotation(): Boolean =
 public inline fun IrElement.hasAnnotation(annotation: FqName): Boolean =
     when (this) {
         is IrClass -> hasAnnotation(annotation)
-        is IrFunctionAccessExpression -> hasAnnotation(annotation)
+        is IrFunctionAccessExpression -> annotations.any { it.symbol.hasEqualFqName(annotation) }
         is IrAnnotationContainer -> hasAnnotation(annotation)
         else -> false
     }
