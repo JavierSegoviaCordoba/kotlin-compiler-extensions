@@ -29,7 +29,8 @@ public val IrFunctionAccessExpression.extensionReceiver: IrExpression?
 
 internal inline fun IrFunctionAccessExpression.getExtensionReceiverOrNull(): IrExpression? {
     val parameters: List<IrValueParameter> = symbol.owner.parameters
-    val extensionReceiverIndex: Int =
-        parameters.indexOfFirst { it.kind == IrParameterKind.ExtensionReceiver }
+    val extensionReceiverIndex: Int = parameters.indexOfFirst {
+        it.kind == IrParameterKind.ExtensionReceiver
+    }
     return arguments[extensionReceiverIndex]
 }

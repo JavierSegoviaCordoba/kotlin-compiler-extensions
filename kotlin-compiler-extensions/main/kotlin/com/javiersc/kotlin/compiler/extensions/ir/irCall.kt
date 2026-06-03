@@ -138,13 +138,9 @@ public inline fun IrSimpleFunction.toIrCall(
             superQualifierSymbol = superQualifierSymbol,
         )
         .apply {
-            val function = this@toIrCall
-            this.dispatchReceiver = function.dispatchReceiverParameter?.toIrGetValue()
-            this.insertExtensionReceiver(function.extensionReceiver?.toIrGetValue())
-
-            val functionValueParameters: List<IrValueParameter> = function.parameters
-            for ((index: Int, param: IrValueParameter) in functionValueParameters.withIndex()) {
-                this.arguments[index] = param.toIrGetValue()
+            val function: IrSimpleFunction = this@toIrCall
+            for (parameter: IrValueParameter in function.parameters) {
+                arguments[parameter.indexInParameters] = parameter.toIrGetValue()
             }
             block()
         }

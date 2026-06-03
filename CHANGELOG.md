@@ -14,6 +14,11 @@
 
 ### Updated
 
+- `gradle -> 9.5.1`
+- `org.jetbrains.kotlin:kotlin-gradle-plugin -> 2.4.0`
+- `com.javiersc.hubdle:hubdle-version-catalog -> 0.14.0`
+- `com.javiersc.hubdle:com.javiersc.hubdle.gradle.plugin -> 0.19.0`
+
 ## [0.14.0+2.4.0-Beta1] - 2026-04-03
 
 ### Updated
