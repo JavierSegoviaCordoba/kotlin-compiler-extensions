@@ -1,7 +1,7 @@
 [versions]
 hubdle = "0.19.2"
 hubdleCatalog = "0.14.1"
-jetbrains-kotlin = "2.4.0"
+jetbrains-kotlin = "2.4.10"
 
 [libraries]
 hubdle-catalog = { module = "com.javiersc.hubdle:hubdle-version-catalog", version.ref = "hubdleCatalog" }
