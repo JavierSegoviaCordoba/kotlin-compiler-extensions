@@ -51,7 +51,10 @@ val compilerExtensionTestsDir: Provider<Directory> =
 val firTxtFile: Provider<RegularFile> = compilerExtensionTestsDir.map { it.file("fir.txt") }
 val irTxtFile = compilerExtensionTestsDir.map { it.file("ir.txt") }
 
-val checkCompilerExtensionsAreCalled = tasks.register("checkCompilerExtensionsAreCalled")
+val checkCompilerExtensionsAreCalled =
+    tasks.register("checkCompilerExtensionsAreCalled") {
+        description = "Checks that the compiler extensions are called during the test task."
+    }
 
 checkCompilerExtensionsAreCalled.configure {
     inputs.files(compilerExtensionTestsDir, firTxtFile, irTxtFile)
