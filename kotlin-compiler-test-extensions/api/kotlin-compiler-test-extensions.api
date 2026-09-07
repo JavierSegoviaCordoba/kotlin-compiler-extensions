@@ -1,15 +1,15 @@
-public abstract class com/javiersc/kotlin/compiler/test/runners/JvmBoxTest : org/jetbrains/kotlin/test/runners/codegen/AbstractFirBlackBoxCodegenTestBase {
+public abstract class com/javiersc/kotlin/compiler/test/runners/JvmBoxTest : org/jetbrains/kotlin/test/runners/AbstractFirBlackBoxCodegenTestSpecBase {
 	public fun <init> ()V
-	public fun configure (Lorg/jetbrains/kotlin/test/builders/NonGroupingPhaseTestConfigurationBuilder;)V
+	public fun configure (Lorg/jetbrains/kotlin/test/builders/NonGroupingStageTestConfigurationBuilder;)V
 	public fun createKotlinStandardLibrariesPathProvider ()Lorg/jetbrains/kotlin/test/services/KotlinStandardLibrariesPathProvider;
 	public fun getAdditionalFilesProvider ()Lkotlin/jvm/functions/Function1;
 	public fun getRuntimeClasspathProvider ()Lkotlin/jvm/functions/Function1;
 	public abstract fun registerExtensions (Lorg/jetbrains/kotlin/compiler/plugin/CompilerPluginRegistrar$ExtensionStorage;Lorg/jetbrains/kotlin/test/model/TestModule;Lorg/jetbrains/kotlin/config/CompilerConfiguration;)V
 }
 
-public abstract class com/javiersc/kotlin/compiler/test/runners/JvmDiagnosticTest : org/jetbrains/kotlin/test/runners/AbstractFirPhasedDiagnosticTest {
+public abstract class com/javiersc/kotlin/compiler/test/runners/JvmDiagnosticTest : org/jetbrains/kotlin/test/runners/AbstractKotlinCompilerTest {
 	public fun <init> ()V
-	public fun configure (Lorg/jetbrains/kotlin/test/builders/NonGroupingPhaseTestConfigurationBuilder;)V
+	public fun configure (Lorg/jetbrains/kotlin/test/builders/NonGroupingStageTestConfigurationBuilder;)V
 	public fun createKotlinStandardLibrariesPathProvider ()Lorg/jetbrains/kotlin/test/services/KotlinStandardLibrariesPathProvider;
 	public fun getAdditionalFilesProvider ()Lkotlin/jvm/functions/Function1;
 	public fun getRuntimeClasspathProvider ()Lkotlin/jvm/functions/Function1;

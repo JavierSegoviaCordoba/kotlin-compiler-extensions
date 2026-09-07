@@ -25,17 +25,16 @@ context(session: FirSession)
 public inline fun FirClassSymbol<*>.toPrimaryConstructor(
     origin: FirDeclarationOrigin,
     block: FirPrimaryConstructorBuilder.(FirClassSymbol<*>) -> Unit = {},
-): FirConstructor =
-    buildPrimaryConstructor {
-            this.resolvePhase = FirResolvePhase.BODY_RESOLVE
-            this.moduleData = session.moduleData
-            this.origin = origin
-            this.returnTypeRef = this@toPrimaryConstructor.classId.toFirTypeRef()
-            this.status = DEFAULT_STATUS_FOR_STATUSLESS_DECLARATIONS
-            this.symbol = FirConstructorSymbol(this@toPrimaryConstructor.classId)
-            block(this, this@toPrimaryConstructor)
-        }
-        .apply {
-            this.containingClassForStaticMemberAttr =
-                ConeClassLikeLookupTagImpl(this@toPrimaryConstructor.classId)
-        }
+): FirConstructor = buildPrimaryConstructor {
+    this.resolvePhase = FirResolvePhase.BODY_RESOLVE
+    this.moduleData = session.moduleData
+    this.origin = origin
+    this.returnTypeRef = this@toPrimaryConstructor.classId.toFirTypeRef()
+    this.status = DEFAULT_STATUS_FOR_STATUSLESS_DECLARATIONS
+    this.symbol = FirConstructorSymbol(this@toPrimaryConstructor.classId)
+    block(this, this@toPrimaryConstructor)
+}
+    .apply {
+        this.containingClassForStaticMemberAttr =
+            ConeClassLikeLookupTagImpl(this@toPrimaryConstructor.classId)
+    }
