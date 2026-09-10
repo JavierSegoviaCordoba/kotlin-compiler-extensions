@@ -46,6 +46,24 @@ hubdle {
     }
 }
 
+// Kotlin 2.4.20 needs the kotlin-reflect jar to run generated box test code.
+// EnvironmentBasedStandardLibrariesPathProvider reads the path from this system property.
+val kotlinReflectForTests: NamedDomainObjectProvider<out Configuration> =
+    configurations.resolvable("kotlinReflectForTests") {
+        isTransitive = false
+        dependencies.addLater(hubdle.jetbrains.kotlin.reflect)
+    }
+
+tasks.withType<Test>().configureEach {
+    val reflectJar: Provider<String> =
+        kotlinReflectForTests.flatMap { it.elements }.map { it.single().asFile.absolutePath }
+    jvmArgumentProviders.add(
+        CommandLineArgumentProvider {
+            listOf("-Dorg.jetbrains.kotlin.test.kotlin-reflect=${reflectJar.get()}")
+        }
+    )
+}
+
 val compilerExtensionTestsDir: Provider<Directory> =
     layout.buildDirectory.dir("compiler-extensions-tests")
 val firTxtFile: Provider<RegularFile> = compilerExtensionTestsDir.map { it.file("fir.txt") }

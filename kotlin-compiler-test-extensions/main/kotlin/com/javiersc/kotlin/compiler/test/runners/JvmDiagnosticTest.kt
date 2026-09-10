@@ -10,6 +10,7 @@ import org.jetbrains.kotlin.test.builders.TestConfigurationBuilder
 import org.jetbrains.kotlin.test.directives.CodegenTestDirectives
 import org.jetbrains.kotlin.test.directives.FirDiagnosticsDirectives
 import org.jetbrains.kotlin.test.directives.JvmEnvironmentConfigurationDirectives
+import org.jetbrains.kotlin.test.directives.configureFirParser
 import org.jetbrains.kotlin.test.model.TestModule
 import org.jetbrains.kotlin.test.runners.AbstractFirPhasedDiagnosticTest
 import org.jetbrains.kotlin.test.services.EnvironmentBasedStandardLibrariesPathProvider
@@ -40,6 +41,8 @@ public abstract class JvmDiagnosticTest : AbstractFirPhasedDiagnosticTest(FirPar
             +JvmEnvironmentConfigurationDirectives.FULL_JDK
             +CodegenTestDirectives.IGNORE_DEXING
         }
+
+        testConfigurationBuilder.configureFirParser(parser)
 
         commonPluginConfiguration(
             classpathProvider = runtimeClasspathProvider,

@@ -4,31 +4,19 @@ import com.javiersc.kotlin.compiler.test.services.AdditionalFilesDirectives
 import com.javiersc.kotlin.compiler.test.services.AdditionalFilesProvider
 import com.javiersc.kotlin.compiler.test.services.ExtensionRegistrarConfigurator
 import com.javiersc.kotlin.compiler.test.services.MetaRuntimeClasspathProvider
-import kotlin.reflect.KFunction1
 import org.jetbrains.kotlin.compiler.plugin.CompilerPluginRegistrar.ExtensionStorage
 import org.jetbrains.kotlin.config.CompilerConfiguration
 import org.jetbrains.kotlin.platform.jvm.JvmPlatforms
 import org.jetbrains.kotlin.test.Constructor
 import org.jetbrains.kotlin.test.TargetBackend
-import org.jetbrains.kotlin.test.backend.ir.IrBackendInput
-import org.jetbrains.kotlin.test.backend.ir.JvmIrBackendFacade
 import org.jetbrains.kotlin.test.builders.TestConfigurationBuilder
 import org.jetbrains.kotlin.test.configuration.baseFirDiagnosticTestConfiguration
-import org.jetbrains.kotlin.test.configuration.commonConfigurationForJvmTest
 import org.jetbrains.kotlin.test.directives.FirDiagnosticsDirectives
 import org.jetbrains.kotlin.test.directives.JvmEnvironmentConfigurationDirectives
 import org.jetbrains.kotlin.test.directives.LanguageSettingsDirectives
-import org.jetbrains.kotlin.test.frontend.fir.Fir2IrResultsConverter
-import org.jetbrains.kotlin.test.frontend.fir.FirFrontendFacade
-import org.jetbrains.kotlin.test.frontend.fir.FirOutputArtifact
-import org.jetbrains.kotlin.test.model.BackendFacade
-import org.jetbrains.kotlin.test.model.BinaryArtifacts
 import org.jetbrains.kotlin.test.model.DependencyKind
-import org.jetbrains.kotlin.test.model.FrontendFacade
-import org.jetbrains.kotlin.test.model.FrontendKinds
 import org.jetbrains.kotlin.test.model.TestModule
 import org.jetbrains.kotlin.test.services.AbstractEnvironmentConfigurator
-import org.jetbrains.kotlin.test.services.TestServices
 import org.jetbrains.kotlin.test.services.configuration.CommonEnvironmentConfigurator
 import org.jetbrains.kotlin.test.services.configuration.JvmEnvironmentConfigurator
 
@@ -45,21 +33,6 @@ internal fun commonPluginConfiguration(
     }
 
     testConfigurationBuilder.baseFirDiagnosticTestConfiguration()
-
-    val targetFrontend: FrontendKinds.FIR = FrontendKinds.FIR
-    val frontendFacade: Constructor<FrontendFacade<FirOutputArtifact>> = ::FirFrontendFacade
-    val frontendToBackendConverter: KFunction1<TestServices, Fir2IrResultsConverter> =
-        ::Fir2IrResultsConverter
-    val backendFacade: Constructor<BackendFacade<IrBackendInput, BinaryArtifacts.Jvm>> =
-        ::JvmIrBackendFacade
-
-    testConfigurationBuilder.commonConfigurationForJvmTest(
-        targetFrontend = targetFrontend,
-        frontendFacade = frontendFacade,
-        frontendToBackendConverter = frontendToBackendConverter,
-        backendFacade = backendFacade,
-        additionalSourceProvider = additionalFilesProvider,
-    )
 
     testConfigurationBuilder.defaultDirectives {
         LanguageSettingsDirectives.LANGUAGE with "+ContextReceivers"
@@ -86,4 +59,7 @@ internal fun commonPluginConfiguration(
     }
     testConfigurationBuilder.useConfigurators(*configurators.toTypedArray())
     testConfigurationBuilder.useAdditionalSourceProviders(::AdditionalFilesProvider)
+    if (additionalFilesProvider != null) {
+        testConfigurationBuilder.useAdditionalSourceProviders(additionalFilesProvider)
+    }
 }

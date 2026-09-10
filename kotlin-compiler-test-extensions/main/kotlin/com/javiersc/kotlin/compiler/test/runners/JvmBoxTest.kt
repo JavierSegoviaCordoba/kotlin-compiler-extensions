@@ -19,11 +19,11 @@ import org.jetbrains.kotlin.test.directives.CodegenTestDirectives
 import org.jetbrains.kotlin.test.directives.FirDiagnosticsDirectives
 import org.jetbrains.kotlin.test.directives.JvmEnvironmentConfigurationDirectives
 import org.jetbrains.kotlin.test.model.TestModule
-import org.jetbrains.kotlin.test.runners.codegen.AbstractFirBlackBoxCodegenTestBase
+import org.jetbrains.kotlin.test.runners.codegen.AbstractJvmBlackBoxCodegenTestBase
 import org.jetbrains.kotlin.test.services.EnvironmentBasedStandardLibrariesPathProvider
 import org.jetbrains.kotlin.test.services.KotlinStandardLibrariesPathProvider
 
-public abstract class JvmBoxTest : AbstractFirBlackBoxCodegenTestBase(FirParser.LightTree) {
+public abstract class JvmBoxTest : AbstractJvmBlackBoxCodegenTestBase(FirParser.LightTree) {
 
     public open val runtimeClasspathProvider: Constructor<MetaRuntimeClasspathProvider>? = null
 
@@ -66,7 +66,7 @@ public abstract class JvmBoxTest : AbstractFirBlackBoxCodegenTestBase(FirParser.
         testConfigurationBuilder.facadeStep(::JvmIrBackendFacade)
         testConfigurationBuilder.jvmArtifactsHandlersStep { useHandlers(::JvmBoxRunner) }
 
-        testConfigurationBuilder.useAfterAnalysisCheckers(::BlackBoxCodegenSuppressor)
+        testConfigurationBuilder.useFailureSuppressors(::BlackBoxCodegenSuppressor)
         testConfigurationBuilder.configureDumpHandlersForCodegenTest()
     }
 }
