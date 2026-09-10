@@ -6,16 +6,22 @@
 
 ### Changed
 
+- `JvmBoxTest` now extends `AbstractJvmBlackBoxCodegenTestBase`, because Kotlin 2.4.20 removed `AbstractFirBlackBoxCodegenTestBase`
+- Box tests need the `org.jetbrains.kotlin.test.kotlin-reflect` system property on the test JVM
+- IR dump baselines are named `*.ir.txt` instead of `*.fir.ir.txt`
+
 ### Deprecated
 
 ### Fixed
+
+- `JvmDiagnosticTest` failed with `No values passed to FIR_PARSER`, because it never configured the FIR parser
 
 ### Removed
 
 ### Updated
 
 - `gradle -> 9.7.1`
-- `org.jetbrains.kotlin:kotlin-gradle-plugin -> 2.4.10`
+- `org.jetbrains.kotlin:kotlin-gradle-plugin -> 2.4.20`
 - `com.javiersc.hubdle:hubdle-version-catalog -> 0.14.1`
 - `com.javiersc.hubdle:com.javiersc.hubdle.gradle.plugin -> 0.19.2`
 
