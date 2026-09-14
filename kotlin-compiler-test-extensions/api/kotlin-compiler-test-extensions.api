@@ -1,4 +1,4 @@
-public abstract class com/javiersc/kotlin/compiler/test/runners/JvmBoxTest : org/jetbrains/kotlin/test/runners/AbstractFirBlackBoxCodegenTestSpecBase {
+public abstract class com/javiersc/kotlin/compiler/test/runners/JvmBoxTest : org/jetbrains/kotlin/test/runners/codegen/AbstractJvmBlackBoxCodegenTestBase {
 	public fun <init> ()V
 	public fun configure (Lorg/jetbrains/kotlin/test/builders/NonGroupingStageTestConfigurationBuilder;)V
 	public fun createKotlinStandardLibrariesPathProvider ()Lorg/jetbrains/kotlin/test/services/KotlinStandardLibrariesPathProvider;
@@ -7,7 +7,7 @@ public abstract class com/javiersc/kotlin/compiler/test/runners/JvmBoxTest : org
 	public abstract fun registerExtensions (Lorg/jetbrains/kotlin/compiler/plugin/CompilerPluginRegistrar$ExtensionStorage;Lorg/jetbrains/kotlin/test/model/TestModule;Lorg/jetbrains/kotlin/config/CompilerConfiguration;)V
 }
 
-public abstract class com/javiersc/kotlin/compiler/test/runners/JvmDiagnosticTest : org/jetbrains/kotlin/test/runners/AbstractKotlinCompilerTest {
+public abstract class com/javiersc/kotlin/compiler/test/runners/JvmDiagnosticTest : org/jetbrains/kotlin/test/runners/AbstractFirPhasedDiagnosticTest {
 	public fun <init> ()V
 	public fun configure (Lorg/jetbrains/kotlin/test/builders/NonGroupingStageTestConfigurationBuilder;)V
 	public fun createKotlinStandardLibrariesPathProvider ()Lorg/jetbrains/kotlin/test/services/KotlinStandardLibrariesPathProvider;

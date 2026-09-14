@@ -1,29 +1,23 @@
 package com.javiersc.kotlin.compiler.test.runners
 
+import com.javiersc.kotlin.compiler.test.services.AdditionalFilesDirectives
 import com.javiersc.kotlin.compiler.test.services.AdditionalFilesProvider
 import com.javiersc.kotlin.compiler.test.services.MetaRuntimeClasspathProvider
+import com.javiersc.kotlin.compiler.test.services.configurePlugin
 import org.jetbrains.kotlin.compiler.plugin.CompilerPluginRegistrar.ExtensionStorage
 import org.jetbrains.kotlin.config.CompilerConfiguration
 import org.jetbrains.kotlin.test.Constructor
 import org.jetbrains.kotlin.test.FirParser
-import org.jetbrains.kotlin.test.backend.BlackBoxCodegenSuppressor
-import org.jetbrains.kotlin.test.backend.handlers.IrTextDumpHandler
-import org.jetbrains.kotlin.test.backend.handlers.IrTreeVerifierHandler
-import org.jetbrains.kotlin.test.backend.handlers.JvmBoxRunner
-import org.jetbrains.kotlin.test.backend.ir.JvmIrBackendFacade
 import org.jetbrains.kotlin.test.builders.TestConfigurationBuilder
-import org.jetbrains.kotlin.test.builders.irHandlersStep
-import org.jetbrains.kotlin.test.builders.jvmArtifactsHandlersStep
-import org.jetbrains.kotlin.test.configuration.configureDumpHandlersForCodegenTest
 import org.jetbrains.kotlin.test.directives.CodegenTestDirectives
 import org.jetbrains.kotlin.test.directives.FirDiagnosticsDirectives
 import org.jetbrains.kotlin.test.directives.JvmEnvironmentConfigurationDirectives
 import org.jetbrains.kotlin.test.model.TestModule
-import org.jetbrains.kotlin.test.runners.AbstractFirBlackBoxCodegenTestSpecBase
+import org.jetbrains.kotlin.test.runners.codegen.AbstractJvmBlackBoxCodegenTestBase
 import org.jetbrains.kotlin.test.services.EnvironmentBasedStandardLibrariesPathProvider
 import org.jetbrains.kotlin.test.services.KotlinStandardLibrariesPathProvider
 
-public abstract class JvmBoxTest : AbstractFirBlackBoxCodegenTestSpecBase(FirParser.LightTree) {
+public abstract class JvmBoxTest : AbstractJvmBlackBoxCodegenTestBase(FirParser.LightTree) {
 
     public open val runtimeClasspathProvider: Constructor<MetaRuntimeClasspathProvider>? = null
 
@@ -45,28 +39,22 @@ public abstract class JvmBoxTest : AbstractFirBlackBoxCodegenTestSpecBase(FirPar
     )
 
     context(testConfigurationBuilder: TestConfigurationBuilder)
-    private fun configuration() {
-        testConfigurationBuilder.defaultDirectives { //
-            +CodegenTestDirectives.DUMP_IR
-            +FirDiagnosticsDirectives.FIR_DUMP
-            +JvmEnvironmentConfigurationDirectives.FULL_JDK
-            +CodegenTestDirectives.IGNORE_DEXING
-        }
+    private fun configuration(): Unit =
+        with(testConfigurationBuilder) {
+            defaultDirectives {
+                +CodegenTestDirectives.DUMP_IR
+                +FirDiagnosticsDirectives.FIR_DUMP
+                +JvmEnvironmentConfigurationDirectives.FULL_JDK
+                +CodegenTestDirectives.IGNORE_DEXING
+                +AdditionalFilesDirectives.SOME_FILE_DIRECTIVE
+            }
 
-        commonPluginConfiguration(
-            classpathProvider = runtimeClasspathProvider,
-            additionalFilesProvider = additionalFilesProvider,
-            registerCompilerExtensions = { module, configuration ->
-                registerExtensions(module, configuration)
-            },
-        )
-        testConfigurationBuilder.irHandlersStep {
-            useHandlers(::IrTextDumpHandler, ::IrTreeVerifierHandler)
+            configurePlugin(
+                classpathProvider = runtimeClasspathProvider,
+                additionalFilesProvider = additionalFilesProvider,
+                registerCompilerExtensions = { module, configuration ->
+                    registerExtensions(module, configuration)
+                },
+            )
         }
-        testConfigurationBuilder.facadeStep(::JvmIrBackendFacade)
-        testConfigurationBuilder.jvmArtifactsHandlersStep { useHandlers(::JvmBoxRunner) }
-
-        testConfigurationBuilder.useFailureSuppressors(::BlackBoxCodegenSuppressor)
-        testConfigurationBuilder.configureDumpHandlersForCodegenTest()
-    }
 }

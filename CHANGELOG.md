@@ -6,6 +6,8 @@
 
 ### Changed
 
+- project follows the official Kotlin Compiler plugin template
+
 ### Deprecated
 
 ### Fixed

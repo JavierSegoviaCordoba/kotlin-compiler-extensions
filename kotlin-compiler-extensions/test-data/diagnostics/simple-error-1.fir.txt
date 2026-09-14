@@ -1,0 +1,7 @@
+FILE: simple-error-1.kt
+    package com.javiersc.kotlin.compiler.extensions.playground
+
+    public final fun simpleError(): R|kotlin/String| {
+        lval hello: R|kotlin/Int| = String(Hello)
+        ^simpleError R|<local>/hello|.R|kotlin/Int.toString|()
+    }

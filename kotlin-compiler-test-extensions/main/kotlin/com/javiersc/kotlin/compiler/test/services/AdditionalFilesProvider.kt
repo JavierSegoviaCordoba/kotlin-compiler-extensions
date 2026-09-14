@@ -20,8 +20,7 @@ public class AdditionalFilesProvider(testServices: TestServices, baseDir: String
         filesPath
             .walkTopDown()
             .filter { it.isFile && it.extension == "kt" }
-            .map { SOME_FILE_DIRECTIVE to it }
-            .toMap()
+            .associateBy { SOME_FILE_DIRECTIVE }
 
     override val directiveContainers: List<DirectivesContainer> = listOf(AdditionalFilesDirectives)
 

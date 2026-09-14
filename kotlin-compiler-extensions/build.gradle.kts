@@ -1,5 +1,6 @@
 import com.android.build.gradle.internal.tasks.factory.dependsOn
 import org.jetbrains.kotlin.gradle.internal.config.LanguageFeature
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 hubdle {
     config {
@@ -69,6 +70,13 @@ checkCompilerExtensionsAreCalled.configure {
         check(irTxtFile.get().asFile.run { exists() && isFile }) {
             "Ir file does not exist: ${irTxtFile.orNull?.asFile}"
         }
+    }
+}
+
+tasks.withType<KotlinCompile>().configureEach {
+    inputs.files(compilerExtensionTestsDir)
+    doFirst {
+        compilerExtensionTestsDir.orNull?.asFile?.deleteRecursively()
     }
 }
 
