@@ -57,6 +57,9 @@ val checkCompilerExtensionsAreCalled =
     }
 
 checkCompilerExtensionsAreCalled.configure {
+    // The check reads what the whole suite produced, so it runs from `check` rather than
+    // finalizing every test run. A filtered run produces only some of the marker files.
+    dependsOn(tasks.named("test"))
     inputs.files(compilerExtensionTestsDir, firTxtFile, irTxtFile)
     outputs.files(firTxtFile, irTxtFile)
     doLast {
@@ -75,7 +78,10 @@ checkCompilerExtensionsAreCalled.configure {
 tasks.named("test").configure {
     inputs.files(compilerExtensionTestsDir)
     outputs.files(firTxtFile, irTxtFile)
-    finalizedBy(checkCompilerExtensionsAreCalled)
+    // The local holds the provider so that the lambda does not capture the script object.
+    val testsDir: Provider<Directory> = compilerExtensionTestsDir
+    doFirst { testsDir.get().asFile.deleteRecursively() }
 }
+
 
 tasks.check.dependsOn(checkCompilerExtensionsAreCalled)

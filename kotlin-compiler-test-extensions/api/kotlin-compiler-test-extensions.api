@@ -12,6 +12,7 @@ public abstract class com/javiersc/kotlin/compiler/test/runners/JvmDiagnosticTes
 	public fun configure (Lorg/jetbrains/kotlin/test/builders/NonGroupingStageTestConfigurationBuilder;)V
 	public fun createKotlinStandardLibrariesPathProvider ()Lorg/jetbrains/kotlin/test/services/KotlinStandardLibrariesPathProvider;
 	public fun getAdditionalFilesProvider ()Lkotlin/jvm/functions/Function1;
+	public fun getParser ()Lorg/jetbrains/kotlin/test/FirParser;
 	public fun getRuntimeClasspathProvider ()Lkotlin/jvm/functions/Function1;
 	public abstract fun registerExtensions (Lorg/jetbrains/kotlin/compiler/plugin/CompilerPluginRegistrar$ExtensionStorage;Lorg/jetbrains/kotlin/test/model/TestModule;Lorg/jetbrains/kotlin/config/CompilerConfiguration;)V
 }

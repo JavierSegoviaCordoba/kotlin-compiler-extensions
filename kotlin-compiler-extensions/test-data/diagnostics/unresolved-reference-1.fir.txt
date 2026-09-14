@@ -1,0 +1,6 @@
+FILE: unresolved-reference-1.kt
+    package com.javiersc.kotlin.compiler.extensions.playground
+
+    public final fun foo(): R|kotlin/Unit| {
+        <Unresolved name: bar>#()
+    }

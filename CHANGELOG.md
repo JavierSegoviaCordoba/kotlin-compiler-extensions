@@ -4,11 +4,18 @@
 
 ### Added
 
+- `JvmDiagnosticTest.parser: FirParser`
+- Diagnostic test data covering `JvmDiagnosticTest`
+
 ### Changed
 
 ### Deprecated
 
 ### Fixed
+
+- `JvmDiagnosticTest` failed with `No values passed to FIR_PARSER`
+- `JvmDiagnosticTest` failed in `PathManager` without an installation home path
+- Tests raced each other for the `checkCompilerExtensionsAreCalled` marker files
 
 ### Removed
 

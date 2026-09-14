@@ -4,7 +4,6 @@ package com.javiersc.kotlin.compiler.extensions
 
 import com.javiersc.kotlin.compiler.extensions.fir.FakeFirExtensionRegistrar
 import com.javiersc.kotlin.compiler.extensions.ir.FakeIrExtension
-import com.javiersc.kotlin.compiler.extensions.shared.compilerExtensionsTestDir
 import com.javiersc.kotlin.compiler.test.generateKotlinCompilerTests
 import com.javiersc.kotlin.compiler.test.runners.JvmBoxTest
 import com.javiersc.kotlin.compiler.test.runners.JvmDiagnosticTest
@@ -20,7 +19,6 @@ fun main() {
 }
 
 private fun ExtensionStorage.allExtensions() {
-    compilerExtensionsTestDir.deleteRecursively()
     FirExtensionRegistrarAdapter.registerExtension(FakeFirExtensionRegistrar())
     IrGenerationExtension.registerExtension(FakeIrExtension())
 }

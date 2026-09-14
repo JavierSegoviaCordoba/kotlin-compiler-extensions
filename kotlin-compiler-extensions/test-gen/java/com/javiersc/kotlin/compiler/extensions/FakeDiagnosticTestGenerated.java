@@ -23,4 +23,16 @@ public class FakeDiagnosticTestGenerated extends AbstractFakeDiagnosticTest {
   public void testAllFilesPresentInDiagnostics() {
     KtTestUtil.assertAllTestsPresentByMetadataWithExcluded(this.getClass(), new File("test-data/diagnostics"), Pattern.compile("^(.+)\\.kt$"), null, true);
   }
+
+  @Test
+  @TestMetadata("simple-1.kt")
+  public void testSimple_1() {
+    run("simple-1.kt");
+  }
+
+  @Test
+  @TestMetadata("unresolved-reference-1.kt")
+  public void testUnresolved_reference_1() {
+    run("unresolved-reference-1.kt");
+  }
 }

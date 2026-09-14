@@ -1,0 +1,9 @@
+FILE: simple-1.kt
+    package com.javiersc.kotlin.compiler.extensions.playground
+
+    public final fun foo(): R|kotlin/String| {
+        ^foo R|kotlin/run|<R|kotlin/String|>(<L> = run@fun <anonymous>(): R|kotlin/String| <inline=Inline, kind=EXACTLY_ONCE>  {
+            ^ String(Hello)
+        }
+        )
+    }
