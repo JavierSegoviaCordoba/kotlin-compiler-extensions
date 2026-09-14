@@ -1,0 +1,299 @@
+<!doctype html>
+<html class="no-js" lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>ClasspathConfigurator</title>
+<link href="../../../images/logo-icon.svg" rel="icon" type="image/svg"><script>var pathToRoot = "../../../";</script>
+    <script>document.documentElement.classList.replace("no-js", "js");</script>
+    <script>const storage = localStorage.getItem("dokka-dark-mode")
+      if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+          document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+      } else {
+        const savedDarkMode = JSON.parse(storage)
+        if (savedDarkMode === true) {
+          document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+      }
+    </script>
+<script type="text/javascript" src="../../../scripts/sourceset_dependencies.js" async></script>
+<link href="../../../styles/style.css" rel="Stylesheet">
+<link href="../../../styles/main.css" rel="Stylesheet">
+<link href="../../../styles/prism.css" rel="Stylesheet">
+<link href="../../../styles/logo-styles.css" rel="Stylesheet">
+<link href="../../../ui-kit/ui-kit.min.css" rel="Stylesheet">
+<script type="text/javascript" src="../../../scripts/safe-local-storage_blocking.js"></script>
+<script type="text/javascript" src="../../../scripts/navigation-loader.js" async></script>
+<script type="text/javascript" src="../../../scripts/platform-content-handler.js" async></script>
+<script type="text/javascript" src="../../../scripts/main.js" defer></script>
+<script type="text/javascript" src="../../../scripts/prism.js" async></script>
+<script type="text/javascript" src="../../../ui-kit/ui-kit.min.js" defer></script></head>
+<body>
+<div class="root">
+    <header class="navigation theme-dark" id="navigation-wrapper" role="banner">
+<a class="library-name--link" href="../../../index.html" tabindex="1">
+                    kotlin-compiler-extensions-project
+            </a>        <button class="navigation-controls--btn navigation-controls--btn_toc ui-kit_mobile-only" id="toc-toggle" type="button">Toggle table of contents
+        </button>
+        <div class="navigation-controls--break ui-kit_mobile-only"></div>
+        <div class="library-version" id="library-version">0.17.0+2.4.20
+        </div>
+        <div class="navigation-controls">
+        <ul class="filter-section filter-section_loading" id="filter-section" aria-label="Target filter">
+                <button class="platform-tag platform-selector jvm-like" data-active="" aria-pressed="true" data-filter=":kotlin-compiler-test-extensions/main">jvm</button>
+            <div class="dropdown filter-section--dropdown" data-role="dropdown" id="filter-section-dropdown">
+                <button class="button button_dropdown filter-section--dropdown-toggle" role="combobox" data-role="dropdown-toggle" aria-controls="platform-tags-listbox" aria-haspopup="listbox" aria-expanded="false" aria-label="Toggle source sets"></button>
+                <ul role="listbox" id="platform-tags-listbox" class="dropdown--list" data-role="dropdown-listbox" aria-label="Target filter">
+                    <div class="dropdown--header"><span>Target filter</span>
+                        <button class="button" data-role="dropdown-toggle" aria-label="Close target filter">
+                            <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                        </button>
+                    </div>
+                        <li role="option" class="dropdown--option platform-selector-option jvm-like" tabindex="0">
+                            <label class="checkbox">
+                                <input type="checkbox" class="checkbox--input" id=":kotlin-compiler-test-extensions/main" data-filter=":kotlin-compiler-test-extensions/main">
+                                <span class="checkbox--icon"></span>
+                                jvm
+                            </label>
+                        </li>
+                </ul>
+                <div class="dropdown--overlay"></div>
+            </div>
+        </ul>
+            <button class="navigation-controls--btn navigation-controls--btn_theme" id="theme-toggle-button" type="button">Switch theme
+            </button>
+            <div class="navigation-controls--btn navigation-controls--btn_search" id="searchBar" role="button">Search in
+                API
+            </div>
+        </div>
+    </header>
+    <div id="container">
+        <nav id="leftColumn" class="sidebar" data-item-type="SECTION" data-item-config="{&quot;defaultSize&quot;: 280, &quot;minSize&quot;: 200, &quot;maxSize&quot;: 400}">
+            <a class="toc--skip-link" href="#main">Skip to content</a>
+            <div class="dropdown theme-dark_mobile" data-role="dropdown" id="toc-dropdown">
+                <ul role="listbox" id="toc-listbox" class="dropdown--list dropdown--list_toc-list" data-role="dropdown-listbox" aria-label="Table of contents">
+                    <div class="dropdown--header">
+                            <span>
+                                    kotlin-compiler-extensions-project
+                            </span>
+                        <button class="button" data-role="dropdown-toggle" aria-label="Close table of contents">
+                            <i class="ui-kit-icon ui-kit-icon_cross"></i>
+                        </button>
+                    </div>
+                    <div class="sidebar--inner" id="sideMenu"></div>
+                </ul>
+                <div class="dropdown--overlay"></div>
+            </div>
+        </nav>
+        <div id="resizer" class="resizer" data-item-type="BAR"></div>
+        <div id="main" data-item-type="SECTION" role="main">
+<div class="main-content" data-page-type="classlike" id="content" pageids="kotlin-compiler-test-extensions::com.javiersc.kotlin.compiler.test.services/ClasspathConfigurator///PointingToDeclaration//729680251">
+  <div class="breadcrumbs"><a href="../../index.html">kotlin-compiler-test-extensions</a><span class="delimiter">/</span><a href="../index.html">com.javiersc.kotlin.compiler.test.services</a><span class="delimiter">/</span><span class="current">ClasspathConfigurator</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span>Classpath</span><wbr><span><span>Configurator</span></span></h1>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":kotlin-compiler-test-extensions/main"><div class="symbol monospace"><span class="token keyword">class </span><a href="index.html">ClasspathConfigurator</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>jarPaths<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter ">testServices<span class="token operator">: </span><span data-unresolved-link="org.jetbrains.kotlin.test.services/TestServices///PointingToDeclaration/">TestServices</span><span class="token punctuation">, </span></span><span class="parameter ">isLoggingEnabled<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></span></span><span class="token punctuation">)</span> : <span data-unresolved-link="org.jetbrains.kotlin.test.services/EnvironmentConfigurator///PointingToDeclaration/">EnvironmentConfigurator</span></div></div></div>
+  </div>
+  <div class="tabbedcontent">
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="CONSTRUCTOR,TYPE,PROPERTY,FUNCTION">Members</button></div>
+    <div class="tabs-section-body">
+      <div data-togglable="CONSTRUCTOR">
+        <h2 class="tableheader">Constructors</h2>
+        <div class="table"><a data-name="-619530067%2FConstructors%2F729680251" anchor-label="ClasspathConfigurator" id="-619530067%2FConstructors%2F729680251" data-filterable-set=":kotlin-compiler-test-extensions/main"></a>
+          <div class="table-row table-row_content" data-togglable="CONSTRUCTOR" data-filterable-current=":kotlin-compiler-test-extensions/main" data-filterable-set=":kotlin-compiler-test-extensions/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-classpath-configurator.html"><span>Classpath</span><wbr><span><span>Configurator</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-619530067%2FConstructors%2F729680251"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":kotlin-compiler-test-extensions/main"><div class="symbol monospace"><span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">jarPaths<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">&gt;</span><span class="token punctuation">, </span></span><span class="parameter ">testServices<span class="token operator">: </span><span data-unresolved-link="org.jetbrains.kotlin.test.services/TestServices///PointingToDeclaration/">TestServices</span><span class="token punctuation">, </span></span><span class="parameter ">isLoggingEnabled<span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></span></span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="PROPERTY">
+        <h2 class="tableheader">Properties</h2>
+        <div class="table"><a data-name="-370462140%2FProperties%2F729680251" anchor-label="additionalServices" id="-370462140%2FProperties%2F729680251" data-filterable-set=":kotlin-compiler-test-extensions/main"></a>
+          <div class="table-row table-row_content" data-filterable-current=":kotlin-compiler-test-extensions/main" data-filterable-set=":kotlin-compiler-test-extensions/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#-370462140%2FProperties%2F729680251"><span>additional</span><wbr><span><span>Services</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-370462140%2FProperties%2F729680251"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":kotlin-compiler-test-extensions/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">val </span><a href="index.html#-370462140%2FProperties%2F729680251">additionalServices</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><span data-unresolved-link="org.jetbrains.kotlin.test.services/ServiceRegistrationData///PointingToDeclaration/">ServiceRegistrationData</span><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="732152249%2FProperties%2F729680251" anchor-label="compilationStage" id="732152249%2FProperties%2F729680251" data-filterable-set=":kotlin-compiler-test-extensions/main"></a>
+          <div class="table-row table-row_content" data-filterable-current=":kotlin-compiler-test-extensions/main" data-filterable-set=":kotlin-compiler-test-extensions/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#732152249%2FProperties%2F729680251"><span>compilation</span><wbr><span><span>Stage</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="732152249%2FProperties%2F729680251"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":kotlin-compiler-test-extensions/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">val </span><a href="index.html#732152249%2FProperties%2F729680251">compilationStage</a><span class="token operator">: </span><span data-unresolved-link="org.jetbrains.kotlin.test.services/CompilationStage///PointingToDeclaration/">CompilationStage</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="855801360%2FProperties%2F729680251" anchor-label="directiveContainers" id="855801360%2FProperties%2F729680251" data-filterable-set=":kotlin-compiler-test-extensions/main"></a>
+          <div class="table-row table-row_content" data-filterable-current=":kotlin-compiler-test-extensions/main" data-filterable-set=":kotlin-compiler-test-extensions/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#855801360%2FProperties%2F729680251"><span>directive</span><wbr><span><span>Containers</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="855801360%2FProperties%2F729680251"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":kotlin-compiler-test-extensions/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">val </span><a href="index.html#855801360%2FProperties%2F729680251">directiveContainers</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><span data-unresolved-link="org.jetbrains.kotlin.test.directives.model/DirectivesContainer///PointingToDeclaration/">DirectivesContainer</span><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="40572563%2FProperties%2F729680251" anchor-label="jarFiles" id="40572563%2FProperties%2F729680251" data-filterable-set=":kotlin-compiler-test-extensions/main"></a>
+          <div class="table-row table-row_content" data-filterable-current=":kotlin-compiler-test-extensions/main" data-filterable-set=":kotlin-compiler-test-extensions/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="jar-files.html"><span>jar</span><wbr><span><span>Files</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="40572563%2FProperties%2F729680251"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":kotlin-compiler-test-extensions/main"><div class="symbol monospace"><span class="token keyword">val </span><a href="jar-files.html">jarFiles</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/io/File.html">File</a><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-249162756%2FProperties%2F729680251" anchor-label="jarPaths" id="-249162756%2FProperties%2F729680251" data-filterable-set=":kotlin-compiler-test-extensions/main"></a>
+          <div class="table-row table-row_content" data-filterable-current=":kotlin-compiler-test-extensions/main" data-filterable-set=":kotlin-compiler-test-extensions/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="jar-paths.html"><span>jar</span><wbr><span><span>Paths</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-249162756%2FProperties%2F729680251"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":kotlin-compiler-test-extensions/main"><div class="symbol monospace"><span class="token keyword">val </span><a href="jar-paths.html">jarPaths</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="FUNCTION">
+        <h2 class="tableheader">Functions</h2>
+        <div class="table"><a data-name="-1693470047%2FFunctions%2F729680251" anchor-label="configureCompileConfigurationWithAdditionalConfigurationKeys" id="-1693470047%2FFunctions%2F729680251" data-filterable-set=":kotlin-compiler-test-extensions/main"></a>
+          <div class="table-row table-row_content" data-filterable-current=":kotlin-compiler-test-extensions/main" data-filterable-set=":kotlin-compiler-test-extensions/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#-1693470047%2FFunctions%2F729680251"><span>configure</span><wbr><span>Compile</span><wbr><span>Configuration</span><wbr><span>With</span><wbr><span>Additional</span><wbr><span>Configuration</span><wbr><span><span>Keys</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1693470047%2FFunctions%2F729680251"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":kotlin-compiler-test-extensions/main"><div class="symbol monospace"><span class="token keyword">override </span><span class="token keyword">fun </span><a href="index.html#-1693470047%2FFunctions%2F729680251"><span class="token function">configureCompileConfigurationWithAdditionalConfigurationKeys</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">configuration<span class="token operator">: </span><span data-unresolved-link="org.jetbrains.kotlin.config/CompilerConfiguration///PointingToDeclaration/">CompilerConfiguration</span><span class="token punctuation">, </span></span><span class="parameter ">module<span class="token operator">: </span><span data-unresolved-link="org.jetbrains.kotlin.test.model/TestModule///PointingToDeclaration/">TestModule</span></span></span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="2003915325%2FFunctions%2F729680251" anchor-label="legacyRegisterCompilerExtensions" id="2003915325%2FFunctions%2F729680251" data-filterable-set=":kotlin-compiler-test-extensions/main"></a>
+          <div class="table-row table-row_content" data-filterable-current=":kotlin-compiler-test-extensions/main" data-filterable-set=":kotlin-compiler-test-extensions/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#2003915325%2FFunctions%2F729680251"><span>legacy</span><wbr><span>Register</span><wbr><span>Compiler</span><wbr><span><span>Extensions</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="2003915325%2FFunctions%2F729680251"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":kotlin-compiler-test-extensions/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><a href="index.html#2003915325%2FFunctions%2F729680251"><span class="token function">legacyRegisterCompilerExtensions</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">project<span class="token operator">: </span><span data-unresolved-link="com.intellij.openapi.project/Project///PointingToDeclaration/">Project</span><span class="token punctuation">, </span></span><span class="parameter ">module<span class="token operator">: </span><span data-unresolved-link="org.jetbrains.kotlin.test.model/TestModule///PointingToDeclaration/">TestModule</span><span class="token punctuation">, </span></span><span class="parameter ">configuration<span class="token operator">: </span><span data-unresolved-link="org.jetbrains.kotlin.config/CompilerConfiguration///PointingToDeclaration/">CompilerConfiguration</span></span></span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-458610673%2FFunctions%2F729680251" anchor-label="provideAdditionalAnalysisFlags" id="-458610673%2FFunctions%2F729680251" data-filterable-set=":kotlin-compiler-test-extensions/main"></a>
+          <div class="table-row table-row_content" data-filterable-current=":kotlin-compiler-test-extensions/main" data-filterable-set=":kotlin-compiler-test-extensions/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#-458610673%2FFunctions%2F729680251"><span>provide</span><wbr><span>Additional</span><wbr><span>Analysis</span><wbr><span><span>Flags</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-458610673%2FFunctions%2F729680251"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":kotlin-compiler-test-extensions/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><a href="index.html#-458610673%2FFunctions%2F729680251"><span class="token function">provideAdditionalAnalysisFlags</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">directives<span class="token operator">: </span><span data-unresolved-link="org.jetbrains.kotlin.test.directives.model/RegisteredDirectives///PointingToDeclaration/">RegisteredDirectives</span><span class="token punctuation">, </span></span><span class="parameter ">languageVersion<span class="token operator">: </span><span data-unresolved-link="org.jetbrains.kotlin.config/LanguageVersion///PointingToDeclaration/">LanguageVersion</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin.collections/-map/index.html">Map</a><span class="token operator">&lt;</span><span data-unresolved-link="org.jetbrains.kotlin.config/AnalysisFlag///PointingToDeclaration/">AnalysisFlag</span><span class="token operator">&lt;</span><span class="token operator">*</span><span class="token operator">&gt;</span><span class="token punctuation">, </span><a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-any/index.html">Any</a><span class="token operator">?</span><span class="token operator">&gt;</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1800786369%2FFunctions%2F729680251" anchor-label="provideConfigurationKeys" id="-1800786369%2FFunctions%2F729680251" data-filterable-set=":kotlin-compiler-test-extensions/main"></a>
+          <div class="table-row table-row_content" data-filterable-current=":kotlin-compiler-test-extensions/main" data-filterable-set=":kotlin-compiler-test-extensions/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#-1800786369%2FFunctions%2F729680251"><span>provide</span><wbr><span>Configuration</span><wbr><span><span>Keys</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1800786369%2FFunctions%2F729680251"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":kotlin-compiler-test-extensions/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">fun </span><span data-unresolved-link="org.jetbrains.kotlin.test.services/DirectiveToConfigurationKeyExtractor///PointingToDeclaration/">DirectiveToConfigurationKeyExtractor</span><span class="token punctuation">.</span><a href="index.html#-1800786369%2FFunctions%2F729680251"><span class="token function">provideConfigurationKeys</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="453468411%2FFunctions%2F729680251" anchor-label="registerCompilerExtensions" id="453468411%2FFunctions%2F729680251" data-filterable-set=":kotlin-compiler-test-extensions/main"></a>
+          <div class="table-row table-row_content" data-filterable-current=":kotlin-compiler-test-extensions/main" data-filterable-set=":kotlin-compiler-test-extensions/main">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="index.html#453468411%2FFunctions%2F729680251"><span>register</span><wbr><span>Compiler</span><wbr><span><span>Extensions</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="453468411%2FFunctions%2F729680251"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":kotlin-compiler-test-extensions/main"><div class="symbol monospace"><span class="token keyword">open </span><span class="token keyword">override </span><span class="token keyword">fun </span><span data-unresolved-link="org.jetbrains.kotlin.compiler.plugin/CompilerPluginRegistrar.ExtensionStorage///PointingToDeclaration/">CompilerPluginRegistrar.ExtensionStorage</span><span class="token punctuation">.</span><a href="index.html#453468411%2FFunctions%2F729680251"><span class="token function">registerCompilerExtensions</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">module<span class="token operator">: </span><span data-unresolved-link="org.jetbrains.kotlin.test.model/TestModule///PointingToDeclaration/">TestModule</span><span class="token punctuation">, </span></span><span class="parameter ">configuration<span class="token operator">: </span><span data-unresolved-link="org.jetbrains.kotlin.config/CompilerConfiguration///PointingToDeclaration/">CompilerConfiguration</span></span></span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    <div class="footer">
+        <div class="footer--container">
+            <a href="#content" id="go-to-top-link" class="footer--button footer--button_go-to-top"></a>
+            <div class="footer--content">
+                <div>
+                    <span>Generated by </span>
+                    <a class="footer--link footer--link_external" href="https://github.com/Kotlin/dokka">
+                        Dokka
+                    </a>
+                    <div>© 2026 Copyright</div>
+                </div>
+            </div>
+        </div>
+    </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,13 @@
+$dokka.format:html-v1
+$dokka.linkExtension:html
+
+module:kotlin-compiler-extensions
+com.javiersc.kotlin.compiler.extensions.common
+com.javiersc.kotlin.compiler.extensions.fir
+com.javiersc.kotlin.compiler.extensions.ir
+module:kotlin-compiler-gradle-extensions
+com.javiersc.kotlin.compiler.gradle.extensions
+module:kotlin-compiler-test-extensions
+com.javiersc.kotlin.compiler.test
+com.javiersc.kotlin.compiler.test.runners
+com.javiersc.kotlin.compiler.test.services

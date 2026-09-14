@@ -1,0 +1,1 @@
+sourceset_dependencies = '{":kotlin-compiler-test-extensions/main":[],":kotlin-compiler-extensions/main":[],":kotlin-compiler-gradle-extensions/main":[]}'
