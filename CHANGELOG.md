@@ -6,8 +6,6 @@
 
 ### Changed
 
-- project follows the official Kotlin Compiler plugin template
-
 ### Deprecated
 
 ### Fixed
@@ -15,6 +13,12 @@
 ### Removed
 
 ### Updated
+
+## [0.17.0+2.4.20] - 2026-09-14
+
+### Changed
+
+- project follows the official Kotlin Compiler plugin template
 
 ## [0.16.0+2.4.20] - 2026-09-13
 
@@ -403,7 +407,9 @@
 
 - `kotlin-compiler-test` to `kotlin-compiler-extensions-test`
 
-[Unreleased]: https://github.com/JavierSegoviaCordoba/kotlin-compiler-extensions/compare/0.16.0+2.4.20...HEAD
+[Unreleased]: https://github.com/JavierSegoviaCordoba/kotlin-compiler-extensions/compare/0.17.0+2.4.20...HEAD
+
+[0.17.0+2.4.20]: https://github.com/JavierSegoviaCordoba/kotlin-compiler-extensions/compare/0.16.0+2.4.20...0.17.0+2.4.20
 
 [0.16.0+2.4.20]: https://github.com/JavierSegoviaCordoba/kotlin-compiler-extensions/compare/0.15.0+2.4.0...0.16.0+2.4.20
 
